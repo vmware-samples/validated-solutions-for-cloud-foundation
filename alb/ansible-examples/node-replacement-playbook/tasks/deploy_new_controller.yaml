@@ -1,0 +1,110 @@
+---
+- name: Get VM Settings
+  vmware_guest_info:
+    hostname: "{{ VCENTER_HOST }}"
+    username: "{{ VCENTER_USER }}"
+    password: "{{ VCENTER_PASSWORD }}"
+    validate_certs: False
+    datacenter: "{{ DATACENTER }}"
+    moid: "{{ item[0].vmID }}"
+    schema: "vsphere"
+  register: vm_facts
+
+- name: Parse vAPP IP Setting
+  set_fact:
+    vAPP: "{{ vAPP | default({}) | combine({'ip': item.value}) }}"
+  loop: "{{ vm_facts.instance.config.vAppConfig.property }}"
+  when: item.id == "mgmt-ip"
+
+- name: Parse vAPP Mask Setting
+  set_fact:
+    vAPP: "{{ vAPP | combine({'mask': item.value}) }}"
+  loop: "{{ vm_facts.instance.config.vAppConfig.property }}"
+  when: item.id == "mgmt-mask"
+
+- name: Parse vAPP Gateway Setting
+  set_fact:
+    vAPP: "{{ vAPP | combine({'gw': item.value}) }}"
+  loop: "{{ vm_facts.instance.config.vAppConfig.property }}"
+  when: item.id == "default-gw"
+
+- name: Parse Network Setting
+  set_fact:
+    vAPP: "{{ vAPP | combine({'network': item.network}) }}"
+  loop: "{{ vm_facts.instance.guest.net | list }}"
+  when: item['network'] is defined
+
+- name: Parse Disk Size
+  set_fact:
+    vm_Disk_KB: "{{ vm_Disk_KB | default({}) | combine({'vm_disk_KB': item.capacityInKB})  }}"
+  loop: "{{ vm_facts.instance.config.hardware.device }}"
+  when: item._vimtype == "vim.vm.device.VirtualDisk"
+
+- name: Set the state of a virtual machine to poweroff using MoID
+  community.vmware.vmware_guest_powerstate:
+    hostname: "{{ VCENTER_HOST }}"
+    username: "{{ VCENTER_USER }}"
+    password: "{{ VCENTER_PASSWORD }}"
+    validate_certs: False
+    moid: "{{ item[0].vmID }}"
+    state: powered-off
+  when: vm_facts.instance.runtime.powerState == "poweredOn"
+
+- name: Rename OLD VM
+  vmware_guest:
+    hostname: "{{ VCENTER_HOST }}"
+    username: "{{ VCENTER_USER }}"
+    password: "{{ VCENTER_PASSWORD }}"
+    validate_certs: False
+    datacenter: "{{ DATACENTER }}"
+    uuid: "{{ vm_facts.instance.summary.config.uuid }}"
+    name: "{{ vm_facts.instance.name + '-Old' }}"
+  when: vm_facts.instance.name.find("-Old") == -1
+
+- name: Deploying controller node
+  vmware_deploy_ovf:
+    hostname: "{{ VCENTER_HOST }}"
+    username: "{{ VCENTER_USER }}"
+    password: "{{ VCENTER_PASSWORD }}"
+    validate_certs: False
+    datacenter: "{{ DATACENTER }}"
+    cluster: "{{ VMWARE_CLUSTER_NAME }}"
+    datastore: "{{ vm_facts.instance.config.datastoreUrl[0].name }}"
+    name: "{{ vm_facts.instance.name }}"
+    networks:
+          "Management": "{{ CON_MGMT_PORTGROUP }}"
+    folder: "{{ CON_FOLDER }}"
+    power_on: yes
+    ovf: "{{ OVA_PATH }}"
+    properties:
+      avi.mgmt-ip.CONTROLLER: "{{ vAPP.ip }}"
+      avi.mgmt-mask.CONTROLLER: "{{ vAPP.mask }}"
+      avi.default-gw.CONTROLLER: "{{ vAPP.gw }}"
+  when: 
+    - CON_FOLDER is defined
+    - CON_RESOURCE_POOL is not defined
+   
+- name: Deploying controller node
+  vmware_deploy_ovf:
+    hostname: "{{ VCENTER_HOST }}"
+    username: "{{ VCENTER_USER }}"
+    password: "{{ VCENTER_PASSWORD }}"
+    validate_certs: False
+    datacenter: "{{ DATACENTER }}"
+    cluster: "{{ VMWARE_CLUSTER_NAME }}"
+    datastore: "{{ vm_facts.instance.config.datastoreUrl[0].name }}"
+    name: "{{ vm_facts.instance.name }}"
+    networks:
+          "Management": "{{ CON_MGMT_PORTGROUP }}"
+    resource_pool: "{{ CON_RESOURCE_POOL }}"
+    power_on: yes
+    ovf: "{{ OVA_PATH }}"
+    properties:
+      avi.mgmt-ip.CONTROLLER: "{{ vAPP.ip }}"
+      avi.mgmt-mask.CONTROLLER: "{{ vAPP.mask }}"
+      avi.default-gw.CONTROLLER: "{{ vAPP.gw }}"
+  when:    
+    - CON_FOLDER is not defined
+    - CON_RESOURCE_POOL is defined
+
+

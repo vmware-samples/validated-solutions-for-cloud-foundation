@@ -1,0 +1,22 @@
+---
+- name: "Deploying controller node {{ item.vm_name }}"
+  vmware_deploy_ovf:
+    validate_certs: no
+    hostname: "{{ VCENTER_HOST }}"
+    username: "{{ VCENTER_USER }}"
+    password: "{{ VCENTER_PASSWORD }}"
+    datacenter: "{{ DATACENTER }}"
+    cluster: "{{ VMWARE_CLUSTER_NAME }}"
+    datastore: "{{ VMWARE_DATASTORE }}"
+    name: "{{ item.vm_name }}"
+    networks:
+          "Management": "{{ CON_MGMT_PORTGROUP }}"
+    folder: "{{ CON_FOLDER }}"
+    power_on: yes
+    ovf: "{{ OVA_PATH }}"
+    properties:
+        avi.mgmt-ip.CONTROLLER: "{{ item.mgmt_ip }}"
+        avi.mgmt-mask.CONTROLLER: "{{ CON_MGMT_MASK }}"
+        avi.default-gw.CONTROLLER: "{{ CON_DEFAULT_GW }}"
+  delegate_to: localhost
+  

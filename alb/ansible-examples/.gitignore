@@ -5,3 +5,8 @@
 # Microsoft Visual Code
 ## ignore setting files
 .vscode/settings.json
+
+# Ansible
+
+## ignore .retry files
+*.retry
