@@ -1,8 +1,10 @@
 # Contributing Guidelines
 
-Thank you for your interest in contributing to our project. Whether it's a bug
-report, new feature, correction, or additional documentation, we greatly value
-feedback and contributions from our community.
+The project team welcomes contributions from the community. Before you start, 
+please read our Developer Certificate of Origin (https://cla.vmware.com/dco). 
+All contributions to this repository must be signed as described on that page. 
+Your signature certifies that you wrote the patch or have the right to pass it
+on as an open-source patch.
 
 Please read through this document before submitting any issues or pull requests
 to ensure we have all the necessary information to effectively respond to your
