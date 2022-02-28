@@ -1,6 +1,5 @@
 name: Bug Report
 description: Is something not working as expected? Submit a bug.
-title: ""
 labels: [bug, needs-triage]
 body:
   - type: markdown
