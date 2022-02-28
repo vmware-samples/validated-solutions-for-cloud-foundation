@@ -44,7 +44,6 @@ body:
         - Please provide a clear and concise description of the issue you are experiencing.
         - Please provide a code repository, [GitHub Gist](https://gist.github.com/), or code snippet.
         - Please ensure all secrets and identifiable information is removed.
-
         Learn more about [Code Formatting](https://help.github.com/articles/basic-writing-and-formatting-syntax/#quoting-code).
     validations:
       required: true
@@ -69,13 +68,6 @@ body:
     attributes:
       label: Steps to Reproduce
       description: Please provide the steps to reproduce the issue.
-    validations:
-      required: false
-  - type: textarea
-    id: environment
-    attributes:
-      label: Environment Details
-      description: Please add any additional information you can provide about the environment.
     validations:
       required: false
   - type: textarea
