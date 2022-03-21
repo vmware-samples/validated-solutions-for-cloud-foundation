@@ -89,6 +89,6 @@ The flow of Actions to Create the initial Data Segment:
 
 The following are considerations that need to be understood when executing this Script:
 
-
+* This script requires the end user to first pull the current NSX-T Cloud Object from the Avi Controllers, and manually update the Object to be pushed back. It is recommended to use either the vRO or Ansible versions of this script, as this manaul work is not required.
 
 
