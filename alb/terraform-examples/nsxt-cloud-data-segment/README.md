@@ -87,8 +87,8 @@ The flow of Actions to Create the initial Data Segment:
 
 # Considerations
 
-The following are considerations that need to be understood when executing this Playbook:
+The following are considerations that need to be understood when executing this Script:
 
-*
+
 
 
