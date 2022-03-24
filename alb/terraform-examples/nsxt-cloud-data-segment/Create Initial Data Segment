@@ -20,7 +20,7 @@ provider "avi" {
 }
 
 data "avi_cloud" "nsxt" {
-  name = "NSX-T"
+  name = "NSX-T" # Update with desired Cloud Connector Name
 }
 
 output "nsxt" {

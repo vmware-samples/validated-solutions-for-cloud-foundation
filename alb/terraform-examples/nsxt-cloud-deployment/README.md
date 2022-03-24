@@ -36,7 +36,7 @@ The following prerequisites are required to successfully utilize this Workflow:
 
 # Variable-Input-File
 
-The following is a breakdown of the required Variables for this Playbook.
+The following is a breakdown of the required Variables for this Terraform Script.
 
 avi_username.default: *\<Avi Username\>*
 
