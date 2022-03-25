@@ -1,14 +1,16 @@
 terraform {
+  required_version = ">= 1.0.7"
   required_providers {
     vsphere = {
       source  = "hashicorp/vsphere"
-      version = "2.0.2"
+      version = "2.1.1"
      }    
     avi = {
       source  = "vmware/avi"
       version = "21.1.2"
     }
   }
+
 }
 
 provider "vsphere" {
@@ -21,7 +23,7 @@ provider "vsphere" {
 
 data "vsphere_resource_pool" "resource_pool" {
   name                  = var.vsphere_resource_pool
-  datacenter_id 	= "${data.vsphere_datacenter.datacenter.id}"
+  datacenter_id 	= data.vsphere_datacenter.datacenter.id
 }
 
 data "vsphere_content_library" "content_library" {
@@ -37,15 +39,14 @@ data "vsphere_content_library_item" "controllerovf" {
 resource "vsphere_virtual_machine" "controller" {
   name              = var.Controller_vm_name[count.index]
   resource_pool_id  = data.vsphere_resource_pool.resource_pool.id
-  datastore_id      =  "${data.vsphere_datastore.datastore.id}"
+  datastore_id      =  data.vsphere_datastore.datastore.id
   count             = 3
   num_cpus          = 8
   memory            = 24576
   folder            = var.vm_folder
-  scsi_type         = "lsilogic"
 
   network_interface {
-    network_id   = "${data.vsphere_network.management_net.id}"
+    network_id   = data.vsphere_network.management_net.id
   }
   lifecycle {
     ignore_changes = [guest_id]

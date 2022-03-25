@@ -1,4 +1,5 @@
 terraform {
+  required_version = ">= 1.0.7"
   required_providers {
     avi = {
       source = "vmware/avi"
@@ -10,7 +11,7 @@ terraform {
     }
     vsphere = {
       source = "hashicorp/vsphere"
-      version = "2.0.2"
+      version = "2.1.1"
     }
 
   }
@@ -29,8 +30,6 @@ provider "vsphere" {
   user           = var.vsphere_user
   password       = var.vsphere_password
   vsphere_server = var.vsphere_server
-
-  # If you have a self-signed cert
   allow_unverified_ssl = true
 }
 
