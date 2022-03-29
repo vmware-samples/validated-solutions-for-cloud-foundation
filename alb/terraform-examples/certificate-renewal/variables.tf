@@ -7,6 +7,7 @@ variable "avi_controller" {
   type        = string
   description = "Avi Controller IP/FQDN"
 }
+
 variable "avi_password" {
   type        = string
   description = "Avi Password"
@@ -32,8 +33,6 @@ variable "cert_file" {
   description = "Certificate File name that is stored locally"
 }
 
-
-
 variable "avi_username" {
   type        = string
   description = "Avi Username"
@@ -43,6 +42,7 @@ variable "avi_controller" {
   type        = string
   description = "Avi Controller IP/FQDN"
 }
+
 variable "avi_password" {
   type        = string
   description = "Avi Password"
