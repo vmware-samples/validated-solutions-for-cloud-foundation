@@ -35,19 +35,13 @@ This Terraform configuration has been tested against renewing certificate object
 The following is a breakdown of the required Variables for this Terraform Script.
 
 ```hcl
-avi_username.default = "Avi Username"
-
-avi_controller.default = "Avi Controller IP/FQDN"
-
-avi_password.default = "Avi Password"
-
-avi_tenant.default = "Avi Tenant"
-
-avi_version.default = "Avi Version"
-
-cert_name.default = "Avi Certificate Name"
-
-cert_file.default = "Certificate file name (e.g. cert.csr)"
+avi_username.default = "<Avi Username>"
+avi_controller.default = "<Avi Controller IP/FQDN>"
+avi_password.default = <"Avi Password>"
+avi_tenant.default = "<Avi Tenant>"
+avi_version.default = "<Avi Version>"
+cert_name.default = "<Avi Certificate Name>"
+cert_file.default = "<Certificate file name (e.g. cert.csr)>"
 ```
 
 **[Back to top](#table-of-contents)**
