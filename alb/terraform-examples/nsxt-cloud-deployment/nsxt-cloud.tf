@@ -13,10 +13,8 @@ terraform {
       source = "hashicorp/vsphere"
       version = "2.1.1"
     }
-
   }
 }
-
 
 provider "avi" {
   avi_username   = var.avi_username
@@ -60,6 +58,7 @@ resource "avi_cloudconnectoruser" "nsx-t-user" {
     username     = var.nsxt_username
   }
 }
+
 #Creates vCenter User on Avi controller
 resource "avi_cloudconnectoruser" "vcenter-user" {
   name           = var.vcenter_avi_user
@@ -120,4 +119,3 @@ resource "avi_vcenterserver" "vc-01" {
     id            = data.vsphere_content_library.library.id
   }
 }
-
