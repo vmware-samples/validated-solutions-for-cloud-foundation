@@ -34,12 +34,14 @@ The following prerequisites are required to successfully utilize this Workflow:
 
 The following is a breakdown of the required Variables for this Terraform script.
 
-* `avi_controller.default`: `<Controller Cluster/Node IP>`. 
-* `avi_username.default`: `<Avi Username>`. 
-* `avi_password.default`: `<Avi User Password>`. 
-* `avi_version.default`: `<Avi Controller Version (e.g. 20.1.6)>`. 
-* `data_lr_id.default`: `<T1 Router Name>`. 
-* `data_segment_id.default`: `<Data Segment Name>`. 
+```hcl
+avi_controller.default = "<Controller Cluster/Node IP>"
+avi_username.default = "<Avi Username>"
+avi_password.default = "<Avi User Password>"
+avi_version.default = "<Avi Controller Version (e.g. 20.1.6)>"
+data_lr_id.default = "<T1 Router Name>"
+data_segment_id.default = "<Data Segment Name>"
+```
 
 **[Back to top](#table-of-contents)**
 
