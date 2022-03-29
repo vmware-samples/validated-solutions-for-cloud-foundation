@@ -33,28 +33,30 @@ The following prerequisites are required to successfully utilize this Workflow:
 
 The following is a breakdown of the required variables for this Terraform configuration.
 
-* `avi_username.default`: `<Avi Username>`  
-* `avi_controller.default`: `<Controller Cluster/Node IP>`   
-* `avi_password.default`: `<Avi User Password>`   
-* `avi_tenant.default`: `admin`
-* `avi_version.default`: `<Avi Controller Version>`  
-* `nsxt_url.default`: `<NSXT Manager FQDN/IP Address>`  
-* `nsxt_avi_user.default`: `<NSXT Cloud Connector User Object Name>`  
-* `nsxt_username.default`: `<NSXT Username>`  
-* `nsxt_password.default`: `<NSXT Password>`  
-* `vsphere_server.default`: `<vCenter Server FQDN/IP Address>`  
-* `vcenter_avi_user.default`: `<vCenter Cloud Connector User Object Name>`  
-* `vsphere_user.default`: `<vCenter Username>`  
-* `vsphere_password.default`: `<vCenter Password>`  
-* `nsxt_cloudname.default`: `<NSXT CLoud Connector Name>`  
-* `nsxt_cloud_prefix.default`: `<NSXT Object Name Prefix>`  
-* `transport_zone_name.default`: `<Transport Zone Name>`  
-* `mgmt_lr_id.default`: `<MGMT T1 Name>`  
-* `mgmt_segment_id.default`: `<MGMT Segment Name>`  
-* `data_lr_id.default`: `<Data T1 Name>`  
-* `data_segment_id.default`: `<Data Segment Name>`  
-* `vcenter_id.default`: `<vCenter Connection Object Name>`  
-* `content_library_name.default`: `<Content Library Name>`  
+```hcl
+avi_username.default : "<Avi Username>" 
+avi_controller.default : "<Controller Cluster/Node IP>"  
+avi_password.default : "<Avi User Password>"  
+avi_tenant.default : "admin"
+avi_version.default : "<Avi Controller Version>" 
+nsxt_url.default : "<NST Manager FQDN/IP Address>" 
+nsxt_avi_user.default : "<NSXT Cloud Connector User Object Name>" 
+nsxt_username.default : "<NSXT Username>" 
+nsxt_password.default : "<NSXT Password>" 
+vsphere_server.default : "<vCenter Server FQDN/IP Address>" 
+vcenter_avi_user.default : "<vCenter Cloud Connector User Object Name>" 
+vsphere_user.default : "<vCenter Username>" 
+vsphere_password.default : "<vCenter Password>" 
+nsxt_cloudname.default : "<NSXT Cloud Connector Name>" 
+nsxt_cloud_prefix.default : "<NSXT Object Name Prefix>" 
+transport_zone_name.default : "<Transport Zone Name>" 
+mgmt_lr_id.default : "<MGMT T1 Name>" 
+mgmt_segment_id.default : "<MGMT Segment Name>" 
+data_lr_id.default : "<Data T1 Name>" 
+data_segment_id.default : "<Data Segment Name>" 
+vcenter_id.default : "<vCenter Connection Object Name>" 
+content_library_name.default : "<Content Library Name>" 
+```
 
 **[Back to top](#table-of-contents)**
 
