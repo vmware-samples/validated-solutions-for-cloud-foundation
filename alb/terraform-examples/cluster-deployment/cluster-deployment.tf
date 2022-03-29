@@ -10,7 +10,6 @@ terraform {
       version = "21.1.2"
     }
   }
-
 }
 
 provider "vsphere" {
@@ -19,7 +18,6 @@ provider "vsphere" {
   vsphere_server         = var.vsphere_server
   allow_unverified_ssl   = true
 }
-
 
 data "vsphere_resource_pool" "resource_pool" {
   name                  = var.vsphere_resource_pool
@@ -78,7 +76,6 @@ resource "null_resource" "wait_https_controllers" {
   }
 }
 
-
 provider "avi" {
   avi_username   = var.avi_username
   avi_password   = var.avi_old_password
@@ -125,7 +122,6 @@ resource "null_resource" "wait_https_cluster" {
     command = "count=1 ; while [ $(curl -k -s -o /dev/null -w \"%%{http_code}\"   https://${var.clustervip}) != \"200\" ]; do echo \"Attempt $count: Waiting for Avi Controllers to be ready...\"; sleep 5 ; count=$((count+1)) ;  if [ \"$count\" = 120 ]; then echo \"ERROR: Unable to connect to Avi Controller API\" ; exit 1 ; fi ; done"
   }
 }
-
 
 resource "avi_backupconfiguration" "backupconfig" {
   depends_on = [null_resource.wait_https_cluster]
