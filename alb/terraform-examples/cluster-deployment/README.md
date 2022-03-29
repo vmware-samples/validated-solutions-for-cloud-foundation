@@ -2,7 +2,6 @@
 
 Developed by:  Yuriy Andrushko and William Stoneman  
 
-
 ## Table of Contents
 1.	[Introduction](#Introduction)
 1.	[Installation](#Installation)
@@ -33,9 +32,7 @@ The following prerequisites are required to successfully utilize this Workflow:
 
 *  An OVA template file for the Avi Controller Appliance. The template file needs to be uploaded to a COntent Library created on the destination vCenter.
 
-
 **[Back to top](#table-of-contents)**
-
 
 # Variable-Input-File
 
