@@ -1,6 +1,6 @@
 # NSX-T Cloud Data Segment Addition
 
-=Developed by: William Stoneman  
+Developed by: William Stoneman  
 
 ## Table of Contents
 1.	[Introduction](#Introduction)
