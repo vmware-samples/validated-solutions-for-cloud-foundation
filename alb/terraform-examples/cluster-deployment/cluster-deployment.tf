@@ -81,7 +81,7 @@ resource "null_resource" "wait_https_controllers" {
 
 provider "avi" {
   avi_username   = var.avi_username
-  avi_password   = "58NFaGDJm(PJH0G"
+  avi_password   = var.avi_old_password
   avi_controller = var.avi_ctrl_mgmt_ips[0]
   avi_tenant     = "admin"
   avi_version    = var.avi_version
@@ -171,6 +171,6 @@ resource "avi_systemconfiguration" "avi_sysconfig" {
 resource "avi_useraccount" "avi_user" {
   depends_on = [avi_systemconfiguration.avi_sysconfig]
   username     = var.avi_username
-  old_password = "58NFaGDJm(PJH0G"
+  old_password = var.avi_old_password
   password     = var.avi_new_password
 }

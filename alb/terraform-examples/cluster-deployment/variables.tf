@@ -46,6 +46,10 @@ variable "avi_username" {
   type = string
   description = <Avi Username>
 }
+variable "avi_old_password" {
+  type = string
+  default = "58NFaGDJm(PJH0G"
+}
 variable "avi_new_password" {
   type = string
   description = <Avi Admin NEW Password>
