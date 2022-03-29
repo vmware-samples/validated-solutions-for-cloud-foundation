@@ -38,47 +38,29 @@ The following prerequisites are required to successfully utilize this Workflow:
 
 The following is a breakdown of the required variables for this Terraform configuration.
 
-*  `vsphere_user.default` = `<vSphere Username>`
-
-*  `vsphere_password.default` = `<vSphere Password>`
-
-*  `vsphere_server.default` = `vSphere Server IP/FQDN>`
-
-*  `datacenter_name.default` = `<Datacenter Name>`
-
-*  `cluster_name.default` = `<Cluster Name>`
-
-*  `datastore_name.default` = `<Datastore Name>`
-
-*  `dvs_name.default` = `<DVS Name>`
-
-*  `mgmt_net_name.default` = `<Management Network Port Group Name>`
-
-*  `Controller_vm_name.default` = `<Avi Controller VM Name List (Ex. ["avi-tf-01", "avi-tf-02","avi-tf-03"]>`
-
-*  `vsphere_resource_pool.default` = `<Resource Pool Name>`
-
-*  `vm_folder.default` = `<Folder Name>`
-
-*  `avi_username.default` = `<Avi Username>`
-
-*  `avi_new_password.default` = `<NEW Avi Admin Password>`
-
-*  `avi_version.default` = `<Avi Controller Version (Ex. "20.1.8")>`
-
-*  `avi_ctrl_mgmt_ips.default` = `<Avi Controller Management Network IP Addresse List (Ex. ["10.10.10.10", "10.10.10.11","10.10.10.12"]) >`  `
-
-*  `subnetMask.default` = `<Management Network Subnet Mask>`
-
-*  `defaultGateway.default` = `<Management Network Default Gateway>`
-
-*  `clustervip.default` = `<Cluster VIP IP Address>`
-
-*  `backup_passphrase.default` = `<Backup Passphrase>`
-
-*  `system_dnsresolvers.default` = `<DNS Server IP Addresses List (Ex. ["8.8.8.8", "8.8.4.4"]) >`
-
-*  `system_ntpservers.default` = `<NTP Server List (Ex. ["0.us.pool.ntp.org", "1.us.pool.ntp.org"]) >`
+```hcl
+vsphere_user.default = "<vSphere Username>"
+vsphere_password.default = "<vSphere Password>"
+vsphere_server.default = "vSphere Server IP/FQDN>"
+datacenter_name.default = "<Datacenter Name>"
+cluster_name.default = "<Cluster Name>"
+datastore_name.default = "<Datastore Name>"
+dvs_name.default = "<DVS Name>"
+mgmt_net_name.default = "<Management Network Port Group Name>"
+Controller_vm_name.default = "<Avi Controller VM Name List"
+vsphere_resource_pool.default = "<Resource Pool Name>"
+vm_folder.default = "<Folder Name>"
+avi_username.default = "<Avi Username>"
+avi_new_password.default = "<NEW Avi Admin Password>"
+avi_version.default = "<Avi Controller Version"
+avi_ctrl_mgmt_ips.default = "<Avi Controller Management Network IP Addresse List>"
+subnetMask.default = "<Management Network Subnet Mask>"
+defaultGateway.default = "<Management Network Default Gateway>"
+clustervip.default = "<Cluster VIP IP Address>"
+backup_passphrase.default = "<Backup Passphrase>"
+system_dnsresolvers.default = "<DNS Server IP Addresses List>"
+system_ntpservers.default = "<NTP Server List>"
+```
 
 **[Back to top](#table-of-contents)**
 
