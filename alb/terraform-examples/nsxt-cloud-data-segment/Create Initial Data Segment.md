@@ -14,7 +14,7 @@ The information provided below is for demonstration purposes only, and you shoul
 
 1. Create tf script:
 
-```tf
+```hcl
 terraform {
   required_version = ">= 1.0.7"
   required_providers {
@@ -46,7 +46,7 @@ output "nsxt" {
 
 2. Create variables file:
 
-```tf
+```hcl
 variable "avi_username" {
   type    = string
   description = <Avi CLuster Username>
@@ -90,7 +90,7 @@ variable "data_segment_id" {
 
 5. Append the following to the terraform script:
 
-```tf
+```hcl
 resource "avi_cloud" "nsx-t-cloud" {
   # (resource arguments)
 }
@@ -102,7 +102,7 @@ resource "avi_cloud" "nsx-t-cloud" {
 
 8. Edit the tf script avi_cloud section and add the output from step 6. (The Information listed below is for demonstration purposes)
 
-```tf
+```hcl
 terraform {
   required_version = ">= 1.0.7"
   required_providers {
@@ -166,13 +166,13 @@ resource "avi_cloud" "nsx-t-cloud" {
 
 9. Edit the data_network_config section of the avi_cloud resource. Replace:
 
-```tf
+```hcl
 	tz_type        = "OVERLAY"
 	vlan_segments  = []
 }
 ```	
 WITH:
-```tf
+```hcl
 	tz_type = "OVERLAY"
 	tier1_segment_config{
 	  segment_config_mode = "TIER1_SEGMENT_MANUAL"
@@ -190,7 +190,7 @@ WITH:
 
 AND REMOVE ID LINE (The Information listed below is for demonstration purposes):
 
-```tf
+```hcl
 id              = "https://10.10.10.10/api/cloud/cloud-f02c1589-dabd-4394-9cc1-ccab61c812b2"
 ```
 
