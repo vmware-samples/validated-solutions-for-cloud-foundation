@@ -1,6 +1,6 @@
-# NSXT Cloud Data Subsequent Segment Creation
+# NSX-T Cloud Data Subsequent Segment Creation
 
-Scripts Developed by: William Stoneman</br>
+Developed by: William Stoneman  
 
 # Introduction
 
@@ -11,7 +11,10 @@ The information provided below is for demonstration purposes only, and you shoul
 # Low Level Process Review
 
 
-1. Create tf script:
+1. Create a `main.tf` Terraform configuration.
+
+Example
+
 ```hcl
 terraform {
   required_version = ">= 1.0.7"
@@ -20,10 +23,8 @@ terraform {
 	  source = "vmware/avi"
 	  version = "21.1.1"
 	}
-
   }
 }
-
 
 provider "avi" {
   avi_username   = var.avi_username
@@ -42,20 +43,24 @@ output "nsxt" {
 }
 ```
 
-2. Create variables file:
+2. Create a `variables.tf` file.
+
+Example:
+
 ```hcl
 variable "avi_username" {
   type    = string
-  description = <Avi CLuster Username>
+  description = "Avi CLuster Username"
 }
 
 variable "avi_controller" {
   type    = string
-  description = <Avi Cluster VIP IP>
+  description = "Avi Cluster VIP IP"
 }
+
 variable "avi_password" {
   type    = string
-  description = <Avi Cluster Username Password>
+  description = "Avi Cluster Username Password"
 }
 
 variable "avi_tenant" {
@@ -70,43 +75,45 @@ variable "avi_version" {
 
 variable "data_lr_id" {
   type    = string
-  description = <T1 ROuter Name>
+  description = "T1 Router Name"
 }
 
 variable "data_segment_id" {
   type    = string
-  description = <Segment Name>
+  description = "Segment Name"
 }
 ```
 
+3. Run `terraform init*`.
 
-3. Run *terraform init*.
+4. Run `terraform plan`, and copy the `uuid` from the output.
 
-4. Run *terraform plan*, and copy the uuid from the output.
+5. Append the following to the Terraform configuration:
 
-5. Append the following to the terraform script:
 ```hcl
 resource "avi_cloud" "nsx-t-cloud" {
   # (resource arguments)
 }
 ```
-6. run *terraform import avi_cloud.nsx-t-cloud <cloud uuid copied in step 4>*
 
-7. Run *terraform show* and copy the output.
+6. Run `terraform import avi_cloud.nsx-t-cloud <cloud uuid copied in step 4>`.
 
-8. Edit the tf script avi_cloud section and add the output from step 6. (The Information listed below is for demonstration purposes)
+7. Run `terraform show` and copy the output.
+
+8. Edit the Terraform configuration's `avi_cloud` section and add the output from step 6. 
+
+Example:
+
 ```hcl
 terraform {
   required_version = ">= 1.0.7"
   required_providers {
-	avi = {
-	  source = "vmware/avi"
-	  version = "21.1.1"
-	}
-
+    avi = {
+      source  = "vmware/avi"
+      version = "21.1.1"
+    }
   }
 }
-
 
 provider "avi" {
   avi_username   = var.avi_username
@@ -125,70 +132,73 @@ output "nsxt" {
 }
 
 resource "avi_cloud" "nsx-t-cloud" {
-	dhcp_enabled      = "true"
-	id                = "https://10.10.10.10/api/cloud/cloud-e4ac05d3-135f-4840-b473-9c88c3192c5b"
-	ipam_provider_ref = "https://10.10.10.10/api/ipamdnsproviderprofile/ipamdnsproviderprofile-9e91ff51-925f-4660-8319-d6d866113334"
-	license_tier      = "ENTERPRISE"
-	license_type      = "LIC_CORES"
-	name              = "NSX-T"
-	obj_name_prefix   = "WS"
-	tenant_ref        = "https://10.10.10.10/api/tenant/admin"
-	uuid              = "cloud-e4ac05d3-135f-4840-b473-9c88c3192c5b"
-	vtype             = "CLOUD_NSXT"
+  dhcp_enabled      = "true"
+  id                = "https://10.10.10.10/api/cloud/cloud-e4ac05d3-135f-4840-b473-9c88c3192c5b"
+  ipam_provider_ref = "https://10.10.10.10/api/ipamdnsproviderprofile/ipamdnsproviderprofile-9e91ff51-925f-4660-8319-d6d866113334"
+  license_tier      = "ENTERPRISE"
+  license_type      = "LIC_CORES"
+  name              = "NSX-T"
+  obj_name_prefix   = "WS"
+  tenant_ref        = "https://10.10.10.10/api/tenant/admin"
+  uuid              = "cloud-e4ac05d3-135f-4840-b473-9c88c3192c5b"
+  vtype             = "CLOUD_NSXT"
 
-	nsxt_configuration {
-		nsxt_credentials_ref = "https://10.10.10.10/api/cloudconnectoruser/cloudconnectoruser-235a3f52-a279-40f4-8b49-f6b75c7f18f0"
-		nsxt_url             = "10.206.40.245"
+  nsxt_configuration {
+    nsxt_credentials_ref = "https://10.10.10.10/api/cloudconnectoruser/cloudconnectoruser-235a3f52-a279-40f4-8b49-f6b75c7f18f0"
+    nsxt_url             = "10.206.40.245"
 
-		data_network_config {
-			transport_zone = "/infra/sites/default/enforcement-points/default/transport-zones/3208eed0-cc1a-4ad4-8f94-3db219cb3d8e"
-			tz_type        = "OVERLAY"
-			vlan_segments  = []
+    data_network_config {
+      transport_zone = "/infra/sites/default/enforcement-points/default/transport-zones/3208eed0-cc1a-4ad4-8f94-3db219cb3d8e"
+      tz_type        = "OVERLAY"
+      vlan_segments  = []
 
-			tier1_segment_config {
+      tier1_segment_config {
 
-				manual {
-					tier1_lrs {
-						segment_id  = "jda-sedata-a"
-						tier1_lr_id = "Router-T1A"
-					}
-				}
-			}
-		}
+        manual {
+          tier1_lrs {
+            segment_id  = "jda-sedata-a"
+            tier1_lr_id = "Router-T1A"
+          }
+        }
+      }
+    }
 
-		management_network_config {
-			transport_zone = "/infra/sites/default/enforcement-points/default/transport-zones/3208eed0-cc1a-4ad4-8f94-3db219cb3d8e"
-			tz_type        = "OVERLAY"
+    management_network_config {
+      transport_zone = "/infra/sites/default/enforcement-points/default/transport-zones/3208eed0-cc1a-4ad4-8f94-3db219cb3d8e"
+      tz_type        = "OVERLAY"
 
-			overlay_segment {
-				segment_id  = "/infra/segments/semanagement"
-				tier1_lr_id = "/infra/tier-1s/Router-T1A"
-			}
-		}
-	}
+      overlay_segment {
+        segment_id  = "/infra/segments/semanagement"
+        tier1_lr_id = "/infra/tier-1s/Router-T1A"
+      }
+    }
+  }
 }
 ```
 
-9. Edit the data_network_config section of the avi_cloud resource. Add the new data sengment to the manual section:
+9. Edit the `data_network_config`` section of the `avi_cloud` resource. Add the new data segment to the `manual` section.
+
+Example:
 
 ```hcl
 manual {
-	tier1_lrs {
-		segment_id  = "jda-sedata-a"
-		tier1_lr_id = "Router-T1A"
-	}
-	tier1_lrs {
-		segment_id  = var.data_segment_id
-		tier1_lr_id = var.data_lr_id
-	}
+  tier1_lrs {
+    segment_id  = "jda-sedata-a"
+    tier1_lr_id = "Router-T1A"
+  }
+  tier1_lrs {
+    segment_id  = var.data_segment_id
+    tier1_lr_id = var.data_lr_id
+  }
 }
 ```	
-AND REMOVE ID LINE (The Information listed below is for demonstration purposes):
+
+And remove the `id` line.
+
 ```hcl
-id              = "https://10.10.10.10/api/cloud/cloud-f02c1589-dabd-4394-9cc1-ccab61c812b2"
+id = "https://10.10.10.10/api/cloud/cloud-f02c1589-dabd-4394-9cc1-ccab61c812b2"
 ```
 
-10. Run *terraform plan*.
+10. Run `terraform plan`.
 
-11. Run *terraform apply*.
-
+11. Run `terraform apply`.
