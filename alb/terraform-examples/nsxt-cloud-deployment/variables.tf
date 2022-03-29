@@ -7,6 +7,7 @@ variable "avi_controller" {
   type        = string
   description = "Controller Cluster/Node IP"
 }
+
 variable "avi_password" {
   type        = string
   description = "Avi User Password"
