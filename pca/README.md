@@ -28,7 +28,7 @@ If you want to use the PowerShell procedures to perform implementation and confi
     Install-Module -Name VMware.PowerCLI -MinimumVersion 12.3.0
     Install-Module -Name VMware.vSphere.SsoAdmin -MinimumVersion 1.3.7
     Install-Module -Name PowerVCF -MinimumVersion 2.1.7
-    Install-Module -Name PowerValidatedSolutions -MinimumVersion 1.4.0
+    Install-Module -Name PowerValidatedSolutions -MinimumVersion 1.5.0
     ```
 
 ### Terraform
