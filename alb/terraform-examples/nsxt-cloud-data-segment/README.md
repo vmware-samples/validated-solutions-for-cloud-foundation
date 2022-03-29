@@ -34,12 +34,12 @@ The following prerequisites are required to successfully utilize this Workflow:
 
 The following is a breakdown of the required Variables for this Terraform script.
 
-`avi_controller.default`: `<Controller Cluster/Node IP>`
-`avi_username.default`: `<Avi Username>`
-`avi_password.default`: `<Avi User Password>`
-`avi_version.default`: `<Avi Controller Version (e.g. 20.1.6)>`
-`data_lr_id.default`: `<T1 Router Name>`
-`data_segment_id.default`: `<Data Segment Name>`
+* `avi_controller.default`: `<Controller Cluster/Node IP>`. 
+* `avi_username.default`: `<Avi Username>`. 
+* `avi_password.default`: `<Avi User Password>`. 
+* `avi_version.default`: `<Avi Controller Version (e.g. 20.1.6)>`. 
+* `data_lr_id.default`: `<T1 Router Name>`. 
+* `data_segment_id.default`: `<Data Segment Name>`. 
 
 **[Back to top](#table-of-contents)**
 
@@ -51,7 +51,7 @@ The flow of actions to create the initial data segment:
 
 1.	Create a `main.tf` Terraform configuration to retrieve NSX-T Cloud Connector `uuid`.
 2.	Create a `variables.tf` file.
-3.	run `terraform init` | `terraform plan`, and copy the uuid from the output.
+3.	Run `terraform init` | `terraform plan`, and copy the uuid from the output.
 4.  Append the Terraform configuration to retrieve Cloud Connector Object.
 5.  Run `terraform import avi_cloud.nsx-t-cloud <cloud uuid copied in step 4>`.
 6.  Run `terraform show` and copy the output.
@@ -63,7 +63,7 @@ The flow of actions to create a subsequent data segment:
 
 1.	Create a `main.tf` Terraform configuration retrieve NSXT Cloud Connector UUID.
 2.	reate a `variables.tf` file.
-3.	run "=`terraform init`` | `terraform plan`, and copy the uuid from the output.
+3.	Run "=`terraform init`` | `terraform plan`, and copy the uuid from the output.
 4.  Append the Terraform configuration to retrieve Cloud Connector Object.
 5.  Run `terraform import avi_cloud.nsx-t-cloud <cloud uuid copied in step 4>`.
 6.  Run `terraform show` and copy the output.
