@@ -5,11 +5,8 @@ terraform {
       source = "vmware/avi"
       version = "21.1.3"
     }
-
   }
 }
-
-
 
 provider "avi" {
   avi_username   = var.avi_username
@@ -23,7 +20,6 @@ data "avi_sslkeyandcertificate" "custom_csr" {
   name = var.cert_name
 }
 
-
 resource "avi_sslkeyandcertificate" "terraform_vs_cert" {
   name = var.cert_name
   tenant_ref = data.avi_sslkeyandcertificate.custom_csr.tenant_ref
@@ -34,4 +30,3 @@ resource "avi_sslkeyandcertificate" "terraform_vs_cert" {
   key = data.avi_sslkeyandcertificate.custom_csr.key
   type= "SSL_CERTIFICATE_TYPE_VIRTUALSERVICE"
 }
-
