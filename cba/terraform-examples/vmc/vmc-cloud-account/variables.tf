@@ -2,37 +2,61 @@
 # VARIABLES
 ##################################################################################
 
-variable "csp_uri" {
+# Endpoints
+
+variable "vra_url" {
   type        = string
-  description = "Base URL for VMware Cloud Service API endpoint"
-  default     = "https://console-stg.cloud.vmware.com/"
+  description = "The base URL of the vRealize Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com))"
 }
 
-variable "vmc_uri" {
+variable "vra_api_token" {
   type        = string
-  description = "Base URL for VMware Cloud Console API endpoint"
-  default     = "https://vmc.vmware.com"
+  description = "API token from the vRealize Automation endpoint."
+  sensitive   = true
 }
 
-variable "debug" {
+variable "vra_insecure" {
   type        = bool
-  description = "Enable debugging"
+  description = "Set to true for self-signed certificates."
+  default     = false
 }
 
-variable "refresh_token" {
-  type        = string
-  description = "VMware Cloud Service Refresh Token"
-  sensitive   = true
+# Cloud Assembly
+
+variable "cloud_accounts_vsphere" {
+  type = map(object({
+    name        = string
+    description = string
+    hostname    = string
+    username    = string
+    password    = string
+    region      = string
+    tag_cloud   = string
+    tag_region  = string
+    association = list(string)
+  }))
+  description = "A mapping of objects for vCenter Server cloud accounts and their associated settings."
 }
 
-variable "org_id" {
-  type        = string
-  description = "VMware Cloud on AWS Organization ID"
-  sensitive   = true
+variable "cloud_accounts_nsx" {
+  type = map(object({
+    name        = string
+    description = string
+    hostname    = string
+    username    = string
+    password    = string
+    tag_cloud   = string
+  }))
+  description = "A mapping of objects for NSX Manager cloud accounts and their associated settings."
 }
 
-variable "sddc_id" {
+variable "accept_self_signed" {
+  type        = bool
+  default     = false
+  description = "Accept self-signed certificates. (e.g true | false)"
+}
+
+variable "cloud_proxy" {
   type        = string
-  description = "VMware Cloud on AWS SDDC ID"
-  sensitive   = true
+  description = ""
 }
