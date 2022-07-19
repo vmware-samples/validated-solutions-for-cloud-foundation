@@ -4,22 +4,20 @@
 
 # Credentials
 
-vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
+vsphere_server   = "sfo-w01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
-vsphere_password = "VMw@re1!"
+vsphere_password = "********************"
 vsphere_insecure = false
 
 # vSphere Objects
 
-vsphere_datacenter = "sfo-m01-dc01"
+vsphere_datacenter = "sfo-w01-DC"
 
-# vSphere Permissions
+edge_folder = "sfo-w01-fd-edge"
+local_storage_folder = "sfo-w01-fd-storage-local"
+readonly_storage_folder = "sfo-w01-fd-storage-readonly"
 
-folder_path = "/"
+role_name = "No access"
 
-vmc_vsphere_role = "Cloudy Assembly to vSphere Integration"
 vmc_service_account = "SFO\\svc-vmc-vsphere"
-vro_vsphere_role = "vRealize Orchestrator to vSphere Integration"
 vro_service_account = "SFO\\svc-vro-vsphere"
-
-

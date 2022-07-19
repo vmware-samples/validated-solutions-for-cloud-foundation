@@ -6,7 +6,7 @@
 
 vsphere_server                  			= "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username                			= "administrator@vsphere.local"
-vsphere_password                			= "VMw@re1!"
+vsphere_password                			= "********************"
 vsphere_insecure                			= false
 
 # vSphere Objects
