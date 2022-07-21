@@ -1,0 +1,25 @@
+##################################################################################
+# ENDPOINT
+##################################################################################
+
+# vra_url       = "https://api.mgmt.cloud.vmware.com"
+vra_url       = "https://api.staging.symphony-dev.com"
+vra_api_token = "tENG2n6zrcm8zxRdERr1UYT29uYoxSSk9Y5OT9Ecr5g9bFrnIdsz2mjzDRMrMz1b"
+vra_insecure  = false
+
+##################################################################################
+# IMAGE MAPPINGS
+##################################################################################
+
+cloud_account_vsphere = "sfo-w01-vc01"
+region                = "Datacenter:datacenter-3"
+image_mappings = {
+  image0 = {
+    name       = "photon-4.0"
+    image_name = "sfo-vmc-lib01 / photon-4.0" // Format = "publisher_content_library_name / machine_image_name"
+  }
+  image1 = {
+    name       = "photon-4.0-uefi"
+    image_name = "sfo-vmc-lib01 / photon-4.0-uefi" // Format = "publisher_content_library_name / machine_image_name"
+  }
+}

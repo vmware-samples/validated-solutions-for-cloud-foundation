@@ -24,11 +24,6 @@ variable "nsxt_insecure" {
   default     = false
 }
 
-variable "nsxt_uri" {
-  type        = string
-  description = "Base URL for NSX Manager Endpoint"
-}
-
 variable "debug" {
   type        = bool
   description = "Enable debugging"
