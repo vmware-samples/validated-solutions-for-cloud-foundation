@@ -12,8 +12,6 @@ provider "vra" {
 # DATA
 ##################################################################################
 
-/// CLOUD ASSEMBLY
-
 data "vra_zone" "this" {
   for_each = { for zone in var.project_zones : zone.name => zone }
   name     = each.value.name
@@ -22,8 +20,6 @@ data "vra_zone" "this" {
 ##################################################################################
 # RESOURCES
 ##################################################################################
-
-// CLOUD ASSEMBLY
 
 # Create a project in Cloud Assembly and assign cloud zones.
 
@@ -50,5 +46,4 @@ resource "vra_project" "this" {
       type  = administrator_roles.value["type"]
     }
   }
-
 }
