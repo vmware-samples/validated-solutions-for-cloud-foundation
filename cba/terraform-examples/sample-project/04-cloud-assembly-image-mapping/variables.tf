@@ -28,11 +28,6 @@ variable "cloud_account_vsphere" {
   description = "The name of the vCenter Server cloud account. (e.g sfo-w01-vc01)"
 }
 
-variable "region" {
-  type        = string
-  description = "The region for the image mappings."
-}
-
 variable "image_mappings" {
   type = map(object({
     name       = string

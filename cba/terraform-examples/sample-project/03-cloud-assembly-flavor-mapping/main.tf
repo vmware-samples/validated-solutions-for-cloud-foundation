@@ -12,24 +12,24 @@ provider "vra" {
 # DATA
 ##################################################################################
 
-// CLOUD ASSEMBLY
-
-data "vra_cloud_account_vsphere" "cloud-account" {
+data "vra_cloud_account_vsphere" "vsphere_cloud_account" {
   name = var.cloud_account_vsphere
 }
 
+data "vra_region" "ca_region" {
+  cloud_account_id = data.vra_cloud_account_vsphere.vsphere_cloud_account.id
+  region           = sort(data.vra_cloud_account_vsphere.vsphere_cloud_account.regions)[0]
+}
 
 ##################################################################################
 # RESOURCES
 ##################################################################################
 
-// CLOUD ASSEMBLY
-
 # Create the flavor mappings in Cloud Assembly for a vCenter Server cloud account.
 
-resource "vra_flavor_profile" "this" {
+resource "vra_flavor_profile" "flavour_profile" {
   name      = var.cloud_account_vsphere
-  region_id	= data.vra_cloud_account_vsphere.cloud-account.id
+  region_id = data.vra_region.ca_region.id
   dynamic "flavor_mapping" {
     for_each = { for flavor in var.flavor_mappings : flavor.name => flavor }
     content {
