@@ -24,7 +24,21 @@ variable "nsxt_insecure" {
   default     = false
 }
 
-variable "debug" {
-  type        = bool
-  description = "Enable debugging"
+variable "vidm_user" {
+  type        = string
+  description = "The user/group the role needs to be assignd to. (e.g. svc-vmc-nsx@sfo.rainpole.io)"
+}
+
+variable "vidm_type" {
+  type        = string
+  description = "The type of account. (e.g. remote_user or remote_group)"
+}
+
+variable "vidm_identity_source" {
+  type        = string
+  description = "The Identity Source for user/group. (e.g. LDAP, VIDM or OIDC)"
+}
+
+variable "nsxt_role" {
+  type        = string
 }
