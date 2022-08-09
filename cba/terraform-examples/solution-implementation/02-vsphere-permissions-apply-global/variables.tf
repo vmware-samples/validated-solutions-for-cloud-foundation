@@ -2,42 +2,24 @@
 # VARIABLES
 ##################################################################################
 
-# Credentials
+# VCF Credentials
 
-variable "vsphere_server" {
+variable "vcf_server" {
   type        = string
-  description = "The fully qualified domain name or IP address of the vCenter Server instance. (e.g. sfo-m01-vc01.sfo.rainpole.io)"
+  description = "The fully qualified domain name or IP address of the VMware Cloud Foundation instance. (e.g. sfo-vcf01.sfo.rainpole.io)"
 }
 
-variable "vsphere_username" {
+variable "vcf_username" {
   type        = string
-  description = "The username to login to the vCenter Server instance."
-  sensitive   = true
+  description = "The username to login to the VMware Cloud Foundation instance."
 }
 
-variable "vsphere_password" {
+variable "vcf_password" {
   type        = string
-  description = "The password for the login to the vCenter Server instance."
-  sensitive   = true
-}
-
-variable "vsphere_insecure" {
-  type        = bool
-  description = "Set to true for self-signed certificates."
-  default     = false
+  description = "The password for the login to the VMware Cloud Foundation instance."
 }
 
 # vSphere Objects
-
-variable "vsphere_datacenter" {
-  type        = string
-  description = "The target vSphere datacenter object name. (e.g. sfo-m01-dc01)"
-}
-
-variable "folder_path" {
-  type        = string
-  description = "The target folder where permissions are assigned. (e.g. / for root)"
-}
 
 variable "vmc_vsphere_role" {
   type        = string
@@ -57,4 +39,21 @@ variable "vro_vsphere_role" {
 variable "vro_service_account" {
   type        = string
   description = "The target VMC Service account to assign the role to. (e.g. svc-vro-vsphere@sfo)"
+}
+
+# Active Directory
+
+variable "domain_fqdn" {
+  type        = string
+  description = "The FQDN of the Active Directory domain. (e.g. sfo.rainpole.io)"
+}
+
+variable "domain_bind_username" {
+  type        = string
+  description = "The bind user to login to Active Directory."
+}
+
+variable "domain_bind_password" {
+  type        = string
+  description = "The password for the bind user to login to Active Directory."
 }

@@ -3,14 +3,16 @@
 # Cloud-Based Automation for VMware Cloud Foundation
 
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [Requirements](#requirements)
-3. [Get Started](#get-started)
-4. [Issues](#issues)
+- [Cloud-Based Automation for VMware Cloud Foundation](#cloud-based-automation-for-vmware-cloud-foundation)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Requirements](#requirements)
+  - [Get Started](#get-started)
+  - [Issues](#issues)
 
 ## Introduction
 
-This content is a companion to the [Cloud-Based Automation for VMware Cloud Foundation](https://core.vmware.com/cloud-based-automation-vmware-cloud-foundation) validated solution which enables ...... 
+This content supports the [Cloud-Based Automation for VMware Cloud Foundation](https://core.vmware.com/cloud-based-automation-vmware-cloud-foundation) validated solution which enables a cloud-based infrastructure automation platform that delivers an agnostic self-service catalog for VMware Cloud Foundation and multi-cloud environments. 
 
 ## Requirements
 
@@ -18,11 +20,11 @@ This content is a companion to the [Cloud-Based Automation for VMware Cloud Foun
 
 If you want to use the Terraform procedures to perform implementation and configuration procedures:
 
-* Verify that your system has Terraform 1.0.0 or later installed. Learn more at [terraform.io](https://terraform.io).
+* Verify that your system has Terraform 1.2.0 or later installed. Learn more at [terraform.io](https://terraform.io).
 
 * Verify the your system has a code editor installed. Microsoft Visual Studio Code is recommended. Learn more at [Visual Studio Code](https://code.visualstudio.com/).
 
-* Install the Terraform Visual Studio Code extension 2.19.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
+* Install the Terraform Visual Studio Code extension 2.23.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
 
 
 ## Get Started
@@ -47,23 +49,17 @@ However, some environments do not allow systems direct access to the Internet. T
 
 Learn more about [Installing the Terraform Providers](docs/install-terraform-providers/README.md).
 
-### Get Your Refresh Token for the vRealize Automation API
-
-Before using the Terraform provider for vRealize Automation, you must request an API token that authenticates you for authorized API connections. The API token is also known as a "refresh token".
-
-Learn more how to [Get Your Refresh Token for the vRealize Automation API](docs/refresh-token/README.md).
-
 ### Setup the Sample Project in vRealize Automation
 
-Once you have deployed the **Private Cloud Automation for VMware Cloud Foundation** solution, you can use the  step-by-step implementation guidance to create a **sample** project in vRealize Automation after deploying the solution using both the UI and infrastructure-as-code procedures, such as PowerShell, Terraform, and Packer, where applicable.
+Once you have deployed the **Cloud-Based Automation for VMware Cloud Foundation** validated solution, you can use the step-by-step implementation guidance to create a **sample** project in vRealize Automation Cloud after deploying the solution using both the UI and infrastructure-as-code procedures.
 
 No matter which path you choose to use - IaC or UI - the sample project implementation guidance can help you:
 
-1. Learn how to get up an running with vRealize Automation.
+1. Learn how to get up an running with vRealize Automation Cloud.
 2. Ensure the solution is ready for operations.
-3. Learn how get started managing the desired state configuration of vRealize Automation using Terraform.
+3. Learn how get started managing the desired state configuration of vRealize Automation Cloud using Terraform.
 
-Learn more on how to [Configure a Sample Project in vRealize Automation](docs/sample-project/README.md).
+Learn more on how to [Configure a Sample Project in vRealize Automation Cloud](docs/sample-project/README.md).
 
 ## Issues
 

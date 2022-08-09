@@ -4,22 +4,19 @@
 
 # Credentials
 
-vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
-vsphere_username = "administrator@vsphere.local"
-vsphere_password = "********************"
-vsphere_insecure = false
-
-# vSphere Objects
-
-vsphere_datacenter = "sfo-m01-dc01"
+vcf_server   = "sfo-vcf01.sfo.rainpole.io"
+vcf_username = "administrator@vsphere.local"
+vcf_password = "********************"
 
 # vSphere Permissions
 
-folder_path = "/"
+vmc_vsphere_role 	= "Cloudy Assembly to vSphere Integration"
+vmc_service_account = "svc-vmc-vsphere"
+vro_vsphere_role 	= "vRealize Orchestrator to vSphere Integration"
+vro_service_account = "svc-vro-vsphere"
 
-vmc_vsphere_role = "Cloudy Assembly to vSphere Integration"
-vmc_service_account = "SFO\\svc-vmc-vsphere"
-vro_vsphere_role = "vRealize Orchestrator to vSphere Integration"
-vro_service_account = "SFO\\svc-vro-vsphere"
+# Active Directory Details
 
-
+domain_fqdn 			= "sfo.rainpole.io"
+domain_bind_username 	= "svc-vsphere-ad"
+domain_bind_password 	= "********************"
