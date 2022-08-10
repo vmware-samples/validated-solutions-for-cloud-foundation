@@ -47,8 +47,6 @@ Providers listed on the Terraform Registry can be automatically downloaded when 
 
 However, some environments do not allow systems direct access to the Internet. The latest releases of the providers can be found on GitHub. You can download the appropriate version of the provider for your operating system using a command line shell or a browser and then prepare for "dark site" use.
 
-Learn more about [Installing the Terraform Providers](docs/install-terraform-providers/README.md).
-
 ### Setup the Sample Project in vRealize Automation
 
 Once you have deployed the **Cloud-Based Automation for VMware Cloud Foundation** validated solution, you can use the step-by-step implementation guidance to create a **sample** project in vRealize Automation Cloud after deploying the solution using both the UI and infrastructure-as-code procedures.

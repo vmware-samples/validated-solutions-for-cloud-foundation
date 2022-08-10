@@ -1,14 +1,16 @@
+[Back: Home](README.md)
+
 # Deploy a Sample Cloud Template in Service Broker
 
 After you import the cloud template and share it with members of your project, you test the provisioning by requesting a deployment.
 
 ## Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Service Broker Administrator** service role.
+1. Log in to the VMware Cloud Services console at **`https://console.cloud.vmware.com`**.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Service Broker**.
+3. Under **My services**, in the **VMware Service Broker** card click **Launch Service**.
 
 4. On the **Catalog** tab, in the **Sample** card, click **Request**.
 

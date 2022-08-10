@@ -1,3 +1,5 @@
+[Back: Home](README.md)
+
 # Configure a Sample Cloud Template in Cloud Assembly
 
 Cloud templates determine the specifications, such as target cloud region, resources, guest operating systems, and others, for the services or applications that consumers of this template can deploy.
@@ -337,6 +339,6 @@ Cloud templates determine the specifications, such as target cloud region, resou
 
     g. Verify that the test finishes successfully.
 
-[Back: Configure a Sample Project in Cloud Assembly](5-configure-project.md)
+[Back: Configure a Sample Project in Cloud Assembly](10-configure-project.md)
 
-[Next: Configure the Project in Service Broker](7-configure-project-service-broker.md)
+[Next: Configure a Content Source for the Project in Service Broker](12-configure-service-broker.md)

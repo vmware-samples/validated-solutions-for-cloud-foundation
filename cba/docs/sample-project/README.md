@@ -10,34 +10,28 @@ You prepare for workload provisioning by allocating the necessary infrastructure
 
 Procedures are provided using the user interfaces as well as the use of Terraform, where applicable.
 
-1. [Configure Content Libraries in vSphere](1-configure-content-libraries.md)
+1. [Configure a Publishing Content Library](1-configure-content-libraries.md)
 
-   Content libraries are containers for VM templates, vApp templates, and other resources used for Cloud Assembly deployment of virtual machines and vApps. Sharing templates and files across multiple vCenter Server instances brings out consistency, compliance, efficiency, and automation in deploying workloads at scale.
+2. [Import Photon OS OVF Images to the Publishing Content Library](2-import-photon-template.md)
 
-2. [Configure Customization Specifications in vSphere](2-configure-custom-specs.md)
+3. [Configure a Customization Specification for Photon Operating Systems](3-configure-custom-specs.md)
 
-   Create customization specifications, one for Linux and one for Windows, for use by the virtual machines images you deploy. Customization specifications are XML files that contain system configuration settings for the guest operating systems used in the virtual machines. You can use the customization specifications when you create cloud templates in vRealize Automation.
+4. [Configure Flavor Mappings in Cloud Assembly](4-configure-flavour-mappings.md)
 
-3. [Configure Mappings in Cloud Assembly](3-configure-mappings.md)
+5. [Configure Image Mappings in Cloud Assembly.](5-configure-image-mappings.md)
 
-   You define deployment sizing and deployment parameters for workloads by using flavor and image mappings in Cloud Assembly.
+6. [Configure NSX Overlay Segments to NSX-T Data Center](6-configure-nsx-segements.md)
 
-4. [Configure Profiles in Cloud Assembly](4-configure-profiles.md)
+7. [Configure Network IP Address Settings for Existing Networks](7-configure-segment-networking.md)
 
-   You define target networks and datastores for workload provisioning by using network and storage profiles in Cloud Assembly.
+8. [Configure Network Profiles for Existing Networks.](8-configure-network-profile.md)
+   
+9.  [Configure Storage Profiles in Cloud Assembly](9-configure-storage-profile.md)
 
-5. [Configure a Sample Project in Cloud Assembly](5-configure-project.md)
+10. [Configure a Sample Project in Cloud Assembly](10-configure-project.md)
 
-   You configure a project to define the users that can provision workloads, the priority and cloud zone of deployments, and the maximum allowed deployment instances.
+11. [Configure a Sample Cloud Template in Cloud Assembly](11-configure-cloud-template.md)
 
-6. [Configure a Sample Cloud Template in Cloud Assembly](6-configure-cloud-template.md)
+12. [Configure a Content Source for the Project in Service Broker](12-configure-service-broker.md)
 
-   Cloud templates determine the specifications, such as target cloud region, resources, guest operating systems, and others, for the services or applications that consumers of this template can deploy.
-
-7. [Configure the Project in Service Broker](7-configure-project-service-broker.md)
-
-   Enable users to deploy workloads by importing the cloud templates, creating a content source, and sharing the cloud templates within a project in Service Broker.
-
-8. [Deploy a Sample Cloud Template in Service Broker](8-deploy-cloud-template.md)
-
-   After you import the cloud template and share it with members of your project, you test the provisioning by requesting a deployment.
+13. [Deploy a Sample Cloud Template in Service Broker](13-deploy-cloud-template.md)

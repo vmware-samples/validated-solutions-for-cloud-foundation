@@ -1,10 +1,13 @@
+[Back: Home](README.md)
+
 # Configure the Project in Service Broker
 
 Enable users to deploy workloads by importing the cloud templates, creating a content source, and sharing the cloud templates within a project in Service Broker.
 
 ## Procedure
 
-1. [Configure a Content Source for the Project in Service Broker](#configure-a-content-source-for-the-project-in-service-broker)
+- [Configure the Project in Service Broker](#configure-the-project-in-service-broker)
+  - [Procedure](#procedure)
 
     Provide access to vRealize Automation cloud templates to users by creating and configuring a content source for the project in Service Broker.
 
@@ -132,6 +135,6 @@ You can share cloud templates and content sources within a project to enable pro
     terraform apply tfplan
     ```
 
-[Back: Configure a Sample Cloud Template in Cloud Assembly](6-configure-cloud-template.md)
+[Back: Configure a Sample Cloud Template in Cloud Assembly](11-configure-cloud-template.md)
 
-[Next: Deploy a Sample Cloud Template in Service Broker](8-deploy-cloud-template.md)
+[Next: Deploy a Sample Cloud Template in Service Broker](13-deploy-cloud-template.md)

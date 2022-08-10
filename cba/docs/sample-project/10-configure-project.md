@@ -1,8 +1,10 @@
+[Back: Home](README.md)
+
 # Configure a Sample Project in Cloud Assembly
 
 You configure a project to define the users that can provision workloads, the priority and cloud zone of deployments, and the maximum allowed deployment instances.
 
-#### UI Procedure
+## UI Procedure
 
 1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
 
@@ -57,40 +59,36 @@ You configure a project to define the users that can provision workloads, the pr
 
 1. Navigate to the Terraform example in the repository.
 
-    ```powershell
-    cd terraform-examples/vra/vra-project
+    ```bash
+    terraform-sample-project/10-cloud-assembly-project
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
 
-    ```powershell
+    ```bash
     copy terraform.tfvars.example terraform.tfvars
     ```
 
 3. Open the `terraform.tfvars` file, update the variables for your environment, and save the file.
 
-    You can assign multiple cloud zones by updating the `project_zones` object map with additional cloud zones.
+4. Initialize the current directory and the required Terraform providers.
 
-4. If you want to create multiple projects, repeat steps [2]() and [3]() for each additional project by duplicating the example in a different working directory.
-
-5. Initialize the current directory and the required Terraform providers.
-
-    ```powershell
+    ```terraform
     terraform init
     ```
 
-6. Create a Terraform plan and save the output to a file.
+5. Create a Terraform plan and save the output to a file.
 
-    ```powershell
+    ```terraform
     terraform plan -out=tfplan
     ```
 
-7. Apply the Terraform plan.
+6. Apply the Terraform plan.
 
-    ```powershell
+    ```terraform
     terraform apply tfplan
     ```
 
-[Back: Configure Profiles in Cloud Assembly](4-configure-profiles.md)
+[Back: Configure Storage Profiles in Cloud Assembly](9-configure-storage-profile.md)
 
-[Next: Configure a Sample Cloud Template in Cloud Assembly](6-configure-cloud-template.md)
+[Next: Configure a Sample Cloud Template in Cloud Assembly](11-configure-cloud-template.md)
