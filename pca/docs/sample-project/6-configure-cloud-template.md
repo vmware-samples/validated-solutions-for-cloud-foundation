@@ -154,13 +154,13 @@ resources:
 
 1. Navigate to the Terraform example in the repository.
 
-    ```powershell
-    cd terraform-examples/vra/vra-cloud-template
+    ```bash
+    cd terraform-sample-project/11-cloud-assembly-cloud-template
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
 
-    ```powershell
+    ```bash
     copy terraform.tfvars.example terraform.tfvars
     ```
 
@@ -168,15 +168,19 @@ resources:
 
 4. Initialize the current directory and the required Terraform providers.
 
+    ```terraform
+    terraform init
+    ```
+
 5. Create a Terraform plan and save the output to a file.
 
-    ```powershell
+    ```terraform
     terraform plan -out=tfplan
     ```
 
 6. Apply the Terraform plan.
 
-    ```powershell
+    ```terraform
     terraform apply tfplan
     ```
 
