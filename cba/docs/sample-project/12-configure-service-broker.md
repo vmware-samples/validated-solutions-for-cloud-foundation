@@ -105,13 +105,13 @@ You can share cloud templates and content sources within a project to enable pro
 
 1. Navigate to the Terraform example in the repository.
 
-    ```powershell
+    ```bash
     cd terraform-examples/vra/vra-content-item
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
 
-    ```powershell
+    ```bash
     copy terraform.tfvars.example 1terraform.tfvars1
     ```
 
@@ -119,19 +119,19 @@ You can share cloud templates and content sources within a project to enable pro
 
 4. Initialize the current directory and the required Terraform providers.
 
-    ```powershell
+    ```terraform
     terraform init
     ```
 
 5. Create a Terraform plan and save the output to a file.
 
-    ```powershell
+    ```terraform
     terraform plan -out=tfplan
     ```
 
 6. Apply the Terraform plan.
 
-    ```powershell
+    ```terraform
     terraform apply tfplan
     ```
 

@@ -38,7 +38,7 @@ variable "content_library_items" {
   type = map(object({
     name        = string
     description = string
-	file_url	= string
+    file_url    = string
   }))
   description = "The machine images to load into the vSphere Content Library."
 }
