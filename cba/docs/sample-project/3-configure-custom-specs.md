@@ -46,10 +46,6 @@ Create a customization specification for the Photon Operating System, for use by
 
 11. On the **Ready to complete** page, review the settings and click **Finish**.
 
-12. Repeat this procedure for each additional Linux customization specification.
-
-13. Repeat this procedure for each VI workload domain vCenter Server in each VMware Cloud Foundation instance.
-
 ## Terraform Procedure
 
 1. Navigate to the Terraform example in the repository.
@@ -83,8 +79,6 @@ Create a customization specification for the Photon Operating System, for use by
    ```terraform
    terraform apply tfplan
    ```
-
-7. Repeat this procedure for each VI workload domain vCenter Server in each VMware Cloud Foundation instance.
 
 [Back: Import Photon OS OVF Images to the Publishing Content Library](2-import-photon-template.md)
 

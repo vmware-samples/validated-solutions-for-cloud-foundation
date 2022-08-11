@@ -2,25 +2,25 @@
 
 # Import Photon OS OVF Images to the Publishing Content Library
 
-You import virtual machine images in OVF format into a publishing content library to use for image mappings in Cloud Assembly.
+Import virtual machine images in OVA format into a publishing content library to use for image mappings in Cloud Assembly.
 
 In the sample, the following operating system images are used:
 
-   | Operating System     | Virtual Machine Template Name  |
-   | :-                   | :-                             |
-   | Photon OS            | photon-4.0                     |
-   | Photon OS            | photon-4.0-uefi                |
+   | **Operating System** | **Virtual Machine Template Name** |
+   | :-                   | :-                                |
+   | Photon OS            | photon-4.0                        |
+   | Photon OS            | photon-4.0-uefi                   |
 
 
 ## UI Procedure
 
 1. Log in to vCenter Server at **`https://<vi_workload_domain_vcenter_server_fqdn>/ui`** with a user assigned the **Administrator** role.
 
-2. In the **Content libraries** inventory, click the content library sfo-vmc-lib01.
+2. In the **Content libraries** inventory, click the content library `sfo-vmc-lib01`.
 
 3. From the **Actions** menu, select **Import item**.
 
-4. In the **Import library item** page, select **URL** as the source file and enter the URL for the OVA/OVF file and click **Import.**
+4. In the **Import library item** page, select **URL** as the source file and enter the URL for the OVA file and click **Import.**
 
 5. If a SSL certificate warning is displayed, select **Action** and then **Continue**..
 

@@ -2,7 +2,7 @@
 
 # Configure Storage Profiles in Cloud Assembly
 
-You configure type of storage for the provisioned workloads by defining a storage profile in Cloud Assembly for the specific cloud account and region.
+You configure storage for the provisioned workloads by defining a storage profile in Cloud Assembly for the specific cloud account and region.
 
 ## UI Procedure
 
@@ -10,7 +10,7 @@ You configure type of storage for the provisioned workloads by defining a storag
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Service Broker** card click **Launch Service**.
+3. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
 
 4. Click the **Infrastructure** tab.
 
@@ -18,20 +18,20 @@ You configure type of storage for the provisioned workloads by defining a storag
 
 6. On the **Storage profiles** page, click **New storage profile**, configure the settings, and click **Create**.
 
-    | Setting                                | Example Value                         |
-    | :-                                     | :-                                    |
-    | Account / region                       | sfo-w01-vc01 / Datacenter:datacenter-3          |
-    | Name                                   | standard-sfo-w01-cl01-vsan-default   |
-    | Description	                         | standard-sfo-w01-cl01-vsan-default   |
-    | Disk type	                             | Standard disk                         |
-    | Storage policy	                     | sfo-w01-cl01 vSAN Storage Policy      |
-    | Datastore / cluster	                 | sfo-w01-sfo-w01-vc01-sfo-w01-cl01-vsan01 |
-    | Provisioning type	                     | Thin                                  |
-    | Shares	                             | Unspecified                           |
-    | Limit IOPS	                         | -                                     |
-    | Disk mode	                             | Dependent                             |
-    | Preferred storage for this region	     | Selected                              |
-    | Capability tags                        | tier:platinum                         |
+    | **Setting**                       | **Value**                                |
+    | :-                                | :-                                       |
+    | Account / region                  | sfo-w01-vc01 / Datacenter:datacenter-3   |
+    | Name                              | standard-sfo-w01-cl01-vsan-default       |
+    | Description	                      | standard-sfo-w01-cl01-vsan-default       |
+    | Disk type	                      | Standard disk                            |
+    | Storage policy	                   | sfo-w01-cl01 vSAN Storage Policy         |
+    | Datastore / cluster	             | sfo-w01-sfo-w01-vc01-sfo-w01-cl01-vsan01 |
+    | Provisioning type	                | Thin                                     |
+    | Shares	                         | Unspecified                              |
+    | Limit IOPS	                      | -                                        |
+    | Disk mode	                      | Dependent                                |
+    | Preferred storage for this region | Selected                                 |
+    | Capability tags                   | tier:platinum                            |
 
 ## Terraform Procedure
 

@@ -12,29 +12,26 @@ After you import the cloud template and share it with members of your project, y
 
 3. Under **My services**, in the **VMware Service Broker** card click **Launch Service**.
 
-4. On the **Catalog** tab, in the **Sample** card, click **Request**.
+4. On the **Catalog** tab, in the `Photon 4.0` card, click **Request**.
 
 5. On the **New request** page, configure the settings and click **Submit**.
 
-    | Setting                       | Example Value             |
+    | **Setting**                   | **Value**                 |
     | :-                            | :-                        |
-    | Version                       | 1.0.0                     |
-    | Project                       | Sample                    |
-    | Deployment name               | Sample Deployment         |
-    | Cloud                         | Rainpole Private Cloud    |
-    | Region                        | San Francisco (US West 1) |
+    | Project                       | Rainpole                  |
+    | Deployment Name               | MyPhotonVM                |
+    | Node Size                     | X-Small                   |
+    | Node Count                    | 1                         |
+    | Cloud                         | VMware Cloud Foundation   |
+    | Region                        | sfo-w01-vc01              |
+    | Function                      | General Application       |
+    | Performance Tier              | Platinum                  |
+    | Operating System and Version  | Photon 4.0                |
     | Environment                   | Production                |
-    | Operating System and Version  | Ubuntu Server LTS         |
-    | NSX Network Segments          | On-Demand Routed          |
-    | Node Size for Web Tier        | Small                     |
-    | Node Count for Web Tier       | 1                         |
-    | Node Size for App Tier        | Small                     |
-    | Node Count for App Tier       | 1                         |
-    | Node Size for Database Tier   | Small                     |
 
 6. Verify that the deployment completed successfully.
 
-    a. Click the **Deployments** tab and click the **Sample Deployment** card. 
+    a. Click the **Deployments > Deployments** and click `MyPhotonVM`. 
 
     b. Click the **History** tab and click the **Request details** tab.
 

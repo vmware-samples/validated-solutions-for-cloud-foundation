@@ -2,7 +2,7 @@
 
 # Configure a Publishing Content Library
 
-Create a content library for images that you can use to deploy virtual machines in your environment. You enable publishing for the content library, so that you can synchronize the images among different VI workload domain vCenter Server instances and ensure that all images in your environment are consistent.
+Create a content library for storing the images that you can then use to deploy virtual machines in your environment. You enable publishing for the content library, so that you can synchronize the images among different VI workload domain vCenter Server instances and ensure that all images in your environment are consistent.
 
 ## UI Procedure
 
@@ -12,11 +12,11 @@ Create a content library for images that you can use to deploy virtual machines 
 
 3. On the **Name and location** page, configure the settings and click **Next**.
 
-   | **Setting**     | **Value**                               |
-   | :-              | :-                                      |
-   | Name            | sfo-vmw-lib01                           |
-   | Notes           | Publishing Content Library for sfo-vmc  |
-   | vCenter Server  | sfo-w01-vc01.sfo.rainpole.io            |
+   | **Setting**     | **Value**                          |
+   | :-              | :-                                 |
+   | Name            | sfo-vmc-lib01                      |
+   | Notes           | Publishing Content Library for VMC |
+   | vCenter Server  | sfo-w01-vc01.sfo.rainpole.io       |
 
 4. On the **Configure content library** page, configure the settings and click **Next**.
 
@@ -28,7 +28,7 @@ Create a content library for images that you can use to deploy virtual machines 
 
 5. On the **Apply security policy** page, click **Next**.
 
-6. On the **Add storage** page, select the storage location **sfo-w01-sfo-w01-vc01-sfo-w01-cl01-vsan01** and click **Next**.
+6. On the **Add storage** page, select the storage location `sfo-w01-sfo-w01-vc01-sfo-w01-cl01-vsan01` and click **Next**.
 
 7. On the **Ready to complete** page, click **Finish**.
 

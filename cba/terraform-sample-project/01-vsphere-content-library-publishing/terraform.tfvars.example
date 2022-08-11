@@ -17,5 +17,5 @@ vsphere_datastore                   = "sfo-w01-sfo-w01-vc01-sfo-w01-cl01-vsan01"
 # Content Library Settings
 
 vsphere_content_library_name        = "sfo-vmc-lib01"
-vsphere_content_library_description = "Publishing Content Library for sfo-w01"
+vsphere_content_library_description = "Publishing Content Library for VMC"
 vsphere_content_library_auth        = "NONE"

@@ -2,9 +2,9 @@
 
 # Configure a Sample Project in vRealize Automation Cloud
 
-After completing the Cloud-Based Automation for VMware Cloud Foundation validated solution implementation, optionally, you can configure a sample project scenario to test the workload provisioning.
+After completing the `Cloud-Based Automation for VMware Cloud Foundation` validated solution implementation, optionally, you can configure a sample project scenario to test the workload provisioning.
 
-You prepare for workload provisioning by allocating the necessary infrastructure resources by using flavor mappings, image mappings, network profiles, and storage profiles. You can configure a sample project, content library, and a sample cloud templates to test the sharing of workload provisioning capabilities with the cloud infrastructure consumers in your organization.
+You prepare for workload provisioning by allocating the necessary infrastructure resources by using flavor mappings, image mappings, network profiles, and storage profiles. You then configure a project, content library, and a cloud templates to test the workload provisioning capabilities with VMware Cloud Foundation in your organization.
 
 ## Procedures
 
@@ -25,13 +25,15 @@ Procedures are provided using the user interfaces as well as the use of Terrafor
 7. [Configure Network IP Address Settings for Existing Networks](7-configure-segment-networking.md)
 
 8. [Configure Network Profiles for Existing Networks.](8-configure-network-profile.md)
-   
+
 9.  [Configure Storage Profiles in Cloud Assembly](9-configure-storage-profile.md)
 
 10. [Configure a Sample Project in Cloud Assembly](10-configure-project.md)
 
 11. [Configure a Sample Cloud Template in Cloud Assembly](11-configure-cloud-template.md)
 
-12. [Configure a Content Source for the Project in Service Broker](12-configure-service-broker.md)
+12. [Configure a Content Source for the Project in Service Broker](12-configure-content-source.md)
 
-13. [Deploy a Sample Cloud Template in Service Broker](13-deploy-cloud-template.md)
+13. [Share a Content Source for the Project in Service Broker](13-configure-content-policy.md)
+
+14. [Deploy a Sample Cloud Template in Service Broker](14-deploy-cloud-template.md)

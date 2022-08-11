@@ -6,14 +6,14 @@ Before project members can request workloads on existing networks, you must add 
 
 NSX Segments for Existing Networks
 
-| Setting           | Example Value for Production Workloads    | Example Value for Development Workloads   |
-| :-                | :-                                        | :-                                        |
-| Segment name      | sfo-prod-192-168-50-0-24                   | sfo-dev-192-168-51-0-24                    |
-| Connected gateway | sfo-w01-ec01-t1-gw01                      | sfo-w01-ec01-t1-gw01                      |
-| Transport zone    | sfo-w01-ec01-t1-gw01  | overlay-tz-sfo-w01-nsx01.sfo.rainpole.io  |
-| Subnets           | 192.168.50.1/24                            | 192.168.51.1/24                            |
+| **Setting**       | **Production Workloads**                 | **Development Workloads**                |
+| :-                | :-                                       | :-                                       |
+| Segment name      | sfo-prod-192-168-50-0-24                 | sfo-dev-192-168-51-0-24                  |
+| Connected gateway | sfo-w01-ec01-t1-gw01                     | sfo-w01-ec01-t1-gw01                     |
+| Transport zone    | overlay-tz-sfo-w01-nsx01.sfo.rainpole.io | overlay-tz-sfo-w01-nsx01.sfo.rainpole.io |
+| Subnets           | 192.168.50.1/24                          | 192.168.51.1/24                          |
 
-##### UI Procedure
+## UI Procedure
 
 1. Log in to the NSX Local Manager cluster for the VI workload domain at **`https://<vi_workload_nsx_local_manager_fqdn>/login.jsp?local=true`** as **admin**.
 
@@ -23,20 +23,19 @@ NSX Segments for Existing Networks
 
 4. On the **Segments** tab, click **Add segment**, configure these settings and click **Save**.
 
-    | Setting                     | Example Value                             |
-    | :-                          | :-                                        |
-    | Segment name                | sfo-prod-192-168-50-0-24                   |
-    | Connected gateway           | sfo-w01-ec01-t1-gw01                      |
-    | Transport zone              | overlay-tz-sfo-w01-nsx01.sfo.rainpole.io  |
-    | Subnets (Gateway CIDR IPv4) | 192.168.50.1/24                            |
-    | Admin state                 | Turned on                                 |
+    | **Setting**                 | **Value**                                |
+    | :-                          | :-                                       |
+    | Segment name                | sfo-prod-192-168-50-0-24                 |
+    | Connected gateway           | sfo-w01-ec01-t1-gw01                     |
+    | Transport zone              | overlay-tz-sfo-w01-nsx01.sfo.rainpole.io |
+    | Subnets (Gateway CIDR IPv4) | 192.168.50.1/24                          |
+    | Admin state                 | Turned on                                |
 
 5. In the **Want to continue configuring this Segment?** dialog box, click **No**.
 
 6. Repeat this procedure for the NSX segment for development workloads.
 
-
-##### Terraform Procedure
+## Terraform Procedure
 
 1. Navigate to the Terraform example in the repository.
 

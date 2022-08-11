@@ -6,11 +6,11 @@ You configure a project to define the users that can provision workloads, the pr
 
 ## UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+1. Log in to the VMware Cloud Services console at **`https://console.cloud.vmware.com`**.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
 
 4. Click the **Infrastructure** tab.
 
@@ -20,47 +20,36 @@ You configure a project to define the users that can provision workloads, the pr
 
 7. On the **Summary** tab, configure the settings.
 
-    | Setting       | Example Value     |
-    | :-            | :-                |
-    | Name          | Sample            |
-    | Description   | Sample Project    |
+    | **Setting**  | **Value**                |
+    | :-           | :-                       |
+    | Name         | Rainpole                 |
+    | Description  | Sample Project: Rainpole |
 
-8. Click the **Users** tab, and for each group, click **Add groups**, configure these settings, and click **Add**.
-
-    | Setting       | Example Value for Project Administrators  | Example Value for Project Users   |
-    | :-            | :-                                        | :-                                |
-    | Group         | gg-vra-project-admins-sample              | gg-vra-project-users-sample       |
-    | Assign role   | Administrator                             | Member                            |
+8. Click the **Users** tab, and select **Deployments are shared between all users in the project**.
 
 9. Click the **Provisioning** tab and, from the **Add zone** drop-down menu, select **Cloud zone**.
 
 10. Configure these settings, and click **Add**.
 
-    | Setting               | Example Value                 |
-    | :-                    | :-                            |
-    | Cloud zone            | sfo-w01-vc01 / sfo-w01-dc01   |
-    | Provisioning priority | 1                             |
-    | Instances limit       | 0                             |
-    | Memory limit (GB)     | 0                             |
-    | CPU limit             | 0                             |
-    | Storage limit(GB)     | 0                             |
+    | **Setting**           | **Value**    |
+    | :-                    | :-           |
+    | Cloud zone            | sfo-w01-vc01 |
+    | Provisioning priority | 1            |
+    | Instances limit       | 0            |
+    | Memory limit (GB)     | 0            |
+    | CPU limit             | 0            |
+    | Storage limit(GB)     | 0            |
 
-11. If you want to add more cloud zones to the project, repeat step **10** for each additional cloud zone.
+11. On the **Provisioning** tab, under **Custom naming**, in the **Template** text box, enter the naming template for the machines in this project, **`${project.name}-${###}`**.
 
-12. On the **Provisioning** tab, under **Custom naming**, in the **Template** text box, enter the naming template for the machines in this project, **`${project.name}-${resource.name}${###}`**.
+12. Click **Create**.
 
-    Object naming will appear similar to `sample-web123`.
-
-13. Click **Create**.
-
-14. If you want to create more projects, repeat the procedure for each additional project.
-
-#### Terraform Procedure
+## Terraform Procedure
 
 1. Navigate to the Terraform example in the repository.
 
     ```bash
-    terraform-sample-project/10-cloud-assembly-project
+    cd terraform-sample-project/10-cloud-assembly-project
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

@@ -25,19 +25,17 @@ In the sample, the following image mappings are used:
 
 6. Click **New image mapping**, configure these settings.
 
-    | Setting               | Example Value                           |
+    | **Setting**           | **Value**                               |
     | :-                    | :-                                      |
-    | Image name	        | photon-4.0                              |
+    | Image name	          | photon-4.0                              |
     | Account / region      | sfo-w01-vc01 / Datacenter:datacenter-3  |
     | Image                 | sfo-vmc-lib01 / photon-4.0              |
     | Constraints           | -                                       |
-    | Cloud configuration	| -                                       |
+    | Cloud configuration	 | -                                       |
 
-7. If you want to add the image mapping for an additional account region, click the **Add item to list** plus icon at the end of the row and configure the settings.
+7. Click **Create**.
 
-8. Click **Create**.
-
-9. Repeat these steps for each of the remaining image mappings.
+8. Repeat these steps for each of the remaining image mappings.
 
 ## Terraform Procedure
 

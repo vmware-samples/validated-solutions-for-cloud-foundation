@@ -6,13 +6,13 @@ You configure flavor mappings to define different deployment sizings.
 
 In the sample, the following flavor mappings are used:
 
-| Name      | Account / Region                        | CPU Count | Memory Size   |
-| :-        | :-                                      | :-        | :-            |
-| x-small   | sfo-w01-vc01 / Datacenter:datacenter-3  | 1         | 1 GB          |
-| small     | sfo-w01-vc01 / Datacenter:datacenter-3  | 2         | 2 GB          |
-| medium    | sfo-w01-vc01 / Datacenter:datacenter-3  | 4         | 8GB           |
-| large     | sfo-w01-vc01 / Datacenter:datacenter-3  | 8         | 16 GB         |
-| x-large   | sfo-w01-vc01 / Datacenter:datacenter-3  | 16        | 32 GB         |
+| **Name**  | **Account / Region**                    | **CPU Count** | **Memory Size** |
+| :-        | :-                                      | :-            | :-            |
+| x-small   | sfo-w01-vc01 / Datacenter:datacenter-3  | 1             | 1 GB          |
+| small     | sfo-w01-vc01 / Datacenter:datacenter-3  | 2             | 2 GB          |
+| medium    | sfo-w01-vc01 / Datacenter:datacenter-3  | 4             | 8GB           |
+| large     | sfo-w01-vc01 / Datacenter:datacenter-3  | 8             | 16 GB         |
+| x-large   | sfo-w01-vc01 / Datacenter:datacenter-3  | 16            | 32 GB         |
 
 ## UI Procedure
 
@@ -28,20 +28,18 @@ In the sample, the following flavor mappings are used:
 
 6. Click **New flavor mapping** and configure these settings.
 
-    | Setting           | Example Value                 |
-    | :-                | :-                            | 
-    | Flavor name       | x-small                       |
-    | Account / region  | sfo-w01-vc01 / sfo-w01-dc01   |
-    | Number of CPUs	| 1                             |
-    | Memory (GB)	    | 1                             |
+    | **Setting**       | **Value**                              |
+    | :-                | :-                                     | 
+    | Flavor name       | x-small                                |
+    | Account / region  | sfo-w01-vc01 / Datacenter:datacenter-3 |
+    | Number of CPUs	   | 1                                      |
+    | Memory (GB)	      | 1                                      |
 
-7. If you want to add the flavor mapping for an additional account region, click the **Add item to list** plus icon at the end of the row and configure the settings.
+7. Click **Create**
 
-8. Click **Create**
+8. Repeat these steps for each of the remaining flavor mappings.
 
-9. Repeat these steps for each of the remaining flavor mappings.
-
-#### Terraform Procedure
+## Terraform Procedure
 
 1. Navigate to the Terraform example in the repository.
 
