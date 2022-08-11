@@ -1,0 +1,19 @@
+##################################################################################
+# VARIABLES
+##################################################################################                                                 	                     
+
+vra_url       = "https://api.mgmt.cloud.vmware.com"
+vra_api_token = "*******************"
+vra_insecure  = false
+
+##################################################################################
+# CATALOG SOURCES
+##################################################################################
+
+catalog_sources = {
+  catalog_source0 = {
+    name         = "Sample - Cloud Templates"
+    description  = "Sample - Cloud Templates"
+    project_name = "Rainpole Sample"
+  }
+}
