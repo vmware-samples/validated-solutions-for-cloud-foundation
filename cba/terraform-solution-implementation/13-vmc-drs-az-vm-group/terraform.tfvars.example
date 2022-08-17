@@ -1,0 +1,32 @@
+##################################################################################
+# VARIABLES
+##################################################################################
+
+# Credentials
+
+vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
+vsphere_username = "administrator@vsphere.local"
+vsphere_password = "********************"
+vsphere_insecure = false
+
+# vSphere Objects
+
+vsphere_datacenter = "sfo-m01-dc01"
+vsphere_cluster    = "sfo-m01-cl01"
+
+
+# VM to Host Rule
+
+vsphere_host_group               = "sfo-hostgroup-az1"
+vmc_vm_host_rule                 = "vm-host-rule-az1-vmc"
+vmc_host_group_ruleset_enable    = true
+vmc_host_group_ruleset_mandatory = false
+
+# VM Group
+
+vmc_group_name = "sfo-vmgroup-az-vmc"
+vmc_group_vms = [
+  "sfo-vmc-cdp01",
+  "sfo-vmc-cep01",
+  "sfo-vmc-vro01",
+]

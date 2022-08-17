@@ -2,7 +2,7 @@
 # VARIABLES
 ##################################################################################
 
-# Credentials
+# VCF Credentials
 
 variable "vcf_server" {
   type        = string
@@ -19,31 +19,27 @@ variable "vcf_password" {
   description = "The password for the login to the VMware Cloud Foundation instance."
 }
 
-# vSphere Objects
-
 variable "vcf_domain" {
   type        = string
-  description = "The Workload Domain within the VMware Cloud Foundation instance. (e.g. sfo-m01)"
+  description = "The Workload Domain of the VMware Cloud Foundation instance."
+}
+
+variable "csp_api_token" {
+  type        = string
+  description = "API token from the vRealize Automation endpoint."
+}
+
+variable "cep_server" {
+  type        = string
+  description = "The FQDN of the Cloud Extensibility Proxy."
 }
 
 variable "vro_service_account" {
   type        = string
-  description = "The target VMC Service account to assign the role to. (e.g. svc-vro-vsphere@sfo)"
+  description = "The target vRealize Orchestrator Service account. (e.g. svc-vro-vsphere@sfo.rainpole.io)"
 }
 
-# Active Directory
-
-variable "domain_fqdn" {
+variable "vro_service_password" {
   type        = string
-  description = "The FQDN of the Active Directory domain. (e.g. sfo.rainpole.io)"
-}
-
-variable "domain_bind_username" {
-  type        = string
-  description = "The bind user to login to Active Directory."
-}
-
-variable "domain_bind_password" {
-  type        = string
-  description = "The password for the bind user to login to Active Directory."
+  description = "The targetvRealize Orchestrator Service account password."
 }

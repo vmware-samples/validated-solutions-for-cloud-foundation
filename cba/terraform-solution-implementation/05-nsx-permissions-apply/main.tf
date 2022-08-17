@@ -11,7 +11,7 @@ provider "nsxt" {
 }
 
 provider "restapi" {
-  alias                 = "nsxt"
+  alias                = "nsxt"
   uri                  = "https://${var.nsxt_instance}"
   username             = var.nsxt_username
   password             = var.nsxt_password

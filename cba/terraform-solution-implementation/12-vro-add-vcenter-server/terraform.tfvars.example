@@ -2,19 +2,15 @@
 # VARIABLES
 ##################################################################################
 
-# Credentials
+csp_api_token = "*********************"
+cep_server    = "sfo-vmc-cep01.sfo.rainpole.io"
 
 vcf_server   = "sfo-vcf01.sfo.rainpole.io"
 vcf_username = "administrator@vsphere.local"
-vcf_password = "********************"
+vcf_password = "*********************"
+vcf_domain   = "sfo-w01"
 
 # vSphere Permissions
 
-vcf_domain          = "sfo-m01"
-vro_service_account = "svc-vro-vsphere"
-
-# Active Directory Details
-
-domain_fqdn          = "sfo.rainpole.io"
-domain_bind_username = "svc-vsphere-ad"
-domain_bind_password = "********************"
+vro_service_account  = "svc-vro-vsphere"
+vro_service_password = "*********************"

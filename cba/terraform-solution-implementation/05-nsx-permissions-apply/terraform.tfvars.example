@@ -4,12 +4,12 @@
 
 # Endpoints and Credentials
 
-nsxt_instance           = "sfo-w01-nsx01.sfo.rainpole.io"
-nsxt_username           = "admin"
-nsxt_password           = "********************"
-nsxt_insecure           = false
+nsxt_instance = "sfo-w01-nsx01.sfo.rainpole.io"
+nsxt_username = "admin"
+nsxt_password = "********************"
+nsxt_insecure = false
 
-vidm_user               = "svc-vmc-nsx@sfo.rainpole.io"
-vidm_type               = "remote_user"
-vidm_identity_source    = "VIDM"
-nsxt_role               = "enterprise_admin"
+vidm_user            = "svc-vmc-nsx@sfo.rainpole.io"
+vidm_type            = "remote_user"
+vidm_identity_source = "VIDM"
+nsxt_role            = "enterprise_admin"

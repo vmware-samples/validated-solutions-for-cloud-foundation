@@ -33,9 +33,9 @@ data "vsphere_virtual_machine" "vmc_group_vms" {
 ##################################################################################
 
 resource "vsphere_compute_cluster_vm_group" "vmc_group_name" {
-  name                = var.vmc_group_name                                         
+  name                = var.vmc_group_name
   compute_cluster_id  = data.vsphere_compute_cluster.cluster.id
-  virtual_machine_ids = data.vsphere_virtual_machine.vmc_group_vms[*].id           
+  virtual_machine_ids = data.vsphere_virtual_machine.vmc_group_vms[*].id
 }
 
 resource "vsphere_compute_cluster_vm_host_rule" "vm_host_group_ruleset" {

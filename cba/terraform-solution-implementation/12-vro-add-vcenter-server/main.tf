@@ -12,9 +12,9 @@
 # RESOURCES
 ##################################################################################
 
-resource "null_resource" "vro_service_account" {
+resource "null_resource" "add_vcenter_server" {
   provisioner "local-exec" {
-    command     = "Add-SsoPermission -server \"${var.vcf_server}\" -user \"${var.vcf_username}\" -pass \"${var.vcf_password}\" -sddcDomain \"${var.vcf_domain}\" -domain \"${var.domain_fqdn}\" -domainBindUser \"${var.domain_bind_username}\" -domainBindPass \"${var.domain_bind_password}\" -principal \"${var.vro_service_account}\" -ssoGroup \"Administrators\" -type user -source external"
+    command     = "Add-CEPvCenterServer -server \"${var.vcf_server}\" -user \"${var.vcf_username}\" -pass \"${var.vcf_password}\" -domain \"${var.vcf_domain}\" -apiToken \"${var.csp_api_token}\" -environment staging -extensibilityProxy \"${var.cep_server}\" -serviceAccount \"${var.vro_service_account}\" -servicePassword \"${var.vro_service_password}\""
     interpreter = ["PowerShell", "-Command"]
   }
 }

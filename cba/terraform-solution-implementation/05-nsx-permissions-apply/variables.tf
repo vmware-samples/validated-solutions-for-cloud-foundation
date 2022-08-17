@@ -40,5 +40,5 @@ variable "vidm_identity_source" {
 }
 
 variable "nsxt_role" {
-  type        = string
+  type = string
 }

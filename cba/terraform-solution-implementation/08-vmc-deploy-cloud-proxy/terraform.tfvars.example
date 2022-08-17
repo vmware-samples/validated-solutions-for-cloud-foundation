@@ -4,16 +4,16 @@
 
 # vSphere Settings
 
-vsphere_server                 				= "sfo-m01-vc01.sfo.rainpole.io"
-vsphere_username                  		= "administrator@vsphere.local"
-vsphere_password              				= "********************"
-vsphere_insecure   										= false
-vsphere_host       										= "sfo01-m01-esx01.sfo.rainpole.io"
-vsphere_datacenter 										= "sfo-m01-dc01"
-vsphere_folder     										= "sfo-m01-fd-vmc"
-vsphere_cluster    										= "sfo-m01-cl01"
-vsphere_datastore  										= "sfo-m01-cl01-ds-vsan01"
-vsphere_network    										= "sfo01-m01-cl01-vds01-pg-mgmt"
+vsphere_server     = "sfo-m01-vc01.sfo.rainpole.io"
+vsphere_username   = "administrator@vsphere.local"
+vsphere_password   = "********************"
+vsphere_insecure   = false
+vsphere_host       = "sfo01-m01-esx01.sfo.rainpole.io"
+vsphere_datacenter = "sfo-m01-dc01"
+vsphere_folder     = "sfo-m01-fd-vmc"
+vsphere_cluster    = "sfo-m01-cl01"
+vsphere_datastore  = "sfo-m01-cl01-ds-vsan01"
+vsphere_network    = "sfo01-m01-cl01-vds01-pg-mgmt"
 
 # Cloud Proxy Settings
 
