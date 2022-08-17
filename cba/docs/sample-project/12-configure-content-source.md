@@ -22,7 +22,7 @@ Provide access to vRealize Automation cloud templates to users by creating and c
 
 | **Setting**     | **Value**                                    |
 | :-              | :-                                           |
-| Name            | Rainple - Cloud Templates                    |
+| Name            | Rainpole - Cloud Templates                   |
 | Description     | VMware Cloud Templates for Project: Rainpole |
 | Source project  | Rainpole                                     |        
 
