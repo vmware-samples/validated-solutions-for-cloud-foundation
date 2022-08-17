@@ -1,0 +1,20 @@
+##################################################################################
+# VARIABLES
+##################################################################################
+
+# Credentials
+
+vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
+vsphere_username = "administrator@vsphere.local"
+vsphere_password = "********************"
+vsphere_insecure = false
+
+# vSphere Permissions
+
+folder_path = "/"
+
+role_name = "No access"
+vmc_service_account = "SFO\\svc-vmc-vsphere"
+vro_service_account = "SFO\\svc-vro-vsphere"
+
+

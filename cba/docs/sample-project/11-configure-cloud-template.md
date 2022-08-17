@@ -1,14 +1,16 @@
+[Back: Home](README.md)
+
 # Configure a Sample Cloud Template in Cloud Assembly
 
 Cloud templates determine the specifications, such as target cloud region, resources, guest operating systems, and others, for the services or applications that consumers of this template can deploy.
 
 ## UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+1. Log in to the VMware Cloud Services console at **`https://console.cloud.vmware.com`**.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
 
 4. Click the **Design** tab.
 
@@ -16,17 +18,17 @@ Cloud templates determine the specifications, such as target cloud region, resou
 
 6. In the **New cloud template** dialog box, configure the settings and click **Create**.
 
-    | Setting                                   | Example Value                 |
+    | **Setting**                               | **Value**                     |
     | :-                                        | :-                            |
-    | Name                                      | Sample Template               |
-    | Description                               | Sample Cloud Template         |
-    | Project	                                  | Rainpole Sample               |
+    | Name                                      | Photon 4.0                    |
+    | Description                               | Default Photon 4.0 OS         |
+    | Project	                                  | Rainpole                      |
     | Cloud template sharing in Service Broker  | Share only with this project  |
 
-7. On the **Sample** template design page, in the **Code** tab, enter the following example YAML.
+7. On the `Photon 4.0` template design page, in the **Code** tab, enter the following example YAML.
 
 ```yaml
-name: Sample Template
+name: Photon 4.0
 formatVersion: 1
 inputs:
   targetCloud:
@@ -118,11 +120,11 @@ resources:
 
 8. Test the cloud template.
 
-    a. On the **Sample** template design page, click **Test**.
+    a. On the `Photon 4.0` template design page, click **Test**.
 
-    b. In the **Testing Sample** dialog box, configure the settings and click **Test**.
+    b. In the **Testing Photon 4.0** dialog box, configure the settings and click **Test**.
 
-    | Setting                       | Example Value             |
+    | **Setting**                   | **Value**                 |
     | :-                            | :-                        |
     | Cloud                         | VMware Cloud Foundation   |
     | Region                        | sfo-w01-vc01              |
@@ -133,24 +135,24 @@ resources:
     | Node Size                     | X-Small                   |
     | Node Count                    | 1                         |
 
-    c. Verify that the test finishes successfully.
+    c. Verify that the test finishes successfully, and close the window. 
 
 9.  Version the cloud template.
 
-    a. On the **Sample** template design page, click **Version**.
+    a. On the `Photon 4.0` template design page, click **Version**.
 
     b. In the **Creating version** dialog box, configure the settings and click **Create**.
 
-    | Setting                               | Example Value         |
+    | **Setting**                           | **Value**             |
     | :-                                    | :-                    |
     | Version                               | 1.0.0                 |
-    | Description                           | Sample Cloud Template |
+    | Description                           | Default Photon 4.0 OS |
     | Change log                            | Initial release       |
     | Release this version to the catalog   | Selected              |
 
-    c. On the **Sample** template design page, click **Close**.
+    c. On the `Photon 4.0` template design page, click **Close**.
 
-#### Terraform Procedure
+## Terraform Procedure
 
 1. Navigate to the Terraform example in the repository.
 
@@ -186,33 +188,31 @@ resources:
 
 7. Test the cloud template by using the UI.
 
-    a. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+    a. Log in to the VMware Cloud Services console at **`https://console.cloud.vmware.com`**.
 
-    b. On the main navigation bar, click **Services**. 
-    
-    c. Under **My services**, click **Cloud Assembly**. 
+    b. On the main navigation bar, click **Services**.
+
+    c. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
     
     d. Click the **Design** tab.
     
-    e. On the **Sample** template design page, click **Test**.
+    e. On the `Photon 4.0` template design page, click **Test**.
 
     f. In the **Testing Sample** dialog box, configure the settings and click **Test**.
 
-    | Setting                       | Example Value             |
+    | Setting                       | Value                     |
     | :-                            | :-                        |
-    | Cloud                         | Rainpole Private Cloud    |
-    | Region                        | San Francisco (US West 1) |
+    | Cloud                         | VMware Cloud Foundation   |
+    | Region                        | sfo-w01-vc01              |
     | Environment                   | Production                |
-    | Operating System and Version  | Ubuntu Server LTS         |
-    | NSX Network Segments          | On-Demand Routed          |
-    | Node Size for Web Tier        | Small                     |
-    | Node Count for Web Tier       | 1                         |
-    | Node Size for App Tier        | Small                     |
-    | Node Count for App Tier       | 1                         |
-    | Node Size for Database Tier   | Small                     |
+    | Function                      | General Application       |
+    | Performance Tier              | Platinum                  |
+    | Operating System and Version  | Photon 4.0                |
+    | Node Size                     | X-Small                   |
+    | Node Count                    | 1                         |
 
-    g. Verify that the test finishes successfully.
+    g. Verify that the test finishes successfully, and close the window.
 
-[Back: Configure a Sample Project in Cloud Assembly](5-configure-project.md)
+[Back: Configure a Sample Project in Cloud Assembly](10-configure-project.md)
 
-[Next: Configure the Project in Service Broker](7-configure-project-service-broker.md)
+[Next: Configure a Content Source for the Project in Service Broker](12-configure-content-source.md)

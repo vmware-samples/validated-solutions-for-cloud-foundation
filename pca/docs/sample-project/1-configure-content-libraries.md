@@ -116,7 +116,7 @@ In the sample, the following operating system images are used:
    | Ubuntu Server LTS        | linux-ubuntu-server-lts        |
    | Windows Server Standard  | windows-server-standard        |
 
-Learn more about creating machine images with HashiCorp Packer and the Packer Plugin for VMware vSphere `vsphere-iso` by visiting the [vmware-samples/packer-templates-for-vsphere](https://github.com/vmware-samples/packer-templates-for-vsphere) GitHub project.
+Learn more about creating machine images with HashiCorp Packer and the Packer Plugin for VMware vSphere `vsphere-iso` by visiting the [vmware-samples/packer-examples-for-vsphere](https://github.com/vmware-samples/packer-examples-for-vsphere) GitHub project.
 
 #### UI Procedure
 

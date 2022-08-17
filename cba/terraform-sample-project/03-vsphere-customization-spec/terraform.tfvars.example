@@ -1,0 +1,13 @@
+##################################################################################
+# VARIABLES
+##################################################################################
+
+vsphere_server = "sfo-w01-vc01.sfo.rainpole.io"
+vsphere_username = "administrator@vsphere.local"
+vsphere_password = "********************"
+
+customization_name 			= "photon"
+customization_description 	= "Photon 4.0"
+customization_type 			= "Linux"
+customization_domain 		= "sfo.rainpole.io"
+customization_timezone		= "America/Los_Angeles"
