@@ -4,9 +4,9 @@
 
 terraform {
   required_providers {
-    vra = {
-      source  = "vmware/vra"
-      version = ">= 0.5.3"
+    null = {
+      source  = "hashicorp/null"
+      version = ">= 3.1.1"
     }
   }
   required_version = ">= 1.2.0"
