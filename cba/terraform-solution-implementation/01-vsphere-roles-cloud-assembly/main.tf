@@ -18,9 +18,9 @@ provider "vsphere" {
 # RESOURCES
 ##################################################################################
 
-resource "vsphere_role" "vra-vsphere" {
-  name            = var.vra_vsphere_role
-  role_privileges = var.vra_vsphere_privileges
+resource "vsphere_role" "ca-vsphere" {
+  name            = var.ca_vsphere_role
+  role_privileges = var.ca_vsphere_privileges
 }
 
 resource "vsphere_role" "vro-vsphere" {

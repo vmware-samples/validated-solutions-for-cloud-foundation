@@ -6,10 +6,10 @@ You configure image mappings for images in content libraries.
 
 In the sample, the following image mappings are used:
 
-| Name            | Account / Region              | Content Library / Image                   |
-| :-                        | :-                            | :-                                        |
-| photon-4.0      | sfo-w01-vc01 / Datacenter:datacenter-3   | sfo-vmc-lib01 / photon-4.0   |
-| photon-4.0-uefi | sfo-w01-vc01 / Datacenter:datacenter-3   | sfo-vmc-lib01 / photon-4.0-uefi  |
+| Name            | Account / Region                        | Content Library / Image         |
+| :-              | :-                                      | :-                              |
+| photon-4.0      | sfo-w01-vc01 / Datacenter:datacenter-3  | sfo-vmc-lib01 / photon-4.0      |
+| photon-4.0-uefi | sfo-w01-vc01 / Datacenter:datacenter-3  | sfo-vmc-lib01 / photon-4.0-uefi |
 
 ## UI Procedure
 
@@ -25,13 +25,13 @@ In the sample, the following image mappings are used:
 
 6. Click **New image mapping**, configure these settings.
 
-    | **Setting**           | **Value**                               |
-    | :-                    | :-                                      |
-    | Image name	          | photon-4.0                              |
-    | Account / region      | sfo-w01-vc01 / Datacenter:datacenter-3  |
-    | Image                 | sfo-vmc-lib01 / photon-4.0              |
-    | Constraints           | -                                       |
-    | Cloud configuration	 | -                                       |
+   | **Setting**           | **Value**                               |
+   | :-                    | :-                                      |
+   | Image name            | photon-4.0                              |
+   | Account / region      | sfo-w01-vc01 / Datacenter:datacenter-3  |
+   | Image                 | sfo-vmc-lib01 / photon-4.0              |
+   | Constraints           | -                                       |
+   | Cloud configuration   | -                                       |
 
 7. Click **Create**.
 
@@ -41,9 +41,9 @@ In the sample, the following image mappings are used:
 
 1. Navigate to the Terraform example in the repository.
 
-    ```bash
-    cd terraform-sample-project/05-cloud-assembly-image-mapping
-    ```
+   ```bash
+   cd terraform-sample-project/05-cloud-assembly-image-mapping
+   ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
 

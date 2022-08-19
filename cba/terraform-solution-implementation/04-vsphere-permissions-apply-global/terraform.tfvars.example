@@ -10,8 +10,8 @@ vcf_password = "********************"
 
 # vSphere Permissions
 
-vmc_vsphere_role 	= "Cloudy Assembly to vSphere Integration"
-vmc_service_account = "svc-vmc-vsphere"
+ca_vsphere_role 	= "Cloudy Assembly to vSphere Integration"
+ca_service_account = "svc-vmc-vsphere"
 vro_vsphere_role 	= "vRealize Orchestrator to vSphere Integration"
 vro_service_account = "svc-vro-vsphere"
 

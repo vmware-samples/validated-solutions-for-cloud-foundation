@@ -23,7 +23,7 @@ Create a content library for storing the images that you can then use to deploy 
    | **Setting**            | **Value**   |
    | :-                     | :-          |
    | Local content library  | Selected    |
-   | Enable publishing	    | Selected    |
+   | Enable publishing      | Selected    |
    | Enable authentication  | Disabled    |
 
 5. On the **Apply security policy** page, click **Next**.
@@ -66,6 +66,6 @@ Create a content library for storing the images that you can then use to deploy 
    terraform apply tfplan
    ```
 
-[Back: Home](README.md) 
+[Back: Home](README.md)
 
 [Next: Import Photon OS OVF Images to the Publishing Content Library](2-import-photon-template.md)

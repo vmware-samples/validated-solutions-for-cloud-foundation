@@ -26,11 +26,11 @@ data "vsphere_role" "role_name" {
 ##################################################################################
 
 
-resource "vsphere_entity_permissions" "vcenter-vmc-user" {
+resource "vsphere_entity_permissions" "vcenter-ca-user" {
   entity_id   = data.vsphere_folder.folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.vmc_service_account
+    user_or_group = var.ca_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id

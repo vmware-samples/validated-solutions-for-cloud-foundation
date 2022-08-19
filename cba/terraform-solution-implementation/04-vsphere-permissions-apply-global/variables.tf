@@ -21,12 +21,12 @@ variable "vcf_password" {
 
 # vSphere Objects
 
-variable "vmc_vsphere_role" {
+variable "ca_vsphere_role" {
   type        = string
   description = "The target vSphere role to be assigned to the VMC Service account. (e.g. Cloudy Assembly to vSphere Integration)"
 }
 
-variable "vmc_service_account" {
+variable "ca_service_account" {
   type        = string
   description = "The target VMC Service account to assign the role to. (e.g. svc-vmc-vsphere@sfo)"
 }

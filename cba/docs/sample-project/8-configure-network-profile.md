@@ -20,12 +20,12 @@ Each network profile is configured for a specific network port group or network 
 
 7. On the **Summary** tab, configure these settings.
 
-    | **Setting**      | **Value**                              |
-    | :-               | :-                                     |
-    | Account / region | sfo-w01-vc01 / Datacenter:datacenter-3 |
-    | Name             | net-existing-sfo-w01-vc01              |
-    | Description      | Existing Networks - sfo-w01            |
-    | Capability tags  | network:existing                       |
+    | **Setting**           | **Value**                              |
+    | :-                    | :-                                     |
+    | Account / region      | sfo-w01-vc01 / Datacenter:datacenter-3 |
+    | Name                  | net-existing-sfo-w01-vc01              |
+    | Description           | Existing Networks - sfo-w01            |
+    | Capability tags       | network:existing                       |
 
 8. Click the **Networks** tab, click **Add network**, select the NSX segments for production and development workloads and click **Add**.
 
@@ -46,8 +46,8 @@ Each network profile is configured for a specific network port group or network 
     | **Setting**           | **sfo-prod-192-168-50-0-24** | **sfo-dev-192-168-51-0-24** |
     | :-                    | :-                           | :-                                        |
     | Domain                | sfo.rainpole.io              | sfo.rainpole.io                           |
-    | IPv4 CIDR             | 192.168.50.0/24              | 192.168.51.0/24                            |
-    | IPv4 default gateway  | 192.168.50.1                 | 192.168.51.1                               |
+    | IPv4 CIDR             | 192.168.50.0/24              | 192.168.51.0/24                           |
+    | IPv4 default gateway  | 192.168.50.1                 | 192.168.51.1                              |
     | DNS servers           | 172.16.11.4, 172.16.11.5     | 172.16.11.4, 172.16.11.5                  |
     | DNS search domains    | sfo.rainpole.io              | sfo.rainpole.io                           |
 
@@ -96,7 +96,6 @@ Each network profile is configured for a specific network port group or network 
    ```terraform
    terraform apply tfplan
    ```
-
 
 [Back: Configure Network IP Address Settings for Existing Networks](7-configure-segment-networking.md)
 

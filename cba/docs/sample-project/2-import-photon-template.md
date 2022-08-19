@@ -11,7 +11,6 @@ In the sample, the following operating system images are used:
    | Photon OS            | photon-4.0                        |
    | Photon OS            | photon-4.0-uefi                   |
 
-
 ## UI Procedure
 
 1. Log in to vCenter Server at **`https://<vi_workload_domain_vcenter_server_fqdn>/ui`** with a user assigned the **Administrator** role.
@@ -78,7 +77,6 @@ Initialize an on-demand image synchronization for the vCenter Server cloud accou
 
 7. On the cloud account page, click **Sync images**.
 
-
-[Back: Configure a Publishing Content Library](1-configure-content-libraries) 
+[Back: Configure a Publishing Content Library](1-configure-content-libraries)
 
 [Next: Configure a Customization Specification for Photon Operating Systems](3-configure-custom-specs.md)

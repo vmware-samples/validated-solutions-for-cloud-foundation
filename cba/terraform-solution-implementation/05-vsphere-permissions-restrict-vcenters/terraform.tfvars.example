@@ -14,7 +14,5 @@ vsphere_insecure = false
 folder_path = "/"
 
 role_name = "No access"
-vmc_service_account = "SFO\\svc-vmc-vsphere"
+ca_service_account = "SFO\\svc-ca-vsphere"
 vro_service_account = "SFO\\svc-vro-vsphere"
-
-

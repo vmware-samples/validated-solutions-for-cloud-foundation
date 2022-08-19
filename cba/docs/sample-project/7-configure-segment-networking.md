@@ -1,6 +1,5 @@
 [Back: Home](README.md)
 
-
 # Configure Network IP Address Settings for Existing Networks
 
 Each network profile is configured for a specific network port group or network segment to specify the IP address and the routing configuration for virtual machines provisioned to that network.
@@ -21,11 +20,11 @@ Each network profile is configured for a specific network port group or network 
 
 7. Configure these settings, and click **Save**.
 
-    | **Setting**           | **Value**                |
-    | :-                    | :-                       |
-    | Domain                | sfo.rainpole.io          |
-    | DNS servers           | 172.16.11.4, 172.16.11.5 |
-    | DNS search domains    | sfo.rainpole.io          |
+   | **Setting**           | **Value**                |
+   | :-                    | :-                       |
+   | Domain                | sfo.rainpole.io          |
+   | DNS servers           | 172.16.11.4, 172.16.11.5 |
+   | DNS search domains    | sfo.rainpole.io          |
 
 6. Repeat this procedure for the NSX segment for development workloads.
 
@@ -33,9 +32,9 @@ Each network profile is configured for a specific network port group or network 
 
 1. Navigate to the Terraform example in the repository.
 
-    ```bash
-    cd terraform-sample-project/07-cloud-assembly-network-fabric
-    ```
+   ```bash
+   cd terraform-sample-project/07-cloud-assembly-network-fabric
+   ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
 
@@ -58,7 +57,7 @@ Each network profile is configured for a specific network port group or network 
    ```
 
 6. Import the current state of two existing networks, by obtaining the UUID from the VMware Cloud Assembly console.
-   
+
    a. Log in to the VMware Cloud Services console at **`https://console.cloud.vmware.com`**.
 
    b. On the main navigation bar, click **Services**.
@@ -74,11 +73,11 @@ Each network profile is configured for a specific network port group or network 
    h. Using the browser URL obtain the UUID from the URL.
 
    i. Import the Production network using the ID displayed next to data.vra_fabric_compute.compute_id.terraform
- 
+
    ```terraform
    terraform import vra_fabric_network_vsphere.network0 <UUID_of_sfo-prod-192-168-50-0-24>
    ```
-   
+
    b. Repeat this procedure for the NSX segment for development workloads.
 
    ```terraform

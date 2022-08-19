@@ -29,12 +29,27 @@ variable "vsphere_insecure" {
 
 # vSphere Objects
 
-variable "folder_path" {
+variable "vsphere_datacenter" {
   type        = string
-  description = "The target folder where permissions are assigned. (e.g. / for root)"
+  description = "The target vSphere datacenter object name. (e.g. sfo-m01-dc01)"
 }
 
-variable "vmc_service_account" {
+variable "edge_folder" {
+  type        = string
+  description = "The target folder where permissions are assigned. (e.g. sfo-w01-fd-edge)"
+}
+
+variable "local_storage_folder" {
+  type        = string
+  description = "The target folder where permissions are assigned. (e.g. sfo-w01-fd-storage-local)"
+}
+
+variable "readonly_storage_folder" {
+  type        = string
+  description = "The target folder where permissions are assigned. (e.g. sfo-w01-fd-storage-readonly)"
+}
+
+variable "ca_service_account" {
   type        = string
   description = "The target VMC Service account to assign the role to. (e.g. svc-vmc-vsphere@sfo)"
 }

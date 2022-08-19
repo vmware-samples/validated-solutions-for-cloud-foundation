@@ -26,7 +26,7 @@ You can share cloud templates and content sources within a project to enable pro
     | :-                                                   | :-                            |
     | Name                                                 | Rainpole Content Sharing      |
     | Description                                          | Content for Project: Rainpole |
-    | Scope  	                                           | Rainpole                      |
+    | Scope                                                | Rainpole                      |
     | Content Sharing                                      | Photon 4.0                    |
     | Share (content) with all users/groups in the project | Enabled                       |
 
