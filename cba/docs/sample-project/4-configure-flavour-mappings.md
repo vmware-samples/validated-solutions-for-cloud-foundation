@@ -28,12 +28,12 @@ In the sample, the following flavor mappings are used:
 
 6. Click **New flavor mapping** and configure these settings.
 
-    | **Setting**       | **Value**                              |
-    | :-                | :-                                     | 
-    | Flavor name       | x-small                                |
-    | Account / region  | sfo-w01-vc01 / Datacenter:datacenter-3 |
-    | Number of CPUs	   | 1                                      |
-    | Memory (GB)	      | 1                                      |
+   | **Setting**       | **Value**                              |
+   | :-                | :-                                     |
+   | Flavor name       | x-small                                |
+   | Account / region  | sfo-w01-vc01 / Datacenter:datacenter-3 |
+   | Number of CPUs    | 1                                      |
+   | Memory (GB)       | 1                                      |
 
 7. Click **Create**
 

@@ -18,28 +18,28 @@ You configure storage for the provisioned workloads by defining a storage profil
 
 6. On the **Storage profiles** page, click **New storage profile**, configure the settings, and click **Create**.
 
-    | **Setting**                       | **Value**                                |
-    | :-                                | :-                                       |
-    | Account / region                  | sfo-w01-vc01 / Datacenter:datacenter-3   |
-    | Name                              | standard-sfo-w01-cl01-vsan-default       |
-    | Description	                      | standard-sfo-w01-cl01-vsan-default       |
-    | Disk type	                      | Standard disk                            |
-    | Storage policy	                   | sfo-w01-cl01 vSAN Storage Policy         |
-    | Datastore / cluster	             | sfo-w01-sfo-w01-vc01-sfo-w01-cl01-vsan01 |
-    | Provisioning type	                | Thin                                     |
-    | Shares	                         | Unspecified                              |
-    | Limit IOPS	                      | -                                        |
-    | Disk mode	                      | Dependent                                |
-    | Preferred storage for this region | Selected                                 |
-    | Capability tags                   | tier:platinum                            |
+   | **Setting**                       | **Value**                                |
+   | :-                                | :-                                       |
+   | Account / region                  | sfo-w01-vc01 / Datacenter:datacenter-3   |
+   | Name                              | standard-sfo-w01-cl01-vsan-default       |
+   | Description                       | standard-sfo-w01-cl01-vsan-default       |
+   | Disk type                         | Standard disk                            |
+   | Storage policy                    | sfo-w01-cl01 vSAN Storage Policy         |
+   | Datastore / cluster               | sfo-w01-sfo-w01-vc01-sfo-w01-cl01-vsan01 |
+   | Provisioning type                 | Thin                                     |
+   | Shares                            | Unspecified                              |
+   | Limit IOPS                        | -                                        |
+   | Disk mode                         | Dependent                                |
+   | Preferred storage for this region | Selected                                 |
+   | Capability tags                   | tier:platinum                            |
 
 ## Terraform Procedure
 
 1. Navigate to the Terraform example in the repository.
 
-    ```bash
-    cd terraform-sample-project/09-cloud-assembly-storage-profile
-    ```
+   ```bash
+   cd terraform-sample-project/09-cloud-assembly-storage-profile
+   ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
 

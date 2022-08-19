@@ -19,5 +19,5 @@ readonly_storage_folder = "sfo-w01-fd-storage-readonly"
 
 role_name = "No access"
 
-vmc_service_account = "SFO\\svc-vmc-vsphere"
+ca_service_account = "SFO\\svc-ca-vsphere"
 vro_service_account = "SFO\\svc-vro-vsphere"

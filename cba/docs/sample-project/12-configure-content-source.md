@@ -24,7 +24,7 @@ Provide access to vRealize Automation cloud templates to users by creating and c
 | :-              | :-                                           |
 | Name            | Rainpole - Cloud Templates                   |
 | Description     | VMware Cloud Templates for Project: Rainpole |
-| Source project  | Rainpole                                     |        
+| Source project  | Rainpole                                     |
 
 1. After the successful validation, click **Create and import**.
 

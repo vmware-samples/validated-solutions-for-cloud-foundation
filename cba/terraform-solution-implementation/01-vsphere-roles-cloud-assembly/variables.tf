@@ -29,9 +29,9 @@ variable "vsphere_insecure" {
 
 # Roles
 
-variable "vra_vsphere_role" {
+variable "ca_vsphere_role" {
   type        = string
-  description = "The name for the vRealize Automation to vSphere custom role."
+  description = "The name for the Cloud Assembly to vSphere custom role."
 }
 
 variable "vro_vsphere_role" {
@@ -39,12 +39,12 @@ variable "vro_vsphere_role" {
   description = "The name for the vRealize Orchestrator to vSphere.custom role."
 }
 
-variable "vra_vsphere_privileges" {
+variable "ca_vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere permissions for the vRealize Automation to vSphere custom role."
+  description = "The vSphere permissions for the Cloud Assembly to vSphere custom role."
 }
 
 variable "vro_vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere permissions for the vRealize Orchestrator to vSphere.custom role."
+  description = "The vSphere permissions for the vRealize Orchestrator to vSphere custom role."
 }

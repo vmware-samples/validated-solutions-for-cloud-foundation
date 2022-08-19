@@ -16,27 +16,27 @@ Create a customization specification for the Photon Operating System, for use by
 
 5. On the **Name and target OS** page, configure the settings and click **Next**.
 
-    | Setting           | Example Value                 |
-    | :-                | :-                            |
-    | Name              | Photon-4.0                    |
-    | Description       | Photon 4.0 Operation System   |
-    | vCenter Server    | sfo-w01-vc01.sfo.rainpole.io  |
-    | Target guest OS	| Linux                         |
+    | Setting                       | Example Value                 |
+    | :-                            | :-                            |
+    | Name                          | Photon-4.0                    |
+    | Description                   | Photon 4.0 Operation System   |
+    | vCenter Server                | sfo-w01-vc01.sfo.rainpole.io  |
+    | Target guest OS               | Linux                         |
 
 6. On the **Computer name** page, configure the settings and click **Next**.
 
-    | Setting                       | Example Value     |
-    | :-                            | :-                |
-    | Use the virtual machine name  | Selected          |
-    | Domain name                   | sfo.rainpole.io   |
+    | Setting                       | Example Value                 |
+    | :-                            | :-                            |
+    | Use the virtual machine name  | Selected                      |
+    | Domain name                   | sfo.rainpole.io               |
 
 7. On the **Time zone** page, configure the settings and click **Next**.
 
-    | Setting                       | Example Value     |
-    | :-                            | :-                |
-    | Area                          | America           |
-    | Location                      | Los Angeles       |
-    | Hardware clock set to         | Local time        |
+    | Setting                       | Example Value                 |
+    | :-                            | :-                            |
+    | Area                          | America                       |
+    | Location                      | Los Angeles                   |
+    | Hardware clock set to         | Local time                    |
 
 8. On the **Customization script** page, click **Next**.
 

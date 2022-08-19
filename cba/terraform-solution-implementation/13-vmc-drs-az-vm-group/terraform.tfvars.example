@@ -27,6 +27,5 @@ vmc_host_group_ruleset_mandatory = false
 vmc_group_name = "sfo-vmgroup-az-vmc"
 vmc_group_vms = [
   "sfo-vmc-cdp01",
-  "sfo-vmc-cep01",
-  "sfo-vmc-vro01",
+  "sfo-vmc-cep01"
 ]

@@ -1,6 +1,6 @@
 [Back: Home](README.md)
 
-# Configure NSX Overlay Segments to NSX-T Data Center.
+# Configure NSX Overlay Segments to NSX-T Data Center
 
 Before project members can request workloads on existing networks, you must add the network segments to the VI workload domain NSX Local Manager.
 
@@ -23,13 +23,13 @@ NSX Segments for Existing Networks
 
 4. On the **Segments** tab, click **Add segment**, configure these settings and click **Save**.
 
-    | **Setting**                 | **Value**                                |
-    | :-                          | :-                                       |
-    | Segment name                | sfo-prod-192-168-50-0-24                 |
-    | Connected gateway           | sfo-w01-ec01-t1-gw01                     |
-    | Transport zone              | overlay-tz-sfo-w01-nsx01.sfo.rainpole.io |
-    | Subnets (Gateway CIDR IPv4) | 192.168.50.1/24                          |
-    | Admin state                 | Turned on                                |
+   | **Setting**                 | **Value**                                |
+   | :-                          | :-                                       |
+   | Segment name                | sfo-prod-192-168-50-0-24                 |
+   | Connected gateway           | sfo-w01-ec01-t1-gw01                     |
+   | Transport zone              | overlay-tz-sfo-w01-nsx01.sfo.rainpole.io |
+   | Subnets (Gateway CIDR IPv4) | 192.168.50.1/24                          |
+   | Admin state                 | Turned on                                |
 
 5. In the **Want to continue configuring this Segment?** dialog box, click **No**.
 
@@ -39,9 +39,9 @@ NSX Segments for Existing Networks
 
 1. Navigate to the Terraform example in the repository.
 
-    ```bash
-    cd terraform-sample-project/06-nsx-network-create-segment
-    ```
+   ```bash
+   cd terraform-sample-project/06-nsx-network-create-segment
+   ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
 
