@@ -36,12 +36,12 @@ variable "folder_path" {
 
 variable "ca_service_account" {
   type        = string
-  description = "The target VMC Service account to assign the role to. (e.g. svc-ca-vsphere@sfo)"
+  description = "The target Cloud Assembly Service account to assign the role to. (e.g. svc-ca-vsphere@sfo)"
 }
 
 variable "vro_service_account" {
   type        = string
-  description = "The target VMC Service account to assign the role to. (e.g. svc-vro-vsphere@sfo)"
+  description = "The target Cloud Assembly Service account to assign the role to. (e.g. svc-vro-vsphere@sfo)"
 }
 
 variable "role_name" {
