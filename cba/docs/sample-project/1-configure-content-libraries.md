@@ -37,7 +37,7 @@ Create a content library for storing the images that you can then use to deploy 
 1. Navigate to the Terraform example in the repository.
 
    ```bash
-   cd terraform-sample-project/01-vsphere-content-library-publishing
+   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/01-vsphere-content-library-publishing
    ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

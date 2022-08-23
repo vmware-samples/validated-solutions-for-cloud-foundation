@@ -35,7 +35,7 @@ You can share cloud templates and content sources within a project to enable pro
 1. Navigate to the Terraform example in the repository.
 
     ```bash
-    cd terraform-sample-project/13-cloud-assembly-content-sharing
+    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/13-cloud-assembly-content-sharing
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

@@ -12,7 +12,7 @@ vra_insecure  = false
 
 catalog_sources = {
   catalog_source0 = {
-    name         = "Rainple - Cloud Templates"
+    name         = "Rainpole - Cloud Templates"
     description  = "VMware Cloud Templates for Project: Rainpole"
     project_name = "Rainpole"
   }

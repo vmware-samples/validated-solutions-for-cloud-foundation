@@ -42,7 +42,7 @@ In the sample, the following image mappings are used:
 1. Navigate to the Terraform example in the repository.
 
    ```bash
-   cd terraform-sample-project/05-cloud-assembly-image-mapping
+   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/05-cloud-assembly-image-mapping
    ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

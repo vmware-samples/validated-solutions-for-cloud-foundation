@@ -40,7 +40,7 @@ NSX Segments for Existing Networks
 1. Navigate to the Terraform example in the repository.
 
    ```bash
-   cd terraform-sample-project/06-nsx-network-create-segment
+   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/06-nsx-network-create-segment
    ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

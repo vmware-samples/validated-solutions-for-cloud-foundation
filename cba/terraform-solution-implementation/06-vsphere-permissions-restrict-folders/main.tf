@@ -38,33 +38,33 @@ data "vsphere_role" "role_name" {
 ##################################################################################
 
 
-resource "vsphere_entity_permissions" "edge-vmc-user" {
+resource "vsphere_entity_permissions" "edge-ca-user" {
   entity_id   = data.vsphere_folder.edge_folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.vmc_service_account
+    user_or_group = var.ca_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id
   }
 }
 
-resource "vsphere_entity_permissions" "storage-local-vmc-user" {
+resource "vsphere_entity_permissions" "storage-local-ca-user" {
   entity_id   = data.vsphere_folder.storage_local_folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.vmc_service_account
+    user_or_group = var.ca_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id
   }
 }
 
-resource "vsphere_entity_permissions" "storage-readonly-vmc-user" {
+resource "vsphere_entity_permissions" "storage-readonly-ca-user" {
   entity_id   = data.vsphere_folder.storage_readonly_folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.vmc_service_account
+    user_or_group = var.ca_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id

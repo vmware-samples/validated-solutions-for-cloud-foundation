@@ -44,7 +44,7 @@ In the sample, the following flavor mappings are used:
 1. Navigate to the Terraform example in the repository.
 
     ```bash
-    cd terraform-sample-project/04-cloud-assembly-flavor-mapping
+    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/04-cloud-assembly-flavor-mapping
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

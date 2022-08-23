@@ -15,7 +15,7 @@ vsphere_datacenter = "sfo-w01-DC"
 
 edge_folder = "sfo-w01-fd-edge"
 local_storage_folder = "sfo-w01-fd-storage-local"
-readonly_storage_folder = "sfo-w01-fd-storage-readonly"
+readonly_storage_folder = "sfo-w01-fd-storage-readOnly"
 
 role_name = "No access"
 
