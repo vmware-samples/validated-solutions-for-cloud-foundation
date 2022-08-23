@@ -15,11 +15,11 @@ nsxt_transport_zone = "overlay-tz-sfo-w01-nsx01.sfo.rainpole.io"
 nsxt_t1_gw          = "sfo-w01-ec01-t1-gw01"
 nsxt_segments = [
   {
-    name = "sfo-prod-192.168.50.0-24"
+    name = "sfo-prod-192-168-50-0-24"
     cidr = "192.168.50.1/24"
   },
   {
-    name = "sfo-dev-192.168.51.0-24"
+    name = "sfo-dev-192-168-51-0-24"
     cidr = "192.168.51.1/24"
   }
 ]

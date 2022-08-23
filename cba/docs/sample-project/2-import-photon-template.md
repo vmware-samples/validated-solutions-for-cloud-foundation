@@ -30,7 +30,7 @@ In the sample, the following operating system images are used:
 1. Navigate to the Terraform example in the repository.
 
    ```bash
-   cd terraform-sample-project/02-vsphere-content-library-items
+   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/02-vsphere-content-library-items
    ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

@@ -51,7 +51,7 @@ Create a customization specification for the Photon Operating System, for use by
 1. Navigate to the Terraform example in the repository.
 
    ```bash
-   cd terraform-sample-project/03-vsphere-customization-spec
+   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/03-vsphere-customization-spec
    ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

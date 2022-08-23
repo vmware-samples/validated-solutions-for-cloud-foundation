@@ -157,7 +157,7 @@ resources:
 1. Navigate to the Terraform example in the repository.
 
   ```bash
-  cd terraform-sample-project/11-cloud-assembly-cloud-template
+  cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/11-cloud-assembly-cloud-template
   ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

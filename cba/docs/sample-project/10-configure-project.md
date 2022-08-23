@@ -49,7 +49,7 @@ You configure a project to define the users that can provision workloads, the pr
 1. Navigate to the Terraform example in the repository.
 
     ```bash
-    cd terraform-sample-project/10-cloud-assembly-project
+    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/10-cloud-assembly-project
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

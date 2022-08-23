@@ -33,7 +33,7 @@ Provide access to vRealize Automation cloud templates to users by creating and c
 1. Navigate to the Terraform example in the repository.
 
     ```bash
-    cd terraform-sample-project/12-cloud-assembly-content-source
+    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/12-cloud-assembly-content-source
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

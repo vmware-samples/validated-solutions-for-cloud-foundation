@@ -33,7 +33,7 @@ Each network profile is configured for a specific network port group or network 
 1. Navigate to the Terraform example in the repository.
 
    ```bash
-   cd terraform-sample-project/07-cloud-assembly-network-fabric
+   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/07-cloud-assembly-network-fabric
    ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

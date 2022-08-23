@@ -26,7 +26,7 @@ vsphere_folders = {
     type = "datastore"
   },
   folder2 = {
-    path = "sfo-w01-fd-storage-readOnly"
+    path = "sfo-w01-fd-storage-readonly"
     type = "datastore"
   }
 }
