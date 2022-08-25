@@ -135,9 +135,9 @@ resource "vsphere_virtual_machine" "cloud_proxy" {
   wait_for_guest_ip_timeout  = 0
   ovf_deploy {
     allow_unverified_ssl_cert = true
-    remote_ovf_url    = data.vsphere_ovf_vm_template.ovf.remote_ovf_url
-    disk_provisioning = var.cloud_proxy_disk_provisioning
-    ovf_network_map   = data.vsphere_ovf_vm_template.ovf.ovf_network_map
+    remote_ovf_url            = data.vsphere_ovf_vm_template.ovf.remote_ovf_url
+    disk_provisioning         = var.cloud_proxy_disk_provisioning
+    ovf_network_map           = data.vsphere_ovf_vm_template.ovf.ovf_network_map
   }
   vapp {
     properties = {
