@@ -2,6 +2,10 @@
 # VARIABLES
 ##################################################################################
 
+# VMware Cloud Services
+
+csp_api_token = "********************"
+
 # vSphere Settings
 
 vsphere_server     = "sfo-m01-vc01.sfo.rainpole.io"
@@ -17,10 +21,7 @@ vsphere_network    = "sfo01-m01-cl01-vds01-pg-mgmt"
 
 # Cloud Proxy Settings
 
-cloud_proxy_ovf_remote                = "https://vro-appliance-distrib.s3.amazonaws.com/VMware-Extensibility-Appliance-SAAS.ova"
-cloud_proxy_ovf_local                 = null
 cloud_proxy_deployment_option         = "vra_cloud"
-cloud_proxy_otk                       = "********************"
 cloud_proxy_hostname                  = "sfo-vmc-cep01.sfo.rainpole.io"
 cloud_proxy_root_password             = "********************"
 cloud_proxy_root_password_mindays     = 0

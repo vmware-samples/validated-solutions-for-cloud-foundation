@@ -2,6 +2,10 @@
 # VARIABLES
 ##################################################################################
 
+# VMware Cloud Services
+
+csp_api_token = "********************"
+
 # vSphere Settings
 
 vsphere_server     = "sfo-m01-vc01.sfo.rainpole.io"
@@ -17,9 +21,6 @@ vsphere_network    = "sfo01-m01-cl01-vds01-pg-mgmt"
 
 # Cloud Proxy Settings
 
-cloud_proxy_ovf_remote                = "https://ci-data-collector.s3.amazonaws.com/VMware-Cloud-Services-Data-Collector.ova"
-cloud_proxy_ovf_local                 = null
-cloud_proxy_otk                       = "********************"
 cloud_proxy_root_password             = "********************"
 cloud_proxy_root_password_mindays     = 0
 cloud_proxy_root_password_maxdays     = 90   // 90 days is the default value
