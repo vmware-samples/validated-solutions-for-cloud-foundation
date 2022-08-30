@@ -18,12 +18,6 @@ variable "nsxt_password" {
   description = "The password for the login to the NSX Manager instance."
 }
 
-variable "nsxt_insecure" {
-  type        = bool
-  description = "Set to true for self-signed certificates."
-  default     = false
-}
-
 variable "vidm_user" {
   type        = string
   description = "The user/group the role needs to be assignd to. (e.g. svc-vmc-nsx@sfo.rainpole.io)"
