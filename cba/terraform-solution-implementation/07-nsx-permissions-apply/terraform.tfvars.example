@@ -7,7 +7,6 @@
 nsxt_instance = "sfo-w01-nsx01.sfo.rainpole.io"
 nsxt_username = "admin"
 nsxt_password = "********************"
-nsxt_insecure = false
 
 vidm_user            = "svc-ca-nsx@sfo.rainpole.io"
 vidm_type            = "remote_user"
