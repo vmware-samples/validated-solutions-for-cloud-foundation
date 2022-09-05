@@ -2,7 +2,7 @@
 # VARIABLES
 ##################################################################################
 
-# VCF Credentials
+# VMware Cloud Foundation Credentials
 
 variable "vcf_server" {
   type        = string
@@ -11,7 +11,8 @@ variable "vcf_server" {
 
 variable "vcf_username" {
   type        = string
-  description = "The username to login to the VMware Cloud Foundation instance."
+  description = "The username to login to the VMware Cloud Foundation instance. (e.g. administrator@vsphere.local)"
+  default     = "administrator@vsphere.local"
 }
 
 variable "vcf_password" {
@@ -24,6 +25,7 @@ variable "vcf_password" {
 variable "ca_vsphere_role" {
   type        = string
   description = "The target vSphere role to be assigned to the VMC Service account. (e.g. Cloudy Assembly to vSphere Integration)"
+  default     = "Cloudy Assembly to vSphere Integration"
 }
 
 variable "ca_service_account" {
@@ -34,6 +36,7 @@ variable "ca_service_account" {
 variable "vro_vsphere_role" {
   type        = string
   description = "The target vSphere role to be assigned to the VMC Service account. (e.g. vRealize Orchestrator to vSphere Integration)"
+  default     = "vRealize Orchestrator to vSphere Integration"
 }
 
 variable "vro_service_account" {

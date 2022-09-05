@@ -4,6 +4,8 @@
 
 # VMware Cloud Services
 
+csp_uri       = "https://console.cloud.vmware.com"
+vra_uri       = "https://api.mgmt.cloud.vmware.com"
 csp_api_token = "********************"
 
 # vSphere Settings
@@ -28,7 +30,6 @@ cloud_proxy_root_password_mindays     = 0
 cloud_proxy_root_password_maxdays     = 90   // 90 days is the default value
 cloud_proxy_root_password_warndays    = 14
 cloud_proxy_name                      = "sfo-vmc-cep01"
-cloud_proxy_display_name              = "sfo-vmc-cep01"
 cloud_proxy_ssh_enabled               = "True"
 cloud_proxy_fips_mode                 = "disabled"
 cloud_proxy_network_proxy_hostname_ip = null
@@ -42,6 +43,7 @@ cloud_proxy_dns_servers               = "172.18.95.4,172.18.95.5"
 cloud_proxy_ntp_servers               = "ntp.sfo.rainpole.io"
 cloud_proxy_domain                    = "sfo.rainpole.io"
 cloud_proxy_dns_search                = "sfo.rainpole.io"
-cloud_proxy_disk_provisioning         = "thin"
 cloud_proxy_k8s_cluster_cidr          = "10.244.0.0/22"
 cloud_proxy_k8s_service_cidr          = "10.244.4.0/22"
+vro_integration_name                  = "sfo-w01-vro-integration"
+vro_integration_tag                   = "sfo-w01-vro"

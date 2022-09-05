@@ -2,19 +2,15 @@
 # VARIABLES
 ##################################################################################
 
-# Credentials
+# vSphere Credentials
 
 vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
 vsphere_password = "********************"
-vsphere_insecure = false
 
 # vSphere Settings
 
 vsphere_datacenter = "sfo-m01-dc01"
-
-# Folders
-
 vsphere_folders = {
   folder0 = {
     path = "sfo-m01-fd-vmc"

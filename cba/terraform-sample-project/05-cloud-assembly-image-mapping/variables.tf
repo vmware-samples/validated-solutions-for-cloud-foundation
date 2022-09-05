@@ -7,6 +7,7 @@
 variable "vra_url" {
   type        = string
   description = "The base URL of the vRealize Automation endpoint. (e.g. https://xint-vra01.rainpole.io)"
+  default     = "https://api.mgmt.cloud.vmware.com"
 }
 
 variable "vra_api_token" {

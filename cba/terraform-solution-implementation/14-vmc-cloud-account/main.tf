@@ -62,7 +62,7 @@ resource "vra_cloud_account_vsphere" "this" {
   accept_self_signed_cert      = var.accept_self_signed
   tags {
     key   = "cloud"
-    value = each.value["tag_cloud"]
+    value = each.value["tag_region"]
   }
 }
 
@@ -77,7 +77,7 @@ resource "vra_cloud_account_nsxt" "this" {
   accept_self_signed_cert = var.accept_self_signed
   tags {
     key   = "cloud"
-    value = each.value["tag_cloud"]
+    value = each.value["tag_region"]
   }
 }
 

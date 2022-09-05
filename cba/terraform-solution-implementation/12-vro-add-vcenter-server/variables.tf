@@ -11,12 +11,14 @@ variable "vcf_server" {
 
 variable "vcf_username" {
   type        = string
-  description = "The username to login to the VMware Cloud Foundation instance."
+  description = "The username to login to the VMware Cloud Foundation instance. (e.g. administrator@vsphere.local)"
+  default     = "administrator@vsphere.local"
 }
 
 variable "vcf_password" {
   type        = string
   description = "The password for the login to the VMware Cloud Foundation instance."
+  sensitive   = true
 }
 
 variable "vcf_domain" {
@@ -27,6 +29,7 @@ variable "vcf_domain" {
 variable "csp_api_token" {
   type        = string
   description = "API token from the vRealize Automation endpoint."
+  sensitive   = true
 }
 
 variable "cep_server" {
@@ -41,5 +44,6 @@ variable "vro_service_account" {
 
 variable "vro_service_password" {
   type        = string
-  description = "The targetvRealize Orchestrator Service account password."
+  description = "The target vRealize Orchestrator Service account password."
+  sensitive   = true
 }

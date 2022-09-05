@@ -2,7 +2,7 @@
 
 # Configure a Sample Project in vRealize Automation Cloud
 
-After completing the `Cloud-Based Automation for VMware Cloud Foundation` validated solution implementation, optionally, you can configure a sample project scenario to test the workload provisioning.
+After completing the [Cloud-Based Automation for VMware Cloud Foundation](https://core.vmware.com/cloud-based-automation-vmware-cloud-foundation) validated solution implementation, optionally, you can configure a sample project scenario to test the workload provisioning.
 
 You prepare for workload provisioning by allocating the necessary infrastructure resources by using flavor mappings, image mappings, network profiles, and storage profiles. You then configure a project, content library, and a cloud templates to test the workload provisioning capabilities with VMware Cloud Foundation in your organization.
 
@@ -18,13 +18,13 @@ Procedures are provided using the user interfaces as well as the use of Terrafor
 
 4. [Configure Flavor Mappings in Cloud Assembly](4-configure-flavour-mappings.md)
 
-5. [Configure Image Mappings in Cloud Assembly.](5-configure-image-mappings.md)
+5. [Configure Image Mappings in Cloud Assembly](5-configure-image-mappings.md)
 
 6. [Configure NSX Overlay Segments to NSX-T Data Center](6-configure-nsx-segements.md)
 
 7. [Configure Network IP Address Settings for Existing Networks](7-configure-segment-networking.md)
 
-8. [Configure Network Profiles for Existing Networks.](8-configure-network-profile.md)
+8. [Configure Network Profiles for Existing Networks](8-configure-network-profile.md)
 
 9.  [Configure Storage Profiles in Cloud Assembly](9-configure-storage-profile.md)
 

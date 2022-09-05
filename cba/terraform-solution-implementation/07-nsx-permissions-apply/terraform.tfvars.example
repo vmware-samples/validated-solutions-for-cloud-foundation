@@ -2,11 +2,13 @@
 # VARIABLES
 ##################################################################################
 
-# Endpoints and Credentials
+# NSX Manager
 
 nsxt_instance = "sfo-w01-nsx01.sfo.rainpole.io"
 nsxt_username = "admin"
 nsxt_password = "********************"
+
+# Permissions
 
 vidm_user            = "svc-ca-nsx@sfo.rainpole.io"
 vidm_type            = "remote_user"

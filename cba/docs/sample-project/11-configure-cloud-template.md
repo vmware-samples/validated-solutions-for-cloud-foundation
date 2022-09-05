@@ -102,7 +102,7 @@ resources:
       image: ${input.operatingSystem}
       flavor: ${input.nodeSize}
       count: ${input.nodeCount}
-      customizationSpec: photon-4.0
+      customizationSpec: Photon-4.0
       constraints:
         - tag: ${input.targetCloud}
         - tag: ${input.targetRegion}

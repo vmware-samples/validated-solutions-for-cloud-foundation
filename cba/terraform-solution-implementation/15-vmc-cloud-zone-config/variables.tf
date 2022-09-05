@@ -6,7 +6,8 @@
 
 variable "vra_url" {
   type        = string
-  description = "The base URL of the vRealize Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com))"
+  description = "The base URL of the vRealize Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
+  default     = "https://api.mgmt.cloud.vmware.com"
 }
 
 variable "vra_api_token" {
@@ -36,4 +37,9 @@ variable "workload_target_folder" {
 variable "fabric_compute_name" {
   type        = string
   description = "The name of the resource pool within the Cloud Zone to provision virtual machines too (e.g. sfo-w01-cl01 / sfo-w01-cl01-rp-workload)"
+}
+
+variable "tag_zone" {
+  type        = string
+  description = "The the zone tag for the Cloud Zone. (e.g. sfo-w01)"
 }

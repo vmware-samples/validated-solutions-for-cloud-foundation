@@ -6,6 +6,9 @@ provider "terracurl" {
   # Configuration options
 }
 
+provider "time" {
+}
+
 provider "vsphere" {
   vsphere_server       = var.vsphere_server
   user                 = var.vsphere_username
@@ -13,12 +16,20 @@ provider "vsphere" {
   allow_unverified_ssl = var.vsphere_insecure
 }
 
+provider "vra" {
+  url                         = var.vra_uri
+  refresh_token               = var.csp_api_token
+  insecure                    = var.vra_insecure
+}
+
 # ##################################################################################
 # DATA
 # ##################################################################################
 
 data "terracurl_request" "get_ova_url" {
-  depends_on = [terracurl_request.get_access_token]
+  depends_on = [
+    terracurl_request.get_access_token
+  ]
   name       = "ova_url"
   url        = "${var.vra_uri}/api/artifact-provider?artifact=cexp-data-collector"
   method     = "GET"
@@ -64,6 +75,21 @@ data "vsphere_ovf_vm_template" "ovf" {
   }
 }
 
+data "vra_data_collector" "cloud_proxy" {
+  depends_on = [
+    time_sleep.nap
+  ]
+  name = var.cloud_proxy_name
+}
+
+data "tls_certificate" "example_content" {
+  depends_on     = [
+    data.vra_data_collector.cloud_proxy
+  ]
+  url = "https://${data.vra_data_collector.cloud_proxy.hostname}"
+  verify_chain = false
+}
+
 ##################################################################################
 # RESOURCES
 ##################################################################################
@@ -77,15 +103,13 @@ resource "terracurl_request" "get_access_token" {
   headers = {
     Content-Type = "application/x-www-form-urlencoded"
   }
-
-  destroy_response_codes = []
-  destroy_url            = ""
-  destroy_method         = ""
 }
 
 # Obtain the One Time Key (OTK) from VMware Cloud Service
 resource "terracurl_request" "get_otk" {
-  depends_on     = [terracurl_request.get_access_token]
+  depends_on     = [
+    terracurl_request.get_access_token
+  ]
   name           = "ova_url"
   url            = "${var.vra_uri}/api/otk-v3"
   method         = "POST"
@@ -101,10 +125,6 @@ resource "terracurl_request" "get_otk" {
   "service":"cloud_assembly_extensibility"
 }
 EOF
-
-  destroy_response_codes = []
-  destroy_url            = ""
-  destroy_method         = ""
 }
 
 resource "vsphere_virtual_machine" "cloud_proxy" {
@@ -131,7 +151,7 @@ resource "vsphere_virtual_machine" "cloud_proxy" {
   wait_for_guest_net_timeout = 0
   wait_for_guest_ip_timeout  = 0
   ovf_deploy {
-    remote_ovf_url    = data.vsphere_ovf_vm_template.ovf.remote_ovf_url
+    remote_ovf_url    = var.cloud_proxy_ovf_remote
     deployment_option = var.cloud_proxy_deployment_option
     disk_provisioning = var.cloud_proxy_disk_provisioning
     ovf_network_map   = data.vsphere_ovf_vm_template.ovf.ovf_network_map
@@ -141,7 +161,7 @@ resource "vsphere_virtual_machine" "cloud_proxy" {
       "ONE_TIME_KEY"                 = jsondecode(terracurl_request.get_otk.response).key
       "vami.hostname"                = var.cloud_proxy_hostname
       "varoot-password"              = var.cloud_proxy_root_password
-      "rdc_name"                     = var.cloud_proxy_display_name
+      "rdc_name"                     = var.cloud_proxy_name
       "va-ssh-enabled"               = var.cloud_proxy_ssh_enabled
       "fips-mode"                    = var.cloud_proxy_fips_mode
       "network_proxy_hostname_or_ip" = var.cloud_proxy_network_proxy_hostname_ip
@@ -159,6 +179,11 @@ resource "vsphere_virtual_machine" "cloud_proxy" {
       "k8s-service-cidr"             = var.cloud_proxy_k8s_service_cidr
     }
   }
+  lifecycle { 
+    ignore_changes = [ # Items to be ignored when re-applying a plan
+
+    ]
+  }
 }
 
 resource "null_resource" "cloud_proxy_init" {
@@ -175,4 +200,57 @@ resource "null_resource" "cloud_proxy_init" {
       agent    = false
     }
   }
+}
+
+resource "time_sleep" "nap" {
+  depends_on = [
+    vsphere_virtual_machine.cloud_proxy
+  ]
+  create_duration = "900s"
+}
+
+resource "terracurl_request" "create_vro_integration" {
+  depends_on     = [
+    terracurl_request.get_access_token,
+    data.vra_data_collector.cloud_proxy,
+    time_sleep.nap
+  ]
+  name           = "vro_integration"
+  url            = "${var.vra_uri}/iaas/api/integrations?apiVersion=2021-07-15"
+  method         = "POST"
+  response_codes = [202, 400, 403]
+  headers = {
+    Accept        = "application/json"
+    Content-Type  = "application/json"
+    Authorization = "Bearer ${jsondecode(terracurl_request.get_access_token.response).access_token}"
+  }
+  request_body = <<EOF
+{
+	"certificateInfo": {
+		"certificate": "${data.tls_certificate.example_content.certificates[0].cert_pem}"
+	},
+	"customProperties": {
+		"endpointEnabled": true
+	},
+	"integrationProperties": {
+		"acceptSelfSignedCertificate": false,
+		"dcId": "${data.vra_data_collector.cloud_proxy.id}",
+		"hostName": "https://${data.vra_data_collector.cloud_proxy.hostname}:443",
+		"privateKey": "",
+		"privateKeyId": "",
+		"refreshToken": "${var.csp_api_token}",
+		"vroAuthType": "CSP"
+	},
+	"integrationType": "vro",
+	"name": "${var.vro_integration_name}",
+	"privateKey": "",
+	"privateKeyId": "",
+  "tags": [
+    {
+      "key": "integration",
+      "value": "${var.vro_integration_tag}"
+    }
+  ]
+}
+EOF
 }

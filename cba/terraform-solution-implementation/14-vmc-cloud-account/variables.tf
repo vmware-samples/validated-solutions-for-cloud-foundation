@@ -6,7 +6,8 @@
 
 variable "vra_url" {
   type        = string
-  description = "The base URL of the vRealize Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com))"
+  description = "The base URL of the vRealize Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
+  default     = "https://api.mgmt.cloud.vmware.com"
 }
 
 variable "vra_api_token" {
@@ -31,7 +32,6 @@ variable "cloud_accounts_vsphere" {
     username    = string
     password    = string
     region      = string
-    tag_cloud   = string
     tag_region  = string
     association = list(string)
   }))
@@ -45,7 +45,7 @@ variable "cloud_accounts_nsx" {
     hostname    = string
     username    = string
     password    = string
-    tag_cloud   = string
+    tag_region   = string
   }))
   description = "A mapping of objects for NSX Manager cloud accounts and their associated settings."
 }

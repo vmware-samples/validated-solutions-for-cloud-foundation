@@ -19,16 +19,16 @@ data "vsphere_datacenter" "datacenter" {
 
 data "vsphere_folder" "edge_folder" {
   path = "/${var.vsphere_datacenter}/vm/${var.edge_folder}"
-  }
+}
 
 data "vsphere_folder" "storage_local_folder" {
   path = "/${var.vsphere_datacenter}/datastore/${var.local_storage_folder}"
-  }
+}
 
 data "vsphere_folder" "storage_readonly_folder" {
   path = "/${var.vsphere_datacenter}/datastore/${var.readonly_storage_folder}"
-  }
-  
+}
+
 data "vsphere_role" "role_name" {
   label = var.role_name
 }

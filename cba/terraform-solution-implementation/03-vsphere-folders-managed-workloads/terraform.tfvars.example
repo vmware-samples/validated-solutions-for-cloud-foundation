@@ -2,20 +2,16 @@
 # VARIABLES
 ##################################################################################
 
-# Credentials
+# vSphere Credentials
 
 vsphere_server   = "sfo-w01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
 vsphere_password = "********************"
-vsphere_insecure = false
 
 # vSphere Settings
 
 vsphere_datacenter = "sfo-w01-DC"
 vsphere_cluster    = "sfo-w01-cl01"
-
-# vSphere Objects
-
 vsphere_folders = {
   folder0 = {
     path = "sfo-w01-fd-workload"
@@ -30,7 +26,6 @@ vsphere_folders = {
     type = "datastore"
   }
 }
-
 vsphere_resource_pools = {
   resource_pool0 = {
     name = "sfo-w01-cl01-rp-workload"

@@ -66,7 +66,7 @@ resource "vra_storage_profile_vsphere" "this" {
   datastore_id      = data.vra_fabric_datastore_vsphere.this[each.key].id
   storage_policy_id = data.vra_fabric_storage_policy_vsphere.this[each.key].id
   tags {
-    key   = "tier"
+    key   = "storage"
     value = each.value["tag_tier"]
   }
 }

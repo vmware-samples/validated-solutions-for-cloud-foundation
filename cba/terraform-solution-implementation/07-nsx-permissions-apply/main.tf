@@ -40,8 +40,4 @@ resource "terracurl_request" "nsx_create_user" {
   }]
 }
 EOF
-
-  destroy_response_codes = []
-  destroy_url            = ""
-  destroy_method         = ""
 }

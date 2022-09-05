@@ -23,8 +23,8 @@ resource "vra_fabric_network_vsphere" "network0" {
   dns_search_domains   = var.dns_search_domains
   dns_server_addresses = var.dns_server_addresses
   tags {
-    key   = "enabled"
-    value = "true"
+    key   = "network"
+    value = "prod"
   }
 }
 
@@ -35,7 +35,7 @@ resource "vra_fabric_network_vsphere" "network1" {
   dns_search_domains   = var.dns_search_domains
   dns_server_addresses = var.dns_server_addresses
   tags {
-    key   = "enabled"
-    value = "true"
+    key   = "network"
+    value = "dev"
   }
 }

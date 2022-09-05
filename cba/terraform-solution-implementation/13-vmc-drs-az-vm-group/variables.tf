@@ -11,8 +11,8 @@ variable "vsphere_server" {
 
 variable "vsphere_username" {
   type        = string
-  description = "The username to login to the vCenter Server instance."
-  sensitive   = true
+  description = "The username to login to the vCenter Server instance. (e.g. administrator@vsphere.local)"
+  default     = "administrator@vsphere.local"
 }
 
 variable "vsphere_password" {
@@ -47,6 +47,7 @@ variable "vsphere_host_group" {
 variable "vmc_vm_host_rule" {
   type        = string
   description = "The name of the VM to Host Rule. (e.g. vm-host-rule-az1-vmc)"
+  default     = "vm-host-rule-az1-vmc"
 }
 
 variable "vmc_group_name" {
