@@ -16,7 +16,7 @@ domain_bind_password = "********************"
 
 # vSphere Permissions
 
-ca_vsphere_role     = "Cloudy Assembly to vSphere Integration"
+ca_vsphere_role     = "Cloud Assembly to vSphere Integration"
 ca_service_account  = "svc-ca-vsphere"
 vro_vsphere_role    = "vRealize Orchestrator to vSphere Integration"
 vro_service_account = "svc-vro-vsphere"

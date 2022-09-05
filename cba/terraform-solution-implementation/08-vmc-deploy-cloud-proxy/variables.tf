@@ -22,12 +22,6 @@ variable "csp_api_token" {
   sensitive   = true
 }
 
-variable "debug" {
-  type        = bool
-  description = "Enable debugging"
-  default     = false
-}
-
 # vSphere Settings
 
 variable "vsphere_server" {

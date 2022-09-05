@@ -6,26 +6,26 @@
 
 variable "vcf_server" {
   type        = string
-  description = "The fully qualified domain name or IP address of the VMware Cloud Foundation instance. (e.g. sfo-vcf01.sfo.rainpole.io)"
+  description = "The fully qualified domain name or IP address of the SDDC Manager instance. (e.g. sfo-vcf01.sfo.rainpole.io)"
 }
 
 variable "vcf_username" {
   type        = string
-  description = "The username to login to the VMware Cloud Foundation instance. (e.g. administrator@vsphere.local)"
+  description = "The username to login to the SDDC Manager instance. (e.g. administrator@vsphere.local)"
   default     = "administrator@vsphere.local"
 }
 
 variable "vcf_password" {
   type        = string
-  description = "The password for the login to the VMware Cloud Foundation instance."
+  description = "The password for the login to the SDDC Manager instance."
 }
 
 # vSphere Objects
 
 variable "ca_vsphere_role" {
   type        = string
-  description = "The target vSphere role to be assigned to the VMC Service account. (e.g. Cloudy Assembly to vSphere Integration)"
-  default     = "Cloudy Assembly to vSphere Integration"
+  description = "The target vSphere role to be assigned to the VMC Service account. (e.g. Cloud Assembly to vSphere Integration)"
+  default     = "Cloud Assembly to vSphere Integration"
 }
 
 variable "ca_service_account" {

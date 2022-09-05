@@ -13,11 +13,6 @@ variable "csp_api_token" {
   description = "VMware Cloud Service Refresh Token"
   sensitive   = true
 }
-variable "debug" {
-  type        = bool
-  description = "Enable debugging"
-  default     = false
-}
 
 # vRealize Automation Cloud Endpoint
 variable "vra_uri" {
