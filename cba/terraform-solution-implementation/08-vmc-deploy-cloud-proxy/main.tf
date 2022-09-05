@@ -58,7 +58,7 @@ data "vsphere_host" "host" {
 data "vsphere_ovf_vm_template" "ovf" {
   depends_on       = [data.terracurl_request.get_ova_url]
   name             = var.cloud_proxy_name
-  remote_ovf_url   = var.cloud_proxy_ovf_remote
+  remote_ovf_url   = jsondecode(data.terracurl_request.get_ova_url.response).providerUrl
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
   host_system_id   = data.vsphere_host.host.id
@@ -135,7 +135,7 @@ resource "vsphere_virtual_machine" "cloud_proxy" {
   wait_for_guest_ip_timeout  = 0
   ovf_deploy {
     allow_unverified_ssl_cert = true
-    remote_ovf_url            = data.vsphere_ovf_vm_template.ovf.remote_ovf_url
+    remote_ovf_url            = var.cloud_proxy_ovf_remote
     disk_provisioning         = var.cloud_proxy_disk_provisioning
     ovf_network_map           = data.vsphere_ovf_vm_template.ovf.ovf_network_map
   }
@@ -143,7 +143,7 @@ resource "vsphere_virtual_machine" "cloud_proxy" {
     properties = {
       "ONE_TIME_KEY"                 = jsondecode(terracurl_request.get_otk.response).key
       "itfm_root_password"           = var.cloud_proxy_root_password
-      "rdc_name"                     = var.cloud_proxy_display_name
+      "rdc_name"                     = var.cloud_proxy_name
       "network_proxy_hostname_or_ip" = var.cloud_proxy_network_proxy_hostname_ip
       "network_proxy_port"           = var.cloud_proxy_network_proxy_port
       "network_proxy_username"       = var.cloud_proxy_network_proxy_username

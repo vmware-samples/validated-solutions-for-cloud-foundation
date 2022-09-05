@@ -2,7 +2,7 @@
 # VARIABLES
 ##################################################################################
 
-# Credentials
+# vSphere Credentials
 
 variable "vsphere_server" {
   type        = string
@@ -11,8 +11,8 @@ variable "vsphere_server" {
 
 variable "vsphere_username" {
   type        = string
-  description = "The username to login to the vCenter Server instance."
-  sensitive   = true
+  description = "The username to login to the vCenter Server instance. (e.g. administrator@vsphere.local)"
+  default     = "administrator@vsphere.local"
 }
 
 variable "vsphere_password" {
@@ -32,6 +32,7 @@ variable "vsphere_insecure" {
 variable "folder_path" {
   type        = string
   description = "The target folder where permissions are assigned. (e.g. / for root)"
+  default     = "/"
 }
 
 variable "ca_service_account" {

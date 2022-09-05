@@ -82,4 +82,4 @@ Create a customization specification for the Photon Operating System, for use by
 
 [Back: Import Photon OS OVF Images to the Publishing Content Library](2-import-photon-template.md)
 
-[Next: Configure Flavor Mappings in Cloud Assembly.](4-configure-flavour-mappings.md)
+[Next: Configure Flavor Mappings in Cloud Assembly](4-configure-flavour-mappings.md)

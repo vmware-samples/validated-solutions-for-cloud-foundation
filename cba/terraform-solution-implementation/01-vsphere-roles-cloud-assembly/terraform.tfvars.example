@@ -2,16 +2,15 @@
 # VARIABLES
 ##################################################################################
 
-# Credentials
+# vSphere Credentials
 
 vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
 vsphere_password = "********************"
-vsphere_insecure = false
 
-# Roles
+# vSphere Roles
 
-ca_vsphere_role = "Cloudy Assembly to vSphere Integration"
+ca_vsphere_role  = "Cloudy Assembly to vSphere Integration"
 vro_vsphere_role = "vRealize Orchestrator to vSphere Integration"
 ca_vsphere_privileges = [
   "System.Anonymous",

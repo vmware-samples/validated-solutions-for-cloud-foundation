@@ -10,7 +10,7 @@ variable "nsxt_instance" {
 variable "nsxt_username" {
   type        = string
   description = "The username to login to the NSX Manager instance. (e.g. admin)"
-  sensitive   = true
+  default     = "admin"
 }
 
 variable "nsxt_password" {

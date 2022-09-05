@@ -24,35 +24,30 @@ inputs:
     type: string
     oneOf:
       - title: VMware Cloud Foundation
-        const: cloud:private
+        const: cloud:sfo-w01
     title: Cloud
     description: Select a target cloud.
   targetRegion:
     type: string
     oneOf:
       - title: sfo-w01-vc01
-        const: region:sfo
+        const: region:sfo-w01
     title: Region
     description: Select a target region.
   targetEnvironment:
     type: string
     oneOf:
       - title: Production
-        const: enabled:true
+        const: network:prod
+      - title: Development
+        const: network:dev
     title: Environment
     description: Select a target environment.
-  targetFunction:
-    type: string
-    oneOf:
-      - title: General Application
-        const: function:general
-    title: Function
-    description: Select a target function.
   performanceTier:
     type: string
     oneOf:
       - title: Platinum
-        const: tier:platinum
+        const: storage:platinum
     title: Performance Tier
     description: Select a performance tier.
   operatingSystem:
@@ -91,7 +86,7 @@ resources:
       image: $${input.operatingSystem}
       flavor: $${input.nodeSize}
       count: $${input.nodeCount}
-      customizationSpec: photon
+      customizationSpec: photon-4.0
       constraints:
         - tag: $${input.targetCloud}
         - tag: $${input.targetRegion}

@@ -2,8 +2,12 @@
 # VARIABLES
 ##################################################################################
 
+# VMware Cloud Services
+
 csp_api_token = "*********************"
 cep_server    = "sfo-vmc-cep01.sfo.rainpole.io"
+
+# VMware Cloud Foundation 
 
 vcf_server   = "sfo-vcf01.sfo.rainpole.io"
 vcf_username = "administrator@vsphere.local"

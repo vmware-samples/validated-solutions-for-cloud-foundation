@@ -2,21 +2,21 @@
 # VARIABLES
 ##################################################################################
 
-# Credentials
+# VMware Cloud Foundation Credentials
 
 vcf_server   = "sfo-vcf01.sfo.rainpole.io"
 vcf_username = "administrator@vsphere.local"
 vcf_password = "********************"
 
-# vSphere Permissions
-
-ca_vsphere_role 	= "Cloudy Assembly to vSphere Integration"
-ca_service_account = "svc-ca-vsphere"
-vro_vsphere_role 	= "vRealize Orchestrator to vSphere Integration"
-vro_service_account = "svc-vro-vsphere"
-
 # Active Directory Details
 
-domain_fqdn 			= "sfo.rainpole.io"
-domain_bind_username 	= "svc-vsphere-ad"
-domain_bind_password 	= "********************"
+domain_fqdn          = "sfo.rainpole.io"
+domain_bind_username = "svc-vsphere-ad"
+domain_bind_password = "********************"
+
+# vSphere Permissions
+
+ca_vsphere_role     = "Cloud Assembly to vSphere Integration"
+ca_service_account  = "svc-ca-vsphere"
+vro_vsphere_role    = "vRealize Orchestrator to vSphere Integration"
+vro_service_account = "svc-vro-vsphere"

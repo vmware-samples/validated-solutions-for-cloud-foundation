@@ -15,8 +15,8 @@ provider "vsphere" {
 
 data "vsphere_folder" "folder" {
   path = var.folder_path
-  }
-  
+}
+
 data "vsphere_role" "role_name" {
   label = var.role_name
 }

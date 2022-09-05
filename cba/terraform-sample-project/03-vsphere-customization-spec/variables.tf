@@ -11,7 +11,8 @@ variable "vsphere_server" {
 
 variable "vsphere_username" {
   type        = string
-  description = "The username to login to the vCenter Server instance."
+  description = "The username to login to the vCenter Server instance. (e.g administrator@vsphere.local)"
+  default     = "administrator@vsphere.local"
 }
 
 variable "vsphere_password" {

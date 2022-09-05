@@ -18,14 +18,12 @@ provider "vsphere" {
 # RESOURCES
 ##################################################################################
 
-resource "vsphere_role" "ca-vsphere" {
+resource "vsphere_role" "ca_vsphere" {
   name            = var.ca_vsphere_role
   role_privileges = var.ca_vsphere_privileges
 }
 
-resource "vsphere_role" "vro-vsphere" {
+resource "vsphere_role" "vro_vsphere" {
   name            = var.vro_vsphere_role
   role_privileges = var.vro_vsphere_privileges
 }
-
-

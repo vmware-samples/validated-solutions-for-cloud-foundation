@@ -2,7 +2,7 @@
 # VARIABLES
 ##################################################################################
 
-# Credentials
+# vSphere Credentials
 
 variable "vsphere_server" {
   type        = string
@@ -12,7 +12,7 @@ variable "vsphere_server" {
 variable "vsphere_username" {
   type        = string
   description = "The username to login to the vCenter Server instance. (e.g. administrator@vsphere.local)"
-  sensitive   = true
+  default     = "administrator@vsphere.local"
 }
 
 variable "vsphere_password" {
@@ -31,12 +31,14 @@ variable "vsphere_insecure" {
 
 variable "ca_vsphere_role" {
   type        = string
-  description = "The name for the Cloud Assembly to vSphere custom role."
+  description = "The name for the Cloud Assembly to vSphere custom role. (e.g. Cloudy Assembly to vSphere Integration)"
+  default     = "Cloudy Assembly to vSphere Integration"
 }
 
 variable "vro_vsphere_role" {
   type        = string
-  description = "The name for the vRealize Orchestrator to vSphere.custom role."
+  description = "The name for the vRealize Orchestrator to vSphere custom role. (e.g. vRealize Orchestrator to vSphere Integration)"
+  default     = "vRealize Orchestrator to vSphere Integration"
 }
 
 variable "ca_vsphere_privileges" {

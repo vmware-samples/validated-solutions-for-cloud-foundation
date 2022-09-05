@@ -12,7 +12,7 @@
 
 ## Introduction
 
-This content supports the [Cloud-Based Automation for VMware Cloud Foundation](https://core.vmware.com/cloud-based-automation-vmware-cloud-foundation) validated solution which enables a cloud-based infrastructure automation platform that delivers an agnostic self-service catalog for VMware Cloud Foundation and multi-cloud environments. 
+This content supports the [Cloud-Based Automation for VMware Cloud Foundation](https://core.vmware.com/cloud-based-automation-vmware-cloud-foundation) validated solution which enables a cloud-based infrastructure automation platform that delivers an agnostic self-service catalog for VMware Cloud Foundation and multi-cloud environments.
 
 ## Requirements
 
@@ -53,9 +53,9 @@ Once you have deployed the **Cloud-Based Automation for VMware Cloud Foundation*
 
 No matter which path you choose to use - IaC or UI - the sample project implementation guidance can help you:
 
-1. Learn how to get up an running with vRealize Automation Cloud.
-2. Ensure the solution is ready for operations.
-3. Learn how get started managing the desired state configuration of vRealize Automation Cloud using Terraform.
+1. Learn how to get up and running with vRealize Automation Cloud.
+2. Ensure the solution is operational.
+3. Learn how to get started managing the desired state configuration of vRealize Automation Cloud using Terraform.
 
 Learn more on how to [Configure a Sample Project in vRealize Automation Cloud](docs/sample-project/README.md).
 

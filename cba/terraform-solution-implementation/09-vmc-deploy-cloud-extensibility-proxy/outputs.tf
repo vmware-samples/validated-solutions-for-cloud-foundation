@@ -41,3 +41,7 @@ output "cloud_proxy_mem" {
 output "cloud_proxy_ip_address" {
     value = vsphere_virtual_machine.cloud_proxy.vapp[0].properties.ip0
 }
+
+output "vro_integration" {
+    value = terracurl_request.create_vro_integration.response
+}

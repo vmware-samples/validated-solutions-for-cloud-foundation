@@ -22,12 +22,6 @@ variable "csp_api_token" {
   sensitive   = true
 }
 
-variable "debug" {
-  type        = bool
-  description = "Enable debugging"
-  default     = false
-}
-
 # vSphere Settings
 
 variable "vsphere_server" {
@@ -35,16 +29,19 @@ variable "vsphere_server" {
   description = "The fully qualified domain name or IP address of the vCenter Server instance."
   sensitive   = true
 }
+
 variable "vsphere_username" {
   type        = string
-  description = "The username to login to the vCenter Server instance."
-  sensitive   = true
+  description = "The username to login to the vCenter Server instance. (e.g. administrator@vsphere.local)"
+  default     = "administrator@vsphere.local"
 }
+
 variable "vsphere_password" {
   type        = string
   description = "The password for the login to the vCenter Server instance."
   sensitive   = true
 }
+
 variable "vsphere_insecure" {
   type        = bool
   description = "Allow insecure connections. Set to `true` for self-signed certificates."
@@ -112,12 +109,7 @@ variable "cloud_proxy_root_password_warndays" {
 
 variable "cloud_proxy_name" {
   type        = string
-  description = "The name for the virtual appliance in the vSphere inventory."
-}
-
-variable "cloud_proxy_display_name" {
-  type        = string
-  description = "The display name to identify this cloud proxy in the VMware Cloud Services portal."
+  description = "The name for the virtual appliance in the vSphere inventory and VMware Cloud Services portal."
 }
 
 variable "cloud_proxy_network_proxy_hostname_ip" {
@@ -136,7 +128,6 @@ variable "cloud_proxy_network_proxy_username" {
   type        = string
   description = "The username to authentication to the network proxy. Leave blank if no proxy authentication is required. "
   default     = null
-  sensitive   = true
 }
 
 variable "cloud_proxy_network_proxy_password" {

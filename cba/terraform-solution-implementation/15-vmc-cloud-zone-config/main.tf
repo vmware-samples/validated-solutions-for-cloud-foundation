@@ -3,9 +3,9 @@
 ##################################################################################
 
 provider "vra" {
-  url                         = var.vra_url
-  refresh_token               = var.vra_api_token
-  insecure                    = var.vra_insecure
+  url           = var.vra_url
+  refresh_token = var.vra_api_token
+  insecure      = var.vra_insecure
 }
 
 ##################################################################################
@@ -13,7 +13,7 @@ provider "vra" {
 ##################################################################################
 
 data "vra_zone" "cloud_zone_name" {
-  name  = var.cloud_zone_name
+  name = var.cloud_zone_name
 }
 
 data "vra_fabric_compute" "compute_id" {
@@ -33,18 +33,18 @@ resource "vra_fabric_compute" "resource_pool" {
 }
 
 resource "vra_zone" "cloud_zone_update" {
-  name  	= var.cloud_zone_name
-  folder 	= var.workload_target_folder
-  region_id	= data.vra_zone.cloud_zone_name.external_region_id
+  name      = var.cloud_zone_name
+  folder    = var.workload_target_folder
+  region_id = data.vra_zone.cloud_zone_name.external_region_id
   tags_to_match {
-    key                       = "enabled"
-    value                     = "true"
+    key   = "region"
+    value = var.tag_zone
   }
 
-  lifecycle { 
-  ignore_changes = [ # Items to be ignored when re-applying a plan
-    region_id,
-    description
+  lifecycle {
+    ignore_changes = [ # Items to be ignored when re-applying a plan
+      region_id,
+      description
     ]
   }
 }

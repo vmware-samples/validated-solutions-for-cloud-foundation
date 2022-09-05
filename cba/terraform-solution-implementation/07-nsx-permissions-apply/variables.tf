@@ -16,11 +16,12 @@ variable "nsxt_username" {
 variable "nsxt_password" {
   type        = string
   description = "The password for the login to the NSX Manager instance."
+  sensitive   = true
 }
 
 variable "vidm_user" {
   type        = string
-  description = "The user/group the role needs to be assignd to. (e.g. svc-vmc-nsx@sfo.rainpole.io)"
+  description = "The user/group the role needs to be assignd to. (e.g. svc-ca-nsx@sfo.rainpole.io)"
 }
 
 variable "vidm_type" {
@@ -31,8 +32,10 @@ variable "vidm_type" {
 variable "vidm_identity_source" {
   type        = string
   description = "The Identity Source for user/group. (e.g. LDAP, VIDM or OIDC)"
+  default = "VIDM"
 }
 
 variable "nsxt_role" {
   type = string
+  description = "The NSX role to be assigned. Can be one of the following auditor, enterprise_admin, gi_partner_admin, lb_admin, lb_auditor, network_engineer, network_op, netx_partner_admin, security_engineer, security_op, vpn_admin."
 }

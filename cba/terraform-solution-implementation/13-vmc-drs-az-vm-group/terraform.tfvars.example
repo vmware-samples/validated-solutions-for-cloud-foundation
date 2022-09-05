@@ -14,13 +14,9 @@ vsphere_insecure = false
 vsphere_datacenter = "sfo-m01-dc01"
 vsphere_cluster    = "sfo-m01-cl01"
 
-
 # VM to Host Rule
 
-vsphere_host_group               = "sfo-hostgroup-az1"
-vmc_vm_host_rule                 = "vm-host-rule-az1-vmc"
-vmc_host_group_ruleset_enable    = true
-vmc_host_group_ruleset_mandatory = false
+vsphere_host_group = "sfo-hostgroup-az1"
 
 # VM Group
 
