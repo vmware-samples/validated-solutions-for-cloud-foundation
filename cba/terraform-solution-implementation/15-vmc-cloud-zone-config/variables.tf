@@ -41,5 +41,5 @@ variable "fabric_compute_name" {
 
 variable "tag_value" {
   type        = string
-  description = "The tag valie for the Compute resource. (e.g. true)"
+  description = "The tag value for the Compute resource. (e.g. true)"
 }
