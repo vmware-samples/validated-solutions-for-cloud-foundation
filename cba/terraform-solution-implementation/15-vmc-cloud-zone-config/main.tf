@@ -37,8 +37,8 @@ resource "vra_zone" "cloud_zone_update" {
   folder    = var.workload_target_folder
   region_id = data.vra_zone.cloud_zone_name.external_region_id
   tags_to_match {
-    key   = "region"
-    value = var.tag_zone
+    key   = "enabled"
+    value = var.tag_value
   }
 
   lifecycle {

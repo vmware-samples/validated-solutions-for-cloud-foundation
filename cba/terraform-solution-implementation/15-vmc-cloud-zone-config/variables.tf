@@ -39,7 +39,7 @@ variable "fabric_compute_name" {
   description = "The name of the resource pool within the Cloud Zone to provision virtual machines too (e.g. sfo-w01-cl01 / sfo-w01-cl01-rp-workload)"
 }
 
-variable "tag_zone" {
+variable "tag_value" {
   type        = string
-  description = "The the zone tag for the Cloud Zone. (e.g. sfo-w01)"
+  description = "The tag value for the Compute resource. (e.g. true)"
 }
