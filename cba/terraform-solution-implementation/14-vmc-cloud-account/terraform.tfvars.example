@@ -18,7 +18,7 @@ cloud_accounts_vsphere = {
     password    = "********************"
     region      = "Datacenter:datacenter-3"
     description = "San Francisco - Workload Domain 01"
-    tag_region  = "vcf-sfo"
+    tag_region  = "sfo-w01"
     association = [
       "sfo-w01-nsx01",
     ]
@@ -32,7 +32,7 @@ cloud_accounts_nsx = {
     username    = "svc-ca-nsx@sfo.rainpole.io"
     password    = "*******************"
     description = "San Francisco - Workload Domain 01"
-    tag_region   = "vcf-sfo"
+    tag_region   = "sfo-w01"
   }
 }
 
