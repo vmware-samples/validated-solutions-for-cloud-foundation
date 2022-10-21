@@ -3,6 +3,7 @@
 # Cloud-Based Automation for VMware Cloud Foundation
 
 ## Table of Contents
+
 - [Cloud-Based Automation for VMware Cloud Foundation](#cloud-based-automation-for-vmware-cloud-foundation)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
@@ -20,12 +21,19 @@ This content supports the [Cloud-Based Automation for VMware Cloud Foundation](h
 
 If you want to use the Terraform procedures to perform implementation and configuration procedures:
 
-* Verify that your system has Terraform 1.2.0 or later installed. Learn more at [terraform.io](https://terraform.io).
+- Verify that your system has Terraform 1.2.0 or later installed. Learn more at [terraform.io](https://terraform.io).
 
-* Verify the your system has a code editor installed. Microsoft Visual Studio Code is recommended. Learn more at [Visual Studio Code](https://code.visualstudio.com/).
+- Verify the your system has a code editor installed. Microsoft Visual Studio Code is recommended. Learn more at [Visual Studio Code](https://code.visualstudio.com/).
 
-* Install the Terraform Visual Studio Code extension 2.23.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
+- Install the Terraform Visual Studio Code extension 2.23.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
 
+### Installing Terraform Providers
+
+The Terraform providers used in this repository are official and verified providers. Official providers are managed by HashiCorp. Verified providers are owned and maintained by members of the HashiCorp Technology Partner Program. HashiCorp verifies the authenticity of the publisher and the providers are listed on the [Terraform Registry](https://registry.terraform.io) with a verified tier label.
+
+Providers listed on the Terraform Registry can be automatically downloaded when initializing a working directory with `terraform init`. The Terraform configuration block is used to configure some behaviors of Terraform itself, such as the Terraform version and the required providers and versions.
+
+However, some environments do not allow systems direct access to the Internet. The latest releases of the providers can be found on GitHub. You can download the appropriate version of the provider for your operating system using a command line shell or a browser and then prepare for "dark site" use.
 
 ## Get Started
 
@@ -35,21 +43,29 @@ Download the [**latest**](https://github.com/vmware-samples/validated-solutions-
 
 **Example**:
 
-```
+``` bash
 git clone https://github.com/vmware-samples/validated-solutions-for-cloud-foundation.git
 ```
 
-### Install the Terraform provider for vSphere
+### Implementation of the Cloud-Based Automation for VMware Cloud Foundation
 
-The Terraform providers used in this repository are official and verified providers. Official providers are managed by HashiCorp. Verified providers are owned and maintained by members of the HashiCorp Technology Partner Program. HashiCorp verifies the authenticity of the publisher and the providers are listed on the [Terraform Registry](https://registry.terraform.io) with a verified tier label. 
+Each procedure contained within the **Cloud-Based Automation for VMware Cloud Foundation** implementation guide corresponds to a terraform plan contained within the *terraform-solution-implementation* folder, following the implementation guide you execute a number of manual steps which include:
 
-Providers listed on the Terraform Registry can be automatically downloaded when initializing a working directory with `terraform init`. The Terraform configuration block is used to configure some behaviors of Terraform itself, such as the Terraform version and the required providers and versions.
+- Copying the terraform.tfvars.example file to terraform.tfvars file.
+- Updating the terraform.tfvars file with values from your Planning and Preparation Workbook.
+- Initializing the terraform providers with the `terraform init` command.
+- Previewing the actions Terraform will take to modify your infrastructure with the `terraform plan -out=tfplan` command.
+- Applying the terraform plan to your environment with the `terraform apply tfplan` command.
 
-However, some environments do not allow systems direct access to the Internet. The latest releases of the providers can be found on GitHub. You can download the appropriate version of the provider for your operating system using a command line shell or a browser and then prepare for "dark site" use.
+To help simplify this end-to-end process, a PowerShell based menu has also been provided in the root folder, this menu not only reduces the manual typing of commands terraform command execution but also automates the process of creating and populating the terraform.tfvars file by extracting the required input values from the Planning and Preparation Workbook.
+
+``` PowerShell
+.\cbaTerraformMenu.ps1 -workbook F:\MyLab\pnpWorkbook.xlsx -parentPath F:\validated-solutions-for-cloud-foundation\cba
+```
 
 ### Setup the Sample Project in vRealize Automation
 
-Once you have deployed the **Cloud-Based Automation for VMware Cloud Foundation** validated solution, you can use the step-by-step implementation guidance to create a **sample** project in vRealize Automation Cloud after deploying the solution using both the UI and infrastructure-as-code procedures.
+Once you have deployed the **Cloud-Based Automation for VMware Cloud Foundation** validated solution, you can use the step-by-step implementation guidance to create a **sample** project in vRealize Automation Cloud after deploying the solution using either the UI or infrastructure-as-code procedures.
 
 No matter which path you choose to use - IaC or UI - the sample project implementation guidance can help you:
 
