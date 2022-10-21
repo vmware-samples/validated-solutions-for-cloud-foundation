@@ -1,0 +1,15 @@
+##################################################################################
+# VARIABLES
+##################################################################################
+
+# vSphere Credentials
+
+vsphere_server   = "<!--REPLACE WITH MANAGEMENT VCENTER FQDN-->"
+vsphere_username = "<!--REPLACE WITH SSO USERNAME-->"
+vsphere_password = "<!--REPLACE WITH SSO PASSWORD-->"
+
+# vSphere Permissions
+
+role_name           = "No access"
+ca_service_account  = "<!--REPLACE WITH CA SERVICE ACCOUNT-->"
+vro_service_account = "<!--REPLACE WITH VRO SERVICE ACCOUNT-->"
