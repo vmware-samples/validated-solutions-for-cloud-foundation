@@ -1,7 +1,13 @@
 ##################################################################################
-# OUTPUTS
+# VERSIONS
 ##################################################################################
 
-output "vsphere_folder" {
-  value = var.vsphere_folders.folder0.path
+terraform {
+  required_providers {
+    null = {
+      source  = "hashicorp/null"
+      version = ">= 3.1.1"
+    }
+  }
+  required_version = ">= 1.2.0"
 }
