@@ -1,0 +1,17 @@
+##################################################################################
+# VARIABLES
+##################################################################################
+
+# vSphere Credentials
+
+vsphere_server   = "<!--REPLACE WITH WORKLOAD VCENTER FQDN-->"
+vsphere_username = "<!--REPLACE WITH SSO USERNAME-->"
+vsphere_password = "<!--REPLACE WITH SSO PASSWORD-->"
+
+# vSphere Objects
+
+vsphere_datacenter              = "<!--REPLACE WITH WORKLOAD DATACENTER-->"
+role_name                       = "No access"
+vrops-cloud_service_account     = "<!--REPLACE WITH VROPS CLOUD SERVICE ACCOUNT-->"
+vrops-cloud_folder              = "<!--REPLACE WITH VROPS CLOUD FOLDER NAME-->"
+
