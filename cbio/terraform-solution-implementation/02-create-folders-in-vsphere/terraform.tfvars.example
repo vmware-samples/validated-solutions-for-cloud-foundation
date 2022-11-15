@@ -12,5 +12,5 @@ vsphere_password = "********************"
 
 vsphere_datacenter = "sfo-w01-DC"
 role_name = "No access"
-vrops-cloud_service_account = "SFO\\svc-vrops-vsphere"
-vrops-cloud_folder = "sfo-w01-fd-vrops-cloud"
+vrops_cloud_service_account = "SFO\\svc-vrops-vsphere"
+vrops_cloud_folder = "sfo-w01-fd-vrops-cloud"
