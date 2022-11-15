@@ -34,12 +34,9 @@ variable "vsphere_datacenter" {
   description = "The target vSphere datacenter object name. (e.g. sfo-m01-dc01)."
 }
 
-# Folders
+# Folder
 
-variable "vsphere_folders" {
-  type = map(object({
-    path = string
-    type = string
-  }))
-  description = "A mapping of objects for vSphere folder names and their associated type."
+variable "vrops_cloud_folder" {
+  type = string
+  description = "The vSphere folder name. (e.g. sfo-m01-fd-vrops-cloud)"
 }
