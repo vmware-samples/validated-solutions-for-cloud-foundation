@@ -1,0 +1,16 @@
+##################################################################################
+# VARIABLES
+##################################################################################
+
+# vSphere Credentials
+
+vsphere_server   = "sfo-w01-vc01.sfo.rainpole.io"
+vsphere_username = "administrator@vsphere.local"
+vsphere_password = "********************"
+
+# vSphere Objects
+
+vsphere_datacenter = "sfo-w01-DC"
+role_name = "No access"
+vrops-cloud_service_account = "SFO\\svc-vrops-vsphere"
+vrops-cloud_folder = "sfo-w01-fd-vrops-cloud"
