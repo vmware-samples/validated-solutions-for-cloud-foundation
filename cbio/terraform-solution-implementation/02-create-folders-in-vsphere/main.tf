@@ -22,8 +22,7 @@ data "vsphere_datacenter" "datacenter" {
 ##################################################################################
 
 resource "vsphere_folder" "folder" {
-  for_each      = var.vsphere_folders
-  path          = each.value["path"]
-  type          = each.value["type"]
+  path          = var.vrops_cloud_folder
+  type          = "vm"
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
