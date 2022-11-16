@@ -20,12 +20,12 @@ provider "vsphere" {
 data "terracurl_request" "get_ova_url" {
   depends_on = [terracurl_request.get_access_token]
   name       = "ova_url"
-  url        = "${var.vrops_uri}/api/artifact-provider?artifact=data-collector"
+  url        = "${var.vrops_uri}/vrops/suite-api/internal/cloudproxies/ova"
   method     = "GET"
   headers = {
     Accept        = "application/json"
-    Content-Type  = "application/json"
-    Authorization = "Bearer ${jsondecode(terracurl_request.get_access_token.response).access_token}"
+    X-vRealizeOps-API-use-unsupported  = "true"
+    Authorization = "CSPToken ${jsondecode(terracurl_request.get_access_token.response).access_token}"
   }
 }
 
@@ -86,24 +86,18 @@ resource "terracurl_request" "get_access_token" {
   destroy_method         = ""
 }
 
-# Obtain the One Time Key (OTK) from VMware Cloud Service
+# Obtain the One Time Key (OTK) from vRealize Operations Cloud
 resource "terracurl_request" "get_otk" {
   depends_on     = [terracurl_request.get_access_token]
   name           = "ova_url"
-  url            = "${var.vrops_uri}/api/otk-v3"
-  method         = "POST"
+  url            = "${var.vrops_uri}/vrops/suite-api/internal/cloudproxies/otk"
+  method         = "GET"
   response_codes = [200, 400, 404, 409, 429, 500]
   headers = {
     Accept        = "application/json"
-    Content-Type  = "application/json"
-    Authorization = "Bearer ${jsondecode(terracurl_request.get_access_token.response).access_token}"
+    X-vRealizeOps-API-use-unsupported  = "true"
+    Authorization = "CSPToken ${jsondecode(terracurl_request.get_access_token.response).access_token}"
   }
-  request_body = <<EOF
-{
-  "url": "${var.vrops_uri}",
-  "service":"vrops"
-}
-EOF
 
   destroy_response_codes = []
   destroy_url            = ""
