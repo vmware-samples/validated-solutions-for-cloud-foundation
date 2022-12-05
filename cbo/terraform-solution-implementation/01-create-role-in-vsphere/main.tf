@@ -13,7 +13,7 @@ provider "vsphere" {
 # RESOURCES
 ##################################################################################
 
-resource "vsphere_role" "vops_cloud-vsphere" {
+resource "vsphere_role" "vrops_cloud-vsphere" {
   name            = var.vrops_cloud_vsphere_role
   role_privileges = var.vrops_cloud_vsphere_privileges
 }
