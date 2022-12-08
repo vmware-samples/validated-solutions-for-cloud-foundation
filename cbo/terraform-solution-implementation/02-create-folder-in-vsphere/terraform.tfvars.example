@@ -4,11 +4,11 @@
 
 # vSphere Credentials
 
-vsphere_server   = "sfo-w01-vc01.sfo.rainpole.io"
+vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
 vsphere_password = "********************"
 
 # vSphere Objects
 
 vsphere_datacenter = "sfo-w01-dc01"
-vrops_cloud_folder = "sfo-w01-fd-vrops-cloud"
+vrops_cloud_folder = "sfo-m01-fd-cbo"

@@ -6,7 +6,7 @@
 
 variable "vsphere_server" {
   type        = string
-  description = "The fully qualified domain name or IP address of the vCenter Server instance. (e.g. sfo-w01-vc01.sfo.rainpole.io)"
+  description = "The fully qualified domain name or IP address of the vCenter Server instance. (e.g. sfo-m01-vc01.sfo.rainpole.io)"
 }
 
 variable "vsphere_username" {
@@ -27,21 +27,14 @@ variable "vsphere_insecure" {
   default     = false
 }
 
-# vSphere Settings
-
-variable "vsphere_datacenter" {
-  type        = string
-  description = "The target vSphere datacenter object name. (e.g. sfo-w01-dc01)."
-}
-
 # Roles
 
 variable "vrops_cloud_vsphere_role" {
   type        = string
-  description = "The name for the vRealize Operations Cloud to vSphere custom role."
+  description = "The name for the vRealize Operations Cloud to vSphere Integration role."
 }
 
 variable "vrops_cloud_vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere permissions for the vRealize Operations Cloud to vSphere custom role."
+  description = "The vSphere privileges for the vRealize Operations Cloud to vSphere Integration role."
 }

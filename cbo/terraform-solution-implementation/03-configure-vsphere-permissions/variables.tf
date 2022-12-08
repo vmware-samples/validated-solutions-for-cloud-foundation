@@ -30,7 +30,7 @@ variable "vsphere_role" {
 
 variable "service_account" {
   type        = string
-  description = "The target service account to assign the role to. (e.g. svc-vrops-vsphere)"
+  description = "The target service account to assign the role to. (e.g. svc-cbo-vsphere)"
 }
 
 # Active Directory

@@ -4,7 +4,7 @@
 
 variable "nsxt_instance" {
   type        = string
-  description = "The fully qualified domain name or IP address of the NSX Manager instance. (e.g. sfo-w01-nsx01.sfo.rainpole.io)"
+  description = "The fully qualified domain name or IP address of the NSX Manager instance. (e.g. sfo-m01-nsx01.sfo.rainpole.io)"
 }
 
 variable "nsxt_username" {
@@ -21,7 +21,7 @@ variable "nsxt_password" {
 
 variable "vidm_user" {
   type        = string
-  description = "The user/group the role needs to be assignd to. (e.g. svc-vrops-nsx@sfo.rainpole.io)"
+  description = "The user/group the role needs to be assigned to. (e.g. svc-cbo-nsx@sfo.rainpole.io)"
 }
 
 variable "vidm_type" {

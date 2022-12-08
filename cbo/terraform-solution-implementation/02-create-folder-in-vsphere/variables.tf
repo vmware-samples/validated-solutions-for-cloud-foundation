@@ -38,5 +38,5 @@ variable "vsphere_datacenter" {
 
 variable "vrops_cloud_folder" {
   type = string
-  description = "The vSphere folder name. (e.g. sfo-m01-fd-vrops-cloud)"
+  description = "The vSphere folder name. (e.g. sfo-m01-fd-cbo)"
 }

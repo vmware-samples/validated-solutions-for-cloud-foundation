@@ -9,10 +9,6 @@ vsphere_username = "administrator@vsphere.local"
 vsphere_password = "*******************************"
 vsphere_insecure = false
 
-# vSphere Settings
-
-vsphere_datacenter = "sfo-m01-dc01"
-
 # Role
 
 vrops_cloud_vsphere_role = "vRealize Operations Cloud to vSphere Integration"
