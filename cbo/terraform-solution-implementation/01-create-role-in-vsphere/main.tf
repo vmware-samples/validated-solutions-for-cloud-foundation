@@ -10,20 +10,11 @@ provider "vsphere" {
 }
 
 ##################################################################################
-# DATA
-##################################################################################
-
-data "vsphere_datacenter" "datacenter" {
-  name = var.vsphere_datacenter
-}
-
-##################################################################################
 # RESOURCES
 ##################################################################################
 
-resource "vsphere_folder" "folder" {
-  for_each      = var.vsphere_folders
-  path          = each.value["path"]
-  type          = each.value["type"]
-  datacenter_id = data.vsphere_datacenter.datacenter.id
+resource "vsphere_role" "vrops_cloud-vsphere" {
+  name            = var.vrops_cloud_vsphere_role
+  role_privileges = var.vrops_cloud_vsphere_privileges
 }
+

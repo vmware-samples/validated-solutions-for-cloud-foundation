@@ -8,12 +8,7 @@ vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
 vsphere_password = "********************"
 
-# vSphere Settings
+# vSphere Objects
 
-vsphere_datacenter = "sfo-m01-dc01"
-vsphere_folders = {
-  folder0 = {
-    path = "sfo-m01-fd-cio"
-    type = "vm"
-  }
-}
+vsphere_datacenter = "sfo-w01-dc01"
+vrops_cloud_folder = "sfo-m01-fd-cbo"
