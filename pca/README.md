@@ -20,26 +20,26 @@ If you want to use the PowerShell procedures to perform implementation and confi
 
 * Verify that your system has [Microsoft PowerShell 5.1](https://docs.microsoft.com/en-us/powershell/) installed. 
 
-* Verify that your system has [VMware PowerCLI 12.3.0](https://code.vmware.com/web/tool/12.3.0/vmware-powercli) or higher installed.
+* Verify that your system has [VMware PowerCLI 12.7.0](https://code.vmware.com/web/tool/12.3.0/vmware-powercli) or higher installed.
 
 * Install the [PowerValidatedSolutions](https://github.com/vmware-samples/power-validated-solutions-for-cloud-foundation) PowerShell module together with the supporting modules from the PowerShell Gallery by running the following commands. 
 
     ```powershell
-    Install-Module -Name VMware.PowerCLI -MinimumVersion 12.3.0
-    Install-Module -Name VMware.vSphere.SsoAdmin -MinimumVersion 1.3.7
-    Install-Module -Name PowerVCF -MinimumVersion 2.1.7
-    Install-Module -Name PowerValidatedSolutions -MinimumVersion 1.5.0
+    Install-Module -Name VMware.PowerCLI -MinimumVersion 12.7.0
+    Install-Module -Name VMware.vSphere.SsoAdmin -MinimumVersion 1.3.8
+    Install-Module -Name PowerVCF -MinimumVersion 2.2.0
+    Install-Module -Name PowerValidatedSolutions -MinimumVersion 1.10.0
     ```
 
 ### Terraform
 
 If you want to use the Terraform procedures to perform implementation and configuration procedures:
 
-* Verify that your system has Terraform 1.0.0 or later installed. Learn more at [terraform.io](https://terraform.io).
+* Verify that your system has Terraform 1.2.0 or later installed. Learn more at [terraform.io](https://terraform.io).
 
 * Verify the your system has a code editor installed. Microsoft Visual Studio Code is recommended. Learn more at [Visual Studio Code](https://code.visualstudio.com/).
 
-* Install the Terraform Visual Studio Code extension 2.19.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
+* Install the Terraform Visual Studio Code extension 2.25.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
 
 ### Packer
 
