@@ -10,5 +10,5 @@ vsphere_password = "********************"
 
 # vSphere Objects
 
-vsphere_datacenter = "sfo-w01-dc01"
-vrops_cloud_folder = "sfo-m01-fd-cbo"
+vsphere_datacenter = "sfo-m01-dc01"
+vsphere_folder = "sfo-m01-fd-cbo"

@@ -10,19 +10,11 @@ provider "vsphere" {
 }
 
 ##################################################################################
-# DATA
-##################################################################################
-
-data "vsphere_datacenter" "datacenter" {
-  name = var.vsphere_datacenter
-}
-
-##################################################################################
 # RESOURCES
 ##################################################################################
 
-resource "vsphere_folder" "folder" {
-  path          = var.vrops_cloud_folder
-  type          = "vm"
-  datacenter_id = data.vsphere_datacenter.datacenter.id
+resource "vsphere_role" "vsphere_role" {
+  name            = var.vsphere_role
+  role_privileges = var.vsphere_privileges
 }
+

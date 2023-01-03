@@ -11,8 +11,8 @@ vsphere_insecure = false
 
 # Role
 
-vrops_cloud_vsphere_role = "vRealize Operations Cloud to vSphere Integration"
-vrops_cloud_vsphere_privileges = [
+vsphere_role = "vRealize Operations Cloud to vSphere Integration"
+vsphere_privileges = [
 "System.Anonymous",
 "System.Read",
 "System.View",
