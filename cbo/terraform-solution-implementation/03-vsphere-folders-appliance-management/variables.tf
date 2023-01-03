@@ -12,7 +12,7 @@ variable "vsphere_server" {
 variable "vsphere_username" {
   type        = string
   description = "The username to login to the vCenter Server instance. (e.g. administrator@vsphere.local)"
-  sensitive   = true
+  default     = "administrator@vsphere.local"
 }
 
 variable "vsphere_password" {
@@ -27,14 +27,16 @@ variable "vsphere_insecure" {
   default     = false
 }
 
-# Roles
+# vSphere Objects
 
-variable "vrops_cloud_vsphere_role" {
+variable "vsphere_datacenter" {
   type        = string
-  description = "The name for the vRealize Operations Cloud to vSphere Integration role."
+  description = "The target vSphere datacenter object name. (e.g. sfo-m01-dc01)"
 }
 
-variable "vrops_cloud_vsphere_privileges" {
-  type        = list(string)
-  description = "The vSphere privileges for the vRealize Operations Cloud to vSphere Integration role."
+# Folder
+
+variable "vsphere_folder" {
+  type = string
+  description = "The vSphere folder name. (e.g. sfo-m01-fd-cbo)"
 }

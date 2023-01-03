@@ -10,6 +10,6 @@ vsphere_password = "<!--REPLACE WITH SSO PASSWORD-->"
 
 # vSphere Objects
 
-vsphere_datacenter              = "<!--REPLACE WITH WORKLOAD DATACENTER-->"
-vrops_cloud_folder              = "<!--REPLACE WITH VROPS CLOUD FOLDER NAME-->"
+vsphere_datacenter  = "<!--REPLACE WITH WORKLOAD DATACENTER-->"
+vsphere_folder  = "<!--REPLACE WITH VROPS CLOUD FOLDER NAME-->"
 
