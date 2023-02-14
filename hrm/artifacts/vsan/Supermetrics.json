@@ -1,0 +1,296 @@
+{
+   "81066432-d8c8-47e4-a138-fa989db62c64": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1661042143718,
+      "name": "SM Storage vcadapter",
+      "formula": "max([max(${adaptertype=VMWARE, objecttype=*, attribute=SOS vSAN Summary|alert_code, depth=8}), max(${this, attribute=SOS vSAN Summary|alert_code})])",
+      "description": "SOS Storage status",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "41c1eeb2-0ed3-4bf9-a2d1-4aa8a45bd540": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1661966528240,
+      "name": "SM Cluster Overall Status",
+      "formula": "max([${this, metric=Super Metric|sm_aea41667-8725-48da-b05b-7dc51f11a6f8}, ${this, metric=Super Metric|sm_56d2aa1b-e4ea-4904-b41a-b7f1569f8e06}\n,${this, metric=Super Metric|sm_f71d9b18-11fc-4849-b4e6-17217fc788c5}, ${this, metric=Super Metric|sm_4a1613d9-287c-40ea-8a70-4b7cb97ee59f}, ${this, metric=Super Metric|sm_e13931f6-068e-41a1-9538-6b288646b062},${this, metric=Super Metric|sm_21073512-e5f4-4841-a231-93f6c6f962df},${this, metric=Super Metric|sm_231aa5a2-8e8f-4c2e-9306-80f5c17c904e},${this, metric=Super Metric|sm_6794b888-f44c-444d-bb61-f420a29a9376},${this, metric=Super Metric|sm_81066432-d8c8-47e4-a138-fa989db62c64}, ${this, metric=Super Metric|sm_87f97f01-8892-4fc8-947e-bee3d8d3917f}])",
+      "description": "Rollup metric for all metrics collected in a cluster",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "072d0b10-9dbe-4c4f-92e2-12026bfab7b5": {
+      "resourceKinds": [{
+         "resourceKindKey": "NSXTAdapterInstance",
+         "adapterKindKey": "NSXTAdapter"
+      }],
+      "modificationTime": 1659395116665,
+      "name": "SM General NSX",
+      "formula": "max(${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS General|alert_code, depth=8})\n",
+      "description": "SOS General for NSX",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "b2857516-a17b-4b2e-a3f3-e609db101c24": {
+      "resourceKinds": [{
+         "resourceKindKey": "NSXTAdapterInstance",
+         "adapterKindKey": "NSXTAdapter"
+      }],
+      "modificationTime": 1659395116711,
+      "name": "SM Passwords NSX",
+      "formula": "max(${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS Password Summary|alert_code, depth=8})",
+      "description": "password expiry for NSX",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "3643068c-3bc6-475b-bbfa-45a6ae46be3c": {
+      "resourceKinds": [{
+         "resourceKindKey": "NSXTAdapterInstance",
+         "adapterKindKey": "NSXTAdapter"
+      }],
+      "modificationTime": 1659395116753,
+      "name": "SM Certificates NSX",
+      "formula": "max(${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS Certificate Health Summary|alert_code, depth=8})",
+      "description": "SOS certificates for NSX",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "14fe4cb5-4007-48ee-8928-029f6f201c3b": {
+      "resourceKinds": [{
+         "resourceKindKey": "NSXTAdapterInstance",
+         "adapterKindKey": "NSXTAdapter"
+      }],
+      "modificationTime": 1659395116763,
+      "name": "SM Services NSX",
+      "formula": "max(${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS Services Summary|alert_code, depth=8})",
+      "description": "Services status ",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "aea41667-8725-48da-b05b-7dc51f11a6f8": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1659395116865,
+      "name": "SM Certificates vcadapter",
+      "formula": "max(${adaptertype=VMWARE, objecttype=*, attribute=SOS Certificate Health Summary|alert_code, depth=8})",
+      "description": "SOS Certificate status for vcdapter object types",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "cf8a23ce-a87a-4e06-8955-27d9ab085405": {
+      "resourceKinds": [{
+         "resourceKindKey": "NSXTAdapterInstance",
+         "adapterKindKey": "NSXTAdapter"
+      }],
+      "modificationTime": 1659395116876,
+      "name": "SM NTP NSX",
+      "formula": "max(${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS NTP Status Summary|alert_code, depth=8})",
+      "description": "SOS NTP status for NSX",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "21073512-e5f4-4841-a231-93f6c6f962df": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1659395116885,
+      "name": "SM Compute vcadapter",
+      "formula": "max(${adaptertype=VMWARE, objecttype=*, attribute=SOS Compute Summary|alert_code, depth=8})\n",
+      "description": "Compute for VC",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "86e09c35-a0d1-4842-acf9-89fd360f3943": {
+      "resourceKinds": [{
+         "resourceKindKey": "NSXTAdapterInstance",
+         "adapterKindKey": "NSXTAdapter"
+      }],
+      "modificationTime": 1659395116933,
+      "name": "SM DNS NSX",
+      "formula": "max([max(${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS DNS Forward lookup Status Summary|alert_code, depth=8}), max(${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS DNS Reverse lookup Status Summary|alert_code, depth=8})])",
+      "description": "DNS status for NSX",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "d0782eb2-26e1-419b-be30-227a10c8007f": {
+      "resourceKinds": [{
+         "resourceKindKey": "NSXTAdapterInstance",
+         "adapterKindKey": "NSXTAdapter"
+      }],
+      "modificationTime": 1659395117018,
+      "name": "SM NSX overall status",
+      "formula": "max([${this, metric=Super Metric|sm_3643068c-3bc6-475b-bbfa-45a6ae46be3c},${this, metric=Super Metric|sm_86e09c35-a0d1-4842-acf9-89fd360f3943},${this, metric=Super Metric|sm_cf8a23ce-a87a-4e06-8955-27d9ab085405},${this, metric=Super Metric|sm_b2857516-a17b-4b2e-a3f3-e609db101c24},${this, metric=Super Metric|sm_14fe4cb5-4007-48ee-8928-029f6f201c3b},${this, metric=Super Metric|sm_072d0b10-9dbe-4c4f-92e2-12026bfab7b5},${this, metric=Super Metric|sm_c86590e5-daef-4dcd-8cdc-a8cc74d5db0c}])",
+      "description": "overall cluster status",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "6794b888-f44c-444d-bb61-f420a29a9376": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1659395117029,
+      "name": "SM General vcadapter",
+      "formula": "max(${adaptertype=VMWARE, objecttype=*, attribute=SOS General|alert_code, depth=8})\n",
+      "description": "SOS General for VCadapter",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "231aa5a2-8e8f-4c2e-9306-80f5c17c904e": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1659395117108,
+      "name": "SM Connectivity vcadapter",
+      "formula": "max([${adaptertype=VMWARE, objecttype=*, attribute=SOS Ping status|alert_code, depth=8}, ${adaptertype=VMWARE, objecttype=*, attribute=SOS SSH Connectivity status|alert_code, depth=8},${adaptertype=VMWARE, objecttype=*, attribute=SOS API Connectivity status|alert_code, depth=8}] )\n",
+      "description": "Connectivity for VC",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "4a1613d9-287c-40ea-8a70-4b7cb97ee59f": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1659395117117,
+      "name": "SM Passwords vcadapter",
+      "formula": "max(${adaptertype=VMWARE, objecttype=*, attribute=SOS Password Summary|alert_code, depth=8})",
+      "description": "SOS Password status for vcadapter object types",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "7a281938-e3ff-422c-a049-57ecd0818696": {
+      "resourceKinds": [{
+         "resourceKindKey": "Datacenter",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1659395117151,
+      "name": "SM Datacenter status",
+      "formula": "max(${adaptertype=VMWARE, objecttype=ClusterComputeResource, attribute=Super Metric|sm_41c1eeb2-0ed3-4bf9-a2d1-4aa8a45bd540, depth=3})",
+      "description": "Rollup metric for all clusters in a datacenter",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "c86590e5-daef-4dcd-8cdc-a8cc74d5db0c": {
+      "resourceKinds": [{
+         "resourceKindKey": "NSXTAdapterInstance",
+         "adapterKindKey": "NSXTAdapter"
+      }],
+      "modificationTime": 1659395117202,
+      "name": "SM Connectivity NSX",
+      "formula": "max([${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS Ping status|alert_code, depth=8}, ${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS SSH Connectivity status|alert_code, depth=8},${adaptertype=NSXTAdapter, objecttype=*, attribute=SOS API Connectivity status|alert_code, depth=8}] )\n",
+      "description": "Connectivity for NSX",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "56d2aa1b-e4ea-4904-b41a-b7f1569f8e06": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1659395117209,
+      "name": "SM DNS status",
+      "formula": "max([max(${adaptertype=VMWARE, objecttype=*, attribute=SOS DNS Forward lookup Status Summary|alert_code, depth=8}), max(${adaptertype=VMWARE, objecttype=*, attribute=SOS DNS Reverse lookup Status Summary|alert_code, depth=8})])",
+      "description": "SOS DNS status for vcdapter object types",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "e13931f6-068e-41a1-9538-6b288646b062": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1659395117292,
+      "name": "SM Services vcadapter",
+      "formula": "max(${adaptertype=VMWARE, objecttype=*, attribute=SOS Services Summary|alert_code, depth=8})",
+      "description": "SOS Services status for vcadapter object types",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "87f97f01-8892-4fc8-947e-bee3d8d3917f": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1661042134603,
+      "name": "SM Hardware Compatibility vcadapter",
+      "formula": "max([${this, metric=SOS Hardware Compatibility|Controller disk group mode is VMware certified|alert_code},${this, metric=SOS Hardware Compatibility|Controller driver is VMware certified|alert_code}, ${this, metric=SOS Hardware Compatibility|Controller firmware is VMware certified|alert_code},${this, metric=SOS Hardware Compatibility|Controller is VMware certified for ESXi release|alert_code}, ${this, metric=SOS Hardware Compatibility|SCSI controller is VMware certified|alert_code},${this, metric=SOS Hardware Compatibility|vSAN firmware version recommendation|alert_code},${this, metric=SOS Hardware Compatibility|vSAN HCL DB Auto Update|alert_code},${this, metric=SOS Hardware Compatibility|vSAN HCL DB up-to-date|alert_code}])",
+      "description": "SOS hardware compatibility ",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "f71d9b18-11fc-4849-b4e6-17217fc788c5": {
+      "resourceKinds": [{
+         "resourceKindKey": "ClusterComputeResource",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1659395117395,
+      "name": "SM NTP vcadapter",
+      "formula": "max(${adaptertype=VMWARE, objecttype=*, attribute=SOS NTP Status Summary|alert_code, depth=8})\n",
+      "description": "SOS NTP status for vcdapter object types",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   }, 
+   "649ff777-2e13-4449-bff8-5dddd852f55d": {
+      "resourceKinds": [{
+         "resourceKindKey": "VMwareAdapter Instance",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1656542044965,
+      "name": "SM vCenter Status",
+      "formula": "max(${adaptertype=VMWARE, objecttype=Datacenter, attribute=Super Metric|sm_7a281938-e3ff-422c-a049-57ecd0818696, depth=1})",
+      "description": "Rollup metric for all datacenters in the vCenter ",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "0af96558-29ea-4bbd-b9d0-9cfc6830e815": {
+      "resourceKinds": [{
+         "resourceKindKey": "VxRail World",
+         "adapterKindKey": "VXRAIL"
+      }],
+      "modificationTime": 1659395117008,
+      "name": "SM VxRail World",
+      "formula": "max(${adaptertype=VXRAIL, objecttype=VxRail Adapter Instance, attribute=Super Metric|sm_5bebb040-cdf1-4f96-bb84-1cdabe71f800, depth=1})",
+      "description": "Rollup Metric for all VxRail adapter instances under the VxRail World",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "5bebb040-cdf1-4f96-bb84-1cdabe71f800": {
+      "resourceKinds": [{
+         "resourceKindKey": "VxRail Adapter Instance",
+         "adapterKindKey": "VXRAIL"
+      }],
+      "modificationTime": 1659395116656,
+      "name": "SM VxRail Instance",
+      "formula": "max(${adaptertype=VMWARE, objecttype=ClusterComputeResource, attribute=Super Metric|sm_41c1eeb2-0ed3-4bf9-a2d1-4aa8a45bd540, depth=3})",
+      "description": "Rollup metric for all clusters in a vxRail Instance",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   },
+   "3d5c46d3-dc1f-4503-8b6d-fa1d575044f1": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "SDDC VCF Workload World",
+            "adapterKindKey": "SDDCHealthAdapter"
+         },
+         {
+            "resourceKindKey": "SDDC VCF Management World",
+            "adapterKindKey": "SDDCHealthAdapter"
+         }
+      ],
+      "modificationTime": 1656542045372,
+      "name": "SM VCF World Status",
+      "formula": "max(${adaptertype=VMWARE, objecttype=VMwareAdapter Instance, attribute=Super Metric|sm_649ff777-2e13-4449-bff8-5dddd852f55d, depth=1})",
+      "description": "Rollup Metric for all VC adapter instances under the VCF world - Management or Workload",
+      "unitId": "",
+      "modifiedBy": "37472b4d-191d-4c76-81c6-4ae93084b551"
+   }
+}

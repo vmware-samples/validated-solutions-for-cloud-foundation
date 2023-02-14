@@ -1,0 +1,1311 @@
+import argparse
+import shutil
+import nagini
+import requests
+import json
+import os
+import time
+import datetime
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+from utils import ssh
+from utils.SshUtility import SshUtility
+from utils.LogUtility import LogUtility
+from utils.FolderUtility import FolderUtility
+from utils.SosRest import SosRest
+from utils.PSUtility import PSUtility
+import re
+from cryptography.fernet import Fernet
+
+
+def push_handler(func):
+    def inner_function(*args, **kwargs):
+        try:
+            func(*args, **kwargs)
+            args[0].logger.info("############################################################################")
+        except Exception as e:
+            args[0].logger.info('Exception occurred. Details - ')
+            args[0].logger.info(e)
+
+    return inner_function
+
+
+class PushDataVrops:
+
+    def __init__(self, args):
+        os.chdir(os.path.dirname(os.path.abspath(__file__)))
+        env_file = args.env_json
+        env_info = self.read_data(env_file)
+
+        # set logger
+        log_level = env_info["log_level"]
+        self.logger = LogUtility.get_logger('HRM', log_level)
+
+        # set env
+        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+        self.logger.info('Gathering environment info..')
+        self.logger.info(f'script started in path - {os.getcwd()}')
+        self.logger.info(f"change current working directory to - {os.path.dirname(__file__)}")
+        self.logger.info(os.getcwd())
+        self.logger.info(f'Log files located at - {self.logger.test_log_folder}')
+
+        # set script options
+        fetch_new_data = args.fetch_new
+        self.push_to_vrops = args.push_data
+
+        # read env.json info
+        self.adapter_kind = env_info["adapterKind"]
+        self.vm_resource_kind = env_info["vm_resourceKind"]
+        self.pod_resource_kind = env_info["pod_resourceKind"]
+        self.cluster_resource_kind = env_info["cluster_resourceKind"]
+        self.esx_adapter_kind = env_info["esx_adapterKind"]
+        self.esx_resource_kind = env_info["esx_resourceKind"]
+        self.nsx_adapter_kind = env_info["nsx_adapterKind"]
+        self.nsx_resource_kind = env_info["nsx_resourceKind"]
+        self.forward_lookup = env_info["constants"]["forward_dns_lookup"]
+        self.reverse_lookup = env_info["constants"]["reverse_dns_lookup"]
+        self.data_file = env_info["constants"]["data_file"]
+        self.json_output_dir = env_info["constants"]["json_output_dir"]
+        self.vrops_fqdn = env_info["vrops"]["fqdn"]
+        self.vrops_passwd = None
+        self.vrops_user = env_info["vrops"]["user"]
+        self.sddc_manager_fqdn = env_info["sddc_manager"]["fqdn"]
+        self.sddc_manager_pwd = None
+        self.sddc_manager_user = env_info["sddc_manager"]["user"]
+        self.sddc_manager_root_pwd = None
+
+        # set status codes
+        self.codes = {'green': 0, 'yellow': 1, 'red': 2, 'NA': 1, 'skipped': 0}
+
+        # resource inventory object
+        self.resource_inventory = {}
+
+        try:
+            self.log_retention = int(env_info["log_retention_in_days"])
+            self.logger.info(f'Performing older logs cleanup from location '
+                             f'{os.path.dirname(self.logger.test_log_folder)}')
+            self.logger.info(f'deleting logs older than {self.log_retention} days')
+            FolderUtility.delete_logs_older_than_days(self.log_retention, self.logger)
+        except Exception as e:
+            self.logger.info('Exception occurred while deleting older logs')
+            self.logger.info(e)
+
+        self.decrypt_pwds()
+
+        # get vrops nagini client
+        self.vrops = nagini.Nagini(host=self.vrops_fqdn, user_pass=(self.vrops_user, self.vrops_passwd))
+
+        self.logger.info('Fetching data from VMware.Cloudfoundation.Reporting cmdlets...')
+        self.get_data_from_reporting_module()
+
+        self.logger.info('Fetching data from SOS tool which runs on SDDC manager...')
+        self.logger.info('This can take between 15 to 90 min depending on the size of your environment. '
+                         'Please wait....')
+
+        self.data = self.get_sos_data_from_sddc_manager(fetch_new=fetch_new_data)
+        if self.data is None:
+            self.logger.info("Unable to get SOS data from SDDC manager")
+
+    def decrypt_pwds(self):
+        # read encrypted pwd and convert into byte
+        with open(os.path.join('encrypted_files', 'encrypted_pwds')) as f:
+            pwds = []
+            for line in f:
+                pwds.append(bytes(line, 'utf-8'))
+
+        with open(os.path.join('encrypted_files', 'key')) as f:
+            key = ''.join(f.readlines())
+            keybyt = bytes(key, 'utf-8')
+
+        fkey = Fernet(keybyt)
+        self.vrops_passwd = fkey.decrypt(pwds[0]).decode()
+        self.sddc_manager_pwd = fkey.decrypt(pwds[1]).decode()
+        self.sddc_manager_root_pwd = fkey.decrypt(pwds[2]).decode()
+
+    def get_resource_mapping_info(self):
+        esx_res = self.match_resources(self.esx_resource_kind, self.esx_adapter_kind)
+        self.logger.info(f"ESX Resource mapping info - {esx_res}, size {len(esx_res)}")
+
+        nsx_res = self.match_resources(self.nsx_resource_kind, self.nsx_adapter_kind)
+        self.logger.info(f"NSX Resource mapping info - {nsx_res},  size {len(nsx_res)}")
+
+        vm_res = self.match_resources(self.vm_resource_kind, self.adapter_kind)
+        self.logger.info(f"VM Resource mapping info - {vm_res},  size {len(vm_res)}")
+
+        pod_res = self.match_resources(self.pod_resource_kind, self.adapter_kind)
+        self.logger.info(f"Pod Resource mapping info - {pod_res},  size {len(pod_res)}")
+
+        cluster_res = self.match_resources(self.cluster_resource_kind, self.adapter_kind)
+        self.logger.info(f"Cluster Resource mapping info - {cluster_res},  size {len(cluster_res)}")
+
+        self.resource_inventory = {**esx_res, **nsx_res, **vm_res, **cluster_res, **pod_res}
+        self.logger.info(f'Total number of resources in inventory = {len(self.resource_inventory)}')
+        self.logger.info(f'Number of esx resources - {len(esx_res)} ')
+        self.logger.info(f'Number of nsx resources - {len(nsx_res)} ')
+        self.logger.info(f'Number of vm resources - {len(vm_res)} ')
+        self.logger.info(f'Number of cluster resources  - {len(cluster_res)} ')
+        self.logger.info(f'Number of pod resources  - {len(pod_res)} ')
+
+        total_len = len(esx_res) + len(nsx_res) + len(vm_res) + len(cluster_res) + len(pod_res)
+
+        self.logger.info(f'TOTAL resources (adding 5 categories above) = {total_len}')
+        if total_len != len(self.resource_inventory):
+            self.logger.warn(f'It seems there is a possibility of duplicate entries in the inventory, please check')
+        return
+
+    def backup_existing_file(self, data_file):
+        backup_name = datetime.datetime.now().strftime('health-results_%H_%M_%d_%m_%Y.json')
+        # remove existing file health_data_file
+        if not os.path.exists('backup'):
+            self.logger.info('creating backup directory')
+            os.makedirs('backup')
+        if os.path.exists(data_file):
+            os.replace(data_file, os.path.join('backup', backup_name))
+
+    def get_data_from_reporting_module(self):
+        psu = PSUtility(logger=self.logger)
+        modules_without_root = ['Publish-BackupStatus',
+                                'Publish-NsxtTransportNodeStatus',
+                                'Publish-NsxtTransportNodeTunnelStatus',
+                                'Publish-NsxtTier0BgpStatus',
+                                'Publish-SnapshotStatus',
+                                'Publish-NsxtHealthNonSOS',
+                                'Publish-ComponentConnectivityHealthNonSOS']
+
+        without_root_cmd = f'-server {self.sddc_manager_fqdn} -user {self.sddc_manager_user} ' \
+                           f'-pass {self.sddc_manager_pwd} -allDomains -outputJson {self.logger.test_log_folder}'
+
+        for module in modules_without_root:
+            psu.execute_ps_cmd(f'{module} {without_root_cmd}')
+
+        # module requireing sddc root user
+        psu.execute_ps_cmd(f'Publish-StorageCapacityHealth {without_root_cmd} -rootPass {self.sddc_manager_pwd}')
+
+        self.logger.info(f'Generated JSON files for Publish-* cmdlets in location {self.logger.test_log_folder}')
+
+    # TODO: change this function
+    def get_sos_data_from_sddc_manager(self, fetch_new=True):
+        data = None
+        # src = self.json_output_dir + '/' + self.data_file #this file is on SDDC manager
+        dest = os.path.join(self.logger.test_log_folder, self.data_file)
+        if fetch_new:
+            sosrest = SosRest(host=self.sddc_manager_fqdn, user=self.sddc_manager_user,
+                              password=self.sddc_manager_pwd, logger=self.logger)
+            sosrest.get_auth_token()
+            id = sosrest.start_health_checks_op()
+            sosrest.get_health_checks_status(id)
+            sosrest.get_health_check_bundle(id, path=self.logger.test_log_folder)
+
+            if os.path.exists(dest):
+                data = self.read_data(os.path.join(dest))
+            else:
+                self.logger.info(f'Unable to find {dest}')
+
+            self.logger.info(f'Unable to find {self.data_file} in {dest}')
+        return data
+
+    def match_resources(self, resource_kind, adapter_kind):
+        try:
+            resource_data = {}
+            page = 0
+            page_size = 1000
+            data = self.vrops.get_resources(resourceKind=resource_kind, adapterKindKey=adapter_kind,
+                                            pageSize=page_size, page=page)
+
+            page_info = data['pageInfo']
+            total_count = page_info['totalCount']
+            total_pages = int(total_count / page_size)
+            for resource in data['resourceList']:
+                resource_data[resource['resourceKey']['name']] = resource['identifier']
+
+            while total_pages > 0:
+                total_pages = total_pages - 1
+                page = page + 1
+                data = self.vrops.get_resources(resourceKind=resource_kind, adapterKindKey=adapter_kind,
+                                                pageSize=page_size, page=page)
+                for resource in data['resourceList']:
+                    resource_data[resource['resourceKey']['name']] = resource['identifier']
+
+            self.logger.info(f'Resource inventory data from vrops for ResourceKind - {resource_kind} '
+                             f'and AdapterKind - {adapter_kind}')
+            self.logger.info(resource_data)
+
+            return resource_data
+        except Exception as e:
+            self.logger.info(e)
+            self.logger.info("Unable to connect to vrops using given credentials")
+            raise e
+
+    def read_data(self, data_file):
+        with open(data_file) as df:
+            data = json.load(df)
+        return data
+
+    def get_complete_json_file_name(self, file_name):
+        path = None
+        for file in os.listdir(self.logger.test_log_folder):
+            if file.endswith(file_name):
+                path = os.path.join(self.logger.test_log_folder, file)
+                break
+        if not path:
+            self.logger.info(f'Unable to find file ending with {file_name} in {self.logger.test_log_folder}')
+
+        return path
+
+    def push_data(self):
+        self.get_resource_mapping_info()
+        self.logger.info("############################################################################")
+
+        file_name = self.get_complete_json_file_name("backup-status.json")
+        self.push_backup_status(file_name)
+
+        file_name = self.get_complete_json_file_name('storagecapacityhealth-status.json')
+        self.push_storagecapacityhealth_status(file_name)
+
+        file_name = self.get_complete_json_file_name('nsxtcombinedhealthnonsos-status.json')
+        self.push_nsxtcombinedhealthnonsos_status(file_name)
+
+        file_name = self.get_complete_json_file_name('componentconnectivityhealth-status.json')
+        self.push_componentconnectivityhealth_status(file_name)
+
+        file_name = self.get_complete_json_file_name('snapshot-status.json')
+        self.push_snapshot_status(file_name)
+
+        file_name = self.get_complete_json_file_name('nsxttier0bgp-status.json')
+        self.push_nsxttier0_backup_status(file_name)
+
+        # pushing data from sos utility health-results.json
+        if self.data:
+            self.push_data_password()
+            self.push_data_certificates()
+            self.push_dns_lookup(self.forward_lookup)
+            self.push_dns_lookup(self.reverse_lookup)
+            self.push_ntp()
+            self.push_services()
+            self.push_compute()
+            self.push_vsan()
+            self.push_connectivity()
+            self.push_hw_compatibility()
+            self.push_general()
+
+        self.logger.info("###############################Script Complete############################################")
+        self.logger.info(f'Log files located at - {self.logger.test_log_folder}')
+
+    def get_most_nested_dict(self, dictionary, parent_key=None, prev_keys=[]):
+        for key, value in dictionary.items():
+            if type(value) is dict:
+                parent_key = key
+                prev_keys.append(key)
+                yield from self.get_most_nested_dict(value, parent_key, prev_keys)
+            else:
+                yield dictionary, parent_key, prev_keys
+                break
+
+    def push_data_to_vrops(self, category, resource_id, hostname, metrics_payload_json):
+        if category.lstrip().startswith("HRM"):
+            suc_log_msg = f"**********************Pushed '{category}' to vrops**********************"
+            fail_log_msg = f"**********************Unable to Push '{category}' to vrops**********************"
+        else:
+            suc_log_msg = f"**********************Pushed 'SOS {category}' to vrops**********************"
+            fail_log_msg = f"**********************Unable to Push 'SOS {category}' to vrops**********************"
+
+        if not resource_id:
+            self.logger.info(f'Cannot add data for {hostname}, resource id is {resource_id}')
+            self.logger.info(fail_log_msg)
+        else:
+            if self.push_to_vrops:
+                self.vrops.add_stats(metrics_payload_json, id=resource_id)
+                self.logger.info(suc_log_msg)
+            else:
+                self.logger.info(f"********************** will not push '{category}' data to vrops******************")
+
+    @push_handler
+    def push_general(self):
+        category = "General"
+        update_count = 0
+        for d, parent_key, prev_keys in self.get_most_nested_dict(self.data[category]):
+            if parent_key == "":
+                continue
+            if parent_key == "Vcenter Ring Topology Status":
+                hostname = self.sddc_manager_fqdn
+                component = 'SDDCMANAGER'
+            else:
+                if ':' in d['area']:
+                    component, hostname = d['area'].split(':')
+                else:
+                    hostname = d['area']
+                    component = 'NA'
+                hostname = hostname.lstrip('*').lstrip().rstrip()
+                component = component.lstrip('*').rstrip().lstrip()
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f"hostname = {hostname}, component = {component}")
+
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            metrics_payload = {"stat-content": []}
+            timestamp_raw = d['timestamp']
+            timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+
+            if 'NSX Edge Cluster Health Status' in d['title']:
+                metric_key = 'NSX Edge Cluster Health Status'
+            elif 'NSX Edge Health Status' in d['title']:
+                metric_key = 'NSX Edge Health Status'
+            elif 'No NSX Edge Cluster available' in d['title']:
+                metric_key = 'NSX Edge Cluster Health Status'
+            elif parent_key not in d['area']:
+                metric_key = d['title'].lstrip('*').rstrip().lstrip().split("\n")[0]
+            else:
+                prev_keys.pop()
+                metric_key = prev_keys[-1]
+
+            for k, v in d.items():
+                details = {
+                    "statKey": f"SOS General|{metric_key}|{k}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "data" if isinstance(v, int) else "values": [v]
+                }
+
+                metrics_payload["stat-content"].append(details)
+                if k == 'alert':
+                    details = {
+                        "statKey": f"SOS General|{metric_key}|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+
+    @push_handler
+    def push_hw_compatibility(self):
+        category = "Hardware Compatibility"
+        update_count = 0
+        for d, parent_key, prev_keys in self.get_most_nested_dict(self.data[category]):
+            if parent_key == "":
+                continue
+            component, hostname = d['area'].split(':')
+            hostname = hostname.lstrip().rstrip()
+            component = component.rstrip().lstrip()
+            self.logger.info(f"hostname = {hostname}, component = {component}")
+
+            resource_id = self.get_resource_id(hostname, None)
+
+            metrics_payload = {"stat-content": []}
+            timestamp_raw = d['timestamp']
+            timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+
+            for k, v in d.items():
+                if k.lower() == 'title':
+                    flat_list = []
+                    for sublist in v:
+                        if type(sublist) == list:
+                            for item in sublist:
+                                flat_list.append(item)
+                        else:
+                            flat_list.append(sublist)
+                    v = ','.join(flat_list)
+                details = {
+                    "statKey": f"SOS Hardware Compatibility|{parent_key}|{k}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "data" if isinstance(v, int) else "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k == 'alert':
+                    details = {
+                        "statKey": f"SOS Hardware Compatibility|{parent_key}|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+
+    @push_handler
+    def push_connectivity(self):
+        category = "Connectivity"
+        update_count = 0
+        for d, parent_key, prev_keys in self.get_most_nested_dict(self.data[category]):
+            if parent_key == "NSX Ping Status":
+                continue
+            if parent_key == "Vcenter Ring Topology Status":
+                hostname = self.sddc_manager_fqdn
+                component = 'SDDCMANAGER'
+            else:
+                component, hostname = d['area'].split(':')
+                hostname = hostname.lstrip().rstrip()
+                component = component.rstrip().lstrip()
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f"hostname = {hostname}, component = {component}")
+
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            metrics_payload = {"stat-content": []}
+            timestamp_raw = d['timestamp']
+            timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+
+            for k, v in d.items():
+                details = {
+                    "statKey": f"SOS {d['title']}|{k}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "data" if isinstance(v, int) else "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k == 'alert':
+                    details = {
+                        "statKey": f"SOS {d['title']}|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+                if parent_key != hostname:
+                    details = {
+                        "statKey": f"SOS {d['title']}|IP",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data" if isinstance(v, int) else "values": [parent_key]
+                    }
+                    metrics_payload["stat-content"].append(details)
+                    if k == 'alert':
+                        details = {
+                            "statKey": f"SOS {d['title']}|alert_code",
+                            "timestamps": [int(timestamp * 1000)],
+                            "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                        }
+                        metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+
+    @push_handler
+    def push_vsan(self):
+        category = 'vSAN'
+        update_count = 0
+        for key, value in self.data[category].items():
+            alert_code_val = 0
+            if value.get('area'):
+                hostname = key
+                resource_id = self.get_resource_id(hostname, None)
+
+                metrics_payload = {"stat-content": []}
+                timestamp_raw = value['timestamp']
+                timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+
+                for k, v in value.items():
+                    details = {
+                        "statKey": f"SOS vSAN Summary|{k}",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data" if isinstance(v, int) else "values": [v]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+                    if k == 'alert':
+                        if v.lower() == "":
+                            if value['status'].lower() == "passed":
+                                alert_code_val = 0
+                            else:
+                                alert_code_val = 1
+                        details = {
+                            "statKey": f"SOS vSAN Summary|alert_code",
+                            "timestamps": [int(timestamp * 1000)],
+                            "data": [self.codes[v.lower()]] if v.lower() in self.codes else [alert_code_val]
+                        }
+                        metrics_payload["stat-content"].append(details)
+
+                metrics_payload_json = json.dumps(metrics_payload)
+
+                self.logger.info(resource_id)
+                self.logger.info(metrics_payload_json)
+                self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                update_count = update_count + 1
+            else:
+                for host, val in value.items():
+                    hostname = host.split(":")[1].split(".")[0].lstrip().rstrip()
+                    cluster_name = host.split(":")[2].lstrip().rstrip()
+                    resource_id = self.get_resource_id(cluster_name, None)
+                    metrics_payload = {"stat-content": []}
+                    timestamp_raw = val['timestamp']
+                    timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+
+                    for k, v in val.items():
+                        details = {
+                            "statKey": f"SOS vSAN Summary:{key}|{k}",
+                            "timestamps": [int(timestamp * 1000)],
+                            "data" if isinstance(v, int) else "values": [v]
+                        }
+                        metrics_payload["stat-content"].append(details)
+                        if k == 'alert':
+                            if v.lower() == "":
+                                if val['status'].lower() == "passed":
+                                    alert_code_val = 0
+                                else:
+                                    alert_code_val = 1
+                            details = {
+                                "statKey": f"SOS vSAN Summary:{key}|alert_code",
+                                "timestamps": [int(timestamp * 1000)],
+                                "data": [self.codes[v.lower()]] if v.lower() in self.codes else [alert_code_val]
+                            }
+                            metrics_payload["stat-content"].append(details)
+
+                    metrics_payload_json = json.dumps(metrics_payload)
+
+                    self.logger.info(resource_id)
+                    self.logger.info(metrics_payload_json)
+                    self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                    update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+
+    @push_handler
+    def push_compute(self):
+        category = "Compute"
+        update_count = 0
+        for key, value in self.data[category].items():
+            for host, val in value.items():
+                component, hostname = val['area'].split(':')
+                hostname = hostname.lstrip().rstrip()
+                component = component.rstrip().lstrip()
+                resource_name = hostname.split(".")[0]
+                self.logger.info(f"hostname = {hostname}, component = {component}")
+
+                metrics_payload = {"stat-content": []}
+
+                timestamp_raw = val['timestamp']
+                timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+
+                resource_id = self.get_resource_id(hostname, resource_name)
+
+                for k, v in val.items():
+                    details = {
+                        "statKey": f"SOS Compute Summary:{key}|{k}",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data" if isinstance(v, int) else "values": [v]
+                    }
+                    metrics_payload["stat-content"].append(details)
+                    if k == 'alert':
+                        details = {
+                            "statKey": f"SOS Compute Summary:{key}|alert_code",
+                            "timestamps": [int(timestamp * 1000)],
+                            "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                        }
+                        metrics_payload["stat-content"].append(details)
+
+                metrics_payload_json = json.dumps(metrics_payload)
+
+                self.logger.info(resource_id)
+                self.logger.info(metrics_payload_json)
+                self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+
+    @push_handler
+    def push_services(self):
+        category = "Services"
+        update_count = 0
+        for element in self.data[category]:
+            for key, value in element.items():
+                component, hostname = value['area'].split(':')
+                hostname = hostname.lstrip().rstrip()
+                component = component.rstrip().lstrip()
+                resource_name = hostname.split(".")[0]
+                self.logger.info(f"hostname = {hostname}, component = {component}")
+
+                metrics_payload = {"stat-content": []}
+
+                timestamp_raw = value['timestamp']
+                timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+
+                resource_id = self.get_resource_id(hostname, resource_name)
+
+                for k, val in value.items():
+                    details = {
+                        "statKey": f"SOS Services Summary:{value['title']}|{k}",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data" if isinstance(val, int) else "values": [val]
+                    }
+                    metrics_payload["stat-content"].append(details)
+                    if k == 'alert':
+                        details = {
+                            "statKey": f"SOS Services Summary:{value['title']}|alert_code",
+                            "timestamps": [int(timestamp * 1000)],
+                            "data": [self.codes[val.lower()]]
+                        }
+                        metrics_payload["stat-content"].append(details)
+
+                metrics_payload_json = json.dumps(metrics_payload)
+
+                self.logger.info(resource_id)
+                self.logger.info(metrics_payload_json)
+                self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+
+    @push_handler
+    def push_ntp_iterator(self, category, data):
+        category_orig = category
+        update_count = 0
+        for key, value in data.items():
+            if key != 'ESXi Time' and key != 'ESXi HW Time':
+                hostname = key.rstrip()
+                category = category_orig
+            else:
+                if value != {}:
+                    try:
+                        hostname = value['area'].split(':')[1].lstrip().rstrip()
+                        category = key
+                    except Exception as e:
+                        self.push_ntp_iterator(key, value)
+                        category_orig = category
+                        continue
+                else:
+                    continue
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f"hostname = {hostname}")
+            metrics_payload = {"stat-content": []}
+
+            timestamp_raw = value['timestamp']
+            timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, val in value.items():
+                details = {
+                    "statKey": f"SOS {category} Status Summary|{k}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "data" if isinstance(val, int) else "values": [val]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k == 'alert':
+                    details = {
+                        "statKey": f"SOS {category} Status Summary|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[val.lower()]]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+
+    @push_handler
+    def push_ntp(self):
+        ntp = "NTP"
+        self.push_ntp_iterator(ntp, self.data[ntp])
+
+    @push_handler
+    def push_dns_lookup(self, dns_type):
+        category = "DNS lookup Status"
+        update_count = 0
+        for key, value in self.data[category][dns_type].items():
+            hostname = key.rstrip()
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f"hostname = {hostname}")
+            metrics_payload = {"stat-content": []}
+
+            timestamp_raw = value['timestamp']
+            timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, val in value.items():
+                details = {
+                    "statKey": f"SOS DNS {dns_type} Summary|{k}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "data" if isinstance(val, int) else "values": [val]
+                }
+
+                metrics_payload["stat-content"].append(details)
+                if k == 'alert':
+                    details = {
+                        "statKey": f"SOS DNS {dns_type} Summary|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[val.lower()]]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+
+    def get_resource_id(self, hostname, resource_name):
+        resource_id = self.resource_inventory.get(hostname)
+        if not resource_id:
+            resource_id = self.resource_inventory.get(resource_name)
+        if not resource_id:
+            for name, res_id in self.resource_inventory.items():
+                if resource_name in name or hostname in name:
+                    resource_id = res_id
+                    break
+        return resource_id
+
+    def push_flat_struct(self, data_type, data_arr, key_var):
+        update_count = 0
+        category = f"HRM {data_type} Status"
+        self.logger.info(f"Pushing {data_type} status data to vrops")
+        for arr_val in data_arr:
+            self.data = arr_val
+            user = None
+            component = None
+            if arr_val.get("User") is not None:
+                user = arr_val["User"]
+            if arr_val.get("Component") is not None:
+                component = arr_val["Component"]
+            if key_var is not None:
+                hostname = self.data[key_var]
+            else:
+                hostname = self.data["Resource"]
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f"hostname = {hostname}, component = {component}")
+            metrics_payload = {"stat-content": []}
+
+            timestamp = time.mktime(datetime.datetime.now().timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, v in arr_val.items():
+                k_lower = k.lower()
+                if user:
+                    statkey = f"HRM {data_type} Status:{user}"
+                else:
+                    statkey = f"HRM {data_type} Status"
+
+                details = {
+                    "statKey": f"{statkey}|{k_lower}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k.lower() == 'alert':
+                    details = {
+                        "statKey": f"{statkey}|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+        return update_count
+
+    @push_handler
+    def push_data_password(self):
+        category = "Password Expiry Status"
+        self.logger.info('Pushing SOS password data to vrops')
+        update_count = 0
+        for key, value in self.data[category].items():
+            hostname, user = key.split(':')
+            hostname = hostname.rstrip()
+            user = user.rstrip().lstrip()
+            resource_name = hostname.split(".")[0]
+            component = value['area'].split(":")[0].rstrip()
+            self.logger.info(f"hostname = {hostname}, component = {component}")
+            metrics_payload = {"stat-content": []}
+
+            timestamp_raw = value['timestamp']
+            timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, v in value.items():
+                if k == 'title':
+                    for k1, val in value['title'].items():
+                        if key != 'host':
+                            if not isinstance(val, int) and val.lower() == 'never':
+                                val = 999999999
+                            details = {
+                                "statKey": f"SOS Password Summary:{user}|{k1}",
+                                "timestamps": [int(timestamp * 1000)],
+                                "data" if isinstance(val, int) else "values": [val]
+                            }
+                            metrics_payload["stat-content"].append(details)
+                else:
+                    details = {
+                        "statKey": f"SOS Password Summary:{user}|{k}",
+                        "timestamps": [int(timestamp * 1000)],
+                        "values": [v]
+                    }
+                    metrics_payload["stat-content"].append(details)
+                    if k == 'alert':
+                        details = {
+                            "statKey": f"SOS Password Summary:{user}|alert_code",
+                            "timestamps": [int(timestamp * 1000)],
+                            "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                        }
+                        metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+    @push_handler
+    def push_backup_status(self, file_name):
+        data_arr = self.read_data(file_name)
+        update_count = 0
+        category = "HRM Backup Status"
+        data_type = "Backup"
+        self.logger.info(f"Pushing {data_type} status data to vrops")
+
+        for arr_val in data_arr:
+            data = arr_val
+            component = data["Component"]
+            index_val = data["Resource"]
+            hostname = data["Element"]
+            if (component == "NSX Manager"):
+                statkey = f"HRM {data_type} Status:{index_val}"
+            else:
+                statkey = f"HRM {data_type} Status"
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f"hostname = {hostname}, component = {component}")
+            metrics_payload = {"stat-content": []}
+
+            # timestamp_raw = value['timestamp']
+            timestamp = time.mktime(datetime.datetime.now().timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, v in arr_val.items():
+                k_lower = k.lower()
+                details = {
+                    "statKey": f"{statkey}|{k_lower}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k.lower() == 'alert':
+                    details = {
+                        "statKey": f"{statkey}|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+    @push_handler
+    def push_snapshot_status(self, file_name):
+        data_arr = self.read_data(file_name)
+        category = "HRM snapshot Status"
+        data_type = "Snapshot"
+        self.logger.info(f"Pushing {data_type} status data to vrops")
+        update_count = 0
+        for arr_val in data_arr:
+            data = arr_val
+            component = data["Component"]
+            hostname = data["Element"]
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f"hostname = {hostname}, component = {component}")
+            metrics_payload = {"stat-content": []}
+
+            timestamp = time.mktime(datetime.datetime.now().timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, v in arr_val.items():
+                k_lower = k.lower()
+                details = {
+                    "statKey": f"HRM {data_type} Status|{k_lower}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k.lower() == 'alert':
+                    details = {
+                        "statKey": f"HRM {data_type} Status|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+    @push_handler
+    def push_localuserexpiry_status(self, file_name):
+        data_type = "Localuserexpiry"
+        datastruct = self.get_complete_json_file_name(file_name)
+        update_count = self.push_flat_struct(data_type, datastruct, None)
+
+    @push_handler
+    def push_componentconnectivityhealth_status(self, file_name):
+        category = "HRM componentconnectivityhealth Status"
+        data_type = "ComponentConnectivityHealth"
+        datastruct = self.read_data(file_name)
+        update_count = self.push_flat_struct(data_type, datastruct, None)
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+    @push_handler
+    def push_storagecapacityhealth_status(self, file_name):
+        update_count = 0
+        datastruct = self.read_data(file_name)
+
+        for key_val in datastruct.keys():
+            data_arr = datastruct[key_val]
+            if key_val == "esxi":
+                key_var = "ESXi FQDN"
+                category = "HRM storagecapacityhealth Status"
+                data_type = "StorageCapacityHealth"
+                for arr_val in data_arr:
+                    data = arr_val
+                    hostname = data[key_var]
+                    resource_name = (hostname).split(".")[0]
+                    self.logger.info(f"hostname = {hostname}")
+                    metrics_payload = {"stat-content": []}
+
+                    # timestamp_raw = value['timestamp']
+                    timestamp = time.mktime(datetime.datetime.now().timetuple())
+                    resource_id = self.get_resource_id(hostname, resource_name)
+
+                    for k, v in arr_val.items():
+                        k_lower = k.lower()
+                        index_val = arr_val["Volume Name"]
+                        statkey = f"HRM {data_type} Status:{index_val}"
+                        details = {
+                            "statKey": f"{statkey}|{k_lower}",
+                            "timestamps": [int(timestamp * 1000)],
+                            "values": [v]
+                        }
+                        metrics_payload["stat-content"].append(details)
+                        if k.lower() == 'alert':
+                            details = {
+                                "statKey": f"{statkey}|alert_code",
+                                "timestamps": [int(timestamp * 1000)],
+                                "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                            }
+                            metrics_payload["stat-content"].append(details)
+
+                    metrics_payload_json = json.dumps(metrics_payload)
+
+                    self.logger.info(resource_id)
+                    self.logger.info(metrics_payload_json)
+                    self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                    update_count = update_count + 1
+
+            elif key_val == "datastore":
+                key_var = "vCenter Server"
+                category = "HRM storagecapacitydatastorehealth Status"
+                data_type = "StorageCapacityDatastoreHealth"
+                for arr_val in data_arr:
+                    data = arr_val
+                    hostname = data[key_var]
+                    resource_name = hostname.split(".")[0]
+                    self.logger.info(f"hostname = {hostname}")
+                    metrics_payload = {"stat-content": []}
+
+                    # timestamp_raw = value['timestamp']
+                    timestamp = time.mktime(datetime.datetime.now().timetuple())
+                    resource_id = self.get_resource_id(hostname, resource_name)
+
+                    for k, v in arr_val.items():
+                        k_lower = k.lower()
+                        index_val = arr_val["Datastore Name"]
+                        statkey = f"HRM {data_type} Status:{index_val}"
+                        details = {
+                            "statKey": f"{statkey}|{k_lower}",
+                            "timestamps": [int(timestamp * 1000)],
+                            "values": [v]
+                        }
+                        metrics_payload["stat-content"].append(details)
+                        if k.lower() == 'alert':
+                            details = {
+                                "statKey": f"{statkey}|alert_code",
+                                "timestamps": [int(timestamp * 1000)],
+                                "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                            }
+                            metrics_payload["stat-content"].append(details)
+
+                    metrics_payload_json = json.dumps(metrics_payload)
+
+                    self.logger.info(resource_id)
+                    self.logger.info(metrics_payload_json)
+                    self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                    update_count = update_count + 1
+            else:
+                key_var = "FQDN"
+                category = "HRM storagecapacityfilesystemhealth Status"
+                data_type = "StorageCapacityFilesystemHealth"
+                for arr_val in data_arr:
+                    data = arr_val
+                    index_val = data["Filesystem"]
+                    hostname = data[key_var]
+                    resource_name = hostname.split(".")[0]
+                    self.logger.info(f"hostname = {hostname}")
+                    metrics_payload = {"stat-content": []}
+
+                    # timestamp_raw = value['timestamp']
+                    timestamp = time.mktime(datetime.datetime.now().timetuple())
+                    resource_id = self.get_resource_id(hostname, resource_name)
+                    for k, v in arr_val.items():
+                        k_lower = k.lower()
+                        statkey = f"HRM {data_type} Status:{index_val}"
+                        details = {
+                            "statKey": f"{statkey}|{k_lower}",
+                            "timestamps": [int(timestamp * 1000)],
+                            "values": [v]
+                        }
+                        metrics_payload["stat-content"].append(details)
+                        if k.lower() == 'alert':
+                            details = {
+                                "statKey": f"{statkey}|alert_code",
+                                "timestamps": [int(timestamp * 1000)],
+                                "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                            }
+                            metrics_payload["stat-content"].append(details)
+
+                    metrics_payload_json = json.dumps(metrics_payload)
+
+                    self.logger.info(resource_id)
+                    self.logger.info(metrics_payload_json)
+                    self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+
+                    update_count = update_count + 1
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+    @push_handler
+    def push_nsxttier0_backup_status(self, file_name):
+        data_arr = self.get_complete_json_file_name(file_name)
+        category = "HRM NSXT TIER0 BGP Backup Status"
+        self.logger.info('Pushing nsxt tier0 bgp backup status data to vrops')
+        update_count = 0
+        index = 0
+        instance_hash = {}
+
+        for arr_val in data_arr:
+            instance_name = arr_val["NSX Manager"]
+            instance_hash[instance_name] = 0
+
+        for arr_val in data_arr:
+            data = arr_val
+            # component = data["Component"]
+            hostname = data["NSX Manager"]
+            resource_name = (hostname).split(".")[0]
+            self.logger.info(f"hostname = {hostname}")
+            metrics_payload = {"stat-content": []}
+
+            # timestamp_raw = value['timestamp']
+            timestamp = time.mktime(datetime.datetime.now().timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, v in arr_val.items():
+                k_lower = k.lower()
+                details = {
+                    "statKey": f"HRM NSXT TIER0 BGP Backup Status:{instance_hash[hostname]}|{k_lower}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k.lower() == 'alert':
+                    details = {
+                        "statKey": f"HRM NSXT TIER0 BGP Backup Status:{instance_hash[hostname]}|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+            instance_hash[hostname] += 1
+
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+    @push_handler
+    def push_nsxtcombinedhealthnonsos_status(self, file_name):
+        data_arr = self.get_complete_json_file_name(file_name)
+        category = "HRM NSXTCombinedHealth Status"
+        self.logger.info('Pushing NSXT Combined Health Status data to vrops')
+        update_count = 0
+        index = 0
+        instance_hash = {}
+
+        for arr_val in data_arr:
+            instance_name = arr_val["Resource"]
+            instance_hash[instance_name] = 0
+
+        for arr_val in data_arr:
+            data = arr_val
+            component = data["Component"]
+            hostname = data["Resource"]
+            resource_name = (hostname).split(".")[0]
+            self.logger.info(f"hostname = {hostname} and component = {component}")
+            metrics_payload = {"stat-content": []}
+
+            # timestamp_raw = value['timestamp']
+            timestamp = time.mktime(datetime.datetime.now().timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, v in arr_val.items():
+                k_lower = k.lower()
+                details = {
+                    "statKey": f"HRM NSXTCombinedHealth Status:{instance_hash[hostname]}|{k_lower}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k.lower() == 'alert':
+                    details = {
+                        "statKey": f"HRM NSXTCombinedHealth Status:{instance_hash[hostname]}|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+            instance_hash[hostname] += 1
+
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+    @push_handler
+    def push_data_certificates(self):
+        category = "Certificates"
+        self.logger.info('Pushing SOS Certificate Health data to vrops')
+        update_count = 0
+        for key, value in self.data[category]['Certificate Status'].items():
+            for hostname, cert_data in value.items():
+                resource_name = hostname.split(".")[0]
+                self.logger.info(f"hostname = {hostname}")
+
+                resource_id = self.get_resource_id(hostname, resource_name)
+
+                metrics_payload = {"stat-content": []}
+
+                timestamp_raw = cert_data['timestamp']
+                timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+
+                if cert_data['title'] and "-" not in cert_data['title']:
+                    details = {
+                        "statKey": f"SOS Certificate Health Summary|fqdn",
+                        "timestamps": [int(timestamp * 1000)],
+                        "values": [cert_data['title'][0]]
+                    }
+                    metrics_payload["stat-content"].append(details)
+                    details = {
+                        "statKey": f"SOS Certificate Health Summary|issue_date",
+                        "timestamps": [int(timestamp * 1000)],
+                        "values": [cert_data['title'][1]]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+                    details = {
+                        "statKey": f"SOS Certificate Health Summary|expiry_date",
+                        "timestamps": [int(timestamp * 1000)],
+                        "values": [cert_data['title'][2]]
+                    }
+                    metrics_payload["stat-content"].append(details)
+                    current = datetime.datetime.now()
+                    expiry = datetime.datetime.strptime(cert_data['title'][2], "%b %d %H:%M:%S %Y %Z")
+                    expires_in = (expiry - current).days
+
+                    details = {
+                        "statKey": f"SOS Certificate Health Summary|expires_in",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [int(expires_in)]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+                details = {
+                    "statKey": f"SOS Certificate Health Summary|state",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [cert_data['state']]
+                }
+                metrics_payload["stat-content"].append(details)
+                details = {
+                    "statKey": f"SOS Certificate Health Summary|message",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [cert_data['message']]
+                }
+                metrics_payload["stat-content"].append(details)
+                details = {
+                    "statKey": f"SOS Certificate Health Summary|alert",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [cert_data['alert']]
+                }
+                metrics_payload["stat-content"].append(details)
+                details = {
+                    "statKey": f"SOS Certificate Health Summary|alert_code",
+                    "timestamps": [int(timestamp * 1000)],
+                    "data": [self.codes[cert_data['alert'].lower()]]
+                }
+                metrics_payload["stat-content"].append(details)
+
+                metrics_payload_json = json.dumps(metrics_payload)
+
+                self.logger.info(resource_id)
+                self.logger.info(metrics_payload_json)
+                self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+
+    parser.add_argument("-e", "--env-json", default='env.json',
+                        help="path of env.json file. Default is in same folder as env.json")
+    parser.add_argument('-f', '--fetch-new', dest='fetch_new', action='store_true',
+                        help="This is default option to fetch new SOS data and save it to health-results.json")
+    parser.add_argument('-nf', '--no-fetch-new', dest='fetch_new', action='store_false',
+                        help="Use this option if you want to use existing health-results.json")
+    parser.set_defaults(fetch_new=True)
+
+    parser.add_argument('-p', '--push-data', dest='push_data', action='store_true',
+                        help="This is default option to push data to vrops")
+    parser.add_argument('-np', '--no-push-data', dest='push_data', action='store_false',
+                        help="Use this option if you do not want to push data to vrops")
+    parser.set_defaults(fetch_new=True)
+    parser.set_defaults(push_data=True)
+
+    args = parser.parse_args()
+    pd = PushDataVrops(args)
+    pd.push_data()
