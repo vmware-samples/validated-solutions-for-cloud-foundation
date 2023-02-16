@@ -1,1 +1,1 @@
-"python.exe" "C:\Users\Administrator\Desktop\code\observability\sos-data-push-vrops.py"
+"python.exe" "C:\Users\Administrator\Desktop\vmware\hrm\send-data-to-vrops.py"

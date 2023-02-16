@@ -1,3 +1,24 @@
+# Copyright 2022-2023 VMware, Inc.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+# ===================================================================================================================
+# Created by:  Bhumitra Nagar - Senior Member of Technical Staff
+# Authors: Bhumitra Nagar
+# Date:   2023-02-01
+# Version: 1.0.0.1001
+# ===================================================================================================================
+#
+# Description:
+# Script to encrypt passwords for SDDC Manager and vRealize Operations credentials. Passwords are encrypted and saved
+# in an encrypted_pwds file and a key file in encrypted_files directory.
+#
+# Example:
+# python encrypt-passwords.py
+
+
 from cryptography.fernet import Fernet
 import os
 import maskpass
