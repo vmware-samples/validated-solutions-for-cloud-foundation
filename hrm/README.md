@@ -12,9 +12,9 @@
 
 This content supports the [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation) validated solution which enables the user to monitor the operational state of your VMware Cloud Foundation environment through custom dashboards, alerts, and notifications. These custom dashboards are intended to serve as an extension to native vRealize Operations dashboards and dashboards that are enabled via the respective management packs.
 
-## Implementation of the Python Module for VMware Cloud Foundation Health Monitoring
+## Implementation 
 
-### Follow the section - Implementation of the Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
+Follow the section - Implementation of the Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
 
 
 ## Issues
