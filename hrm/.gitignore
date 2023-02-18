@@ -1,5 +1,0 @@
-# MacOS
-## Ignore desktop services files.
-**/.DS_Store
-.idea
-.pyc

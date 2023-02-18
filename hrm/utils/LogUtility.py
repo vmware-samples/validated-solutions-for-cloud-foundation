@@ -32,12 +32,11 @@ class LogUtility(object):
     def __get_call_info():
         stack = inspect.stack()
 
-        # stack[1] gives previous function ('info' in our case)
+        # stack[1] gives previous function ('info' in this case)
         # stack[2] gives before previous function and so on
 
         fname = stack[2][1]  # filename
         line_num = stack[2][2]  # line num
-        # func = stack[2][3]
 
         return os.path.basename(fname), line_num
 
@@ -86,7 +85,7 @@ class LogUtility(object):
         accepted_levels = {'INFO': logging.INFO, 'DEBUG': logging.DEBUG}
         if level.upper() not in accepted_levels:
             raise Exception('INVALID LOG LEVEL SPECIFIED')
-        logging_format = '[%(asctime)s] %(levelname)s - %(message)s'  # {%(filename)s:%(lineno)d} %(asctime)s %(levelname)s: %(message)s'
+        logging_format = '[%(asctime)s] %(levelname)s - %(message)s'
         date_format = '%Y-%m-%d %H:%M:%S'
         test_log_directory = os.path.join(FolderUtility.get_log_directory(), test_suite_name)
         FolderUtility.make_directory(test_log_directory)
@@ -94,21 +93,11 @@ class LogUtility(object):
         self.test_log_folder = FolderUtility.make_director_with_timestamp(tmp_log_file_folder)
         log_file_path = os.path.join(self.test_log_folder, "test_.log")
         test_log_path = FolderUtility.get_unique_file_path(log_file_path)
-        base_name, extension = os.path.splitext(test_log_path)
-        #debug_log_path = FolderUtility.get_unique_file_path(base_name + "_debug_" + extension)
         logging.basicConfig(level=logging.NOTSET, format=logging_format, datefmt=date_format)
         formatter = logging.Formatter(fmt=logging_format, datefmt=date_format)
         handler = logging.FileHandler(test_log_path)
         handler.setLevel(accepted_levels[level])
         handler.setFormatter(formatter)
-        # ch = logging.StreamHandler()
-        # ch.setLevel(logging.INFO)
-        # ch.setFormatter(formatter)
-        #debug_handler = logging.FileHandler(debug_log_path)
-        #debug_handler.setLevel(logging.DEBUG)
-        #debug_handler.setFormatter(formatter)
         logger = logging.getLogger("HRM")
         logger.addHandler(handler)
-        # logger.addHandler(ch)
-        #logger.addHandler(debug_handler)
         return logger

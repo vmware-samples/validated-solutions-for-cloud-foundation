@@ -5,3 +5,7 @@
 # Microsoft Visual Code
 ## ignore setting files
 .vscode/settings.json
+
+#Pycharm
+.idea
+.pyc
