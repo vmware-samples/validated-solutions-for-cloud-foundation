@@ -14,7 +14,7 @@ This content supports the [Health Reporting and Monitoring for VMware Cloud Foun
 
 ## Implementation 
 
-Follow the section - Implementation of the Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
+Follow the [Implementation of the Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations](https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-monitoring-v1/GUID-302CCD84-6550-4B03-BD3D-5125C185BFAC.html) from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
 
 
 ## Issues
