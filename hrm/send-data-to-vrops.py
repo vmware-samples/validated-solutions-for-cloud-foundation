@@ -810,9 +810,9 @@ class PushDataVrops:
 
     def get_resource_id(self, hostname, resource_name):
         resource_id = self.resource_inventory.get(hostname)
-        if not resource_id:
+        if not resource_id and resource_name:
             resource_id = self.resource_inventory.get(resource_name)
-        if not resource_id:
+        if not resource_id and resource_name:
             for name, res_id in self.resource_inventory.items():
                 if resource_name in name or hostname in name:
                     resource_id = res_id
