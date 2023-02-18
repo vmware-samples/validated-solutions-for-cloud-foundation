@@ -13,7 +13,7 @@
 #
 # Description:
 # Helper script to perform folder operations like creating log directory, and deleting logs older than x days.
-# Logs location and retention period Values are specified in env.json.
+# Log location and retention period values are specified in env.json.
 
 import os
 import fnmatch
