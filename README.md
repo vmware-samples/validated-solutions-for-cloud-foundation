@@ -10,12 +10,21 @@ Learn more at [vmware.com/go/vvs](https://vmware.com/go/vvs).
 
 This repository is a companion to the following validated solutions:
 
+* [**Health Reporting and Monitoring for VMware Cloud Foundation**](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation) A validated solution that provides health monitoring for the VMware Cloud Foundation components using HTML reports and custom dashboards, alerts, and notifications using vRealize Operations.
+
+    The repository provides:
+
+  * Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations.
+  * vRealize Operations custom dashboards, alerts, notifications and super metric artifacts.
+
+
 * [**Advanced Load Balancing for VMware Cloud Foundation**](https://core.vmware.com/advanced-load-balancing-vmware-cloud-foundation)
 A validated solution enables you to build secure, high-performing, resilient, and efficient load balancing infrastructure for applications and workloads deployed on VMware Cloud Foundation. You  can leverage this solution to rapidly implement VMware NSX Advanced Load Balancer in a VMware Cloud Foundation environment to increase security, automation, and provide enterprise-grade developer-ready infrastructure for load balancing.
 
     The repository provides:
 
-  * Infrastructure-as-code examples for the solution. This includes both vRealize Orchestrator workflow and Ansible playbopok examples for the deployment and configuration of the solution.
+  * Infrastructure-as-code examples for the solution. This includes Terraform examples for the deployment and configuration of the solution.
+
 
 * [**Cloud-Based Automation for VMware Cloud Foundation**](https://core.vmware.com/cloud-based-automation-vmware-cloud-foundation)  
 A validated solution which enables a cloud-based infrastructure automation platform that delivers an agnostic self-service catalog for VMware Cloud Foundation and multi-cloud environments.
