@@ -45,6 +45,12 @@ Install requried Python libraries by running the following commands on the host 
 - Microsoft Windows PowerShell 5.1
 
 
+### PowerShell Modules
+
+- [PowerShell Module for VMware Cloud Foundation Reporting](https://github.com/vmware/powershell-module-for-vmware-cloud-foundation-reporting) 1.1.0 or later
+
+
+
 ## Implementation 
 
 Follow the [Implementation of the Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations](https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-monitoring-v1/GUID-302CCD84-6550-4B03-BD3D-5125C185BFAC.html) from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
