@@ -40,10 +40,10 @@ class EncryptPasswords:
         vrops_user = env_info["vrops"]["user"]
         sddc_manager_user = env_info["sddc_manager"]["user"]
         sddc_manager_root = 'root'
-        vrops_pwd = maskpass.askpass(prompt=f"Enter pasword for vRealize Operations user - {vrops_user}: ", mask="*")
-        sddc_manager_user_pwd = maskpass.askpass(prompt=f"Enter pasword for SDDC Manager user - {sddc_manager_user}: ",
+        vrops_pwd = maskpass.askpass(prompt=f"Enter password for vRealize Operations user - {vrops_user}: ", mask="*")
+        sddc_manager_user_pwd = maskpass.askpass(prompt=f"Enter password for SDDC Manager user - {sddc_manager_user}: ",
                                                  mask="*")
-        sddc_manager_root_pwd = maskpass.askpass(prompt=f"Enter pasword for SDDC Manager user - "
+        sddc_manager_root_pwd = maskpass.askpass(prompt=f"Enter password for SDDC Manager user - "
                                                         f"{sddc_manager_root}: ", mask="*")
 
         # generate key and write to file
