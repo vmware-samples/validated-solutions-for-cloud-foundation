@@ -40,7 +40,7 @@ Install requried Python libraries by running the following commands on the host 
   
   ```
 
-### PowerShell editions and versions
+### PowerShell Editions and Versions
 - PowerShell Core 7.2.0 or later
 - Microsoft Windows PowerShell 5.1
 
