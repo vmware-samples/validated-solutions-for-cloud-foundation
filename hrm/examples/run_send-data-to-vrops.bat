@@ -1,0 +1,1 @@
+"python.exe" "C:\vmware\hrm\send-data-to-vrops.py"
