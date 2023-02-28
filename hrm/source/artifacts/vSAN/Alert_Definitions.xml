@@ -1,0 +1,1628 @@
+<?xml version="1.0" encoding="UTF-8"?><alertContent>
+    <AlertDefinitions>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-433e5c0e-aa97-434d-824e-49959f3e10b1" name="HRM: NSX Local Manager Cluster backup is located on the SDDC Manager." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-f3141400-8b5a-4cb0-8103-2a6cc9693f87"/>
+                    <Symptom ref="SymptomDefinition-8af4441e-32a4-4bc8-9b36-f3d18f59c447"/>
+                    <Symptom ref="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-98bae8b0-b328-4520-adc8-62dbb373a266"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-7b8b9d51-8c9c-4e3e-99c5-34eea2e9a2ce" name="HRM: NSX Local Manager Cluster backup is more than 3 days old." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-c31a0966-e487-4aa9-8308-381f98de631f"/>
+                    <Symptom ref="SymptomDefinition-8af4441e-32a4-4bc8-9b36-f3d18f59c447"/>
+                    <Symptom ref="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-2e34b782-84b6-4d0f-a9e3-459646fa14f0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-1780ff41-4f38-449a-873d-e059490bf206" name="HRM: NSX Local Manager Inventory backup is located on the SDDC Manager." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-f3141400-8b5a-4cb0-8103-2a6cc9693f87"/>
+                    <Symptom ref="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe"/>
+                    <Symptom ref="SymptomDefinition-10d5f631-ee27-40d0-947e-fc346fca32b6"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-98bae8b0-b328-4520-adc8-62dbb373a266"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-abf1fcc2-f042-4847-a578-49fd1ab83014" name="HRM: NSX Local Manager Node backup is more than 1 days old." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-a5178b79-2a8b-4456-b8ee-042221225b75"/>
+                    <Symptom ref="SymptomDefinition-c938e91c-b4b6-46b4-a8c1-8ba9be109267"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-2e34b782-84b6-4d0f-a9e3-459646fa14f0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-61c3ba71-654d-4d7f-9143-8f0254ab5471" name="HRM: Backup is more than 1 days old." resourceKind="VirtualMachine" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-3a9d3f70-c3c4-4dee-b460-db5e48b5e599"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-2e34b782-84b6-4d0f-a9e3-459646fa14f0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-9b92e2a2-3292-4f57-b845-6a3f00c28234" name="HRM: Host transport node tunnel is down or in unknown state." resourceKind="NSXTAdapterInstance" subType="18" type="18">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-ce8de39b-d319-455a-ab71-01dc875763e6"/>
+                    <Symptom ref="SymptomDefinition-88c74a7e-16e5-4709-8783-f7f999914aca"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-62e3d501-345a-4cb7-a98d-46c29d53e518" name="HRM: Bidirectional forwarding is down or in unknown state on Edge." resourceKind="NSXTAdapterInstance" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-c337d658-75f2-4c97-9f4c-b4754a504247"/>
+                    <Symptom ref="SymptomDefinition-99452a48-c59b-4964-9c7b-a89ea9cf7036"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-d75aa2ef-ec76-4bba-8a7f-e19e251c2717" name="HRM: Host transport node(s) in degraded state." resourceKind="NSXTAdapterInstance" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-594051ef-1795-4eeb-8585-2c5217825808"/>
+                    <Symptom ref="SymptomDefinition-3c950aa4-b50e-449a-bd95-e7ee75f66d3c"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-33a79b40-43d4-4cb7-81a9-04fdca907de1" name="HRM: NSX Local Manager Inventory backup is not configured." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-0960101c-b7d5-4e7c-9f9c-8b8a2fc491d6"/>
+                    <Symptom ref="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe"/>
+                    <Symptom ref="SymptomDefinition-10d5f631-ee27-40d0-947e-fc346fca32b6"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-7d7e02f0-5d3e-4129-afe9-febc948cba14"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-93aabe16-5138-42f2-8083-1db8038725a6" name="HRM: BGP is not established." resourceKind="NSXTAdapterInstance" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-a6d3646d-a66e-4bc9-bc6c-573f21fdccba"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-7d883cea-beb8-425c-8d27-91373814574c"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-8b2a0ee1-b5c6-4f3c-b153-245bb37f2c6b" name="HRM: NSX Local Manager Inventory backup is more than 3 days old." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-c31a0966-e487-4aa9-8308-381f98de631f"/>
+                    <Symptom ref="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe"/>
+                    <Symptom ref="SymptomDefinition-10d5f631-ee27-40d0-947e-fc346fca32b6"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-2e34b782-84b6-4d0f-a9e3-459646fa14f0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-ddf56cbd-dcf1-4ae1-89d9-c36b8bcfc39b" name="HRM: Bidirectional forwarding is down or in unknown state on host." resourceKind="NSXTAdapterInstance" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-99452a48-c59b-4964-9c7b-a89ea9cf7036"/>
+                    <Symptom ref="SymptomDefinition-88c74a7e-16e5-4709-8783-f7f999914aca"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-9c53da18-a66e-4ef2-8e6e-457ee7278f5e" name="HRM: Used space is above 90%." resourceKind="VirtualMachine" subType="20" type="18">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-dfba4dcc-3f76-4f7f-9443-9dc551da5a34"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-cf612443-c5c5-4d6d-a194-1e7895b9e388"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-e7895388-49b0-4bfd-86bf-8795cf4d0588" name="HRM: NSX Local Manager Node backup is more than 3 days old." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-c31a0966-e487-4aa9-8308-381f98de631f"/>
+                    <Symptom ref="SymptomDefinition-c938e91c-b4b6-46b4-a8c1-8ba9be109267"/>
+                    <Symptom ref="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-2e34b782-84b6-4d0f-a9e3-459646fa14f0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-9e699cc5-43a7-4127-a2c1-56bf10bf14a4" name="HRM: NSX Local Manager Inventory backup is more than 1 days old." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-a5178b79-2a8b-4456-b8ee-042221225b75"/>
+                    <Symptom ref="SymptomDefinition-10d5f631-ee27-40d0-947e-fc346fca32b6"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-2e34b782-84b6-4d0f-a9e3-459646fa14f0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-870b0a09-c451-4f36-b400-b72e0526b90a" name="HRM: NSX Local Manager Node backup is not configured." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-0960101c-b7d5-4e7c-9f9c-8b8a2fc491d6"/>
+                    <Symptom ref="SymptomDefinition-c938e91c-b4b6-46b4-a8c1-8ba9be109267"/>
+                    <Symptom ref="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-7d7e02f0-5d3e-4129-afe9-febc948cba14"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-bd20e179-e1c1-452e-9827-3ef7df2d64a2" name="HRM: NSX Local Manager Node backup is located on the SDDC Manager." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-f3141400-8b5a-4cb0-8103-2a6cc9693f87"/>
+                    <Symptom ref="SymptomDefinition-c938e91c-b4b6-46b4-a8c1-8ba9be109267"/>
+                    <Symptom ref="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-98bae8b0-b328-4520-adc8-62dbb373a266"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-3cd3f502-b121-4831-8615-cdd293a67679" name="HRM: vCenter Server backup is not configured." resourceKind="VirtualMachine" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-13ac44f2-bc12-4abf-8786-1fe39e2459ea"/>
+                    <Symptom ref="SymptomDefinition-3564b176-142c-4464-b958-cd5518abb9a1"/>
+                    <Symptom ref="SymptomDefinition-74ae9e9d-5afa-4030-bb2f-17e3d842002f"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-f9d18586-6f10-4187-97ae-a27e56a2c6c8"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-65b63f22-4d6f-4731-8b5f-d70746f4f212" name="HRM: Edge transport node tunnel is down or in unknown state." resourceKind="NSXTAdapterInstance" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-ce8de39b-d319-455a-ab71-01dc875763e6"/>
+                    <Symptom ref="SymptomDefinition-c337d658-75f2-4c97-9f4c-b4754a504247"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-3429bf15-f085-4b80-8b53-c0065a7fda85" name="HRM: Used space is above 90% on ESXi host." resourceKind="HostSystem" subType="20" type="18">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-37b91b60-3c6c-42aa-8594-966d9a6847d0"/>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-5d57d445-419a-4e26-97e9-99670542d515" name="HRM: Host transport node(s) in down or unknown state." resourceKind="NSXTAdapterInstance" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-a36017f7-f374-4213-b5d2-8c7aa63b8840"/>
+                    <Symptom ref="SymptomDefinition-3c950aa4-b50e-449a-bd95-e7ee75f66d3c"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-d64a5cce-7962-4320-8dc3-802db7dbe3bc" name="HRM: Backup is more than 3 days old." resourceKind="VirtualMachine" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-8be2e3f2-2bda-457f-acfd-c3352b6cfa53"/>
+                    <Symptom ref="SymptomDefinition-bd958e72-9ee5-4d9c-ae52-9982c77f9b9a"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-2e34b782-84b6-4d0f-a9e3-459646fa14f0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-42d76a7c-3958-47bd-a6bb-ba8e76adbc3c" name="HRM: Latest snapshot is greater than 1 day old." resourceKind="VirtualMachine" subType="22" type="16">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-974996c5-4eb9-49be-ad92-01e008ac5076"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-e1f6ed2b-ca3d-4de4-9798-05067b0fc5b9"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-195f7257-d683-4d8a-895b-0733450689af" name="HRM: Latest snapshot is greater than 3 days old. A single snapshot exists." resourceKind="VirtualMachine" subType="22" type="16">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-440aa346-ffa7-4d70-8c8c-33de3894724a"/>
+                    <Symptom ref="SymptomDefinition-b3caf15a-26c7-46b2-b3fb-3c6079a781e0"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-fc54c9e2-b66b-4f3e-a445-40442ecc7f90"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-8e5e8641-ace5-4f6b-b330-eb061f3ed6b5" name="HRM: Used space is between 80% and 90%." resourceKind="VirtualMachine" subType="20" type="18">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-53e83033-813d-4d22-8040-cb50964ce742"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-cf612443-c5c5-4d6d-a194-1e7895b9e388"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-f3a741b5-e0b0-45ca-806a-8b0d3d103e49" name="HRM: Edge transport node(s) in down or unknown state." resourceKind="NSXTAdapterInstance" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-a36017f7-f374-4213-b5d2-8c7aa63b8840"/>
+                    <Symptom ref="SymptomDefinition-d69c588f-e50d-47e7-bb71-61a6de78b6f4"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-9925aa61-d868-46c1-a6be-b4c203593c1f" name="HRM: NSX Local Manager Cluster backup is not configured." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-8af4441e-32a4-4bc8-9b36-f3d18f59c447"/>
+                    <Symptom ref="SymptomDefinition-0960101c-b7d5-4e7c-9f9c-8b8a2fc491d6"/>
+                    <Symptom ref="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-7d7e02f0-5d3e-4129-afe9-febc948cba14"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-2b88df9c-9421-4371-919d-823dcef359e5" name="HRM: NSX Local Manager Cluster backup is more than 1 days old." resourceKind="NSXTAdapterInstance" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-8af4441e-32a4-4bc8-9b36-f3d18f59c447"/>
+                    <Symptom ref="SymptomDefinition-a5178b79-2a8b-4456-b8ee-042221225b75"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-2e34b782-84b6-4d0f-a9e3-459646fa14f0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-1db5d02d-3eea-465a-ad1d-dcb861e08367" name="HRM: Used space is between 80% and 90%. Please consider reclaiming some space on the datastore." resourceKind="VirtualMachine" subType="20" type="18">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-ce233136-aa88-4a10-aea0-a552f270ebff"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-016851c6-5c6f-4398-8433-9dce34b6a89e"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-4f171cfd-505c-4d00-9abb-cad5ae7a9079" name="HRM: Used space is between 80% and 90% on ESXi host." resourceKind="HostSystem" subType="20" type="18">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-9521a13a-37c2-4305-8165-c3f6175c6e64"/>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-f816fc20-ef19-48df-8e95-ea19510660ab" name="HRM: Edge transport node(s) in degraded state." resourceKind="NSXTAdapterInstance" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-594051ef-1795-4eeb-8585-2c5217825808"/>
+                    <Symptom ref="SymptomDefinition-d69c588f-e50d-47e7-bb71-61a6de78b6f4"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-c4dce189-bbc2-4c35-b61f-2960b77b66cc" name="HRM: Used space is above 90%. Please reclaim space on the datastore." resourceKind="VirtualMachine" subType="20" type="18">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-2664a350-f558-45c9-a90a-e10474360785"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-016851c6-5c6f-4398-8433-9dce34b6a89e"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-2d566112-c7bb-4508-a232-5a9f2bb7bae1" name="HRM: SDDC Manager backup is not configured." resourceKind="VirtualMachine" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-13ac44f2-bc12-4abf-8786-1fe39e2459ea"/>
+                    <Symptom ref="SymptomDefinition-8fa2e0d4-3f63-469a-b1aa-60fe495b6041"/>
+                    <Symptom ref="SymptomDefinition-3564b176-142c-4464-b958-cd5518abb9a1"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-7d7e02f0-5d3e-4129-afe9-febc948cba14"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-88311001-60da-4c6f-a06c-94043c35ae84" name="HRM: Snapshot consolidation is required." resourceKind="VirtualMachine" subType="22" type="16">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-8f3cfe96-0b24-42aa-b857-d3d59eff9d10"/>
+                    <Symptom ref="SymptomDefinition-c3e4894c-0fde-434b-aec5-8c4ea2c23509"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-b0a89a20-55fe-4a66-b3d9-31a6cd3e8dfc"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-58cf7281-5454-41dd-918a-422add75c7ce" name="HRM: Backup is located on the SDDC Manager." resourceKind="VirtualMachine" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-cad92637-6be6-4a28-a63d-7c560f677782"/>
+                    <Symptom ref="SymptomDefinition-9fdb0d9e-3e25-436f-bff9-91c4fca4c0f3"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-98bae8b0-b328-4520-adc8-62dbb373a266"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+		        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --storage-health" disableInBasePolicy="true" id="AlertDefinition-0e827607-46b3-452d-9e4f-70ee6c1b85f6" name="SoS: There are Active Re-Syncing Objects happening" resourceKind="ClusterComputeResource" subType="18" type="18">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-00caee0a-4d14-490a-aa44-61231c414cea"/>
+                    <Symptom ref="SymptomDefinition-6b2bdb5e-0eea-44ef-85f6-dbd3b98443a7"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-e528d191-36ee-4281-a9d5-2707e6eb2184"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --hardware-compatibility-report" disableInBasePolicy="true" id="AlertDefinition-ed37539c-e062-4805-ae46-73ac4122f0b3" name="SoS: NVMe device is VMware certified check failed" resourceKind="ClusterComputeResource" subType="21" type="17">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-e8f7d0bd-97f4-4f92-ac36-95b50b5ad0e7"/>
+                    <Symptom ref="SymptomDefinition-6ee24534-fd9a-4a53-9239-0f239a484a7c"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-0017dde5-8b25-432e-83c2-cfeee9e15470"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" description="VMware Cloud Foundation SOS Utility Health Check --certificate-health" disableInBasePolicy="true" id="AlertDefinition-1b732f59-4781-4c4d-8f3d-fbed431fff46" name="SoS: NSX Manager Certificate expiry" resourceKind="NSXTAdapterInstance" subType="21" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-e662a985-3344-4949-b2d5-263e614de42e"/>
+                    <Symptom ref="SymptomDefinition-013b73c5-5c7a-416c-a00b-6cbefc6c1d01"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-c85cd2ed-072f-45d3-9188-8da6158914ac"/>
+                    <Recommendation priority="2" ref="Recommendation-ud-55190eda-ba39-4f45-aa3f-78027ec190a0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" description="VMware Cloud Foundation SoS Utility Health Check --password-health" disableInBasePolicy="true" id="AlertDefinition-193c2fbd-c903-4d4a-b809-8d1664970971" name="SoS: NSX Manager Password expiry" resourceKind="NSXTAdapterInstance" subType="21" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-b3c9683a-4e41-4b76-972b-5fc2064583b4"/>
+                    <Symptom ref="SymptomDefinition-10a9f2f3-8a1d-42ed-9558-ce6905ae53ad"/>
+                    <Symptom ref="SymptomDefinition-72a6a97b-1d83-43dc-a8e0-da5174621afe"/>
+                    <Symptom ref="SymptomDefinition-e03001d4-d595-488f-8f33-69fd53b3ef98"/>
+                    <Symptom ref="SymptomDefinition-3f698b59-601d-4673-82e8-19c3b9cb5d20"/>
+                    <Symptom ref="SymptomDefinition-799b6c07-20cc-4e68-a901-de200e75523c"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="2" ref="Recommendation-ud-de26e20c-e4f4-4d86-86df-1c5b93525081"/>
+                    <Recommendation priority="1" ref="Recommendation-ud-fc9fee61-6a5c-4d13-93ac-7191b178dbe6"/>
+                    <Recommendation priority="3" ref="Recommendation-ud-079d37e6-7d75-4992-a580-c5ef741595e7"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --ntp-health" disableInBasePolicy="true" id="AlertDefinition-2aba8c7d-409a-45b2-b4d6-84939ee50e88" name="SoS: Virtual machine NTP is not configured as expected to use the same NTP server(s) as VMware Cloud Foundation components." resourceKind="VirtualMachine" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-8d0e0615-320d-41c5-9349-f9842caa38cc"/>
+                    <Symptom ref="SymptomDefinition-90381f3a-aed7-47b1-82b9-3a86cfbb95b8"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-f025416a-707b-416d-9d9d-20413084631f"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --hardware-compatibility-report" disableInBasePolicy="true" id="AlertDefinition-1e86b892-dfce-4025-b1f3-7f2c6392bcec" name="SoS: SCSI controller is VMware certified check failed" resourceKind="ClusterComputeResource" subType="21" type="17">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-1925561d-df53-4527-a7d9-9f6c2cc30f16"/>
+                    <Symptom ref="SymptomDefinition-b242556d-3fe7-4b2a-97ed-efaebe83aeeb"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-8dedb140-ef94-4b7f-8ca0-a971bf3fb9e1"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" description="VMware Cloud Foundation SoS Utility Health Check --dns-health" disableInBasePolicy="true" id="AlertDefinition-3985c91b-89a9-4d38-a0c4-7ea420080367" name="SoS: NSX Manager Cluster Forward and Reverse DNS records configuration" resourceKind="NSXTAdapterInstance" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-72104e00-776a-48b2-85e0-98402723a079"/>
+                    <Symptom ref="SymptomDefinition-d0ee0d46-d2fb-4027-8630-be7170d9d950"/>
+                    <Symptom ref="SymptomDefinition-1bbfe829-a366-4f4b-bef7-3d94f931a2c3"/>
+                    <Symptom ref="SymptomDefinition-94be5660-67a0-4ef0-8ef4-3fe47e98d35a"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="2" ref="Recommendation-ud-808b600b-c8b0-4ca4-a656-bb5f4d074a1c"/>
+                    <Recommendation priority="3" ref="Recommendation-ud-7fa5d32a-1fc3-435d-aff7-b6d727029999"/>
+                    <Recommendation priority="1" ref="Recommendation-ud-69f13fee-9d84-42b6-9d81-9046a8107018"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --compute-health" disableInBasePolicy="true" id="AlertDefinition-1866552b-6b74-4f4e-a759-6a45f922985b" name="SoS: Checks if disks are healthy" resourceKind="HostSystem" subType="18" type="16">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-56266311-54d3-4503-bced-8642f1238594"/>
+                    <Symptom ref="SymptomDefinition-29c83fbf-6888-41e7-9661-c0b256da28b1"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-df3d96b3-712c-45fb-9e72-9e942c0d218d"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --certificate-health" disableInBasePolicy="true" id="AlertDefinition-04dc70b4-ac72-4b27-b14e-b54a8d044fe8" name="SoS: Virtual machine Certificate expiry" resourceKind="VirtualMachine" subType="21" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-e1a95c89-82e5-4b68-b6db-a447416c9569"/>
+                    <Symptom ref="SymptomDefinition-2c139152-dc07-4c37-a0cb-993ba9b550b3"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-c85cd2ed-072f-45d3-9188-8da6158914ac"/>
+                    <Recommendation priority="2" ref="Recommendation-ud-55190eda-ba39-4f45-aa3f-78027ec190a0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --services-health" disableInBasePolicy="true" id="AlertDefinition-c0dee699-301c-4cf9-b5ef-1ec6a812151b" name="SoS: vCenter Server Services are not running" resourceKind="VirtualMachine" subType="19" type="15">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-95fc2c5d-964c-42ba-82d5-b1c18781a09e"/>
+                    <Symptom ref="SymptomDefinition-804d8f67-b354-4681-9d28-acd6040fe438"/>
+                    <Symptom ref="SymptomDefinition-4d8362f1-a99e-4ac1-b705-55b18fa3b1aa"/>
+                    <Symptom ref="SymptomDefinition-9c3f32f2-9ab8-4cb6-8b70-557d01b1e457"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-27a74039-fd4d-4ba4-9a87-8588f2078b87"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SoS Utility Health Check --connectivity-health" disableInBasePolicy="true" id="AlertDefinition-9b391f0b-1016-45e9-8be9-0a60a1fb8b13" name="SoS: Ping or API connectivity check has failed on ESXi host" resourceKind="HostSystem" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-afe7b79e-71e0-4347-af33-44154c263a67"/>
+                    <Symptom ref="SymptomDefinition-48748b33-2349-4b96-a7e5-27e0b9b957ea"/>
+                    <Symptom ref="SymptomDefinition-4152fa90-ce82-4543-9b19-57c2c207d244"/>
+                    <Symptom ref="SymptomDefinition-fe087591-4a6d-40db-93d6-da8a100e3e5a"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-cc0603a0-3fd5-4ce8-9ba4-5fe871339454"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --general-health" disableInBasePolicy="true" id="AlertDefinition-36b96a55-896e-4103-8261-10bd3fdc1234" name="SoS: Core dumps found on ESXi" resourceKind="HostSystem" subType="18" type="16">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-742fcbd2-d6c6-41eb-91df-97cdf120757c"/>
+                    <Symptom ref="SymptomDefinition-be312ce1-c00d-4511-83a9-ee8f13e7cb37"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-6096673d-c197-43a9-a8aa-f80896cdb038"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SoS Utility Health Check --dns-health" disableInBasePolicy="true" id="AlertDefinition-6ec9f33d-852f-48bd-bb23-caa1cc500cc6" name="SoS: Host Forward and Reverse DNS records configuration" resourceKind="HostSystem" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-1f3455f1-9601-47f3-9296-33d88fc376c0"/>
+                    <Symptom ref="SymptomDefinition-d9d16070-81e9-42d4-8a3b-3c88a8fdd1bc"/>
+                    <Symptom ref="SymptomDefinition-5a8fcfe1-3e73-4af1-940b-947424b2f947"/>
+                    <Symptom ref="SymptomDefinition-610759e8-b75b-4faf-aa1b-fe0bd7e1b655"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="2" ref="Recommendation-ud-808b600b-c8b0-4ca4-a656-bb5f4d074a1c"/>
+                    <Recommendation priority="3" ref="Recommendation-ud-7fa5d32a-1fc3-435d-aff7-b6d727029999"/>
+                    <Recommendation priority="1" ref="Recommendation-ud-69f13fee-9d84-42b6-9d81-9046a8107018"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SoS Utility Health Check --compute-health" disableInBasePolicy="true" id="AlertDefinition-b3ae121c-1797-40d6-8488-4b4c29748e8d" name="SoS: ESXi Overall Health is Yellow" resourceKind="HostSystem" subType="18" type="16">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-2d56bdea-af8e-46ae-ad15-3488c7ecfb51"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-81dee8f5-2090-472c-94c9-b2689bf44bbb"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --hardware-compatibility-report" disableInBasePolicy="true" id="AlertDefinition-cbcd2fbf-ee73-491d-a7b8-a923b31ddef3" name="SoS: Controller is VMware certified for ESXi release check failed" resourceKind="ClusterComputeResource" subType="21" type="17">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-c7d11f19-42b1-46ad-9f44-3907d86cd96a"/>
+                    <Symptom ref="SymptomDefinition-f2259ecd-76b0-4bbd-9ff6-616d56ac83d5"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-a9f629ad-5fc3-41d1-a8f8-a6e413f11ca4"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SoS Utility Health Check --dns-health" disableInBasePolicy="true" id="AlertDefinition-918489bc-1b81-4555-882d-e6d5daa81289" name="SoS: Virtual machine Forward and Reverse DNS records configuration" resourceKind="VirtualMachine" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-b6e104b1-9069-4cb6-a107-0f3c38a3260c"/>
+                    <Symptom ref="SymptomDefinition-de54882d-2f19-40ac-801b-f1fb3fc2c762"/>
+                    <Symptom ref="SymptomDefinition-d3663ab0-b871-4be7-babd-6b2d8761bed7"/>
+                    <Symptom ref="SymptomDefinition-a8097ef4-a690-468a-925a-5b1277ea49f1"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="2" ref="Recommendation-ud-808b600b-c8b0-4ca4-a656-bb5f4d074a1c"/>
+                    <Recommendation priority="3" ref="Recommendation-ud-7fa5d32a-1fc3-435d-aff7-b6d727029999"/>
+                    <Recommendation priority="1" ref="Recommendation-ud-69f13fee-9d84-42b6-9d81-9046a8107018"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="'VMware Cloud Foundation SOS Utility Health Check --compute-health" disableInBasePolicy="true" id="AlertDefinition-7b40379d-a926-440e-ab5d-f90d9b84399c" name="SoS: vCenter Overall Health is Red" resourceKind="VirtualMachine" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-6d2fbd31-4f7b-4a3a-a0e4-6eb3a95fae8a"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-0228a49b-e086-4a97-8d3c-684be335f323"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --compute-health" disableInBasePolicy="true" id="AlertDefinition-989953e4-4412-42b2-9236-33a8b5f7d69a" name="SoS: vCenter Overall Health is Yellow" resourceKind="VirtualMachine" subType="18" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-abea9d4e-c4c4-4984-bd12-1b8665a0a88f"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-0228a49b-e086-4a97-8d3c-684be335f323"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-decc5583-15c2-4bd0-9f23-8df716fa6b44" name="SoS: Virtual machine Password expiry" resourceKind="VirtualMachine" subType="21" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-30ac4d31-6ddc-4e3d-a6f9-9e907166df40"/>
+                    <Symptom ref="SymptomDefinition-d500b3cb-78d8-45d6-8472-d1454c05ebde"/>
+                    <Symptom ref="SymptomDefinition-602a416c-67bf-44b6-925c-e87378df0d63"/>
+                    <Symptom ref="SymptomDefinition-efe80921-6490-4138-bdc3-fe110a37a674"/>
+                    <Symptom ref="SymptomDefinition-a025cfb8-6c52-42d7-aaea-cc3d3ad68019"/>
+                    <Symptom ref="SymptomDefinition-322fdc77-b52b-4030-86ad-87865b85bec9"/>
+                    <Symptom ref="SymptomDefinition-ac81c650-994e-4e55-bc34-5a583a1323d4"/>
+                    <Symptom ref="SymptomDefinition-432648b1-d603-4ac2-8fa0-44f2fb97aecc"/>
+                    <Symptom ref="SymptomDefinition-ec87d164-3dda-41c9-9c1b-267a537ea9d0"/>
+                    <Symptom ref="SymptomDefinition-fca83981-c013-4d13-91c6-f66dab76f5d8"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="2" ref="Recommendation-ud-de26e20c-e4f4-4d86-86df-1c5b93525081"/>
+                    <Recommendation priority="1" ref="Recommendation-ud-fc9fee61-6a5c-4d13-93ac-7191b178dbe6"/>
+                    <Recommendation priority="3" ref="Recommendation-ud-079d37e6-7d75-4992-a580-c5ef741595e7"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --hardware-compatibility-report" disableInBasePolicy="true" id="AlertDefinition-cb8874bb-3ede-4d6a-88d8-3f7973fe2e14" name="SoS: Controller disk group mode is VMware certified check failed" resourceKind="ClusterComputeResource" subType="21" type="17">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-a982e6e4-6b01-4625-97d4-992ead3bc742"/>
+                    <Symptom ref="SymptomDefinition-7628e35e-3a4a-4302-9e24-05f3de4bb979"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-eafd8f10-6f3b-4037-9b1c-a69e4961ad3a"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SoS Utility Health Check --compute-health" disableInBasePolicy="true" id="AlertDefinition-c024c373-5310-4776-aa3e-512f584f62bf" name="SoS: ESXi Overall Health is Red" resourceKind="HostSystem" subType="18" type="16">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-d2b3fe20-b6d0-46f8-a81c-d5ada888d757"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-81dee8f5-2090-472c-94c9-b2689bf44bbb"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --certificate-health" disableInBasePolicy="true" id="AlertDefinition-e78a858f-6105-4c85-a783-36ea444e815d" name="SoS: Host Certificate expiry" resourceKind="HostSystem" subType="21" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and">
+                    <Symptom ref="SymptomDefinition-7661203b-e6e4-4ea5-88e4-74913833dad8"/>
+                    <Symptom ref="SymptomDefinition-9f5a826e-01b4-42e8-87a9-8ef9d682e5e0"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-c85cd2ed-072f-45d3-9188-8da6158914ac"/>
+                    <Recommendation priority="2" ref="Recommendation-ud-55190eda-ba39-4f45-aa3f-78027ec190a0"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --services-health" disableInBasePolicy="true" id="AlertDefinition-16da042f-13b1-44e9-9aaa-ef1f06030271" name="SoS: SDDC Manager Services are not running" resourceKind="VirtualMachine" subType="18" type="15">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-1dc6e9f6-9245-4cd0-989f-f9fecb423b84"/>
+                    <Symptom ref="SymptomDefinition-110bdf4d-9a27-4717-9fa6-262ac1c52f32"/>
+                    <Symptom ref="SymptomDefinition-e249e1e5-cb52-47d8-afeb-f91f545f0390"/>
+                    <Symptom ref="SymptomDefinition-1491c2d1-05f8-446a-9cc2-879b05fd2de3"/>
+                    <Symptom ref="SymptomDefinition-d42f0981-5860-433d-bf14-d86afcb3996a"/>
+                    <Symptom ref="SymptomDefinition-54184d7c-a402-43be-8353-9de12ffdd287"/>
+                    <Symptom ref="SymptomDefinition-c0496eb9-6b9a-403d-8629-131c6eab8fa8"/>
+                    <Symptom ref="SymptomDefinition-fdec7476-477b-4158-a4e0-d813f572d57d"/>
+                    <Symptom ref="SymptomDefinition-eebb546e-2e98-4d73-979a-f9b273bf4a62"/>
+                    <Symptom ref="SymptomDefinition-5edf65a7-0274-4dd7-8ed2-dea0475434f2"/>
+                    <Symptom ref="SymptomDefinition-12c5fb8b-19cd-4d4d-9706-957620680364"/>
+                    <Symptom ref="SymptomDefinition-d3d2abc7-488e-4e26-9b82-37390bd9482f"/>
+                    <Symptom ref="SymptomDefinition-0f4da86f-fb22-4e97-ba4f-cbaf92d3a759"/>
+                    <Symptom ref="SymptomDefinition-bb3d8f34-8f18-4875-9be0-5fed49a5ac8f"/>
+                    <Symptom ref="SymptomDefinition-ab228db8-049c-452b-bb78-7f67b1fe41cb"/>
+                    <Symptom ref="SymptomDefinition-47fca07c-5170-41c2-95f0-da55df7fd611"/>
+                    <Symptom ref="SymptomDefinition-f8befa0d-5ad2-440c-b3a3-7a417e2921d7"/>
+                    <Symptom ref="SymptomDefinition-5c6d4fc8-8600-4ce2-a681-f55136060b43"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-fc13ecbe-728f-435f-99fd-c736e1a0c499"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --hardware-compatibility-report" disableInBasePolicy="true" id="AlertDefinition-99c04962-5d02-4f7e-b016-a89c17fd84df" name="SoS: NVMe device can be identified check failed" resourceKind="ClusterComputeResource" subType="21" type="17">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-c5ee463c-7446-465e-80f5-55341d289a7f"/>
+                    <Symptom ref="SymptomDefinition-78186f8e-76f9-4ed1-ad55-40b7cdbddd92"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-f1a21d38-3582-4d82-876f-8e243bb372f9"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --ntp-health" disableInBasePolicy="true" id="AlertDefinition-f4cd647e-803f-44bc-9daf-985246b0100b" name="SoS: ESXi NTP is not configured as expected to use the same NTP server(s) as VMware Cloud Foundation SDDC components." resourceKind="HostSystem" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-9b67c5b2-3d67-41a2-9211-9028579938cb"/>
+                    <Symptom ref="SymptomDefinition-27b6a134-8532-467f-ba29-6604c91f3fdc"/>
+                    <Symptom ref="SymptomDefinition-5328b133-626f-455f-9776-46089fe34758"/>
+                    <Symptom ref="SymptomDefinition-d35ebf87-31e0-4330-852a-b26b0871be28"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-f025416a-707b-416d-9d9d-20413084631f"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --hardware-compatibility-report" disableInBasePolicy="true" id="AlertDefinition-b9045a0a-556a-40f5-8fb2-d3d03b451b99" name="SoS: Controller firmware is VMware certified check failed" resourceKind="ClusterComputeResource" subType="21" type="17">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-b5b01988-60b0-4999-833d-b1cea60ec721"/>
+                    <Symptom ref="SymptomDefinition-4844592a-f6dd-4d55-be3c-f9c9ec0b4f18"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-31042176-cd35-47b4-9158-0241f39cf713"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" description="VMware Cloud Foundation SOS Utility Health Check --ntp-health" disableInBasePolicy="true" id="AlertDefinition-ea911447-fc54-4c45-b57d-1093f5a48be2" name="SoS: NSX Manager Cluster NTP is not configured as expected to use the same NTP server(s) as VMware Cloud Foundation components." resourceKind="NSXTAdapterInstance" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-97d3a033-5866-4bfb-8838-f9b15ac41e91"/>
+                    <Symptom ref="SymptomDefinition-45fbfea8-3185-41d3-acf3-b9606032edd1"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-f025416a-707b-416d-9d9d-20413084631f"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --storage-health" disableInBasePolicy="true" id="AlertDefinition-4c638359-b6fb-4bfd-bf47-9d7a735f1dbf" name="SoS: Virtual machine storage policy is non-compliant" resourceKind="VirtualMachine" subType="21" type="18">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-f8bd2f00-de07-4c7d-95cb-5f62db88c0d0"/>
+                    <Symptom ref="SymptomDefinition-f9fe9448-bbaf-434c-8d7c-2130a2875918"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-3337af73-89c7-478b-8cf0-3aef8e856fa6"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SoS Utility Health Check --password-health" disableInBasePolicy="true" id="AlertDefinition-6e66415a-5596-425a-a6b5-7f0897457520" name="SoS: Host  Password expiry" resourceKind="HostSystem" subType="21" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-340b3169-f072-48f0-9a64-6d37908e46b1"/>
+                    <Symptom ref="SymptomDefinition-14ef18b5-408e-4ee6-8cf8-48c840845712"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-de26e20c-e4f4-4d86-86df-1c5b93525081"/>
+                    <Recommendation priority="2" ref="Recommendation-ud-079d37e6-7d75-4992-a580-c5ef741595e7"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SOS Utility Health Check --hardware-compatibility-report" disableInBasePolicy="true" id="AlertDefinition-488891f4-3067-45e6-9602-3cb77e9eb1b9" name="SoS: Controller driver is VMware certified check failed" resourceKind="ClusterComputeResource" subType="21" type="17">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-18834dbe-e68d-418a-8e8c-24209cf87634"/>
+                    <Symptom ref="SymptomDefinition-f1d945a4-cd73-4167-aa7a-2912a7b91afe"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-a7ede8cc-4b1a-44b9-b34a-527526049c09"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" description="VMware Cloud Foundation SoS Utility Health Check --connectivity-health" disableInBasePolicy="true" id="AlertDefinition-ff8b14d7-f83b-4d99-bcdf-cec82d54575f" name="SoS: Ping or API connectivity check has failed on NSX Manager Cluster" resourceKind="NSXTAdapterInstance" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-28ebc191-af41-4a36-af0c-e9792a90c53d"/>
+                    <Symptom ref="SymptomDefinition-d39f0a3a-9051-4e9e-9d2c-d083ee7e14ef"/>
+                    <Symptom ref="SymptomDefinition-13c8ae53-3e60-42e3-8601-d8355d793931"/>
+                    <Symptom ref="SymptomDefinition-ee909291-be18-44bc-99ae-d8506a2393c3"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-73f0ce1f-afa3-497b-93f1-e6f2b1cedcc6"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="VMware Cloud Foundation SoS Utility Health Check --connectivity-health" disableInBasePolicy="true" id="AlertDefinition-405bd262-c37b-4adb-ba54-609899686c88" name="SoS: Ping or SSH connectivity check has failed on virtual machine" resourceKind="VirtualMachine" subType="18" type="19">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-933ab29a-178d-41e9-9fc8-afcb16ab562f"/>
+                    <Symptom ref="SymptomDefinition-979530b6-6ad0-4ff4-9be0-757a22dc6e72"/>
+                    <Symptom ref="SymptomDefinition-1ad507b9-5c36-4c07-b4f9-16beeae68e8b"/>
+                    <Symptom ref="SymptomDefinition-85312b49-b03e-4c30-9119-e3d8d6f21e42"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-4c995ce5-ae19-4c0b-9894-d5432a004b56"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+    </AlertDefinitions>
+    <SymptomDefinitions>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-13ac44f2-bc12-4abf-8786-1fe39e2459ea" name="HRM Backup Critical Status" resourceKind="VirtualMachine">
+            <State severity="critical">
+                <Condition instanced="true" key="HRM Backup Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-d69c588f-e50d-47e7-bb71-61a6de78b6f4" name="HRM NSXT TransportNodeStatus Edge" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM NSXT Transport Node Status:0|element" operator="=" thresholdType="static" type="metric" value="Edge" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-a6d3646d-a66e-4bc9-bc6c-573f21fdccba" name="HRM NsxtTier0BgpStatus Critical Status" resourceKind="NSXTAdapterInstance">
+            <State severity="critical">
+                <Condition instanced="true" key="HRM NSXT TIER0 BGP Backup Status:0|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-74ae9e9d-5afa-4030-bb2f-17e3d842002f" name="HRM Backup vCenter Server" resourceKind="VirtualMachine">
+            <State severity="info">
+                <Condition key="HRM Backup Status|component" operator="=" thresholdType="static" type="metric" value="vCenter Server" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-10d5f631-ee27-40d0-947e-fc346fca32b6" name="HRM NSXT Inventory Backup Operation" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM Backup Status:Inventory Backup Operation|resource" operator="=" thresholdType="static" type="metric" value="Inventory Backup Operation" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-2664a350-f558-45c9-a90a-e10474360785" name="HRM StorageCapacityDatastoreHealth Critical status" resourceKind="VirtualMachine">
+            <State severity="critical">
+                <Condition instanced="true" key="HRM StorageCapacityDatastoreHealth Status:datastore1|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-8be2e3f2-2bda-457f-acfd-c3352b6cfa53" name="Condition_950ac731-498f-4769-9670-9626ff040972" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="info">
+                <Condition key="HRM Backup Status|message" operator="=" thresholdType="static" type="metric" value="Backup is more than 3 days old." valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-440aa346-ffa7-4d70-8c8c-33de3894724a" name="Condition_6771507d-0f91-46a2-b624-72d01eedc648" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="HRM Snapshot Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-cad92637-6be6-4a28-a63d-7c560f677782" name="Condition_054261fc-4bf9-4c6a-894c-5ecfb45d78a7" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="info">
+                <Condition key="HRM Backup Status|message" operator="=" thresholdType="static" type="metric" value="Backup is located on the SDDC Manager. Reconfigure backups to use another location." valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-3a9d3f70-c3c4-4dee-b460-db5e48b5e599" name="Condition_74905126-c6f6-4d6c-910a-ea22c583a486" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="HRM Backup Status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-9fdb0d9e-3e25-436f-bff9-91c4fca4c0f3" name="Condition_1806a442-92af-4e6e-99ec-32949508786b" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="HRM Backup Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-974996c5-4eb9-49be-ad92-01e008ac5076" name="Condition_34649843-3932-476f-bea2-8ce2a54e2cae" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="HRM Snapshot Status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" cancelCycle="3" disableInBasePolicy="true" id="SymptomDefinition-ce8de39b-d319-455a-ab71-01dc875763e6" name="HRM NSXT TransportNodeTunnel Critical Status" resourceKind="NSXTAdapterInstance" waitCycle="3">
+            <State severity="critical">
+                <Condition key="HRM NSXT Tunnel Status:0|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-3564b176-142c-4464-b958-cd5518abb9a1" name="HRM Backup is not configured" resourceKind="VirtualMachine">
+            <State severity="info">
+                <Condition key="HRM Backup Status|message" operator="=" thresholdType="static" type="metric" value="Backup is not configured." valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-1571cd09-8d54-4eb3-a3c2-e31a90696cfe" name="HRM Backup NSXT Critical Status" resourceKind="NSXTAdapterInstance">
+            <State severity="critical">
+                <Condition instanced="true" key="HRM Backup Status:Cluster Backup Operation|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-ce233136-aa88-4a10-aea0-a552f270ebff" name="HRM StorageCapacityDatastoreHealth Warning status" resourceKind="VirtualMachine">
+            <State severity="warning">
+                <Condition instanced="true" key="HRM StorageCapacityDatastoreHealth Status:datastore1|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-9521a13a-37c2-4305-8165-c3f6175c6e64" name="HRM StorageCapacityHealth Host System Warning status" resourceKind="HostSystem">
+            <State severity="warning">
+                <Condition instanced="true" key="HRM StorageCapacityHealth Status:bootbank1|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-0960101c-b7d5-4e7c-9f9c-8b8a2fc491d6" name="HRM NSXT Backup is not configured" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM Backup Status:Cluster Backup Operation|message" operator="=" thresholdType="static" type="metric" value="Backup is not configured." valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" cancelCycle="3" disableInBasePolicy="true" id="SymptomDefinition-99452a48-c59b-4964-9c7b-a89ea9cf7036" name="HRM NSXT TransportNodeTunnel Warning Status" resourceKind="NSXTAdapterInstance" waitCycle="3">
+            <State severity="warning">
+                <Condition key="HRM NSXT Tunnel Status:0|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-8af4441e-32a4-4bc8-9b36-f3d18f59c447" name="HRM NSXT Cluster Backup Operation" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM Backup Status:Cluster Backup Operation|resource" operator="=" thresholdType="static" type="metric" value="Cluster Backup Operation" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-f3141400-8b5a-4cb0-8103-2a6cc9693f87" name="HRM NSXT Backup is on SDDC Manager" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM Backup Status:Cluster Backup Operation|message" operator="=" thresholdType="static" type="metric" value="Backup is located on the SDDC Manager. Reconfigure backups to use another location." valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-bd958e72-9ee5-4d9c-ae52-9982c77f9b9a" name="Condition_ef325c65-c048-4245-9318-c1c13ebae262" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="HRM Backup Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-a5178b79-2a8b-4456-b8ee-042221225b75" name="HRM Backup NSXT Warning Status" resourceKind="NSXTAdapterInstance">
+            <State severity="warning">
+                <Condition instanced="true" key="HRM Backup Status:Cluster Backup Operation|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-b3caf15a-26c7-46b2-b3fb-3c6079a781e0" name="Condition_0ba41632-f8be-4ad3-a335-9a787c22d154" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="info">
+                <Condition key="HRM Snapshot Status|message" operator="=" thresholdType="static" type="metric" value="Latest snapshot is greater than 3 days old. A single snapshot exists." valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-88c74a7e-16e5-4709-8783-f7f999914aca" name="HRM NSXT TransportNodeTunnel Host" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM NSXT Tunnel Status:0|element" operator="=" thresholdType="static" type="metric" value="Host" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-8fa2e0d4-3f63-469a-b1aa-60fe495b6041" name="HRM Backup SDDC Manager" resourceKind="VirtualMachine">
+            <State severity="info">
+                <Condition key="HRM Backup Status|component" operator="=" thresholdType="static" type="metric" value="SDDC Manager" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-c337d658-75f2-4c97-9f4c-b4754a504247" name="HRM NSXT TransportNodeTunnel Edge" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM NSXT Tunnel Status:0|element" operator="=" thresholdType="static" type="metric" value="Edge" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-a36017f7-f374-4213-b5d2-8c7aa63b8840" name="HRM NSXT TransportNodeStatus Critical Status" resourceKind="NSXTAdapterInstance">
+            <State severity="critical">
+                <Condition instanced="true" key="HRM NSXT Transport Node Status:0|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-c938e91c-b4b6-46b4-a8c1-8ba9be109267" name="HRM NSXT Node Backup Operation" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM Backup Status:Node Backup Operation|resource" operator="=" thresholdType="static" type="metric" value="Node Backup Operation" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-c3e4894c-0fde-434b-aec5-8c4ea2c23509" name="Condition_2d00a106-fa59-43a8-acfb-8c0e07f23647" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="HRM Snapshot Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-c31a0966-e487-4aa9-8308-381f98de631f" name="HRM NSXT Backup is old" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM Backup Status:Cluster Backup Operation|message" operator="=" thresholdType="static" type="metric" value="Backup is more than 3 days old" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-594051ef-1795-4eeb-8585-2c5217825808" name="HRM NSXT TransportNodeStatus Warning Status" resourceKind="NSXTAdapterInstance">
+            <State severity="warning">
+                <Condition instanced="true" key="HRM NSXT Transport Node Status:0|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-8f3cfe96-0b24-42aa-b857-d3d59eff9d10" name="Condition_b8ebe6be-5b91-4aa1-9974-d925e457aae3" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="HRM Snapshot Status|consolidation required" operator="!=" thresholdType="static" type="metric" value="false" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-3c950aa4-b50e-449a-bd95-e7ee75f66d3c" name="HRM NSXT TransportNodeStatus Host" resourceKind="NSXTAdapterInstance">
+            <State severity="info">
+                <Condition instanced="true" key="HRM NSXT Transport Node Status:0|element" operator="=" thresholdType="static" type="metric" value="Host" valueType="string"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-53e83033-813d-4d22-8040-cb50964ce742" name="HRM StorageCapacityFilesystemHealth VM Warning status" resourceKind="VirtualMachine">
+            <State severity="warning">
+                <Condition instanced="true" key="HRM StorageCapacityFilesystemHealth Status:/dev/mapper/vg_alt_root-lv_alt_root|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-37b91b60-3c6c-42aa-8594-966d9a6847d0" name="HRM StorageCapacityHealth Host System Critical status" resourceKind="HostSystem">
+            <State severity="critical">
+                <Condition instanced="true" key="HRM StorageCapacityHealth Status:bootbank1|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-dfba4dcc-3f76-4f7f-9443-9dc551da5a34" name="HRM StorageCapacityFilesystemHealth VM Critical status" resourceKind="VirtualMachine">
+            <State severity="critical">
+                <Condition instanced="true" key="HRM StorageCapacityFilesystemHealth Status:/dev/mapper/vg_alt_root-lv_alt_root|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+		        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-6b2bdb5e-0eea-44ef-85f6-dbd3b98443a7" name="Condition_47670abb-9eb8-48d1-94e7-e0363f635fe2" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS vSAN Summary:Active ReSync Objects|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-1bbfe829-a366-4f4b-bef7-3d94f931a2c3" name="Condition_fbecdb72-6368-4299-a6c3-48e3bac47bc8" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS DNS Reverse lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-78186f8e-76f9-4ed1-ad55-40b7cdbddd92" name="Condition_5351b46b-8f05-48bd-bd4c-393f49d43bfc" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Hardware Compatibility|NVMe device can be identified|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-602a416c-67bf-44b6-925c-e87378df0d63" name="Condition_80b0bab6-b8d5-490f-87c5-a84569d29e34" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Password Summary:vcf|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-b5b01988-60b0-4999-833d-b1cea60ec721" name="Condition_a6d4bfcc-8a85-41d7-b8b7-50965f5d913e" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Hardware Compatibility|Controller firmware is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-b6e104b1-9069-4cb6-a107-0f3c38a3260c" name="Condition_3e45587e-cfdf-49dc-a523-a9e14e0b5ff7" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS DNS Forward lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-72104e00-776a-48b2-85e0-98402723a079" name="Condition_c1762ac6-239b-4e31-86df-ceaca11a8e03" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS DNS Reverse lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-28ebc191-af41-4a36-af0c-e9792a90c53d" name="Condition_f2150e02-011d-47d2-baee-3ae830ee4c11" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS API Connectivity status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-a8097ef4-a690-468a-925a-5b1277ea49f1" name="Condition_7456061e-b007-4c61-89f3-1f16c18ff3d8" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS DNS Reverse lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-90381f3a-aed7-47b1-82b9-3a86cfbb95b8" name="Condition_e1885b75-f542-4d17-82fa-a23ab5cc2755" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS NTP Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-f8befa0d-5ad2-440c-b3a3-7a417e2921d7" name="Condition_594262d5-cf0d-4133-a9e3-0c717f8da15a" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:DOMAIN_MANAGER|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-e8f7d0bd-97f4-4f92-ac36-95b50b5ad0e7" name="Condition_b6d79c91-c023-4e1e-9cc4-8e46b10f2b06" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Hardware Compatibility|NVMe device is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-1f3455f1-9601-47f3-9296-33d88fc376c0" name="Condition_9f39219d-591f-4fc9-a60f-7a0d704a0756" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS DNS Reverse lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-c7d11f19-42b1-46ad-9f44-3907d86cd96a" name="Condition_0b39ba32-ae61-480f-ae4d-afe91694f88f" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Hardware Compatibility|Controller is VMware certified for ESXi release|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-a025cfb8-6c52-42d7-aaea-cc3d3ad68019" name="Condition_569cbe76-e834-4e10-b131-ae06dc8987fe" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Password Summary:backup|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="5.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-29c83fbf-6888-41e7-9661-c0b256da28b1" name="Condition_f74e2838-bd88-40e4-a02e-4390e263395e" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Compute Summary:ESXi Disk Status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-14ef18b5-408e-4ee6-8cf8-48c840845712" name="Condition_82587e79-af8c-44ea-9cc9-e42c2a6e446d" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Password Summary:svc-vcf-sfo01-m01-esx01|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-d0ee0d46-d2fb-4027-8630-be7170d9d950" name="Condition_0be3644d-bcb3-4ec2-824e-2326554cdd06" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS DNS Forward lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-d3663ab0-b871-4be7-babd-6b2d8761bed7" name="Condition_00b66e7a-ac19-4b09-bc6f-f73bc01cc11a" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS DNS Reverse lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-e1a95c89-82e5-4b68-b6db-a447416c9569" name="Condition_66e766e0-ee47-43e4-b81d-31d42fe4a62d" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Certificate Health Summary|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-de54882d-2f19-40ac-801b-f1fb3fc2c762" name="Condition_b30dea57-687a-4cc6-9335-e9c78842be66" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS DNS Forward lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-1dc6e9f6-9245-4cd0-989f-f9fecb423b84" name="Condition_4806735d-3a35-4149-92ff-7514b7236dc1" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:LCM|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-9f5a826e-01b4-42e8-87a9-8ef9d682e5e0" name="Condition_abb41f57-8d0f-47a4-bf26-9041128421b8" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Certificate Health Summary|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="30.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-4844592a-f6dd-4d55-be3c-f9c9ec0b4f18" name="Condition_4f46abdd-739b-43a2-b43d-1da4e0884dfe" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Hardware Compatibility|Controller firmware is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-d3d2abc7-488e-4e26-9b82-37390bd9482f" name="Condition_290efe8b-a522-4d6b-add9-3656298ea669" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:VIP-MANAGER-i18n|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-933ab29a-178d-41e9-9fc8-afcb16ab562f" name="Condition_8864a0de-98bc-4525-9093-2145b7dad724" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS SSH Connectivity status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-1ad507b9-5c36-4c07-b4f9-16beeae68e8b" name="Condition_16767911-1c88-4861-9b45-94cd9c61ff15" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS SSH Connectivity status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-7661203b-e6e4-4ea5-88e4-74913833dad8" name="Condition_266830e0-1177-4644-a35f-1e220bbe1dd6" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Certificate Health Summary|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-d39f0a3a-9051-4e9e-9d2c-d083ee7e14ef" name="Condition_ba700c53-18c9-40b4-a2c5-a19ce6d14c51" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Ping status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-322fdc77-b52b-4030-86ad-87865b85bec9" name="Condition_b918a3f9-7fd0-4eff-a87a-7602d44dfde0" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Password Summary:admin|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="5.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-799b6c07-20cc-4e68-a901-de200e75523c" name="Condition_40315c0e-1562-4faa-81f2-b2528c0ce4ec" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Password Summary:audit|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-30ac4d31-6ddc-4e3d-a6f9-9e907166df40" name="Condition_346708b5-01f3-4672-96c6-2bef150ce6fd" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Password Summary:backup|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-5a8fcfe1-3e73-4af1-940b-947424b2f947" name="Condition_f12c4dd1-1cdc-4491-8f7f-eb25973ec4ee" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS DNS Forward lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-804d8f67-b354-4681-9d28-acd6040fe438" name="Condition_3d1ab072-8084-44b5-a3b1-5aaf9267eeb6" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:rsyslog|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-97d3a033-5866-4bfb-8838-f9b15ac41e91" name="Condition_7e86e8c9-ea80-4705-bc72-b492627d98f9" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS NTP Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-45fbfea8-3185-41d3-acf3-b9606032edd1" name="Condition_da68b7e5-fdd9-4d40-a043-ac58cbcdf022" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS NTP Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-432648b1-d603-4ac2-8fa0-44f2fb97aecc" name="Condition_be51e2c0-8d5d-4da1-92c4-abad9ad46dc6" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Password Summary:admin|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-54184d7c-a402-43be-8353-9de12ffdd287" name="Condition_ea7e3ebd-ab00-4495-8d95-96891906769d" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:LCM|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-7628e35e-3a4a-4302-9e24-05f3de4bb979" name="Condition_cba0f90d-7ba0-4fcb-beb3-2955932fcdd6" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Hardware Compatibility|Controller disk group mode is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-c5ee463c-7446-465e-80f5-55341d289a7f" name="Condition_fdd9078a-2aa2-4085-b76d-8e77c5a168dd" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Hardware Compatibility|NVMe device can be identified|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-1925561d-df53-4527-a7d9-9f6c2cc30f16" name="Condition_d8ef035d-778c-4292-9da9-2f7e73c4175c" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Hardware Compatibility|SCSI controller is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-56266311-54d3-4503-bced-8642f1238594" name="Condition_b5457729-70b8-4530-8760-d99489820fb1" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Compute Summary:ESXi Disk Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-5c6d4fc8-8600-4ce2-a681-f55136060b43" name="Condition_88963691-3b30-4d0f-901f-12acd99c83e4" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:SOSREST|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-ec87d164-3dda-41c9-9c1b-267a537ea9d0" name="Condition_cc9bfc2a-19b1-4744-a125-13d431867c0d" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Password Summary:audit|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="5.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-13c8ae53-3e60-42e3-8601-d8355d793931" name="Condition_5705210c-f3ff-45a8-8b79-af77d4e651ce" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Ping status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-610759e8-b75b-4faf-aa1b-fe0bd7e1b655" name="Condition_63a9f01a-7054-42d5-87ee-6a5a79257d69" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS DNS Forward lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-9b67c5b2-3d67-41a2-9211-9028579938cb" name="Condition_f205ce98-5ee2-45bc-aceb-84b5e20d3183" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS ESXi Time Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-f1d945a4-cd73-4167-aa7a-2912a7b91afe" name="Condition_491a8844-4939-48c2-b479-cd731732e2ae" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Hardware Compatibility|Controller driver is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-0f4da86f-fb22-4e97-ba4f-cbaf92d3a759" name="Condition_d45139fc-6550-4eb1-86a0-6fe39d702a75" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:DOMAIN_MANAGER|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-18834dbe-e68d-418a-8e8c-24209cf87634" name="Condition_e0f0d02d-5b61-4d5c-8c49-b2902137f70e" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Hardware Compatibility|Controller driver is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-d9d16070-81e9-42d4-8a3b-3c88a8fdd1bc" name="Condition_5068067b-6995-45fe-a848-ce4b3a68ad4c" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS DNS Reverse lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-2c139152-dc07-4c37-a0cb-993ba9b550b3" name="Condition_1b7e3933-b05e-4b0c-9c3c-fb02620e0a11" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Certificate Health Summary|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="30.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-fdec7476-477b-4158-a4e0-d813f572d57d" name="Condition_b7ed0bab-3b57-4518-914e-9f71b18dc880" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:POSTGRES|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-47fca07c-5170-41c2-95f0-da55df7fd611" name="Condition_a4cada6d-a9e6-43d9-addc-57c9461f0472" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:OPERATIONS_MANAGER|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-013b73c5-5c7a-416c-a00b-6cbefc6c1d01" name="Condition_f739515e-8f8e-44f4-a1ff-5dd98588c7ee" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Certificate Health Summary|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="30.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-be312ce1-c00d-4511-83a9-ee8f13e7cb37" name="Condition_a6cb5823-2a59-4a43-8023-41076fc02424" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS General|ESXi Core Dump Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-6ee24534-fd9a-4a53-9239-0f239a484a7c" name="Condition_6333a5f3-9160-48c4-9407-67bfae451f2a" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Hardware Compatibility|NVMe device is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-b3c9683a-4e41-4b76-972b-5fc2064583b4" name="Condition_1f8c821d-4e0b-47a1-b0fa-10cc8294a5c0" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Password Summary:audit|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="5.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-eebb546e-2e98-4d73-979a-f9b273bf4a62" name="Condition_0a73f4cc-c515-4f93-80a6-3b261c4ef27a" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:OPERATIONS_MANAGER|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-48748b33-2349-4b96-a7e5-27e0b9b957ea" name="Condition_f68ff674-6154-4a13-9bff-5e61d544b53f" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS API Connectivity status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-d2b3fe20-b6d0-46f8-a81c-d5ada888d757" name="Condition_96083e63-bbf9-4191-822d-8df16f18febc" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Compute Summary:ESXi Overall Health|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-8d0e0615-320d-41c5-9349-f9842caa38cc" name="Condition_f13e0235-c482-48f7-b8e6-8a4ccc962af3" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS NTP Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-bb3d8f34-8f18-4875-9be0-5fed49a5ac8f" name="Condition_555a6a18-a752-45f5-8eae-871374bd745b" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:POSTGRES|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-abea9d4e-c4c4-4984-bd12-1b8665a0a88f" name="Condition_387e2df7-ee90-4548-b571-281bde7637e8" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Compute Summary:vCenter Overall Health|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-d500b3cb-78d8-45d6-8472-d1454c05ebde" name="Condition_07c00826-2e60-4bef-a71f-79c5dbf1bdf4" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Password Summary:audit|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-340b3169-f072-48f0-9a64-6d37908e46b1" name="Condition_c668421a-eef5-492b-864f-1ed2edf6e2f9" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Password Summary:svc-vcf-sfo01-m01-esx01|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="5.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-85312b49-b03e-4c30-9119-e3d8d6f21e42" name="Condition_38469ac0-b4c5-4cd4-963b-3d0221023a69" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Ping status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-27b6a134-8532-467f-ba29-6604c91f3fdc" name="Condition_ac459131-e948-4c0d-b3c0-bbf2e541a411" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS NTP Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-b242556d-3fe7-4b2a-97ed-efaebe83aeeb" name="Condition_0fbdf60a-a522-4cf5-a5ce-253f78607352" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Hardware Compatibility|SCSI controller is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-3f698b59-601d-4673-82e8-19c3b9cb5d20" name="Condition_03fe6209-2469-46dc-903b-38b211c19da7" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Password Summary:root|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-4152fa90-ce82-4543-9b19-57c2c207d244" name="Condition_8e231343-ba5f-4882-b5f4-477591bc97df" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Ping status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-72a6a97b-1d83-43dc-a8e0-da5174621afe" name="Condition_8e5a63c9-c364-474c-8a67-88f100020247" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Password Summary:admin|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-ac81c650-994e-4e55-bc34-5a583a1323d4" name="Condition_71cb46ec-1536-48c6-9ea9-7c4be8c907df" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Password Summary:vcf|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="5.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-110bdf4d-9a27-4717-9fa6-262ac1c52f32" name="Condition_9b9806e5-c5c8-4435-ba6f-459cc5dbb1f0" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:NTP|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-e03001d4-d595-488f-8f33-69fd53b3ef98" name="Condition_e0858aa7-7be0-401d-a0ff-56c20671f9b5" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Password Summary:admin|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="5.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-12c5fb8b-19cd-4d4d-9706-957620680364" name="Condition_b1b8f7b8-66a1-4e56-b2c0-4095b49ab19f" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:SOSREST|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-5edf65a7-0274-4dd7-8ed2-dea0475434f2" name="Condition_2727824d-ada3-48ec-ad1f-b7e0d69a3f7d" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:SDDC_MANAGER_UI|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-94be5660-67a0-4ef0-8ef4-3fe47e98d35a" name="Condition_8936e185-692d-48ed-bb84-5b6be754735d" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS DNS Forward lookup Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-5328b133-626f-455f-9776-46089fe34758" name="Condition_e7210901-8906-4068-a03b-f4ba7587cb6c" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS NTP Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-ee909291-be18-44bc-99ae-d8506a2393c3" name="Condition_c5243763-0bab-42a1-94bb-b9ea6652a586" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS API Connectivity status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-742fcbd2-d6c6-41eb-91df-97cdf120757c" name="Condition_4a084c9a-0e51-4107-ad2e-7d9b5c63e1b2" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS General|ESXi Core Dump Status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-e662a985-3344-4949-b2d5-263e614de42e" name="Condition_8bfb7cf6-0f99-40e9-9782-c3bfca26c3f8" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Certificate Health Summary|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-9c3f32f2-9ab8-4cb6-8b70-557d01b1e457" name="Condition_b1c34f44-c4a6-41fe-aabc-62453ab015ec" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:rsyslog|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-f9fe9448-bbaf-434c-8d7c-2130a2875918" name="Condition_692c8ca1-f891-4b52-a6df-450da99ab3fa" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS vSAN Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-979530b6-6ad0-4ff4-9be0-757a22dc6e72" name="Condition_5c2aa104-a3b9-45f3-9e20-febec62199b3" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Ping status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-00caee0a-4d14-490a-aa44-61231c414cea" name="Condition_d1033be8-cb21-43e3-a5e7-b8e06d153378" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS vSAN Summary:Active ReSync Objects|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-2d56bdea-af8e-46ae-ad15-3488c7ecfb51" name="Condition_5fdd6ca2-1b50-4f5b-9d95-ab953ba8745e" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Compute Summary:ESXi Overall Health|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-f2259ecd-76b0-4bbd-9ff6-616d56ac83d5" name="Condition_acec3b46-0c67-439a-92d4-f52a1471c688" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Hardware Compatibility|Controller is VMware certified for ESXi release|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-e249e1e5-cb52-47d8-afeb-f91f545f0390" name="Condition_522b76e2-2c6f-4e91-9dc7-d2fe90dfbb7b" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:VIP-MANAGER-i18n|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-efe80921-6490-4138-bdc3-fe110a37a674" name="Condition_7be374f6-8606-43d3-874f-de9e087c3fe4" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Password Summary:root|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="15.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-c0496eb9-6b9a-403d-8629-131c6eab8fa8" name="Condition_15f36a6a-8426-4b8b-93b8-a05e1677bf23" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:NTP|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-f8bd2f00-de07-4c7d-95cb-5f62db88c0d0" name="Condition_d300c7e1-9661-4b38-8d41-8c3fa2ef8f9b" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS vSAN Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-a982e6e4-6b01-4625-97d4-992ead3bc742" name="Condition_7358ac0a-8e97-4b7d-8611-d08d24e64963" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Hardware Compatibility|Controller disk group mode is VMware certified|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-fca83981-c013-4d13-91c6-f66dab76f5d8" name="Condition_bde11444-2f32-40d3-98d2-fa03e4078625" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Password Summary:root|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="5.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-ab228db8-049c-452b-bb78-7f67b1fe41cb" name="Condition_ee261dc0-f25c-4df4-b93d-265d74ea4099" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:COMMON_SERVICES|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-fe087591-4a6d-40db-93d6-da8a100e3e5a" name="Condition_f8ae9aef-0828-44c5-bc11-8070d66a0dbf" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS API Connectivity status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-10a9f2f3-8a1d-42ed-9558-ce6905ae53ad" name="Condition_1aa72aa9-9f85-4b81-89c3-308880ab49e3" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Password Summary:root|expires_in" operator="&lt;=" thresholdType="static" type="metric" value="5.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-4d8362f1-a99e-4ac1-b705-55b18fa3b1aa" name="Condition_a91f6039-4558-4e7e-95f7-9a6fe2aa8506" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Services Summary:applmgmt|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-d42f0981-5860-433d-bf14-d86afcb3996a" name="Condition_b139295b-7c14-4ef8-b868-b82895f4f904" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:SDDC_MANAGER_UI|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-1491c2d1-05f8-446a-9cc2-879b05fd2de3" name="Condition_4b4c8841-a6aa-41c5-b95a-c30109596d91" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:COMMON_SERVICES|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-afe7b79e-71e0-4347-af33-44154c263a67" name="Condition_63bc75a0-c308-4ed4-910f-f7282da6e68f" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Ping status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-95fc2c5d-964c-42ba-82d5-b1c18781a09e" name="Condition_e44c6ece-76a0-406e-9048-3a39706f4a5e" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Services Summary:applmgmt|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-6d2fbd31-4f7b-4a3a-a0e4-6eb3a95fae8a" name="Condition_5ba5ce05-3877-45d3-ab9a-a802f6012b44" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Compute Summary:vCenter Overall Health|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-d35ebf87-31e0-4330-852a-b26b0871be28" name="Condition_c39bfc46-093e-4a14-b0fe-896b095cbb7f" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS ESXi Time Status Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+    </SymptomDefinitions>
+    <Recommendations>
+        <Recommendation key="Recommendation-ud-98bae8b0-b328-4520-adc8-62dbb373a266">
+            <Description>Backup is located on the SDDC Manager. Reconfigure backups to use another location.​</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-e1f6ed2b-ca3d-4de4-9798-05067b0fc5b9">
+            <Description>Latest snapshot is greater than 1 day old.​ If the virtual machine has multiple snapshots, delete the older snapshots.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-b0a89a20-55fe-4a66-b3d9-31a6cd3e8dfc">
+            <Description>Snapshot consolidation is required.​</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-cf612443-c5c5-4d6d-a194-1e7895b9e388">
+            <Description>Please consider reclaiming space on the filesystem.​</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-7d883cea-beb8-425c-8d27-91373814574c">
+            <Description>BGP is not established. Please check the configuration.​</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-016851c6-5c6f-4398-8433-9dce34b6a89e">
+            <Description>Please consider reclaiming space on the datastore.​</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-2e34b782-84b6-4d0f-a9e3-459646fa14f0">
+            <Description>Make a regular backups of the management VMs to avoid downtime and data loss in case of a system failure. If a VM does fail, you can restore it to the last backup.​</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-f9d18586-6f10-4187-97ae-a27e56a2c6c8">
+            <Description>Backup is not configured. To configure backup, see the "Backup and Restore of vCenter Server" in the VMware vSphere Product Documentation.​</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-fc54c9e2-b66b-4f3e-a445-40442ecc7f90">
+            <Description>Latest snapshot is greater than 3 days old. A single snapshot exists.​</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-7d7e02f0-5d3e-4129-afe9-febc948cba14">
+            <Description>Backup is not configured. To configure backup, see the "Backing Up and Restoring SDDC Manager and NSX Manager" in the VMware Cloud Foundation Administration guide.​</Description>
+        </Recommendation>
+		        <Recommendation key="Recommendation-ud-0228a49b-e086-4a97-8d3c-684be335f323">
+            <Description>Check the vCenter Server Health. To check for further details on any issues, use vSphere Client monitoring and alarms, vCenter Server Appliance Management Interface, and Skyline Health checks for vSphere.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-81dee8f5-2090-472c-94c9-b2689bf44bbb">
+            <Description>Check and resolve alerts on ESXi host. To check for further details on any issues, use vSphere Client monitoring and alarms, and Skyline Health checks for vSphere.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-8dedb140-ef94-4b7f-8ca0-a971bf3fb9e1">
+            <Description>Verify that the SCSI controller is VMware certified. See VMware&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2109871"&gt;KB 2109871&lt;/a&gt;. To check for further details on any issues, use Skyline Health checks for vSphere.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-079d37e6-7d75-4992-a580-c5ef741595e7">
+            <Description>If a password expires, you must manually reset the password in the respective SDDC component. To synchronize the new password in SDDC Manager, you must remediate the component password. See "Remediate Passwords" in the VMware Cloud Foundation Administration guide.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-7fa5d32a-1fc3-435d-aff7-b6d727029999">
+            <Description>To check the DNS configuration, use the 'nslookup' or 'dig' commands. If the issue persists, please contact VMware Global Support.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-f1a21d38-3582-4d82-876f-8e243bb372f9">
+            <Description>To troubleshoot an unidentified NVMe device, see VMware&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/85782"&gt;KB 85782&lt;/a&gt;. To check for further details on any issues, use Skyline Health checks for vSphere.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-df3d96b3-712c-45fb-9e72-9e942c0d218d">
+            <Description>To check for further details on issues, use vSphere Client monitoring and alarms.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-69f13fee-9d84-42b6-9d81-9046a8107018">
+            <Description>Ensure that Forward and Reverse DNS records are configured correctly.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-fc9fee61-6a5c-4d13-93ac-7191b178dbe6">
+            <Description>To manually reset SDDC component passwords, please see the related VMware documentation and VMware Knowledge Base articles for respective components.&amp;nbsp;&lt;div&gt;- For SDDC Manager, see&amp;nbsp;&lt;a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/4.4/vcf-admin/GUID-93AA6610-4171-4BD4-B450-A735FDC19E96.html#GUID-93AA6610-4171-4BD4-B450-A735FDC19E96"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vCenter Server, see&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2147144"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For NSX Manager, see&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/70691"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vRealize Suite Lifecycle Manager, see&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/52434"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vRealize Operations, see&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2001476"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vRealize Automation, see&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/76530"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vRealize Log Insight, see&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/53649"&gt;here&lt;/a&gt;.&lt;/div&gt;</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-6096673d-c197-43a9-a8aa-f80896cdb038">
+            <Description>Check if there are any core dumps on the ESXi host generated as a result of a failure.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-eafd8f10-6f3b-4037-9b1c-a69e4961ad3a">
+            <Description>&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;Verify if the vSAN disk group type (All-Flash or Hybrid) is certified for the used SCSI controller in the VMware Compatibility Guide.&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif" style="color: rgb(173, 187, 196); font-family: Metropolis, arial, sans-serif; font-size: 13px;"&gt;&lt;span style="font-size: 13px;"&gt;See&amp;nbsp;&lt;a href="https://www.vmware.com/resources/compatibility/search.php?deviceCategory=vsan"&gt;VMware vSAN HCL&lt;/a&gt;&amp;nbsp;and&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;VMware&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2149404"&gt;KB 2149404&lt;/a&gt;.&amp;nbsp;&lt;/span&gt;&lt;/font&gt;To check for further details on any issues, use Skyline Health checks for vSphere.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-a7ede8cc-4b1a-44b9-b34a-527526049c09">
+            <Description>Verify that installed driver for the storage I/O controller is supported in the corresponding ESXi version. See VMware&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2109263"&gt;KB&amp;nbsp;2109263&lt;/a&gt;. To check for further details on any issues, use Skyline Health checks for vSphere.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-31042176-cd35-47b4-9158-0241f39cf713">
+            <Description>Verify that the controller firmware is VMware certified. See VMware&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2149405"&gt;KB 2149405&lt;/a&gt;.&amp;nbsp;To check for further details on any issues, use Skyline Health checks for vSphere.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-de26e20c-e4f4-4d86-86df-1c5b93525081">
+            <Description>&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;To prevent SDDC component passwords from expiring, see "Password Management" in the VMware Cloud Foundation Administration guide.&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;div style=""&gt;&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;VMware recommends that you use SDDC Manager for password rotation. By using SDDC Manager, you can schedule automatic password rotation for accounts managed by SDDC Manager.&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-27a74039-fd4d-4ba4-9a87-8588f2078b87">
+            <Description>Check the vCenter Server services status by using the vCenter Server Appliance Management Interface at https://appliance-IP-address-or-FQDN:5480 and resolve any issues.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-e528d191-36ee-4281-a9d5-2707e6eb2184">
+            <Description>&lt;div style=""&gt;&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;Avoid entering hosts in maintenance mode and simultaneous&amp;nbsp;migration of multiple virtual machines by using vMotions since this can generate a lot of network traffic and can lead to resource depletion.&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=""&gt;&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;To evaluate the status of objects that are being resynchronized,&amp;nbsp; monitor the in-progress resynchronization tasks in vSphere Client.&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-a9f629ad-5fc3-41d1-a8f8-a6e413f11ca4">
+            <Description>Verify that the installed driver is supported for the corresponding controller in the current ESXi version. See VMware&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2109262"&gt;KB 2109262&lt;/a&gt;. To check for further details on any issues, use Skyline Health checks for vSphere.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-f025416a-707b-416d-9d9d-20413084631f">
+            <Description>&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;Verify that the same NTP server(s) are configured and reachable across all VMware Cloud Foundation SDDC components. Verify that the NTP service is running on each virtual machine. If the NTP server(s) are not configure correctly or operational, update the NTP server configuration across SDDC components. See "Update NTP Server Configuration" in the VMware Cloud Foundation Administration guide.&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;div style="color: rgb(173, 187, 196); font-family: Metropolis, arial, sans-serif; font-size: 13px;"&gt;&lt;br&gt;&lt;/div&gt;</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-3337af73-89c7-478b-8cf0-3aef8e856fa6">
+            <Description>Check and remediate the virtual machine's storage policy compliance in vSphere Client.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-0017dde5-8b25-432e-83c2-cfeee9e15470">
+            <Description>Verify that the NVMe device is VMware certified. See VMware&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/85852"&gt;KB 85852&lt;/a&gt;. To check for further details on any issues, use Skyline Health checks for vSphere.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-73f0ce1f-afa3-497b-93f1-e6f2b1cedcc6">
+            <Description>Verify that NSX services are running and that SDDC Manager can reach the NSX Manager virtual machine(s) on port 443.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-808b600b-c8b0-4ca4-a656-bb5f4d074a1c">
+            <Description>&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;To update the DNS server configuration across SDDC components, see "Update DNS Server Configuration" in the VMware Cloud Foundation Administration guide.&lt;/span&gt;&lt;/font&gt;</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-fc13ecbe-728f-435f-99fd-c736e1a0c499">
+            <Description>&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;Check the status of the SDDC Manager services by using the SDDC Manager Supportability and Serviceability (SoS) utility and resolve any issues. See "Supportability and Serviceability (SoS) Utility" in the VMware Cloud Foundation Administration guide.&lt;/span&gt;&lt;/font&gt;</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-4c995ce5-ae19-4c0b-9894-d5432a004b56">
+            <Description>Troubleshoot virtual machine TCP/IP connectivity. See VMware&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/1007842"&gt;KB&amp;nbsp;1007842&lt;/a&gt;.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-c85cd2ed-072f-45d3-9188-8da6158914ac">
+            <Description>To prevent SDDC component certificates from expiring, see "Certificate Management" in the VMware Cloud Foundation Administration guide.</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-cc0603a0-3fd5-4ce8-9ba4-5fe871339454">
+            <Description>&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;Verify that ESXi services are running and that SDDC Manager can reach the ESXi host on port 443.&lt;/span&gt;&lt;/font&gt;</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-55190eda-ba39-4f45-aa3f-78027ec190a0">
+            <Description>To remove expired or unused SDDC component certificates, see "Remove Old or Unused Certificates" in the VMware Cloud Foundation Administration guide.</Description>
+        </Recommendation>
+    </Recommendations>
+</alertContent>

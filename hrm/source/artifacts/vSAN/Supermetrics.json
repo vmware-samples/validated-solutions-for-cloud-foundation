@@ -257,7 +257,7 @@
       "unitId": "",
       "modifiedBy": "48e01498-c8d8-402f-9252-890929c6d467"
    },
-   "231aa5a2-8e8f-4c2e-9306-80f5c17c904e": {
+     "231aa5a2-8e8f-4c2e-9306-80f5c17c904e": {
       "resourceKinds": [{
          "resourceKindKey": "ClusterComputeResource",
          "adapterKindKey": "VMWARE"
@@ -281,7 +281,7 @@
       "unitId": "",
       "modifiedBy": "48e01498-c8d8-402f-9252-890929c6d467"
    },
-  "e13931f6-068e-41a1-9538-6b288646b062": {
+   "e13931f6-068e-41a1-9538-6b288646b062": {
       "resourceKinds": [{
          "resourceKindKey": "ClusterComputeResource",
          "adapterKindKey": "VMWARE"
@@ -317,5 +317,4 @@
       "unitId": "",
       "modifiedBy": "ac9e0a97-b208-47f7-87b3-0a3b28026a90"
    }
-   
 }

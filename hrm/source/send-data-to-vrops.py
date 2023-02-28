@@ -945,8 +945,6 @@ class PushDataVrops:
             resource_name = hostname.split(".")[0]
             self.logger.info(f"hostname = {hostname}, component = {component}")
             metrics_payload = {"stat-content": []}
-
-            # timestamp_raw = value['timestamp']
             timestamp = time.mktime(datetime.datetime.now().timetuple())
             resource_id = self.get_resource_id(hostname, resource_name)
 
@@ -1000,6 +998,13 @@ class PushDataVrops:
             resource_id = self.get_resource_id(hostname, resource_name)
 
             for k, v in arr_val.items():
+                if k.lower() == 'latest':
+                    if v:
+                        val = re.search(r"\d{10}", v)
+                        timestamp_raw = int(val.group())
+                        date_time = datetime.datetime.fromtimestamp(timestamp_raw)
+                        datetime_str = date_time.strftime("%b %d %H:%M:%S %Y GMT")
+                        v = datetime_str
                 details = {
                     "statKey": f"HRM {data_type} Status|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
