@@ -26,7 +26,8 @@ with open(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)
     data = json.load(f)
 
 DEFAULT_LOGS_DIR_PATH_LINUX = data["DEFAULT_LOGS_DIR_PATH_LINUX"]
-DEFAULT_LOGS_DIR_PATH_WINDOWS = data["DEFAULT_LOGS_DIR_PATH_WINDOWS"]  # os.environ["HOMEPATH"] will be prepended to it
+# os.environ["HOMEDRIVE"] AND ["HOMEPATH"] will be prepended to DEFAULT_LOGS_DIR_PATH_WINDOWS
+DEFAULT_LOGS_DIR_PATH_WINDOWS = data["DEFAULT_LOGS_DIR_PATH_WINDOWS"]
 
 
 class FolderUtility(object):
@@ -36,7 +37,7 @@ class FolderUtility(object):
         if os.name == 'posix':
             logs_dir = DEFAULT_LOGS_DIR_PATH_LINUX
         else:
-            logs_dir = os.path.join(os.path.join(os.environ["HOMEPATH"], DEFAULT_LOGS_DIR_PATH_WINDOWS))
+            logs_dir = os.path.join(os.environ["HOMEDRIVE"], os.environ["HOMEPATH"], DEFAULT_LOGS_DIR_PATH_WINDOWS)
         return logs_dir
 
     @staticmethod

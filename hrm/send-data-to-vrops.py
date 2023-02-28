@@ -33,6 +33,7 @@ import json
 import os
 import time
 import datetime
+import re
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from utils.LogUtility import LogUtility
 from utils.FolderUtility import FolderUtility
@@ -62,7 +63,7 @@ class PushDataVrops:
 
         # set logger
         log_level = env_info["log_level"]
-        self.logger = LogUtility.get_logger('HRM', log_level)
+        self.logger = LogUtility.get_logger(log_level)
 
         # set env
         requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -843,14 +844,13 @@ class PushDataVrops:
             resource_id = self.get_resource_id(hostname, resource_name)
 
             for k, v in arr_val.items():
-                k_lower = k.lower()
                 if user:
                     statkey = f"HRM {data_type} Status:{user}"
                 else:
                     statkey = f"HRM {data_type} Status"
 
                 details = {
-                    "statKey": f"{statkey}|{k_lower}",
+                    "statKey": f"{statkey}|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
                     "values": [v]
                 }
@@ -951,9 +951,15 @@ class PushDataVrops:
             resource_id = self.get_resource_id(hostname, resource_name)
 
             for k, v in arr_val.items():
-                k_lower = k.lower()
+                if k.lower() == 'date':
+                    if v:
+                        val = re.search(r"\d{10}", v)
+                        timestamp_raw = int(val.group())
+                        date_time = datetime.datetime.fromtimestamp(timestamp_raw)
+                        datetime_str = date_time.strftime("%b %d %H:%M:%S %Y GMT")
+                        v = datetime_str
                 details = {
-                    "statKey": f"{statkey}|{k_lower}",
+                    "statKey": f"{statkey}|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
                     "values": [v]
                 }
@@ -994,9 +1000,8 @@ class PushDataVrops:
             resource_id = self.get_resource_id(hostname, resource_name)
 
             for k, v in arr_val.items():
-                k_lower = k.lower()
                 details = {
-                    "statKey": f"HRM {data_type} Status|{k_lower}",
+                    "statKey": f"HRM {data_type} Status|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
                     "values": [v]
                 }
@@ -1055,11 +1060,10 @@ class PushDataVrops:
                     resource_id = self.get_resource_id(hostname, resource_name)
 
                     for k, v in arr_val.items():
-                        k_lower = k.lower()
                         index_val = arr_val["Volume Name"]
                         statkey = f"HRM {data_type} Status:{index_val}"
                         details = {
-                            "statKey": f"{statkey}|{k_lower}",
+                            "statKey": f"{statkey}|{k.lower()}",
                             "timestamps": [int(timestamp * 1000)],
                             "values": [v]
                         }
@@ -1095,11 +1099,10 @@ class PushDataVrops:
                     resource_id = self.get_resource_id(hostname, resource_name)
 
                     for k, v in arr_val.items():
-                        k_lower = k.lower()
                         index_val = arr_val["Datastore Name"]
                         statkey = f"HRM {data_type} Status:{index_val}"
                         details = {
-                            "statKey": f"{statkey}|{k_lower}",
+                            "statKey": f"{statkey}|{k.lower()}",
                             "timestamps": [int(timestamp * 1000)],
                             "values": [v]
                         }
@@ -1133,10 +1136,9 @@ class PushDataVrops:
                     timestamp = time.mktime(datetime.datetime.now().timetuple())
                     resource_id = self.get_resource_id(hostname, resource_name)
                     for k, v in arr_val.items():
-                        k_lower = k.lower()
                         statkey = f"HRM {data_type} Status:{index_val}"
                         details = {
-                            "statKey": f"{statkey}|{k_lower}",
+                            "statKey": f"{statkey}|{k.lower()}",
                             "timestamps": [int(timestamp * 1000)],
                             "values": [v]
                         }
@@ -1182,9 +1184,8 @@ class PushDataVrops:
             resource_id = self.get_resource_id(hostname, resource_name)
 
             for k, v in arr_val.items():
-                k_lower = k.lower()
                 details = {
-                    "statKey": f"HRM NSXT TIER0 BGP Backup Status:{instance_hash[hostname]}|{k_lower}",
+                    "statKey": f"HRM NSXT TIER0 BGP Backup Status:{instance_hash[hostname]}|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
                     "values": [v]
                 }
@@ -1231,9 +1232,8 @@ class PushDataVrops:
             resource_id = self.get_resource_id(hostname, resource_name)
 
             for k, v in arr_val.items():
-                k_lower = k.lower()
                 details = {
-                    "statKey": f"HRM NSXT Transport Node Status:{instance_hash[hostname]}|{k_lower}",
+                    "statKey": f"HRM NSXT Transport Node Status:{instance_hash[hostname]}|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
                     "values": [v]
                 }
@@ -1280,9 +1280,8 @@ class PushDataVrops:
             resource_id = self.get_resource_id(hostname, resource_name)
 
             for k, v in arr_val.items():
-                k_lower = k.lower()
                 details = {
-                    "statKey": f"HRM NSXT Tunnel Status:{instance_hash[hostname]}|{k_lower}",
+                    "statKey": f"HRM NSXT Tunnel Status:{instance_hash[hostname]}|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
                     "values": [v]
                 }
@@ -1329,9 +1328,8 @@ class PushDataVrops:
             resource_id = self.get_resource_id(hostname, resource_name)
 
             for k, v in arr_val.items():
-                k_lower = k.lower()
                 details = {
-                    "statKey": f"HRM NSXTCombinedHealth Status:{instance_hash[hostname]}|{k_lower}",
+                    "statKey": f"HRM NSXTCombinedHealth Status:{instance_hash[hostname]}|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
                     "values": [v]
                 }
@@ -1370,7 +1368,7 @@ class PushDataVrops:
 
                 timestamp_raw = cert_data['timestamp']
                 timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
-
+                expires_in = 0
                 if cert_data['title'] and "-" not in cert_data['title']:
                     details = {
                         "statKey": f"SOS Certificate Health Summary|fqdn",
@@ -1414,16 +1412,23 @@ class PushDataVrops:
                     "values": [cert_data['message']]
                 }
                 metrics_payload["stat-content"].append(details)
+
+                alert = "GREEN"
+                if int(expires_in) <= 15:
+                    alert = "RED"
+                elif 15 < int(expires_in) <= 30:
+                    alert = "YELLOW"
+
                 details = {
                     "statKey": f"SOS Certificate Health Summary|alert",
                     "timestamps": [int(timestamp * 1000)],
-                    "values": [cert_data['alert']]
+                    "values": [alert]
                 }
                 metrics_payload["stat-content"].append(details)
                 details = {
                     "statKey": f"SOS Certificate Health Summary|alert_code",
                     "timestamps": [int(timestamp * 1000)],
-                    "data": [self.codes[cert_data['alert'].lower()]]
+                    "data": [self.codes[alert.lower()]]
                 }
                 metrics_payload["stat-content"].append(details)
 
