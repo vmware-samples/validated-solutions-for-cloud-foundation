@@ -40,11 +40,11 @@ class LogUtility(object):
 
         return os.path.basename(fname), line_num
 
-    def __init__(self, test_suite_name, level='INFO'):
+    def __init__(self, level='INFO'):
         if LogUtility.__test_logger:
             raise Exception('This is singleton class. Cannot instantiate again.')
         else:
-            self.__logger = self._get_logger(test_suite_name, level)
+            self.__logger = self._get_logger(level)
             self.__logger.info("python logger ready")
         LogUtility.__test_logger = self
 
@@ -74,28 +74,27 @@ class LogUtility(object):
             self.__logger.debug(traceback.format_exc())
 
     @staticmethod
-    def get_logger(test_suite_name=None, log_level='INFO'):
+    def get_logger(log_level='INFO'):
         if not LogUtility.__test_logger:
-            return LogUtility(test_suite_name, level=log_level)
+            return LogUtility(level=log_level)
         else:
             return LogUtility.__test_logger
 
-    def _get_logger(self, test_suite_name, level='INFO'):
+    def _get_logger(self, level='INFO'):
         """default python logger"""
         accepted_levels = {'INFO': logging.INFO, 'DEBUG': logging.DEBUG}
         if level.upper() not in accepted_levels:
             raise Exception('INVALID LOG LEVEL SPECIFIED')
         logging_format = '[%(asctime)s] %(levelname)s - %(message)s'
         date_format = '%Y-%m-%d %H:%M:%S'
-        test_log_directory = os.path.join(FolderUtility.get_log_directory(), test_suite_name)
+        test_log_directory = FolderUtility.get_log_directory()
         FolderUtility.make_directory(test_log_directory)
-        tmp_log_file_folder = os.path.join(test_log_directory, "run_")
+        tmp_log_file_folder = os.path.join(test_log_directory, "send-data_")
         self.test_log_folder = FolderUtility.make_director_with_timestamp(tmp_log_file_folder)
-        log_file_path = os.path.join(self.test_log_folder, "test_.log")
-        test_log_path = FolderUtility.get_unique_file_path(log_file_path)
+        log_file_path = os.path.join(self.test_log_folder, "send-data-to-vrops.log")
         logging.basicConfig(level=logging.NOTSET, format=logging_format, datefmt=date_format)
         formatter = logging.Formatter(fmt=logging_format, datefmt=date_format)
-        handler = logging.FileHandler(test_log_path)
+        handler = logging.FileHandler(log_file_path)
         handler.setLevel(accepted_levels[level])
         handler.setFormatter(formatter)
         logger = logging.getLogger("HRM")
