@@ -1,0 +1,9 @@
+{
+  "appliance": {
+    "name": "VMware Validated Solutions Sample Appliance",
+    "version": "v0.0.1"
+  },
+  "maskpass": {
+    "version": "0.3.1"
+  }
+}
