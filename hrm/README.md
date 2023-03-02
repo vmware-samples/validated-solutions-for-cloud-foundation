@@ -7,7 +7,8 @@
   - [Introduction](#introduction)
   - [Requirements](#requirements)
   - [Implementation](#implementation)
-  - [Issues](#issues)
+  - [Known Issues](#known-issues)
+  - [Support](#support)
 
 ## Introduction
 
@@ -55,8 +56,10 @@ Install requried Python libraries by running the following commands on the host 
 
 Follow the [Implementation of the Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations](https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-monitoring-v1/GUID-AD58BAF1-7DC9-4514-90B7-7E9FA2E9E5FA.html) from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
 
+## Known Issues
 
-## Issues
+
+## Support
 
 We welcome you to use the [GitHub Issues](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues) to report bugs or suggest enhancements.
 
