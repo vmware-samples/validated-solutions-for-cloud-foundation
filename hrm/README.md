@@ -57,6 +57,24 @@ Install requried Python libraries by running the following commands on the host 
 Follow the [Implementation of the Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations](https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-monitoring-v1/GUID-AD58BAF1-7DC9-4514-90B7-7E9FA2E9E5FA.html) from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
 
 ## Known Issues
+### 1. [HRM]Remove dependency of having FQDN as suffix in Account Name when configuring NSX-T account in vRealize Operations - https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/35 
+
+Please make sure that your NSX-T account name is configured as mentioned in this issue. 
+
+### 2. vCenter Name needs to be updated in VCF 4.4.x as filters on dashboards depend on it.
+
+To set the Product Name for the vCenter Server, follow the below steps - 
+1. Log in to the management domain vCenter Server at `https://<management_vcenter_server_fqdn>/ui` as `administrator@vsphere.local`.
+2. In the `VMs and templates` inventory, expand the `management domain vCenter Server` tree and expand the management domain data center.
+3. Select the first `management domain vCenter Server virtual machine` and select `Configure` tab.
+4. In the `Settings` pane select `vApp Options`.
+5. Click the `Edit` button. The `Edit vApp Options` dialog box opens.
+6. If vApp options are disabled, select the `Enable vApp options` check box and click `OK`.
+7. Click the `Details` tab and enter `VMware vCenter Server Appliance` as product name in the `Name` field.
+
+### 3. Shades of Red, Green and Yellow may be different in different widgets
+Shades of Red, Green and Yellow may be different in different widgets but they represent the same thing. Ignore the shades, this is a vRealize Operations limitation.
+
 
 
 ## Support
