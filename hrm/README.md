@@ -72,16 +72,37 @@ To set the Product Name for the vCenter Server, follow the below steps -
 6. If vApp options are disabled, select the `Enable vApp options` check box and click `OK`.
 7. Click the `Details` tab and enter `VMware vCenter Server Appliance` as product name in the `Name` field.
 
-### 3. Shades of Red, Green and Yellow may be different in different widgets
+### 3. Shades of Red, Green and Yellow may be different in different widgets on vRealize Operations
 Shades of Red, Green and Yellow may be different in different widgets but they represent the same thing. Ignore the shades, this is a vRealize Operations limitation.
 
 
-
 ## Support
+
+This Python module is not supported by VMware Support.
 
 We welcome you to use the [GitHub Issues](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues) to report bugs or suggest enhancements.
 
 In order to have a good experience with our community, we recommend that you read the [contributing guidelines](../CONTRIBUTING.md).
 
+When filing an issue, please check existing open, or recently closed, issues to make sure someone else hasn't already
+reported the issue.
+
+Please try to include as much information as you can. Details like these are incredibly useful:
+
+- A reproducible test case or series of steps.
+- Any modifications you've made relevant to the bug.
+- Anything unusual about your environment or deployment.
+
+## License
+
+Copyright 2022-2023 VMware, Inc.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
