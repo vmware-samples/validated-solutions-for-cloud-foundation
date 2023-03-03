@@ -61,7 +61,7 @@ Follow the [Implementation of the Python Module for VMware Cloud Foundation Heal
 
 Please make sure that your NSX-T account name is configured as mentioned in this issue. 
 
-### 2. vCenter Name needs to be updated in VCF 4.4.x as filters on dashboards depend on it.
+### 2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.4.x. The filters on the vReaize Operations dashboards depend on the name.
 
 To set the Product Name for the vCenter Server, follow the below steps - 
 1. Log in to the management domain vCenter Server at `https://<management_vcenter_server_fqdn>/ui` as `administrator@vsphere.local`.
