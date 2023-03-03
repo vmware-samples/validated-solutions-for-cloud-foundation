@@ -73,7 +73,7 @@ To set the Product Name for the vCenter Server, follow the below steps -
 7. Click the `Details` tab and enter `VMware vCenter Server Appliance` as product name in the `Name` field.
 
 ### 3. Shades of red, green, and yellow may vary on vRealize Operations widgets.
-Shades of Red, Green and Yellow may be different in different widgets but they represent the same thing. Ignore the shades, this is a vRealize Operations limitation.
+Shades of red, green, and yellow may be different in different widgets but they represent the same thing. Ignore the shades as this is a vRealize Operations product limitation.
 
 
 ## Support
