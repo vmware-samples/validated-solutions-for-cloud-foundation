@@ -95,7 +95,7 @@ Please try to include as much information as you can. Details like these are inc
 
 ## License
 
-Copyright 2022-2023 VMware, Inc.
+Copyright 2023 VMware, Inc.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
