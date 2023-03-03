@@ -7,7 +7,8 @@
   - [Introduction](#introduction)
   - [Requirements](#requirements)
   - [Implementation](#implementation)
-  - [Issues](#issues)
+  - [Known Issues](#known-issues)
+  - [Support](#support)
 
 ## Introduction
 
@@ -55,12 +56,53 @@ Install requried Python libraries by running the following commands on the host 
 
 Follow the [Implementation of the Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations](https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-monitoring-v1/GUID-AD58BAF1-7DC9-4514-90B7-7E9FA2E9E5FA.html) from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
 
+## Known Issues
+### 1. [Remove FQDN suffix dependency in the name when configuring an NSX-T cloud account in vRealize Operations](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/35)
 
-## Issues
+Please make sure that your NSX-T account name is configured as mentioned in this issue. 
+
+### 2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.4.x. The filters on the vReaize Operations dashboards depend on the name.
+
+To set the Product Name for the vCenter Server, follow the below steps - 
+1. Log in to the management domain vCenter Server at `https://<management_vcenter_server_fqdn>/ui` as `administrator@vsphere.local`.
+2. In the `VMs and templates` inventory, expand the `management domain vCenter Server` tree and expand the management domain data center.
+3. Select the first `management domain vCenter Server virtual machine` and select `Configure` tab.
+4. In the `Settings` pane select `vApp Options`.
+5. Click the `Edit` button. The `Edit vApp Options` dialog box opens.
+6. If vApp options are disabled, select the `Enable vApp options` check box and click `OK`.
+7. Click the `Details` tab and enter `VMware vCenter Server Appliance` as product name in the `Name` field.
+
+### 3. Shades of red, green, and yellow may vary on vRealize Operations widgets.
+Shades of red, green, and yellow may be different in different widgets but they represent the same thing. Ignore the shades as this is a vRealize Operations product limitation.
+
+
+## Support
+
+This Python module is not supported by VMware Support.
 
 We welcome you to use the [GitHub Issues](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues) to report bugs or suggest enhancements.
 
 In order to have a good experience with our community, we recommend that you read the [contributing guidelines](../CONTRIBUTING.md).
 
+When filing an issue, please check existing open, or recently closed, issues to make sure someone else hasn't already
+reported the issue.
+
+Please try to include as much information as you can. Details like these are incredibly useful:
+
+- A reproducible test case or series of steps.
+- Any modifications you've made relevant to the bug.
+- Anything unusual about your environment or deployment.
+
+## License
+
+Copyright 2023 VMware, Inc.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 

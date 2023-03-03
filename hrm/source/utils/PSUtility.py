@@ -18,6 +18,7 @@
 import os
 import subprocess
 import signal
+import shutil
 
 
 class PSUtility:
@@ -28,7 +29,8 @@ class PSUtility:
         if os.name == 'posix':
             pwsh = '/usr/bin/pwsh'
         else:
-            pwsh = 'powershell.exe'
+            pwsh = 'pwsh.exe' if shutil.which('pwsh.exe') else 'powershell.exe'
+        self.log_msg(f'Running PowerShell cmdlets using {pwsh}')
         self.cmd_pre = [pwsh, '-command', 'Import-Module', 'PowerValidatedSolutions', ';']
 
     def log_msg(self, msg):
