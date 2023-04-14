@@ -61,62 +61,60 @@ Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud F
 ## vRealize Operations Dashboards Preview
  
 1. VCF Health Rollup
-<img width="500" alt="Rollup1" src="https://user-images.githubusercontent.com/8632869/231903283-25b9f1d9-2bc2-46d9-aeb2-466e13f00dac.png">
-<img width="500" alt="Rollup2" src="https://user-images.githubusercontent.com/8632869/231901213-c90e2896-a1f8-40c6-8312-9a2e86ac7621.png">
-<img width="500" alt="Rollup3" src="https://user-images.githubusercontent.com/8632869/231901245-3d6105b1-ce8d-42d2-ba05-38ae68a81e5d.png">
-
+<img width="500" src="./images/Rollup1-min.png">
+<img width="500" src="./images/Rollup2-min.png">
+<img width="500" src="./images/Rollup3-min.png">
 
 2. VCF Backup Health
-<img width="500" alt="Backups1" src="https://user-images.githubusercontent.com/8632869/231901261-aba0efe0-f27f-43f0-b066-9f2c0eace83f.png">
-
+<img width="500" src="./images/Backups1-min.png">
+   
 3. VCF Certificate Health
-<img width="500" alt="Certificate1" src="https://user-images.githubusercontent.com/8632869/231901291-7ef07992-e87c-4245-9b7f-737f6c5c80f4.png">
-<img width="500" alt="Certificates2" src="https://user-images.githubusercontent.com/8632869/231901305-abd51770-82c1-4c61-b044-d1b12c89f8b0.png">
-
+<img width="500" src="./images/Certificates1-min.png">
+   <img width="500" src="./images/Certificates2-min.png">
+   
 4. VCF Compute Health
-<img width="500" alt="Compute1" src="https://user-images.githubusercontent.com/8632869/231901313-75b7b066-fd1f-45db-8a48-458ab716d36d.png">
-<img width="500" alt="Compute2" src="https://user-images.githubusercontent.com/8632869/231901319-b3bbb2c1-bbd8-4a2d-abeb-8c6ae14e4d74.png">
-
+<img width="500" alt="Compute1" src="./images/Compute1-min.png">
+<img width="500" alt="Compute2" src="./images/Compute2-min.png">
+   
 5. VCF Connectivity Health
-<img width="500" alt="Connectivity1" src="https://user-images.githubusercontent.com/8632869/231901325-93549932-4eda-4e09-aa87-e55bff04ed99.png">
-<img width="500" alt="Connectivity2" src="https://user-images.githubusercontent.com/8632869/231901334-6ff1fe27-1f46-471e-be66-b996db0bc821.png">
+<img width="500" alt="Connectivity1" src="./images/Connectivity1-min.png">
+<img width="500" alt="Connectivity2" src="./images/Connectivity2-min.png">
 
 6. VCF DNS Health
-<img width="500" alt="DNS1" src="https://user-images.githubusercontent.com/8632869/231901345-0ab5f69c-43d2-4f30-b478-925ac8f4686a.png">
-<img width="500" alt="DNS2" src="https://user-images.githubusercontent.com/8632869/231901357-48183756-cb1c-4417-878f-0671cccfbaf6.png">
+<img width="500" alt="DNS1" src="./images/DNS1-min.png">
+<img width="500" alt="DNS2" src="./images/DNS2-min.png">
 
 7. VCF Hardware Compatibility
-<img width="500" alt="Hardware Compatibility" src="https://user-images.githubusercontent.com/8632869/231901364-f725fa6d-b63a-40a2-be3f-c4363d44fc4d.png">
-<img width="500" alt="Hardware Compatibility2" src="https://user-images.githubusercontent.com/8632869/231901374-a12e5a96-a903-45cf-a12b-3721a1db43a7.png">
-
+<img width="500" alt="Hardware Compatibility1" src="./images/hw-compatibility-min.png">
+<img width="500" alt="Hardware Compatibility2" src="./images/hw-compatibility-min2.png">
+   
 8. VCF Networking Health
-<img width="500" alt="Networking" src="https://user-images.githubusercontent.com/8632869/231901382-6195d9cd-c652-4081-98c8-a5b035db59e8.png">
-<img width="500" alt="Networking3" src="https://user-images.githubusercontent.com/8632869/231901387-dbca0be4-bd79-4481-b314-a07df0f13916.png">
-<img width="500" alt="Networking4" src="https://user-images.githubusercontent.com/8632869/231901392-e3c36d1a-59ab-4e6c-b479-132bc366d263.png">
+<img width="500" alt="Networking1" src="./images/Networking-min.png">
+<img width="500" alt="Networking2" src="./images/Networking3-min.png">
+<img width="500" alt="Networking3" src="./images/Networking4-min.png">
 
 9. VCF NTP Health
-<img width="500" alt="NTP" src="https://user-images.githubusercontent.com/8632869/231901397-12d273e4-b6f7-4a7d-84dd-cfccda189887.png">
-<img width="500" alt="NTP3" src="https://user-images.githubusercontent.com/8632869/231901408-fe41e1c4-bc8b-43c0-aa15-27ff3d0b7c09.png">
-
+<img width="500" alt="NTP" src="./images/NTP-min.png">
+<img width="500" alt="NTP3"  src="./images/NTP3-min.png">
+   
 10. VCF Password Health
-<img width="500" alt="Password1" src="https://user-images.githubusercontent.com/8632869/231901414-a57473c7-c849-41a8-8140-3de5ccc70a19.png">
-<img width="500" alt="Password2" src="https://user-images.githubusercontent.com/8632869/231901417-6d41fb8a-ca61-4a1c-b290-2d1ee98d6fc0.png">
+<img width="500" alt="Password1" src="./images/Password1-min.png">
+<img width="500" alt="Password2" src="./images/Password2-min.png">
 
 11. VCF SDDC Manager and vCenter Services Health
-<img width="500" alt="Services1" src="https://user-images.githubusercontent.com/8632869/231901452-0c7a65bb-c1dd-4c30-9233-71bc081eef20.png">
-<img width="500" alt="Services2" src="https://user-images.githubusercontent.com/8632869/231901455-8367bd29-4bd6-42ad-afd7-f55015008e12.png">
-
-
+<img width="500" alt="Services1" src="./images/Services1-min.png">
+<img width="500" alt="Services2" src="./images/Services2-min.png">
+    
 12. VCF Snapshot Health
-<img width="500" alt="Snapshots" src="https://user-images.githubusercontent.com/8632869/231901481-6f2199e9-e288-4eaa-a9c8-4c235e63e662.png">
-<img width="500" alt="Snapshot2" src="https://user-images.githubusercontent.com/8632869/231901468-a2d2b97e-a28c-411a-8e2e-4fa967b803e4.png">
+<img width="500" alt="Snapshots" src="./images/Snapshots1-min.png">
+<img width="500" alt="Snapshot2" src="./images/Snapshots2-min.png">
 
 13. VCF Storage Health
-<img width="500" alt="image (11)" src="https://user-images.githubusercontent.com/8632869/231901974-e2244036-7b83-425f-95ea-897b1c1116a8.png">
+<img width="500" alt="storage1" src="./images/storage1-min.png">
 
 14. VCF vSAN Health
-<img width="500" alt="vSAN" src="https://user-images.githubusercontent.com/8632869/231901486-6d200fc7-28c7-4105-8706-727241ddb717.png">
-<img width="500" alt="vSAN2" src="https://user-images.githubusercontent.com/8632869/231901498-0d13a7bc-ca39-4f8f-b6c6-c5751ff21986.png">
+<img width="500" alt="vSAN" src="./images/vSAN-min.png">
+<img width="500" alt="vSAN2" src="./images/vSAN2-min.png">
 
 
 ## Known Issues
