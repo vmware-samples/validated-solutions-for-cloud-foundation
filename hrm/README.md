@@ -70,7 +70,7 @@ Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud F
    
 3. VCF Certificate Health
 <img width="500" src="./images/Certificates1-min.png">
-   <img width="500" src="./images/Certificates2-min.png">
+<img width="500" src="./images/Certificates2-min.png">
    
 4. VCF Compute Health
 <img width="500" alt="Compute1" src="./images/Compute1-min.png">
