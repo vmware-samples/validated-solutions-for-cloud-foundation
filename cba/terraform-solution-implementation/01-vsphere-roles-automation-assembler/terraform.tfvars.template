@@ -10,9 +10,9 @@ vsphere_password = "<!--REPLACE WITH SSO PASSWORD-->"
 
 # vSphere Roles
 
-ca_vsphere_role  = "<!--REPLACE WITH CLOUD ASSEMBLY ROLE NAME-->"
-vro_vsphere_role = "<!--REPLACE WITH VREALIZE ORCHESTRATOR ROLE NAME-->"
-ca_vsphere_privileges = [
+assembler_vsphere_role  = "<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER ROLE NAME-->"
+orchestrator_vsphere_role = "<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR ROLE NAME-->"
+assembler_vsphere_privileges = [
   "System.Anonymous",
   "System.Read",
   "System.View",
@@ -99,7 +99,7 @@ ca_vsphere_privileges = [
   "VirtualMachine.State.RemoveSnapshot",
   "VirtualMachine.State.RevertToSnapshot"
 ]
-vro_vsphere_privileges = [
+orchestrator_vsphere_privileges = [
   "System.Anonymous",
   "System.Read",
   "System.View",

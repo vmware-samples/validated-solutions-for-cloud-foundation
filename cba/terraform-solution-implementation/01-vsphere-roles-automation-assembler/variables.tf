@@ -29,24 +29,24 @@ variable "vsphere_insecure" {
 
 # Roles
 
-variable "ca_vsphere_role" {
+variable "assembler_vsphere_role" {
   type        = string
-  description = "The name for the Cloud Assembly to vSphere custom role. (e.g. Cloudy Assembly to vSphere Integration)"
-  default     = "Cloudy Assembly to vSphere Integration"
+  description = "The name for the VMware Aria Automation Assembler to vSphere Integration custom role. (e.g. VMware Aria Automation Assembler to vSphere Integration)"
+  default     = "VMware Aria Automation Assembler to vSphere Integration"
 }
 
-variable "vro_vsphere_role" {
+variable "orchestrator_vsphere_role" {
   type        = string
-  description = "The name for the vRealize Orchestrator to vSphere custom role. (e.g. vRealize Orchestrator to vSphere Integration)"
-  default     = "vRealize Orchestrator to vSphere Integration"
+  description = "The name for the VMware Aria Automation Orchestrator to vSphere Integration custom role. (e.g. VMware Aria Automation to vSphere Integration)"
+  default     = "VMware Aria Automation to vSphere Integration"
 }
 
-variable "ca_vsphere_privileges" {
+variable "assembler_vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere permissions for the Cloud Assembly to vSphere custom role."
+  description = "The vSphere permissions for the VMware Aria Automation Assembler to vSphere Integration custom role."
 }
 
-variable "vro_vsphere_privileges" {
+variable "orchestrator_vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere permissions for the vRealize Orchestrator to vSphere custom role."
+  description = "The vSphere permissions for the VMware Aria Automation to vSphere Integration custom role."
 }

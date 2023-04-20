@@ -6,13 +6,13 @@
 
 vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
-vsphere_password = "********************"
+vsphere_password = "VMw@re1!"
 
 # vSphere Roles
 
-ca_vsphere_role  = "Cloudy Assembly to vSphere Integration"
-vro_vsphere_role = "vRealize Orchestrator to vSphere Integration"
-ca_vsphere_privileges = [
+assembler_vsphere_role  = "VMware Aria Automation Assembler to vSphere Integration"
+orchestrator_vsphere_role = "VMware Aria Automation Orchestrator to vSphere Integration"
+assembler_vsphere_privileges = [
   "System.Anonymous",
   "System.Read",
   "System.View",
@@ -99,7 +99,7 @@ ca_vsphere_privileges = [
   "VirtualMachine.State.RemoveSnapshot",
   "VirtualMachine.State.RevertToSnapshot"
 ]
-vro_vsphere_privileges = [
+orchestrator_vsphere_privileges = [
   "System.Anonymous",
   "System.Read",
   "System.View",

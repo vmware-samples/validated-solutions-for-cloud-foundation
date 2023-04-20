@@ -6,11 +6,15 @@
 <#
     .NOTES
     ===================================================================================================================
-    Created by:  Gary Blake - Senior Staff Solutions Architect
-    Date:   2022-10-21
-    Copyright 2021-2022 VMware, Inc.
+    Created by: Gary Blake - Senior Staff Solutions Architect
+    Date:       2022-10-21
+    Copyright 2021-2023 VMware, Inc.
     ===================================================================================================================
-    
+    .CHANGE_LOG
+
+    - 1.1.0 (Gary Blake / 2023-04-02) - Updated for VMware Aria Automation Branding
+
+    ===============================================================================================================
     .SYNOPSIS
     Menu for Executing Terraform Plans Under Cloud-Based Automation
 
@@ -130,8 +134,8 @@ Function createCbaVsphereRoles {
                     -replace '<!--REPLACE WITH MANAGEMENT VCENTER FQDN-->',$pnpWorkbook.Workbook.Names["mgmt_vc_fqdn"].Value `
                     -replace '<!--REPLACE WITH SSO USERNAME-->',$pnpWorkbook.Workbook.Names["sso_default_admin"].Value `
                     -replace '<!--REPLACE WITH SSO PASSWORD-->',$pnpWorkbook.Workbook.Names["administrator_vsphere_local_password"].Value `
-                    -replace '<!--REPLACE WITH CLOUD ASSEMBLY ROLE NAME-->',$pnpWorkbook.Workbook.Names["vmc_ca_vsphere_role_name"].Value `
-                    -replace '<!--REPLACE WITH VREALIZE ORCHESTRATOR ROLE NAME-->',$pnpWorkbook.Workbook.Names["vmc_vro_vsphere_role_name"].Value `
+                    -replace '<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER ROLE NAME-->',$pnpWorkbook.Workbook.Names["vmc_ca_vsphere_role_name"].Value `
+                    -replace '<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR ROLE NAME-->',$pnpWorkbook.Workbook.Names["vmc_vro_vsphere_role_name"].Value `
                 } | Set-Content -Path "$planPath\terraform.tfvars"
                 Close-ExcelPackage $pnpWorkbook -NoSave -ErrorAction SilentlyContinue
                 executeTerraformPlan -planDirectory $planPath
@@ -535,7 +539,7 @@ Function CBATerraformMenu {
     )
 
     $headingItem00 = "$solutionName for VMware Cloud Foundation - Implementation Tasks"
-    $menuitem01 = "vCenter Server: Define Custom Roles in vSphere for Cloud Assembly and vRealize Orchestrator"
+    $menuitem01 = "vCenter Server: Define Custom Roles in vSphere for VMware Aria Automation Assembler and VMware Aria Automation Orchestrator"
     $menuitem02 = "vCenter Server: Create a Virtual Machine and Template Folder for Cloud Proxy Appliances"
     $menuitem03 = "vCenter Server: Create a Virtual Machine and Template Folder, a Resource Pool, and Storage Folders for Cloud Assembly-Managed Workloads"
     $menuitem04 = "vCenter Server: Configure Service Account Permissions for Cloud Assembly and vRealize Orchestrator Integration to vSphere"
@@ -584,7 +588,7 @@ Function CBATerraformMenu {
             1 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem01
-                $StatusMsg = createCbaVsphereRoles -planPath ($parentPath + "\terraform-solution-implementation\01-vsphere-roles-cloud-assembly") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = createCbaVsphereRoles -planPath ($parentPath + "\terraform-solution-implementation\01-vsphere-roles-automation-assembler") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }

@@ -2,10 +2,10 @@
 # OUTPUTS
 ##################################################################################
 
-output "ca_vsphere_role" {
-    value = vsphere_role.ca_vsphere.name
+output "assembler_vsphere_role" {
+    value = vsphere_role.assembler_vsphere.name
 }
 
-output "vro_vsphere_role" {
-    value = vsphere_role.vro_vsphere.name
+output "orchestrator_vsphere_role" {
+    value = vsphere_role.orchestrator_vsphere.name
 }
