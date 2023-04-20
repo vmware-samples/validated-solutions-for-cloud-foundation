@@ -163,7 +163,7 @@ Function createCbaApplianceFolder {
                     -replace '<!--REPLACE WITH SSO USERNAME-->',$pnpWorkbook.Workbook.Names["sso_default_admin"].Value `
                     -replace '<!--REPLACE WITH SSO PASSWORD-->',$pnpWorkbook.Workbook.Names["administrator_vsphere_local_password"].Value `
                     -replace '<!--REPLACE WITH MANAGEMENT DATACENTER-->',$pnpWorkbook.Workbook.Names["mgmt_datacenter"].Value `
-                    -replace '<!--REPLACE WITH CLOUD ASSEMBLY FOLDER-->',$pnpWorkbook.Workbook.Names["vmc_vm_folder"].Value `
+                    -replace '<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER FOLDER-->',$pnpWorkbook.Workbook.Names["vmc_vm_folder"].Value `
                 } | Set-Content -Path "$planPath\terraform.tfvars"
                 Close-ExcelPackage $pnpWorkbook -NoSave -ErrorAction SilentlyContinue
                 executeTerraformPlan -planDirectory $planPath
