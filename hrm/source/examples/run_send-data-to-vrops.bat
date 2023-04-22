@@ -1,1 +1,1 @@
-"python.exe" "C:\vmware\hrm\send-data-to-vrops.py"
+"python.exe" "C:\vmware\hrm\main\send-data-to-vrops.py"
