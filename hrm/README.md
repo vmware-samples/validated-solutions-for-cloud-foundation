@@ -61,60 +61,60 @@ Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud F
 ## vRealize Operations Dashboards Preview
  
 1. VCF Health Rollup
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Rollup1-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Rollup2-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Rollup3-min.png)
+<img width="500" src="./images/Rollup1-min.png">
+<img width="500" src="./images/Rollup2-min.png">
+<img width="500" src="./images/Rollup3-min.png">
 
 2. VCF Backup Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Backups1-min.png)
+<img width="500" src="./images/Backups1-min.png">
    
 3. VCF Certificate Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Certificates1-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Certificates2-min.png)
+<img width="500" src="./images/Certificates1-min.png">
+<img width="500" src="./images/Certificates2-min.png">
    
 4. VCF Compute Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Compute1-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Compute2-min.png)
+<img width="500" alt="Compute1" src="./images/Compute1-min.png">
+<img width="500" alt="Compute2" src="./images/Compute2-min.png">
    
 5. VCF Connectivity Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Connectivity1-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Connectivity2-min.png)
+<img width="500" alt="Connectivity1" src="./images/Connectivity1-min.png">
+<img width="500" alt="Connectivity2" src="./images/Connectivity2-min.png">
 
 6. VCF DNS Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/DNS1-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/DNS2-min.png)
+<img width="500" alt="DNS1" src="./images/DNS1-min.png">
+<img width="500" alt="DNS2" src="./images/DNS2-min.png">
 
 7. VCF Hardware Compatibility
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/hw-compatibility-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/hw-compatibility-min2.png)
+<img width="500" alt="Hardware Compatibility1" src="./images/hw-compatibility-min.png">
+<img width="500" alt="Hardware Compatibility2" src="./images/hw-compatibility-min2.png">
    
 8. VCF Networking Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Networking-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Networking3-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Networking4-min.png)
+<img width="500" alt="Networking1" src="./images/Networking-min.png">
+<img width="500" alt="Networking2" src="./images/Networking3-min.png">
+<img width="500" alt="Networking3" src="./images/Networking4-min.png">
 
 9. VCF NTP Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/NTP-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/NTP3-min.png)
+<img width="500" alt="NTP" src="./images/NTP-min.png">
+<img width="500" alt="NTP3"  src="./images/NTP3-min.png">
    
 10. VCF Password Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Password1-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Password2-min.png)
+<img width="500" alt="Password1" src="./images/Password1-min.png">
+<img width="500" alt="Password2" src="./images/Password2-min.png">
 
 11. VCF SDDC Manager and vCenter Services Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Services1-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Services2-min.png)
+<img width="500" alt="Services1" src="./images/Services1-min.png">
+<img width="500" alt="Services2" src="./images/Services2-min.png">
     
 12. VCF Snapshot Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Snapshots1-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Snapshots2-min.png)
+<img width="500" alt="Snapshots" src="./images/Snapshots1-min.png">
+<img width="500" alt="Snapshot2" src="./images/Snapshots2-min.png">
 
 13. VCF Storage Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/storage1-min.png)
+<img width="500" alt="storage1" src="./images/storage1-min.png">
 
 14. VCF vSAN Health
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/vSAN-min.png)
-![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/vSAN2-min.png)
+<img width="500" alt="vSAN" src="./images/vSAN-min.png">
+<img width="500" alt="vSAN2" src="./images/vSAN2-min.png">
 
 
 ## Known Issues
@@ -125,7 +125,7 @@ Please make sure that your NSX-T account name is configured as mentioned in this
 ### 2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.4.x. The filters on the vReaize Operations dashboards depend on the name.
 
 To set the Product Name for the vCenter Server, follow the below steps - 
-1. Log in to the management domain vCenter Server at `https://<management_vcenter_server_fqdn/ui` as `administrator@vsphere.local`.
+1. Log in to the management domain vCenter Server at `https://<management_vcenter_server_fqdn>/ui` as `administrator@vsphere.local`.
 2. In the `VMs and templates` inventory, expand the `management domain vCenter Server` tree and expand the management domain data center.
 3. Select the first `management domain vCenter Server virtual machine` and select `Configure` tab.
 4. In the `Settings` pane select `vApp Options`.
