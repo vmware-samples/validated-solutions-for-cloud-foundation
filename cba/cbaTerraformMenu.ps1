@@ -224,10 +224,10 @@ Function applyCbaGlobalPermissions {
                 -replace '<!--REPLACE WITH DOMAIN FQDN-->',$pnpWorkbook.Workbook.Names["region_ad_child_fqdn"].Value `
                 -replace '<!--REPLACE WITH DOMAIN BIND USER-->',$pnpWorkbook.Workbook.Names["child_svc_vsphere_ad_user"].Value `
                 -replace '<!--REPLACE WITH DOMAIN BIND PASSWORD-->',$pnpWorkbook.Workbook.Names["child_svc_vsphere_ad_password"].Value `
-                -replace '<!--REPLACE WITH CA SERVICE ACCOUNT-->',$pnpWorkbook.Workbook.Names["user_svc_ca_vsphere"].Value `
-                -replace '<!--REPLACE WITH CA ROLE NAME-->',$pnpWorkbook.Workbook.Names["vmc_ca_vsphere_role_name"].Value `
-                -replace '<!--REPLACE WITH VRO SERVICE ACCOUNT-->',$pnpWorkbook.Workbook.Names["user_svc_vmc_vro_vsphere"].Value `
-                -replace '<!--REPLACE WITH VRO ROLE NAME-->',$pnpWorkbook.Workbook.Names["vmc_vro_vsphere_role_name"].Value `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER SERVICE ACCOUNT-->',$pnpWorkbook.Workbook.Names["user_svc_ca_vsphere"].Value `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER ROLE NAME-->',$pnpWorkbook.Workbook.Names["vmc_ca_vsphere_role_name"].Value `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR SERVICE ACCOUNT-->',$pnpWorkbook.Workbook.Names["user_svc_vmc_vro_vsphere"].Value `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR ROLE NAME-->',$pnpWorkbook.Workbook.Names["vmc_vro_vsphere_role_name"].Value `
             } | Set-Content -Path "$planPath\terraform.tfvars"
             Close-ExcelPackage $pnpWorkbook -NoSave -ErrorAction SilentlyContinue
             executeTerraformPlan -planDirectory $planPath
@@ -542,7 +542,7 @@ Function CBATerraformMenu {
     $menuitem01 = "vCenter Server: Define Custom Roles in vSphere for VMware Aria Automation Assembler and VMware Aria Automation Orchestrator"
     $menuitem02 = "vCenter Server: Create a Virtual Machine and Template Folder for Cloud Proxy Appliances"
     $menuitem03 = "vCenter Server: Create a Virtual Machine and Template Folder, a Resource Pool, and Storage Folders for Cloud Assembly-Managed Workloads"
-    $menuitem04 = "vCenter Server: Configure Service Account Permissions for Cloud Assembly and vRealize Orchestrator Integration to vSphere"
+    $menuitem04 = "vCenter Server: Configure Service Account Permissions for VMware Aria Automation Assembler and VMware Aria Automation Orchestrator Integration to vSphere"
     $menuitem05 = "vCenter Server: Restrict the Cloud Assembly and vRealize Orchestrator Service Accounts Access to the Management Domain"
     $menuitem06 = "vCenter Server: Restrict the Cloud Assembly and vRealize Orchestrator Service Accounts Access to Virtual Machine and Datastore Folders in a VI Workload Domain"
     $menuitem07 = "NSX Manager: Configure Service Account Permissions for Cloud Assembly Integration to NSX-T Data Center"
@@ -637,14 +637,14 @@ Function CBATerraformMenu {
             8 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem08
-                $StatusMsg = deployCbaProxy -planPath ($parentPath + "\terraform-solution-implementation\08-vmc-deploy-cloud-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = deployCbaProxy -planPath ($parentPath + "\terraform-solution-implementation\08-cba-deploy-cloud-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }
             9 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem09
-                $StatusMsg = deployCbaExtensibilityProxy -planPath ($parentPath + "\terraform-solution-implementation\09-vmc-deploy-cloud-extensibility-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = deployCbaExtensibilityProxy -planPath ($parentPath + "\terraform-solution-implementation\09-cba-deploy-cloud-extensibility-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }

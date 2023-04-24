@@ -22,26 +22,26 @@ variable "vcf_password" {
 
 # vSphere Objects
 
-variable "ca_vsphere_role" {
+variable "assembler_vsphere_role" {
   type        = string
-  description = "The target vSphere role to be assigned to the VMC Service account. (e.g. Cloud Assembly to vSphere Integration)"
-  default     = "Cloud Assembly to vSphere Integration"
+  description = "The name for the VMware Aria Automation Assembler to vSphere Integration custom role. (e.g. VMware Aria Automation Assembler to vSphere Integration)"
+  default     = "VMware Aria Automation Assembler to vSphere Integration"
 }
 
-variable "ca_service_account" {
+variable "assembler_service_account" {
   type        = string
-  description = "The target VMC Service account to assign the role to. (e.g. svc-vmc-vsphere@sfo)"
+  description = "The target VMware Aria Automation Assembler Service account to assign the role to. (e.g. svc-vaa-vsphere@sfo)"
 }
 
-variable "vro_vsphere_role" {
+variable "orchestrator_vsphere_role" {
   type        = string
-  description = "The target vSphere role to be assigned to the VMC Service account. (e.g. vRealize Orchestrator to vSphere Integration)"
-  default     = "vRealize Orchestrator to vSphere Integration"
+  description = "The name for the VMware Aria Automation Orchestrator to vSphere Integration custom role. (e.g. VMware Aria Automation to vSphere Integration)"
+  default     = "VMware Aria Automation to vSphere Integration"
 }
 
-variable "vro_service_account" {
+variable "orchestrator_service_account" {
   type        = string
-  description = "The target VMC Service account to assign the role to. (e.g. svc-vro-vsphere@sfo)"
+  description = "The target VMware Aria Automation Orchestrator Service account to assign the role to. (e.g. svc-vao-vsphere@sfo)"
 }
 
 # Active Directory

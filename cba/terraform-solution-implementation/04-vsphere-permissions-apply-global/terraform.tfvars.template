@@ -16,7 +16,7 @@ domain_bind_password = "<!--REPLACE WITH DOMAIN BIND PASSWORD-->"
 
 # vSphere Permissions
 
-ca_vsphere_role     = "<!--REPLACE WITH CA ROLE NAME-->"
-ca_service_account  = "<!--REPLACE WITH CA SERVICE ACCOUNT-->"
-vro_vsphere_role    = "<!--REPLACE WITH VRO ROLE NAME-->"
-vro_service_account = "<!--REPLACE WITH VRO SERVICE ACCOUNT-->"
+assembler_vsphere_role  = "<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER ROLE NAME-->"
+ca_service_account  = "<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER SERVICE ACCOUNT-->"
+orchestrator_vsphere_role = "<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR ROLE NAME-->"
+vro_service_account = "<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR SERVICE ACCOUNT-->"
