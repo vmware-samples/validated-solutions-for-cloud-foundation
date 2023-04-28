@@ -22,7 +22,7 @@ resource "null_resource" "create_custom_spec" {
     $item.Spec.Identity.HwClockUTC = $false
     $item.Spec.Identity.TimeZone = "${var.customization_timezone}"
     $customizationSpec.OverwriteCustomizationSpec($item)
-	  Disconnect-VIServer -Server ${var.vsphere_server} -Confirm:$false
+    Disconnect-VIServer -Server ${var.vsphere_server} -Confirm:$false
     EOT 
     interpreter = ["PowerShell", "-Command"]
   }
