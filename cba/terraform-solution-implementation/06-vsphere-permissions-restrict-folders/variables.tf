@@ -49,14 +49,14 @@ variable "readonly_storage_folder" {
   description = "The target folder where permissions are assigned. (e.g. sfo-w01-fd-storage-readonly)"
 }
 
-variable "ca_service_account" {
+variable "assembler_service_account" {
   type        = string
-  description = "The target VMC Service account to assign the role to. (e.g. svc-vmc-vsphere@sfo)"
+  description = "The target Aria Automation Assembler service account to assign the role to. (e.g. svc-vaa-vsphere@sfo)"
 }
 
-variable "vro_service_account" {
+variable "orchestrator_service_account" {
   type        = string
-  description = "The target VMC Service account to assign the role to. (e.g. svc-vro-vsphere@sfo)"
+  description = "The target Aria Automation Orchestrator service account to assign the role to. (e.g. svc-vao-vsphere@sfo)"
 }
 
 variable "role_name" {

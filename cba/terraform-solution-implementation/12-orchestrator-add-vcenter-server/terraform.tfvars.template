@@ -16,5 +16,5 @@ vcf_domain   = "<!--REPLACE WITH WORKLOAD DOMAIN NAME-->"
 
 # vSphere Permissions
 
-vro_service_account  = "<!--REPLACE WITH VRO SERVICE ACCOUNT-->"
-vro_service_password = "<!--REPLACE WITH VRO SERVICE ACCOUNT PASSWORD-->"
+orchestrator_service_account  = "<!--REPLACE WITH VRO SERVICE ACCOUNT-->"
+orchestrator_password = "<!--REPLACE WITH VRO SERVICE ACCOUNT PASSWORD-->"

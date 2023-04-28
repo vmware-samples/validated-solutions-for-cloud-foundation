@@ -2,9 +2,9 @@
 # ENDPOINT
 ##################################################################################
 
-vra_url       = "https://api.mgmt.cloud.vmware.com"
-vra_api_token = "********************"
-vra_insecure  = false
+aria_automation_url       = "https://api.mgmt.cloud.vmware.com"
+aria_automation_api_token = "********************"
+aria_automation_insecure  = false
 
 ##################################################################################
 # CLOUD ACCOUNTS and CLOUD ZONES
@@ -15,7 +15,7 @@ cloud_accounts_vsphere = {
     name        = "sfo-w01-vc01"
     hostname    = "sfo-w01-vc01.sfo.rainpole.io"
     username    = "svc-ca-vsphere@sfo.rainpole.io"
-    password    = "********************"
+    password    = "VMw@re1!"
     region      = "Datacenter:datacenter-3"
     description = "San Francisco - Workload Domain 01"
     tag_region  = "sfo-w01"
@@ -30,7 +30,7 @@ cloud_accounts_nsx = {
     name        = "sfo-w01-nsx01"
     hostname    = "sfo-w01-nsx01.sfo.rainpole.io"
     username    = "svc-ca-nsx@sfo.rainpole.io"
-    password    = "*******************"
+    password    = "VMw@re1!"
     description = "San Francisco - Workload Domain 01"
     tag_region   = "sfo-w01"
   }

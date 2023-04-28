@@ -17,36 +17,38 @@ variable "vsphere_username" {
 
 variable "vsphere_password" {
   type        = string
-  description = "The password for the login to the vCenter Server instance."
+  description = "The password for the login to the vCenter Server instance"
   sensitive   = true
 }
 
 variable "vsphere_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
-# Roles
+# Aria Automation Assembler Role and Privileges
 
 variable "assembler_vsphere_role" {
   type        = string
-  description = "The name for the VMware Aria Automation Assembler to vSphere Integration custom role. (e.g. VMware Aria Automation Assembler to vSphere Integration)"
-  default     = "VMware Aria Automation Assembler to vSphere Integration"
-}
-
-variable "orchestrator_vsphere_role" {
-  type        = string
-  description = "The name for the VMware Aria Automation Orchestrator to vSphere Integration custom role. (e.g. VMware Aria Automation to vSphere Integration)"
-  default     = "VMware Aria Automation to vSphere Integration"
+  description = "The name of the Aria Automation custom vSphere role. (e.g. Aria Automation Assembler to vSphere Integration)"
+  default     = "Aria Automation Assembler to vSphere Integration"
 }
 
 variable "assembler_vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere permissions for the VMware Aria Automation Assembler to vSphere Integration custom role."
+  description = "The vSphere permissions for the Aria Automation Assembler to vSphere Integration custom role"
+}
+
+# Aria Automation Orchestrator Role and Privileges
+
+variable "orchestrator_vsphere_role" {
+  type        = string
+  description = "The name of the Aria Automation Orchestrator vSphere custom role. (e.g. Aria Automation Orchestrator to vSphere Integration)"
+  default     = "Aria Automation Orchestrator to vSphere Integration"
 }
 
 variable "orchestrator_vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere permissions for the VMware Aria Automation to vSphere Integration custom role."
+  description = "The vSphere permissions for the Aria Automation Orchestrator to vSphere Integration custom role"
 }

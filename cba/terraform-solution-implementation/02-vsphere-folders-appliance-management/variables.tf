@@ -17,13 +17,13 @@ variable "vsphere_username" {
 
 variable "vsphere_password" {
   type        = string
-  description = "The password for the login to the vCenter Server instance."
+  description = "The password for the login to the vCenter Server instance"
   sensitive   = true
 }
 
 variable "vsphere_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
@@ -31,7 +31,7 @@ variable "vsphere_insecure" {
 
 variable "vsphere_datacenter" {
   type        = string
-  description = "The target vSphere datacenter object name. (e.g. sfo-m01-dc01)."
+  description = "The target vSphere datacenter object name. (e.g. sfo-m01-dc01)"
 }
 
 # Folders
@@ -41,5 +41,5 @@ variable "vsphere_folders" {
     path = string
     type = string
   }))
-  description = "A mapping of objects for vSphere folder names and their associated type."
+  description = "A mapping of objects for vSphere folder names and their associated type"
 }

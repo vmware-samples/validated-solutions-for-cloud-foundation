@@ -3,9 +3,9 @@
 ##################################################################################
 
 provider "vra" {
-  url           = var.vra_url
-  refresh_token = var.vra_api_token
-  insecure      = var.vra_insecure
+  url           = var.aria_automation_url
+  refresh_token = var.aria_automation_api_token
+  insecure      = var.aria_automation_insecure
 }
 
 ##################################################################################
@@ -45,9 +45,7 @@ data "vra_region_enumeration_vsphere" "this" {
 # RESOURCES
 ##################################################################################
 
-// Cloud Assembly
-
-# Create the Cloud Accounts for Cloud Foundation in Cloud Assembly.
+# Create the Cloud Accounts for VMware Cloud Foundation in VMware Aria Automation Assembler
 
 resource "vra_cloud_account_vsphere" "this" {
   for_each                     = var.cloud_accounts_vsphere
@@ -81,7 +79,7 @@ resource "vra_cloud_account_nsxt" "this" {
   }
 }
 
-# Create the Cloud Zones for Cloud Foundation in Cloud Assembly.
+# Create the Cloud Zones for VMware Cloud Foundation in VMware Aria Automation Assembler
 
 resource "vra_zone" "this" {
   for_each    = var.cloud_accounts_vsphere

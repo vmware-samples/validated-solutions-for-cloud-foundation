@@ -10,8 +10,8 @@ vsphere_password = "VMw@re1!"
 
 # vSphere Roles
 
-assembler_vsphere_role  = "VMware Aria Automation Assembler to vSphere Integration"
-orchestrator_vsphere_role = "VMware Aria Automation Orchestrator to vSphere Integration"
+assembler_vsphere_role  = "Aria Automation Assembler to vSphere Integration"
+orchestrator_vsphere_role = "Aria Automation Orchestrator to vSphere Integration"
 assembler_vsphere_privileges = [
   "System.Anonymous",
   "System.Read",

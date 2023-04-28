@@ -5,14 +5,14 @@
 # VMware Cloud Services
 
 csp_uri       = "https://console.cloud.vmware.com"
-vra_uri       = "https://api.mgmt.cloud.vmware.com"
+aria_automation_uri       = "https://api.mgmt.cloud.vmware.com"
 csp_api_token = "********************"
 
 # vSphere Settings
 
 vsphere_server     = "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username   = "administrator@vsphere.local"
-vsphere_password   = "********************"
+vsphere_password   = "VMw@re1!"
 vsphere_insecure   = false
 vsphere_host       = "sfo01-m01-esx01.sfo.rainpole.io"
 vsphere_datacenter = "sfo-m01-dc01"

@@ -302,7 +302,7 @@ Function applyCbaNsxPermissions {
             $templateContents | ForEach-Object { $_ `
                 -replace '<!--REPLACE WITH WORKLOAD NSX MANAGER FQDN-->',$pnpWorkbook.Workbook.Names["wld_nsxt_vip_fqdn"].Value `
                 -replace '<!--REPLACE WITH WORKLOAD NSX MANAGER ADMIN PASSWORD-->',$pnpWorkbook.Workbook.Names["nsxt_lm_admin_password"].Value `
-                -replace '<!--REPLACE WITH CA SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["user_svc_vmc_nsx"].Value + "@" + $pnpWorkbook.Workbook.Names["child_dns_zone"].Value) `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["user_svc_vmc_nsx"].Value + "@" + $pnpWorkbook.Workbook.Names["child_dns_zone"].Value) `
             } | Set-Content -Path "$planPath\terraform.tfvars"
             Close-ExcelPackage $pnpWorkbook -NoSave -ErrorAction SilentlyContinue
             executeTerraformPlan -planDirectory $planPath

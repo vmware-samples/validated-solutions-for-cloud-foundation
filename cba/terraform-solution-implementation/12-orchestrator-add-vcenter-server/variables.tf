@@ -37,13 +37,13 @@ variable "cep_server" {
   description = "The FQDN of the Cloud Extensibility Proxy."
 }
 
-variable "vro_service_account" {
+variable "orchestrator_service_account" {
   type        = string
-  description = "The target vRealize Orchestrator Service account. (e.g. svc-vro-vsphere@sfo.rainpole.io)"
+  description = "The target Aria Automation Orchestrator service account. (e.g. svc-vao-vsphere@sfo.rainpole.io)"
 }
 
-variable "vro_service_password" {
+variable "orchestrator_service_password" {
   type        = string
-  description = "The target vRealize Orchestrator Service account password."
+  description = "The target Aria Automation Orchestrator service account password."
   sensitive   = true
 }

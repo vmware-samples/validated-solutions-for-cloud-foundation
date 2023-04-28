@@ -14,13 +14,13 @@ variable "csp_api_token" {
   sensitive   = true
 }
 
-# vRealize Automation Cloud Endpoint
-variable "vra_uri" {
+# VMware Aria Automation Endpoint
+variable "aria_automation_uri" {
   type        = string
-  description = "The base URL of the vRealize Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
+  description = "The base URL of the VMware Aria Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
   default     = "https://api.mgmt.cloud.vmware.com"
 }
-variable "vra_insecure" {
+variable "aria_automation_insecure" {
   type        = bool
   description = "Set to true for self-signed certificates."
   default     = false

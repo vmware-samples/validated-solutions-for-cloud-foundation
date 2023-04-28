@@ -2,9 +2,9 @@
 # ENDPOINT
 ##################################################################################
 
-vra_url       = "https://api.staging.symphony-dev.com"
-vra_api_token = "<!--REPLACE WITH CSP TOKEN-->"
-vra_insecure  = false
+aria_automation_url       = "https://api.staging.symphony-dev.com"
+aria_automation_api_token = "<!--REPLACE WITH CSP TOKEN-->"
+aria_automation_insecure  = false
 
 ##################################################################################
 # CLOUD ACCOUNTS and CLOUD ZONES

@@ -5,7 +5,7 @@
 # VMware Cloud Services
 
 csp_uri       = "https://console-stg.cloud.vmware.com"
-vra_uri       = "https://api.staging.symphony-dev.com"
+aria_automation_uri       = "https://api.staging.symphony-dev.com"
 csp_api_token = "<!--REPLACE WITH CSP TOKEN-->"
 
 # vSphere Settings

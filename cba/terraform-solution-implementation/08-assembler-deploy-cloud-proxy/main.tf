@@ -20,7 +20,7 @@ provider "vsphere" {
 data "terracurl_request" "get_ova_url" {
   depends_on = [terracurl_request.get_access_token]
   name       = "ova_url"
-  url        = "${var.vra_uri}/api/artifact-provider?artifact=data-collector"
+  url        = "${var.aria_automation_uri}/api/artifact-provider?artifact=data-collector"
   method     = "GET"
   headers = {
     Accept        = "application/json"
@@ -90,7 +90,7 @@ resource "terracurl_request" "get_access_token" {
 resource "terracurl_request" "get_otk" {
   depends_on     = [terracurl_request.get_access_token]
   name           = "ova_url"
-  url            = "${var.vra_uri}/api/otk-v3"
+  url            = "${var.aria_automation_uri}/api/otk-v3"
   method         = "POST"
   response_codes = [200, 400, 404, 409, 429, 500]
   headers = {
@@ -100,7 +100,7 @@ resource "terracurl_request" "get_otk" {
   }
   request_body = <<EOF
 {
-  "url": "${var.vra_uri}",
+  "url": "${var.aria_automation_uri}",
   "service":"cloud_assembly"
 }
 EOF

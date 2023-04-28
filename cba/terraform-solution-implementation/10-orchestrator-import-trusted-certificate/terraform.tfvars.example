@@ -3,4 +3,4 @@
 ##################################################################################
 
 csp_api_token = "*********************"
-cep_server    = "sfo-vmc-cep01.sfo.rainpole.io"
+cep_server    = "sfo-cba-cep01.sfo.rainpole.io"

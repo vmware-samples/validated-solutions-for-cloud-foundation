@@ -26,22 +26,22 @@ data "vsphere_role" "role_name" {
 ##################################################################################
 
 
-resource "vsphere_entity_permissions" "vcenter-ca-user" {
+resource "vsphere_entity_permissions" "vcenter-assembler-user" {
   entity_id   = data.vsphere_folder.folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.ca_service_account
+    user_or_group = var.assembler_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id
   }
 }
 
-resource "vsphere_entity_permissions" "vcenter-vro-user" {
+resource "vsphere_entity_permissions" "vcenter-orchestrator-user" {
   entity_id   = data.vsphere_folder.folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.vro_service_account
+    user_or_group = var.orchestrator_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id

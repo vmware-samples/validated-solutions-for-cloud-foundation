@@ -10,9 +10,9 @@ variable "csp_uri" {
   default     = "https://console.cloud.vmware.com"
 }
 
-variable "vra_uri" {
+variable "aria_automation_uri" {
   type        = string
-  description = "Base URL for VMware vRealize Automation Cloud API Endpoint"
+  description = "Base URL for VMware Aria Automation API Endpoint"
   default     = "https://api.mgmt.cloud.vmware.com"
 }
 
