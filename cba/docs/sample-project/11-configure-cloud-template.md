@@ -196,7 +196,7 @@ resources:
 
   d. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile. 
   
-  e. Click the **Design** tab and, on the `Photon 4.0` template design page, click **Test**.
+  e. Click the **Design** tab and, click the `Photon 4.0` template design page, click **Test**.
 
   f. In the **Testing Sample** dialog box, configure the settings and click **Test**.
 

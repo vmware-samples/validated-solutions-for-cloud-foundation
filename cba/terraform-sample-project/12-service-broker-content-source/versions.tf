@@ -6,7 +6,7 @@ terraform {
   required_providers {
     vra = {
       source = "vmware/vra"
-      version = ">= 0.5.3"
+      version = ">= 0.7.2"
     }
   }
   required_version = ">= 1.2.0"

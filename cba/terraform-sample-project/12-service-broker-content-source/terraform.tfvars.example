@@ -2,18 +2,18 @@
 # VARIABLES
 ##################################################################################                                                 	                     
 
-vra_url       = "https://api.mgmt.cloud.vmware.com"
-vra_api_token = "********************"
-vra_insecure  = false
+aria_automation_url       = "https://api.mgmt.cloud.vmware.com"
+aria_automation_api_token = "*******************"
+aria_automation_insecure  = false
 
 ##################################################################################
-# CATALOG SOURCE ENTITLEMENTS
-// Note: UI is 'content sharing' but provider is 'catalog source entitlement'.
+# CATALOG SOURCES
 ##################################################################################
 
-catalog_source_entitlements = {
-  catalog_source_entitlement0 = {
-    source_name  = "Rainpole - Cloud Templates"
+catalog_sources = {
+  catalog_source0 = {
+    name         = "Rainpole - Cloud Templates"
+    description  = "VMware Cloud Templates for Project: Rainpole"
     project_name = "Rainpole"
   }
 }

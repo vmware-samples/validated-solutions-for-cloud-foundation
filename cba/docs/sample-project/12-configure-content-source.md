@@ -10,11 +10,11 @@ Provide access to vRealize Automation cloud templates to users by creating and c
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Service Broker** card click **Launch Service**.
+3. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-4. Click the **Content and policies** tab.
+4. On the **Welcome to VMware Aria Automation** page, click the **Service Broker** tile.
 
-5. In the navigation pane, click **Content sources**.
+5. Click the **Content and policies** tab and, in the navigation pane, click **Content sources**.
 
 6. Click **New** and click the **VMware cloud template** card.
 
@@ -33,7 +33,7 @@ Provide access to vRealize Automation cloud templates to users by creating and c
 1. Navigate to the Terraform example in the repository.
 
     ```bash
-    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/12-cloud-assembly-content-source
+    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/12-service-broker-content-source
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
