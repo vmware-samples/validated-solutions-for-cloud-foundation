@@ -3,9 +3,9 @@
 ##################################################################################
 
 provider "vra" {
-  url           = var.vra_url
-  refresh_token = var.vra_api_token
-  insecure      = var.vra_insecure
+  url           = var.aria_automation_url
+  refresh_token = var.aria_automation_api_token
+  insecure      = var.aria_automation_insecure
 }
 
 ##################################################################################
@@ -25,7 +25,7 @@ data "vra_region" "ca_region" {
 # RESOURCES
 ##################################################################################
 
-# Create the flavor mappings in Cloud Assembly for a vCenter Server cloud account.
+# Create the flavor mappings in VMware Aria Automation Assembler for a vCenter Server Cloud Account
 
 resource "vra_flavor_profile" "flavour_profile" {
   name      = var.cloud_account_vsphere

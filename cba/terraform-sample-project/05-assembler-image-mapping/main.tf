@@ -3,9 +3,9 @@
 ##################################################################################
 
 provider "vra" {
-  url           = var.vra_url
-  refresh_token = var.vra_api_token
-  insecure      = var.vra_insecure
+  url           = var.aria_automation_url
+  refresh_token = var.aria_automation_api_token
+  insecure      = var.aria_automation_insecure
 }
 
 ##################################################################################
@@ -30,7 +30,7 @@ data "vra_image" "images" {
 # RESOURCES
 ##################################################################################
 
-# Create the image mappings in Cloud Assembly for a vCenter Server cloud account.
+# Create the image mappings in VMware Aria Automation Assembler for a vCenter Server Cloud Account
 
 resource "vra_image_profile" "image_mapping" {
   name      = var.cloud_account_vsphere

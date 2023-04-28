@@ -4,21 +4,21 @@
 
 # Endpoints
 
-variable "vra_url" {
+variable "aria_automation_url" {
   type        = string
-  description = "The base URL of the vRealize Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
+  description = "Base URL for VMware Aria Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
   default     = "https://api.mgmt.cloud.vmware.com"
 }
 
-variable "vra_api_token" {
+variable "aria_automation_api_token" {
   type        = string
-  description = "API token from the vRealize Automation endpoint."
+  description = "API token for the VMware Aria Automation endpoint"
   sensitive   = true
 }
 
-variable "vra_insecure" {
+variable "aria_automation_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
@@ -26,7 +26,7 @@ variable "vra_insecure" {
 
 variable "cloud_account_vsphere" {
   type        = string
-  description = "The name of the vCenter Server cloud account. (e.g sfo-w01-vc01)"
+  description = "The name of the vCenter Server Cloud Acount in VMware Aria Automation Assembler. (e.g sfo-w01-vc01)"
 }
 
 variable "flavor_mappings" {
@@ -35,5 +35,5 @@ variable "flavor_mappings" {
     cpu_count = string
     memory    = string
   }))
-  description = "A mapping of objects for flavor mappings and their associated settings."
+  description = "A mapping of objects for flavor mappings and their associated settings"
 }
