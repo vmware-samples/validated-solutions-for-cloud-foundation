@@ -31,7 +31,7 @@ variable "vsphere_insecure" {
 
 variable "content_library_name" {
   type        = string
-  description = "The target vSphere Content Library object name. (e.g. sfo-w01-lib01)"
+  description = "The target vSphere Content Library object name. (e.g. sfo-cba-lib01)"
 }
 
 variable "content_library_items" {

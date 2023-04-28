@@ -43,7 +43,7 @@ variable "vsphere_datastore" {
 
 variable "vsphere_content_library_name" {
   type        = string
-  description = "The target vSphere Content Library object name. (e.g. sfo-w01-lib01)"
+  description = "The target vSphere Content Library object name. (e.g. sfo-cba-lib01)"
 }
 
 variable "vsphere_content_library_description" {
