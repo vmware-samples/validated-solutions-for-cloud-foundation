@@ -1,6 +1,6 @@
 [Back: Home](README.md)
 
-# Share a Content Source for the Project in Service Broker
+# Share a Content Source for the Project in VMware Aria Automation Service Broker
 
 You can share cloud templates and content sources within a project to enable project members to deploy these cloud templates in supported cloud zones.
 
@@ -64,6 +64,6 @@ You can share cloud templates and content sources within a project to enable pro
     terraform apply tfplan
     ```
 
-[Back: Configure a Content Source for the Project in Service Broker](12-configure-content-source.md)
+[Back: Configure a Content Source for the Project in VMware Aria Automation Service Broker](12-configure-content-source.md)
 
-[Next: Deploy a Sample Cloud Template in Service Broker](14-deploy-cloud-template.md)
+[Next: Deploy a Sample Cloud Template in VMware Aria Automation Service Broker](14-deploy-cloud-template.md)

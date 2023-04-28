@@ -3,9 +3,9 @@
 ##################################################################################
 
 provider "vra" {
-  url           = var.vra_url
-  refresh_token = var.vra_api_token
-  insecure      = var.vra_insecure
+  url           = var.aria_automation_url
+  refresh_token = var.aria_automation_api_token
+  insecure      = var.aria_automation_insecure
 }
 
 ##################################################################################
@@ -21,7 +21,7 @@ data "vra_zone" "this" {
 # RESOURCES
 ##################################################################################
 
-# Create a project in Cloud Assembly and assign cloud zones.
+# Create a project in VMware Aria Automation Assembler and assign cloud zones.
 
 resource "vra_project" "this" {
   name                    = var.project_name

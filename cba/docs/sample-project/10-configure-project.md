@@ -10,11 +10,11 @@ You configure a project to define the users that can provision workloads, the pr
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
+3. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-4. Click the **Infrastructure** tab.
+4. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile.
 
-5. In the left pane, select **Administration > Projects**.
+5. Click the **Infrastructure** tab and, in the left pane, select **Administration > Projects**.
 
 6. Click **New project**.
 
@@ -49,7 +49,7 @@ You configure a project to define the users that can provision workloads, the pr
 1. Navigate to the Terraform example in the repository.
 
     ```bash
-    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/10-cloud-assembly-project
+    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/10-assembler-project
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
@@ -80,4 +80,4 @@ You configure a project to define the users that can provision workloads, the pr
 
 [Back: Configure Storage Profiles in VMware Aria Automation Assembler](9-configure-storage-profile.md)
 
-[Next: Configure a Sample Cloud Template in Cloud Assembly](11-configure-cloud-template.md)
+[Next: Configure a Sample Cloud Template in VMware Aria Automation Assembler](11-configure-cloud-template.md)

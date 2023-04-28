@@ -10,11 +10,11 @@ You configure storage for the provisioned workloads by defining a storage profil
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
+3. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-4. Click the **Infrastructure** tab.
+4. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile.
 
-5. In the left pane, select **Configure > Storage profiles**.
+5. Click the **Infrastructure** tab and, in the left pane, select **Configure > Storage profiles**.
 
 6. On the **Storage profiles** page, click **New storage profile**, configure the settings, and click **Create**.
 
@@ -38,7 +38,7 @@ You configure storage for the provisioned workloads by defining a storage profil
 1. Navigate to the Terraform example in the repository.
 
    ```bash
-   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/09-cloud-assembly-storage-profile
+   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/09-assembler-storage-profile
    ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.

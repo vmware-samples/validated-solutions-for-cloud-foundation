@@ -2,23 +2,23 @@
 # VARIABLES
 ##################################################################################
 
-# Cloud Assembly Endpoint
+# VMware Aria Automation Endpoint
 
-variable "vra_url" {
+variable "aria_automation_url" {
   type        = string
-  description = "The base URL of the vRealize Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
+  description = "Base URL for VMware Aria Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
   default     = "https://api.mgmt.cloud.vmware.com"
 }
 
-variable "vra_api_token" {
+variable "aria_automation_api_token" {
   type        = string
-  description = "API token from the vRealize Automation endpoint."
+  description = "API token for the VMware Aria Automation endpoint"
   sensitive   = true
 }
 
-variable "vra_insecure" {
+variable "aria_automation_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
@@ -31,13 +31,13 @@ variable "vsphere_server" {
 
 variable "vsphere_username" {
   type        = string
-  description = "The username to login to the vCenter Server instance."
-  sensitive   = true
+  description = "The username to login to the vCenter Server instance"
+  default     = "administrator@vsphere.local"
 }
 
 variable "vsphere_password" {
   type        = string
-  description = "The password for the login to the vCenter Server instance."
+  description = "The password for the login to the vCenter Server instance"
   sensitive   = true
 }
 

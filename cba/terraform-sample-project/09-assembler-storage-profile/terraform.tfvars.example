@@ -4,20 +4,20 @@
 
 # Cloud Assembly Endpoint
 
-vra_url       = "https://api.mgmt.cloud.vmware.com"
-vra_api_token = "********************"
-vra_insecure  = false
+aria_automation_url       = "https://api.mgmt.cloud.vmware.com"
+aria_automation_api_token = "********************"
+aria_automation_insecure  = false
 
 # vCenter Server Endpoint
 
 vsphere_server   = "sfo-w01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
-vsphere_password = "********************"
+vsphere_password = "VMw@re1!"
 vsphere_insecure = false
 
 # vSphere Objects
 
-vsphere_datacenter = "sfo-w01-DC"
+vsphere_datacenter = "sfo-w01-dc01"
 vsphere_cluster    = "sfo-w01-cl01"
 
 # Storage Profile

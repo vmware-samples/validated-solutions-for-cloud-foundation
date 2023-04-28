@@ -1,6 +1,6 @@
 [Back: Home](README.md)
 
-# Deploy a Sample Cloud Template in Service Broker
+# Deploy a Sample Cloud Template from VMware Aria Automation Service Broker
 
 After you import the cloud template and share it with members of your project, you test the provisioning by requesting a deployment.
 

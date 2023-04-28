@@ -3,9 +3,9 @@
 ##################################################################################
 
 provider "vra" {
-  url           = var.vra_url
-  refresh_token = var.vra_api_token
-  insecure      = var.vra_insecure
+  url           = var.aria_automation_url
+  refresh_token = var.aria_automation_api_token
+  insecure      = var.aria_automation_insecure
 }
 
 ##################################################################################
@@ -29,7 +29,7 @@ data "vra_blueprint" "this" {
 # RESOURCES
 ##################################################################################
 
-// CLOUD ASSEMBLY
+// VMware Aria Automation Assembler
 
 # Add a cloud template to a project.
 

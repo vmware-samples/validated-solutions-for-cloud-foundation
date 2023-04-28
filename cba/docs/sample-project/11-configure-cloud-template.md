@@ -1,6 +1,6 @@
 [Back: Home](README.md)
 
-# Configure a Sample Cloud Template in Cloud Assembly
+# Configure a Sample Cloud Template in VMware Aria Automation Assembler
 
 Cloud templates determine the specifications, such as target cloud region, resources, guest operating systems, and others, for the services or applications that consumers of this template can deploy.
 
@@ -10,11 +10,11 @@ Cloud templates determine the specifications, such as target cloud region, resou
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
+3. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-4. Click the **Design** tab.
+4. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile.
 
-5. In the left pane, click **Cloud templates**, and from the **New from** drop-down menu, select **Blank canvas**.
+5. Click the **Design** tab and, in the left pane, click **Cloud templates**, and from the **New from** drop-down menu, select **Blank canvas**.
 
 6. In the **New cloud template** dialog box, configure the settings and click **Create**.
 
@@ -157,7 +157,7 @@ resources:
 1. Navigate to the Terraform example in the repository.
 
   ```bash
-  cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/11-cloud-assembly-cloud-template
+  cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/11-assembler-cloud-template
   ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
@@ -192,11 +192,11 @@ resources:
 
   b. On the main navigation bar, click **Services**.
 
-  c. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
+  c. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-  d. Click the **Design** tab.
-
-  e. On the `Photon 4.0` template design page, click **Test**.
+  d. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile. 
+  
+  e. Click the **Design** tab and, on the `Photon 4.0` template design page, click **Test**.
 
   f. In the **Testing Sample** dialog box, configure the settings and click **Test**.
 
@@ -213,6 +213,6 @@ resources:
 
   g. Verify that the test finishes successfully, and close the window.
 
-[Back: Configure a Sample Project in Cloud Assembly](10-configure-project.md)
+[Back: Configure a Sample Project in VMware Aria Automation Assembler](10-configure-project.md)
 
-[Next: Configure a Content Source for the Project in Service Broker](12-configure-content-source.md)
+[Next: Configure a Content Source for the Project in VMware Aria Automation Service Broker](12-configure-content-source.md)

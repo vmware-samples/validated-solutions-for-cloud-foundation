@@ -3,9 +3,9 @@
 ##################################################################################
 
 provider "vra" {
-  url           = var.vra_url
-  refresh_token = var.vra_api_token
-  insecure      = var.vra_insecure
+  url           = var.aria_automation_url
+  refresh_token = var.aria_automation_api_token
+  insecure      = var.aria_automation_insecure
 }
 
 provider "vsphere" {
@@ -53,7 +53,7 @@ data "vra_fabric_storage_policy_vsphere" "this" {
 # RESOURCES
 ##################################################################################
 
-# Add storage profiles in Cloud Assembly for a vSAN Datastores in a vCenter Server cloud account.
+# Add storage profiles to VMware Aria Automation Assembler for a vSAN Datastores in a vCenter Server Cloud Account.
 
 resource "vra_storage_profile_vsphere" "this" {
   for_each          = var.storage_profile_vsphere

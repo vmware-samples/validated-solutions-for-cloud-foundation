@@ -1,8 +1,8 @@
 [Back: Home](README.md)
 
-# Configure a Content Source for the Project in Service Broker
+# Configure a Content Source for the Project in VMware Aria Automation Service Broker
 
-Provide access to vRealize Automation cloud templates to users by creating and configuring a content source for the project in Service Broker.
+Provide access to vRealize Automation cloud templates to users by creating and configuring a content source for the project in VMware Aria Automation Service Broker.
 
 ## UI Procedure
 
@@ -62,6 +62,6 @@ Provide access to vRealize Automation cloud templates to users by creating and c
     terraform apply tfplan
     ```
 
-[Back: Configure a Sample Cloud Template in Cloud Assembly](11-configure-cloud-template.md)
+[Back: Configure a Sample Cloud Template in VMware Aria Automation Assembler](11-configure-cloud-template.md)
 
-[Next: Share a Content Source for the Project in Service Broker](13-configure-content-policy.md)
+[Next: Share a Content Source for the Project in VMware Aria Automation Service Broker](13-configure-content-policy.md)
