@@ -1,8 +1,8 @@
 [Back: Home](README.md)
 
-# Configure Storage Profiles in Cloud Assembly
+# Configure Storage Profiles in VMware Aria Automation Assembler
 
-You configure storage for the provisioned workloads by defining a storage profile in Cloud Assembly for the specific cloud account and region.
+You configure storage for the provisioned workloads by defining a storage profile in VMware Aria Automation Assembler for the specific cloud account and region.
 
 ## UI Procedure
 
@@ -69,4 +69,4 @@ You configure storage for the provisioned workloads by defining a storage profil
 
 [Back: Configure Network Profiles for Existing Networks](8-configure-network-profile.md)
 
-[Next: Configure a Sample Project in Cloud Assembly](10-configure-project.md)
+[Next: Configure a Sample Project in VMware Aria Automation Assembler](10-configure-project.md)

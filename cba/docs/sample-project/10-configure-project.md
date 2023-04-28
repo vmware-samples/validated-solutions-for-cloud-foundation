@@ -1,6 +1,6 @@
 [Back: Home](README.md)
 
-# Configure a Sample Project in Cloud Assembly
+# Configure a Sample Project in VMware Aria Automation Assembler
 
 You configure a project to define the users that can provision workloads, the priority and cloud zone of deployments, and the maximum allowed deployment instances.
 
@@ -78,6 +78,6 @@ You configure a project to define the users that can provision workloads, the pr
     terraform apply tfplan
     ```
 
-[Back: Configure Storage Profiles in Cloud Assembly](9-configure-storage-profile.md)
+[Back: Configure Storage Profiles in VMware Aria Automation Assembler](9-configure-storage-profile.md)
 
 [Next: Configure a Sample Cloud Template in Cloud Assembly](11-configure-cloud-template.md)

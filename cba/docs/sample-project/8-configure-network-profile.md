@@ -10,11 +10,11 @@ Each network profile is configured for a specific network port group or network 
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
+3. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-4. Click the **Infrastructure** tab.
+4. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile.
 
-5. In the left pane, select **Configure > Network profiles**.
+5. Click the **Infrastructure** tab and, in the left pane, select **Configure > Network profiles**.
 
 6. Click **New network profile**.
 
@@ -68,7 +68,7 @@ Each network profile is configured for a specific network port group or network 
 1. Navigate to the Terraform example in the repository.
 
     ```bash
-    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/08-cloud-assembly-network-profile
+    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/08-assembler-network-profile
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
@@ -99,4 +99,4 @@ Each network profile is configured for a specific network port group or network 
 
 [Back: Configure Network IP Address Settings for Existing Networks](7-configure-segment-networking.md)
 
-[Next: Configure Storage Profiles in Cloud Assembly](9-configure-storage-profile.md)
+[Next: Configure Storage Profiles in VMware Aria Automation Assembler](9-configure-storage-profile.md)

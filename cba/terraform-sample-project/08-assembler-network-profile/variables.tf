@@ -4,25 +4,25 @@
 
 # Endpoints
 
-variable "vra_url" {
+variable "aria_automation_url" {
   type        = string
-  description = "The base URL of the vRealize Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
+  description = "Base URL for VMware Aria Automation endpoint. (e.g. https://api.mgmt.cloud.vmware.com)"
   default     = "https://api.mgmt.cloud.vmware.com"
 }
 
-variable "vra_api_token" {
+variable "aria_automation_api_token" {
   type        = string
-  description = "API token from the vRealize Automation endpoint."
+  description = "API token for the VMware Aria Automation endpoint"
   sensitive   = true
 }
 
-variable "vra_insecure" {
+variable "aria_automation_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
-# Cloud Assembly
+# VMware Aria Automation Assembler
 
 variable "cloud_account_nsxt" {
   type        = string
@@ -41,7 +41,7 @@ variable "name" {
 
 variable "description" {
   type        = string
-  description = "A description for the network profile."
+  description = "A description for the network profile"
 }
 
 variable "isolation_type" {
@@ -58,5 +58,5 @@ variable "network_ip_ranges" {
     end_ip_address       = string
     ip_version           = string
   }))
-  description = "A mapping of objects for network IP ranges associated with a network profile."
+  description = "A mapping of objects for network IP ranges associated with a network profile"
 }

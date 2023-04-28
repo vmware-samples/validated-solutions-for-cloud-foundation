@@ -5,16 +5,17 @@
 ##################################################################################
 
 provider "vra" {
-  url           = var.vra_url
-  refresh_token = var.vra_api_token
-  insecure      = var.vra_insecure
+  url           = var.aria_automation_url
+  refresh_token = var.aria_automation_api_token
+  insecure      = var.aria_automation_insecure
 }
 
 ##################################################################################
 # RESOURCES
 ##################################################################################
 
-# Add network fabric settings for internal (non-IPAM) IP address management.
+# Add network fabric settings for internal (non-IPAM) IP address management to
+# VMware Aria Automation Assembler.
 
 resource "vra_fabric_network_vsphere" "network0" {
   cidr                 = var.cidr_network0

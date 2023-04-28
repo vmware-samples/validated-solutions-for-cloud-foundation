@@ -10,11 +10,11 @@ Each network profile is configured for a specific network port group or network 
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
+3. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-4. Click the **Infrastructure** tab.
+4. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile.
 
-5. In the left pane, select **Resources > Networks**.
+5. Click the **Infrastructure** tab and, in the left pane, select **Resources > Networks**.
 
 6. Select the `sfo-prod-192-168-50-0-24` network object assigned to the NSX Local Manager.
 
@@ -26,14 +26,14 @@ Each network profile is configured for a specific network port group or network 
    | DNS servers           | 172.16.11.4, 172.16.11.5 |
    | DNS search domains    | sfo.rainpole.io          |
 
-6. Repeat this procedure for the NSX segment for development workloads.
+8. Repeat this procedure for the NSX segment for development workloads.
 
 ## Terraform Procedure
 
 1. Navigate to the Terraform example in the repository.
 
    ```bash
-   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/07-cloud-assembly-network-fabric
+   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/07-assembler-network-fabric
    ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
@@ -62,11 +62,11 @@ Each network profile is configured for a specific network port group or network 
 
    b. On the main navigation bar, click **Services**.
 
-   c. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
+   c. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-   d. Click the **Infrastructure** tab.
+   d. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile.
 
-   e. In the left pane, select **Resources > Networks**.
+   e. Click the **Infrastructure** tab and, in the left pane, select **Resources > Networks**.
 
    g. Select the `sfo-prod-192-168-50-0-24` network object assigned to the NSX Local Manager.
 
