@@ -5,7 +5,7 @@
 # VMware Cloud Services
 
 csp_api_token = "*********************"
-cep_server    = "sfo-vmc-cep01.sfo.rainpole.io"
+cep_server    = "sfo-cba-cep01.sfo.rainpole.io"
 
 # VMware Cloud Foundation 
 
@@ -14,7 +14,7 @@ vcf_username = "administrator@vsphere.local"
 vcf_password = "VMw@re1!"
 vcf_domain   = "sfo-w01"
 
-# vSphere Permissions
+# Aria Orchestrator Service Account
 
-orchestrator_service_account  = "svc-vro-vsphere"
+orchestrator_service_account  = "svc-vao-vsphere"
 orchestrator_service_password = "VMw@re1!"

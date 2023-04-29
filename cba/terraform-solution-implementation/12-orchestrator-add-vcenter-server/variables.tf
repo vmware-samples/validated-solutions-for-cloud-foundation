@@ -17,24 +17,24 @@ variable "vcf_username" {
 
 variable "vcf_password" {
   type        = string
-  description = "The password for the login to the VMware Cloud Foundation instance."
+  description = "The password for the login to the VMware Cloud Foundation instance"
   sensitive   = true
 }
 
 variable "vcf_domain" {
   type        = string
-  description = "The Workload Domain of the VMware Cloud Foundation instance."
+  description = "The Workload Domain of the VMware Cloud Foundation instance"
 }
 
 variable "csp_api_token" {
   type        = string
-  description = "API token from the vRealize Automation endpoint."
+  description = "API token from the vRealize Automation endpoint"
   sensitive   = true
 }
 
 variable "cep_server" {
   type        = string
-  description = "The FQDN of the Cloud Extensibility Proxy."
+  description = "The FQDN of the Cloud Extensibility Proxy"
 }
 
 variable "orchestrator_service_account" {
@@ -44,6 +44,6 @@ variable "orchestrator_service_account" {
 
 variable "orchestrator_service_password" {
   type        = string
-  description = "The target Aria Automation Orchestrator service account password."
+  description = "The target Aria Automation Orchestrator service account password"
   sensitive   = true
 }

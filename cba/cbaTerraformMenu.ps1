@@ -12,19 +12,19 @@
     ===================================================================================================================
     .CHANGE_LOG
 
-    - 1.1.0 (Gary Blake / 2023-04-02) - Updated for VMware Aria Automation Branding
+    - 1.1.0 (Gary Blake / 2023-04-28) - Updated for VMware Aria Automation Branding
 
     ===============================================================================================================
     .SYNOPSIS
-    Menu for Executing Terraform Plans Under Cloud-Based Automation
+    Menu for Executing Terraform Plans Under Cloud-Based Automation for VMware Cloud Foundation validated solution
 
     .DESCRIPTION
     The cbaTerraformMenu.ps1 provides a menu for executing the Terraform plans that support the implementation of the 
     Cloud-Based Automation for VMWare Cloud Foundation validated solution. Each menu item reads the Planning and
-    Preparation Workbook to populate the terraform.tfvars.template file then attempts apply the Terraform plan.
+    Preparation Workbook to populate the terraform.tfvars.template file then attempts to apply the Terraform plan.
 
     .EXAMPLE
-    cbaTerraformMenu.ps1 -workbook F:\vvs\PnP.xlsx -parentPath F:\validated-solutions-for-cloud-foundation\cba
+    cbaTerraformMenu.ps1 -workbook F:\vvs\PnP.xlsx -parentPath F:\vvs\cba
     This example loads the Cloud-Based Automation for VMware Cloud Foundation PowerShell menu
 #>
 
@@ -163,7 +163,7 @@ Function createCbaApplianceFolder {
                     -replace '<!--REPLACE WITH SSO USERNAME-->',$pnpWorkbook.Workbook.Names["sso_default_admin"].Value `
                     -replace '<!--REPLACE WITH SSO PASSWORD-->',$pnpWorkbook.Workbook.Names["administrator_vsphere_local_password"].Value `
                     -replace '<!--REPLACE WITH MANAGEMENT DATACENTER-->',$pnpWorkbook.Workbook.Names["mgmt_datacenter"].Value `
-                    -replace '<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER FOLDER-->',$pnpWorkbook.Workbook.Names["vmc_vm_folder"].Value `
+                    -replace '<!--REPLACE WITH CLOUD BASED AUTOMATION FOLDER-->',$pnpWorkbook.Workbook.Names["vmc_vm_folder"].Value `
                 } | Set-Content -Path "$planPath\terraform.tfvars"
                 Close-ExcelPackage $pnpWorkbook -NoSave -ErrorAction SilentlyContinue
                 executeTerraformPlan -planDirectory $planPath
@@ -250,8 +250,8 @@ Function applyCbaMgmtRestrictions {
                 -replace '<!--REPLACE WITH MANAGEMENT VCENTER FQDN-->',$pnpWorkbook.Workbook.Names["mgmt_vc_fqdn"].Value `
                 -replace '<!--REPLACE WITH SSO USERNAME-->',$pnpWorkbook.Workbook.Names["sso_default_admin"].Value `
                 -replace '<!--REPLACE WITH SSO PASSWORD-->',$pnpWorkbook.Workbook.Names["administrator_vsphere_local_password"].Value `
-                -replace '<!--REPLACE WITH CA SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["region_ad_child_netbios"].Value + "\\" + $pnpWorkbook.Workbook.Names["user_svc_ca_vsphere"].Value) `
-                -replace '<!--REPLACE WITH VRO SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["region_ad_child_netbios"].Value + "\\" + $pnpWorkbook.Workbook.Names["user_svc_vmc_vro_vsphere"].Value) `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["region_ad_child_netbios"].Value + "\\" + $pnpWorkbook.Workbook.Names["user_svc_ca_vsphere"].Value) `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["region_ad_child_netbios"].Value + "\\" + $pnpWorkbook.Workbook.Names["user_svc_vmc_vro_vsphere"].Value) `
             } | Set-Content -Path "$planPath\terraform.tfvars"
             Close-ExcelPackage $pnpWorkbook -NoSave -ErrorAction SilentlyContinue
             executeTerraformPlan -planDirectory $planPath
@@ -275,8 +275,8 @@ Function applyCbaWldRestrictions {
                 -replace '<!--REPLACE WITH SSO USERNAME-->',$pnpWorkbook.Workbook.Names["sso_default_admin"].Value `
                 -replace '<!--REPLACE WITH SSO PASSWORD-->',$pnpWorkbook.Workbook.Names["administrator_vsphere_local_password"].Value `
                 -replace '<!--REPLACE WITH WORKLOAD DATACENTER-->',$pnpWorkbook.Workbook.Names["wld_datacenter"].Value `
-                -replace '<!--REPLACE WITH CA SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["region_ad_child_netbios"].Value + "\\" + $pnpWorkbook.Workbook.Names["user_svc_ca_vsphere"].Value) `
-                -replace '<!--REPLACE WITH VRO SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["region_ad_child_netbios"].Value + "\\" + $pnpWorkbook.Workbook.Names["user_svc_vmc_vro_vsphere"].Value) `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["region_ad_child_netbios"].Value + "\\" + $pnpWorkbook.Workbook.Names["user_svc_ca_vsphere"].Value) `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR SERVICE ACCOUNT-->',($pnpWorkbook.Workbook.Names["region_ad_child_netbios"].Value + "\\" + $pnpWorkbook.Workbook.Names["user_svc_vmc_vro_vsphere"].Value) `
                 -replace '<!--REPLACE WITH WORKLOAD DATACENTER-->',$pnpWorkbook.Workbook.Names["wld_datacenter"].Value `
                 -replace '<!--REPLACE WITH WORKLOAD EDGE FOLDER-->',$pnpWorkbook.Workbook.Names["wld_user_edge_vm_folder"].Value `
                 -replace '<!--REPLACE WITH WORKLOAD STORAGE LOCAL FOLDER-->',$pnpWorkbook.Workbook.Names["wld_vmc_storage_folder"].Value `
@@ -328,7 +328,7 @@ Function deployCbaProxy {
                 -replace '<!--REPLACE WITH SSO PASSWORD-->',$pnpWorkbook.Workbook.Names["administrator_vsphere_local_password"].Value `
                 -replace '<!--REPLACE WITH ESXI HOST-->',($pnpWorkbook.Workbook.Names["mgmt_az1_host1_hostname"].Value + "." + $pnpWorkbook.Workbook.Names["child_dns_zone"].Value) `
                 -replace '<!--REPLACE WITH MANAGEMENT DATACENTER-->',$pnpWorkbook.Workbook.Names["mgmt_datacenter"].Value `
-                -replace '<!--REPLACE WITH CLOUD ASSEMBLY FOLDER-->',$pnpWorkbook.Workbook.Names["vmc_vm_folder"].Value `
+                -replace '<!--REPLACE WITH CLOUD BASED AUTOMATION FOLDER-->',$pnpWorkbook.Workbook.Names["vmc_vm_folder"].Value `
                 -replace '<!--REPLACE WITH MANAGEMENT CLUSTER-->',$pnpWorkbook.Workbook.Names["mgmt_cluster"].Value `
                 -replace '<!--REPLACE WITH MANAGEMENT DATASTORE-->',$pnpWorkbook.Workbook.Names["mgmt_vsan_datastore"].Value `
                 -replace '<!--REPLACE WITH MANAGEMENT NETWORK-->',$pnpWorkbook.Workbook.Names["mgmt_az1_mgmt_pg"].Value `
@@ -365,7 +365,7 @@ Function deployCbaExtensibilityProxy {
                 -replace '<!--REPLACE WITH SSO PASSWORD-->',$pnpWorkbook.Workbook.Names["administrator_vsphere_local_password"].Value `
                 -replace '<!--REPLACE WITH ESXI HOST-->',($pnpWorkbook.Workbook.Names["mgmt_az1_host1_hostname"].Value + "." + $pnpWorkbook.Workbook.Names["child_dns_zone"].Value) `
                 -replace '<!--REPLACE WITH MANAGEMENT DATACENTER-->',$pnpWorkbook.Workbook.Names["mgmt_datacenter"].Value `
-                -replace '<!--REPLACE WITH CLOUD ASSEMBLY FOLDER-->',$pnpWorkbook.Workbook.Names["vmc_vm_folder"].Value `
+                -replace '<!--REPLACE WITH CLOUD BASED AUTOMATION FOLDER-->',$pnpWorkbook.Workbook.Names["vmc_vm_folder"].Value `
                 -replace '<!--REPLACE WITH MANAGEMENT CLUSTER-->',$pnpWorkbook.Workbook.Names["mgmt_cluster"].Value `
                 -replace '<!--REPLACE WITH MANAGEMENT DATASTORE-->',$pnpWorkbook.Workbook.Names["mgmt_vsan_datastore"].Value `
                 -replace '<!--REPLACE WITH MANAGEMENT NETWORK-->',$pnpWorkbook.Workbook.Names["mgmt_az1_mgmt_pg"].Value `
@@ -429,8 +429,8 @@ Function importCbaWldVcenter {
                 -replace '<!--REPLACE WITH SSO USERNAME-->',$pnpWorkbook.Workbook.Names["sso_default_admin"].Value `
                 -replace '<!--REPLACE WITH SSO PASSWORD-->',$pnpWorkbook.Workbook.Names["administrator_vsphere_local_password"].Value `
                 -replace '<!--REPLACE WITH WORKLOAD DOMAIN NAME-->',$pnpWorkbook.Workbook.Names["wld_sddc_domain"].Value `
-                -replace '<!--REPLACE WITH VRO SERVICE ACCOUNT-->',$pnpWorkbook.Workbook.Names["user_svc_vmc_vro_vsphere"].Value `
-                -replace '<!--REPLACE WITH VRO SERVICE ACCOUNT PASSWORD-->',$pnpWorkbook.Workbook.Names["svc_vmc_vro_vsphere_password"].Value `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR SERVICE ACCOUNT-->',$pnpWorkbook.Workbook.Names["user_svc_vmc_vro_vsphere"].Value `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR SERVICE PASSWORD-->',$pnpWorkbook.Workbook.Names["svc_vmc_vro_vsphere_password"].Value `
             } | Set-Content -Path "$planPath\terraform.tfvars"
             Close-ExcelPackage $pnpWorkbook -NoSave -ErrorAction SilentlyContinue
             executeTerraformPlan -planDirectory $planPath
@@ -456,7 +456,7 @@ Function createCbaAvailabilityZoneGroup {
                 -replace '<!--REPLACE WITH MANAGEMENT DATACENTER-->',$pnpWorkbook.Workbook.Names["mgmt_datacenter"].Value `
                 -replace '<!--REPLACE WITH MANAGEMENT CLUSTER-->',$pnpWorkbook.Workbook.Names["mgmt_cluster"].Value `
                 -replace '<!--REPLACE WITH AZ1 HOST GROUP NAME-->',($pnpWorkbook.Workbook.Names["mgmt_sddc_domain"].Value + "-hostgroup-az1") `
-                -replace '<!--REPLACE WITH CLOUD ASSEMBLY VM GROUP NAME-->',$pnpWorkbook.Workbook.Names["vmc_az_vm_group"].Value `
+                -replace '<!--REPLACE WITH CLOUD BASED AUTOMATION VM GROUP NAME-->',$pnpWorkbook.Workbook.Names["vmc_az_vm_group"].Value `
                 -replace '<!--REPLACE WITH CLOUD PROXY NAME-->',$pnpWorkbook.Workbook.Names["vmc_cdp_hostname"].Value `
                 -replace '<!--REPLACE WITH CLOUD EXTENSIBILITY PROXY NAME-->',$pnpWorkbook.Workbook.Names["vmc_cep_hostname"].Value `
             } | Set-Content -Path "$planPath\terraform.tfvars"
@@ -539,21 +539,21 @@ Function CBATerraformMenu {
     )
 
     $headingItem00 = "$solutionName for VMware Cloud Foundation - Implementation Tasks"
-    $menuitem01 = "vCenter Server: Define Custom Roles in vSphere for VMware Aria Automation Assembler and VMware Aria Automation Orchestrator"
+    $menuitem01 = "vCenter Server: Define Custom Roles in vSphere"
     $menuitem02 = "vCenter Server: Create a Virtual Machine and Template Folder for Cloud Proxy Appliances"
-    $menuitem03 = "vCenter Server: Create a Virtual Machine and Template Folder, a Resource Pool, and Storage Folders for Cloud Assembly-Managed Workloads"
-    $menuitem04 = "vCenter Server: Configure Service Account Permissions for VMware Aria Automation Assembler and VMware Aria Automation Orchestrator Integration to vSphere"
-    $menuitem05 = "vCenter Server: Restrict the Cloud Assembly and vRealize Orchestrator Service Accounts Access to the Management Domain"
-    $menuitem06 = "vCenter Server: Restrict the Cloud Assembly and vRealize Orchestrator Service Accounts Access to Virtual Machine and Datastore Folders in a VI Workload Domain"
-    $menuitem07 = "NSX Manager: Configure Service Account Permissions for Cloud Assembly Integration to NSX-T Data Center"
-    $menuitem08 = "Cloud Assembly: Deploy a Cloud Proxy Appliance for the Cloud Assembly Service"
-    $menuitem09 = "Cloud Assembly: Deploy the Cloud Extensibility Proxy and Configure the vRealize Orchestrator Integration for the Cloud Assembly Service"
-    $menuitem10 = "Cloud Assembly: Import the Trusted Certificates to vRealize Orchestrator"
-    #$menuitem11 = "Cloud Assembly: Install a Signed Certificate on vRealize Orchestrator"
-    $menuitem12 = "Cloud Assembly: Add the VI Workload Domain vCenter Server to vRealize Orchestrator"
-    $menuitem13 = "Cloud Assembly: Add the Cloud Proxy Appliances to the First Availability Zone VM Group"
-    $menuitem14 = "Cloud Assembly: Add Cloud Accounts for VI Workload Domains to Cloud Assembly"
-    $menuitem15 = "Cloud Assembly: Configure the Cloud Zones in Cloud Assembly"
+    $menuitem03 = "vCenter Server: Create Folders and a Resource Pool for Managed Workloads"
+    $menuitem04 = "vCenter Server: Configure Service Account Permissions for vSphere Integration"
+    $menuitem05 = "vCenter Server: Restrict Service Account Access to the Management Domain"
+    $menuitem06 = "vCenter Server: Restrict Service Account Access to Virtual Machine and Datastore Folders in a VI Workload Domain"
+    $menuitem07 = "NSX Manager: Configure Service Account Permissions for Automation Assembler Integration to NSX"
+    $menuitem08 = "Automation Assembler: Deploy a Cloud Proxy Appliance for the Automation Assembler Service"
+    $menuitem09 = "Automation Assembler: Deploy the Cloud Extensibility Proxy and Configure Integration"
+    $menuitem10 = "Automation Assembler: Import the Trusted Certificates to Automation Orchestrator"
+    #$menuitem11 = "Automation Assembler: Replace the Certificate of the Automation Orchestrator Instance"
+    $menuitem12 = "Automation Assembler: Add the VI Workload Domain vCenter Server to Automation Orchestrator"
+    $menuitem13 = "vCenter Server: Add the Cloud Proxy Appliances to the First Availability Zone VM Group"
+    $menuitem14 = "Automation Assembler: Add Cloud Accounts for VI Workload Domains to Automation Assembler"
+    $menuitem15 = "Automation Assembler: Configure the Cloud Zones in Automation Assembler"
 
     Do {
         Clear-Host
@@ -630,56 +630,56 @@ Function CBATerraformMenu {
             7 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem07
-                $StatusMsg = applyCbaNsxPermissions -planPath ($parentPath + "\terraform-solution-implementation\07-nsx-permissions-apply") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = applyCbaNsxPermissions -planPath ($parentPath + "\terraform-solution-implementation\07-nsx-permissions-apply-role") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }
             8 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem08
-                $StatusMsg = deployCbaProxy -planPath ($parentPath + "\terraform-solution-implementation\08-cba-deploy-cloud-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = deployCbaProxy -planPath ($parentPath + "\terraform-solution-implementation\08-assembler-deploy-cloud-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }
             9 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem09
-                $StatusMsg = deployCbaExtensibilityProxy -planPath ($parentPath + "\terraform-solution-implementation\09-cba-deploy-cloud-extensibility-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = deployCbaExtensibilityProxy -planPath ($parentPath + "\terraform-solution-implementation\09-assembler-deploy-cloud-extensibility-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }
             10 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem10
-                $StatusMsg = importCbaTrustedCertificate -planPath ($parentPath + "\terraform-solution-implementation\10-vro-import-trusted-certificate") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = importCbaTrustedCertificate -planPath ($parentPath + "\terraform-solution-implementation\10-orchestrator-import-trusted-certificate") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }
             12 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem12
-                $StatusMsg = importCbaWldVcenter -planPath ($parentPath + "\terraform-solution-implementation\12-vro-add-vcenter-server") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = importCbaWldVcenter -planPath ($parentPath + "\terraform-solution-implementation\12-orchestrator-add-vcenter-server") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }
             13 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem13
-                $StatusMsg = createCbaAvailabilityZoneGroup -planPath ($parentPath + "\terraform-solution-implementation\13-vmc-drs-az-vm-group") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = createCbaAvailabilityZoneGroup -planPath ($parentPath + "\terraform-solution-implementation\13-vsphere-drs-az-vm-group") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }
             14 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem14
-                $StatusMsg = createCbaCloudAccounts -planPath ($parentPath + "\terraform-solution-implementation\14-vmc-cloud-account") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = createCbaCloudAccounts -planPath ($parentPath + "\terraform-solution-implementation\14-assembler-create-cloud-accounts") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }
             15 {
                 Clear-Host
                 Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem15
-                $StatusMsg = configureCbaCloudZone -planPath ($parentPath + "\terraform-solution-implementation\15-vmc-cloud-zone-config") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
+                $StatusMsg = configureCbaCloudZone -planPath ($parentPath + "\terraform-solution-implementation\15-assembler-cloud-zone-config") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
                 if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
                 anyKey
             }

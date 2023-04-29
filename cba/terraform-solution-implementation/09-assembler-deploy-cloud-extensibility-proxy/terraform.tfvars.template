@@ -4,8 +4,8 @@
 
 # VMware Cloud Services
 
-csp_uri       = "https://console-stg.cloud.vmware.com"
-aria_automation_uri       = "https://api.staging.symphony-dev.com"
+csp_uri       = "https://console.cloud.vmware.com"
+aria_automation_uri       = "https://api.mgmt.cloud.vmware.com"
 csp_api_token = "<!--REPLACE WITH CSP TOKEN-->"
 
 # vSphere Settings
@@ -16,7 +16,7 @@ vsphere_password   = "<!--REPLACE WITH SSO PASSWORD-->"
 vsphere_insecure   = false
 vsphere_host       = "<!--REPLACE WITH ESXI HOST-->"
 vsphere_datacenter = "<!--REPLACE WITH MANAGEMENT DATACENTER-->"
-vsphere_folder     = "<!--REPLACE WITH CLOUD ASSEMBLY FOLDER-->"
+vsphere_folder     = "<!--REPLACE WITH CLOUD BASED AUTOMATION FOLDER-->"
 vsphere_cluster    = "<!--REPLACE WITH MANAGEMENT CLUSTER-->"
 vsphere_datastore  = "<!--REPLACE WITH MANAGEMENT DATASTORE-->"
 vsphere_network    = "<!--REPLACE WITH MANAGEMENT NETWORK-->"

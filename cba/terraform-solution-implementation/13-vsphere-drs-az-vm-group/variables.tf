@@ -44,29 +44,29 @@ variable "vsphere_host_group" {
   description = "The target Host Group for the First Availability Zone. (e.g. sfo-hostgroup-az1)"
 }
 
-variable "vmc_vm_host_rule" {
+variable "cba_vm_host_rule" {
   type        = string
   description = "The name of the VM to Host Rule. (e.g. vm-host-rule-az1-vmc)"
   default     = "vm-host-rule-az1-vmc"
 }
 
-variable "vmc_group_name" {
+variable "cba_group_name" {
   type        = string
   description = "The name of the VM Group. (e.g. sfo-vmgroup-az-vmc)"
 }
 
-variable "vmc_group_vms" {
+variable "cba_group_vms" {
   type        = list(string)
   description = "A list of VMs."
 }
 
-variable "vmc_host_group_ruleset_enable" {
+variable "cba_host_group_ruleset_enable" {
   type        = bool
   default     = true
   description = "Enable the virtual machine / host group dependency rule. (e.g. true | false)"
 }
 
-variable "vmc_host_group_ruleset_mandatory" {
+variable "cba_host_group_ruleset_mandatory" {
   type        = bool
   default     = false
   description = "Is the virtual machine / host group dependency rule mandatory. (e.g. true = must | false = should)"

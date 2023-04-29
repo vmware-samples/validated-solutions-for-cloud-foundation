@@ -6,7 +6,7 @@
 
 vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
-vsphere_password = "********************"
+vsphere_password = "VMw@re1!"
 vsphere_insecure = false
 
 # vSphere Objects
@@ -16,12 +16,12 @@ vsphere_cluster    = "sfo-m01-cl01"
 
 # VM to Host Rule
 
-vsphere_host_group = "sfo-hostgroup-az1"
+vsphere_host_group = "sfo-m01-cl01_primary_az_hostgroup"
 
 # VM Group
 
-vmc_group_name = "sfo-vmgroup-az-vmc"
-vmc_group_vms = [
-  "sfo-vmc-cdp01",
-  "sfo-vmc-cep01"
+cba_group_name = "sfo-m01-vm-group-cba"
+cba_group_vms = [
+  "sfo-cba-cdp01",
+  "sfo-cba-cep01"
 ]

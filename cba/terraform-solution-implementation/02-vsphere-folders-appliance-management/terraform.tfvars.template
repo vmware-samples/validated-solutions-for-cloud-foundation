@@ -13,7 +13,7 @@ vsphere_password = "<!--REPLACE WITH SSO PASSWORD-->"
 vsphere_datacenter = "<!--REPLACE WITH MANAGEMENT DATACENTER-->"
 vsphere_folders = {
   folder0 = {
-    path = "<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER FOLDER-->"
+    path = "<!--REPLACE WITH CLOUD BASED AUTOMATION FOLDER-->"
     type = "vm"
   }
 }

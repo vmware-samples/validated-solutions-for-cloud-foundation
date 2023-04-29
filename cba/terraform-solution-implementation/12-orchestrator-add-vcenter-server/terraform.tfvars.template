@@ -14,7 +14,7 @@ vcf_username = "<!--REPLACE WITH SSO USERNAME-->"
 vcf_password = "<!--REPLACE WITH SSO PASSWORD-->"
 vcf_domain   = "<!--REPLACE WITH WORKLOAD DOMAIN NAME-->"
 
-# vSphere Permissions
+# Aria Orchestrator Service Account
 
-orchestrator_service_account  = "<!--REPLACE WITH VRO SERVICE ACCOUNT-->"
-orchestrator_password = "<!--REPLACE WITH VRO SERVICE ACCOUNT PASSWORD-->"
+orchestrator_service_account  = "<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR SERVICE ACCOUNT-->"
+orchestrator_password = "<!--REPLACE WITH ARIA AUTOMATION ORCHESTRATOR SERVICE ACCOUNT PASSWORD-->"

@@ -17,9 +17,9 @@ provider "vsphere" {
 }
 
 provider "vra" {
-  url                         = var.vra_uri
+  url                         = var.aria_automation_uri
   refresh_token               = var.csp_api_token
-  insecure                    = var.vra_insecure
+  insecure                    = var.aria_automation_insecure
 }
 
 # ##################################################################################
@@ -31,7 +31,7 @@ data "terracurl_request" "get_ova_url" {
     terracurl_request.get_access_token
   ]
   name       = "ova_url"
-  url        = "${var.vra_uri}/api/artifact-provider?artifact=cexp-data-collector"
+  url        = "${var.aria_automation_uri}/api/artifact-provider?artifact=cexp-data-collector"
   method     = "GET"
   headers = {
     Accept        = "application/json"
@@ -111,7 +111,7 @@ resource "terracurl_request" "get_otk" {
     terracurl_request.get_access_token
   ]
   name           = "ova_url"
-  url            = "${var.vra_uri}/api/otk-v3"
+  url            = "${var.aria_automation_uri}/api/otk-v3"
   method         = "POST"
   response_codes = [200, 400, 404, 409, 429, 500]
   headers = {
@@ -121,7 +121,7 @@ resource "terracurl_request" "get_otk" {
   }
   request_body = <<EOF
 {
-  "url": "${var.vra_uri}",
+  "url": "${var.aria_automation_uri}",
   "service":"cloud_assembly_extensibility"
 }
 EOF
@@ -216,7 +216,7 @@ resource "terracurl_request" "create_vro_integration" {
     time_sleep.nap
   ]
   name           = "vro_integration"
-  url            = "${var.vra_uri}/iaas/api/integrations?apiVersion=2021-07-15"
+  url            = "${var.aria_automation_uri}/iaas/api/integrations?apiVersion=2021-07-15"
   method         = "POST"
   response_codes = [202, 400, 403]
   headers = {

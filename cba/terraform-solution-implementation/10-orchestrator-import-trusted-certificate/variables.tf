@@ -4,7 +4,7 @@
 
 variable "csp_api_token" {
   type        = string
-  description = "API token from the vRealize Automation endpoint."
+  description = "API token from the VMware Aria Automation endpoint."
 }
 
 variable "cep_server" {
