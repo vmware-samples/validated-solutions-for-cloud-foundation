@@ -68,11 +68,23 @@ The directory structure of the repository.
 │   ├── ansible-examples
 │   ├── orchestrator-examples
 │   └── README.md
+├── appliance
+│   ├── files
+│   ├── manual
+│   ├── output-applicance
+│   ├── scripts
+│   ├── appliance-build.sh
+│   └── ...
 ├── cba
 │   ├── docs
 │   ├── terraform-sample-project
 │   ├── terraform-solution-implementation
 │   ├── cbaTerraformMenu.ps1
+│   └── README.md
+├── hrm
+│   ├── images
+│   ├── releases
+│   ├── source
 │   └── README.md
 └── pca
     ├── docs
@@ -86,6 +98,8 @@ The directory structure of the repository.
 * [Advanced Load Balancing for VMware Cloud Foundation](alb/README.md)
 
 * [Cloud-Based Automation for VMware Cloud Foundation](cba/README.md)
+
+* [Health Reporting and Monitoring for VMware Cloud Foundation](hrm/README.md)
 
 * [Private Cloud Automation for VMware Cloud Foundation](pca/README.md)
 
