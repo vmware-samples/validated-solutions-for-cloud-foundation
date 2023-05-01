@@ -6,11 +6,11 @@
 
 nsxt_instance = "sfo-w01-nsx01.sfo.rainpole.io"
 nsxt_username = "admin"
-nsxt_password = "********************"
+nsxt_password = "VMw@re1!VMw@re1!"
 
 # Permissions
 
-vidm_user            = "svc-ca-nsx@sfo.rainpole.io"
+vidm_user            = "svc-vaa-nsx@sfo.rainpole.io"
 vidm_type            = "remote_user"
 vidm_identity_source = "VIDM"
 nsxt_role            = "enterprise_admin"

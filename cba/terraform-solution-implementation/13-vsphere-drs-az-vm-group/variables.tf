@@ -17,13 +17,13 @@ variable "vsphere_username" {
 
 variable "vsphere_password" {
   type        = string
-  description = "The password for the login to the vCenter Server instance."
+  description = "The password for the login to the vCenter Server instance"
   sensitive   = true
 }
 
 variable "vsphere_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
@@ -57,7 +57,7 @@ variable "cba_group_name" {
 
 variable "cba_group_vms" {
   type        = list(string)
-  description = "A list of VMs."
+  description = "List of VMs"
 }
 
 variable "cba_host_group_ruleset_enable" {

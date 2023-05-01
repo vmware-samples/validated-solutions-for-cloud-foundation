@@ -2,7 +2,7 @@
 # VARIABLES
 ##################################################################################
 
-# Endpoints
+// VMware Aria Automation Endpoint
 
 variable "aria_automation_url" {
   type        = string
@@ -26,7 +26,7 @@ variable "aria_automation_insecure" {
 
 variable "cloud_account_vsphere" {
   type        = string
-  description = "The name of the vCenter Server Cloud Acount in VMware Aria Automation Assembler. (e.g sfo-w01-vc01)"
+  description = "Name of the vCenter Server Cloud Acount in VMware Aria Automation Assembler. (e.g sfo-w01-vc01)"
 }
 
 variable "flavor_mappings" {
@@ -35,5 +35,5 @@ variable "flavor_mappings" {
     cpu_count = string
     memory    = string
   }))
-  description = "A mapping of objects for flavor mappings and their associated settings"
+  description = "Mapping of objects for flavor mappings and their associated settings"
 }

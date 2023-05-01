@@ -1,14 +1,12 @@
 ##################################################################################
-# ENDPOINT
+# VARIABLES
 ##################################################################################
 
 aria_automation_url       = "https://api.mgmt.cloud.vmware.com"
 aria_automation_api_token = "<!--REPLACE WITH CSP TOKEN-->"
 aria_automation_insecure  = false
 
-##################################################################################
-# CLOUD ACCOUNTS and CLOUD ZONES
-##################################################################################
+// Cloud Accounts
 
 cloud_accounts_vsphere = {
   account0 = {

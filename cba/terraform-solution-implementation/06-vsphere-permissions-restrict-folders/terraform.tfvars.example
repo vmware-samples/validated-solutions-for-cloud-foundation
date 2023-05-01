@@ -10,10 +10,10 @@ vsphere_password = "VMw@re1!"
 
 # vSphere Objects
 
-vsphere_datacenter      = "sfo-w01-DC"
+vsphere_datacenter      = "sfo-w01-dc01"
 role_name               = "No access"
-assembler_service_account  = "SFO\\svc-ca-vsphere"
-orchestrator_service_account = "SFO\\svc-vro-vsphere"
+assembler_service_account  = "SFO\\svc-vaa-vsphere"
+orchestrator_service_account = "SFO\\svc-vao-vsphere"
 edge_folder             = "sfo-w01-fd-edge"
 local_storage_folder    = "sfo-w01-fd-storage-local"
 readonly_storage_folder = "sfo-w01-fd-storage-readonly"

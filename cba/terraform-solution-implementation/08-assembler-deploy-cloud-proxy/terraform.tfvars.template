@@ -5,8 +5,8 @@
 # VMware Cloud Services
 
 csp_uri       = "https://console.cloud.vmware.com"
-aria_automation_uri       = "https://api.mgmt.cloud.vmware.com"
 csp_api_token = "<!--REPLACE WITH CSP TOKEN-->"
+aria_automation_uri       = "https://api.mgmt.cloud.vmware.com"
 
 # vSphere Settings
 

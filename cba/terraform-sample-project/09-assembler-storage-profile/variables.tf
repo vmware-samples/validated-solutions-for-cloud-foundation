@@ -43,7 +43,7 @@ variable "vsphere_password" {
 
 variable "vsphere_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
@@ -51,12 +51,12 @@ variable "vsphere_insecure" {
 
 variable "vsphere_datacenter" {
   type        = string
-  description = "The target vSphere datacenter object name. (e.g. sfo-w01-DC)."
+  description = "The target vSphere datacenter object name. (e.g. sfo-w01-dc01)"
 }
 
 variable "vsphere_cluster" {
   type        = string
-  description = "The target vSphere cluster object name. (e.g. sfo-w01-cl01)."
+  description = "The target vSphere cluster object name. (e.g. sfo-w01-cl01)"
 }
 
 # Cloud Assembly Storage Profile
@@ -72,5 +72,5 @@ variable "storage_profile_vsphere" {
     storage_policy     = string
     tag_tier           = string
   }))
-  description = "A mapping of objects for Storage Profiles for vSphere and their associated settings."
+  description = "A mapping of objects for Storage Profiles for vSphere and their associated settings"
 }

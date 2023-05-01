@@ -28,22 +28,22 @@ variable "vcf_domain" {
 
 variable "csp_api_token" {
   type        = string
-  description = "API token from the vRealize Automation endpoint"
+  description = "API token for the VMware Aria Automation endpoint"
   sensitive   = true
 }
 
 variable "cep_server" {
   type        = string
-  description = "The FQDN of the Cloud Extensibility Proxy"
+  description = "FQDN of the Cloud Extensibility Proxy"
 }
 
 variable "orchestrator_service_account" {
   type        = string
-  description = "The target Aria Automation Orchestrator service account. (e.g. svc-vao-vsphere@sfo.rainpole.io)"
+  description = "Target Aria Automation Orchestrator service account. (e.g. svc-vao-vsphere@sfo.rainpole.io)"
 }
 
 variable "orchestrator_service_password" {
   type        = string
-  description = "The target Aria Automation Orchestrator service account password"
+  description = "Target Aria Automation Orchestrator service account password"
   sensitive   = true
 }

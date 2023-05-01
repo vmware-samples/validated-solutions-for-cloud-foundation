@@ -36,36 +36,6 @@ Param (
 
 #Region    Supporting Functions
 
-# Function checkPowerValidatedSolutions {
-#     Try  {
-#         $powerValidatedSolutionsModulePresent = Get-InstalledModule -Name "PowerValidatedSolutions" -ErrorAction SilentlyContinue
-#         if (!($powerValidatedSolutionsModulePresent)) {
-#             Write-Warning "PowerShell Module 'PowerValidatedSolutions' Not Installed. Attempting to Install.."
-#             Install-Module -Name "PowerValidatedSolutions"
-#         } else {
-#             Write-LogMessage -Type INFO -Message "Checking if PowerShell Module 'PowerValidatedSolutions' is Installed"
-#             Write-LogMessage -Type INFO -Message "Found PowerShell Module 'PowerValidatedSolutions'" -Colour Green
-#         }
-#     } Catch {
-#         Write-Error $_.Exception.Message
-#     }
-# }
-
-# Function checkPowerShellModule ($moduleName) {
-#     Try  {
-#         $modulePresent = Get-InstalledModule -Name $moduleName -ErrorAction SilentlyContinue
-#         if (!($modulePresent)) {
-#             Write-LogMessage -Type INFO -Message "PowerShell Module '$moduleName' Not Installed. Attempting to Install.."
-#             Install-Module -Name $moduleName
-#         } else {
-#             Write-LogMessage -Type INFO -Message "Checking if PowerShell Module '$moduleName' is Installed"
-#             Write-LogMessage -Type INFO -Message "Found PowerShell Module '$moduleName'" -Colour Green
-#         }
-#     } Catch {
-#         Write-Error $_.Exception.Message
-#     }
-# }
-
 Function Test-CbaMenuPrereq {
     <#
 		.SYNOPSIS
@@ -83,7 +53,7 @@ Function Test-CbaMenuPrereq {
         Clear-Host; Write-Host ""
 
         $modules = @(
-            @{ Name=("VMware.PowerCLI"); MinimumVersion=("12.7.0")}
+            @{ Name=("VMware.PowerCLI"); MinimumVersion=("13.0.0")}
             @{ Name=("VMware.vSphere.SsoAdmin"); MinimumVersion=("1.3.9")}
             @{ Name=("PowerVCF"); MinimumVersion=("2.3.0")}
             @{ Name=("PowerValidatedSolutions"); MinimumVersion=("2.2.0")}
@@ -91,18 +61,18 @@ Function Test-CbaMenuPrereq {
 
         foreach ($module in $modules ) {
             if ((Get-InstalledModule -ErrorAction SilentlyContinue -Name $module.Name).Version -lt $module.MinimumVersion) {
-                $message = "PowerShell Module: $($module.Name) $($module.MinimumVersion) minimum required version is not installed."
+                $message = "PowerShell Module: $($module.Name) $($module.MinimumVersion) minimum required version is not installed"
                 Show-CbaMenuLogMessage -type ERROR -message $message
-                Update-Module -Name $module.Name -RequiredVersion $module.MinimumVersion
-                $message = "PowerShell Module: $($module.Name) Updating to $($module.MinimumVersion) the minimum required version."
-                Show-CbaMenuLogMessage -type INFO -message $message
+                $failedPrereq = "True"
             } else {
                 $moduleCurrentVersion = (Get-InstalledModule -Name $module.Name).Version
-                $message = "PowerShell Module: $($module.Name) $($moduleCurrentVersion) is installed and supports the minimum required version."
+                $message = "PowerShell Module: $($module.Name) $($moduleCurrentVersion) is installed and supports the minimum required version"
                 Show-CbaMenuLogMessage -type INFO -message $message
             }
         }
-        anyKey 
+        if ($failedPrereq -eq $true) {
+            Break
+        }
     }
     Catch {
         Write-Error $_.Exception.Message
