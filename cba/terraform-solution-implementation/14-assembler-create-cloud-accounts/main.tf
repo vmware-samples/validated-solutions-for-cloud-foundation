@@ -12,12 +12,14 @@ provider "vra" {
 # DATA
 ##################################################################################
 
-data "vra_data_collector" "dc" {
+// Cloud Proxy Details
+
+data "vra_data_collector" "data_collector" {
   count = var.cloud_proxy != "" ? 1 : 0
   name  = var.cloud_proxy
 }
 
-// Cloud Assembly
+// Aria Automation Assembler
 
 data "vra_cloud_account_vsphere" "this" {
   depends_on = [vra_cloud_account_vsphere.this]
@@ -37,7 +39,7 @@ data "vra_region_enumeration_vsphere" "this" {
   username                = each.value["username"]
   password                = each.value["password"]
   hostname                = each.value["hostname"]
-  dcid                    = var.cloud_proxy != "" ? data.vra_data_collector.dc[0].id : ""
+  dc_id                   = var.cloud_proxy != "" ? data.vra_data_collector.data_collector[0].id : ""
   accept_self_signed_cert = var.accept_self_signed
 }
 
@@ -54,7 +56,7 @@ resource "vra_cloud_account_vsphere" "this" {
   username                     = each.value["username"]
   password                     = each.value["password"]
   hostname                     = each.value["hostname"]
-  dcid                         = var.cloud_proxy != "" ? data.vra_data_collector.dc[0].id : ""
+  dc_id                         = var.cloud_proxy != "" ? data.vra_data_collector.data_collector[0].id : ""
   regions                      = data.vra_region_enumeration_vsphere.this[each.key].regions
   associated_cloud_account_ids = [vra_cloud_account_nsxt.this[each.key].id]
   accept_self_signed_cert      = var.accept_self_signed
@@ -71,7 +73,7 @@ resource "vra_cloud_account_nsxt" "this" {
   username                = each.value["username"]
   password                = each.value["password"]
   hostname                = each.value["hostname"]
-  dc_id                   = var.cloud_proxy != "" ? data.vra_data_collector.dc[0].id : ""
+  dc_id                   = var.cloud_proxy != "" ? data.vra_data_collector.data_collector[0].id : ""
   accept_self_signed_cert = var.accept_self_signed
   tags {
     key   = "cloud"

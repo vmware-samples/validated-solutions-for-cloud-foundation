@@ -13,6 +13,7 @@
     .CHANGE_LOG
 
     - 1.1.0 (Gary Blake / 2023-04-28) - Updated for VMware Aria Automation Branding
+                                        Improvements to PowerShell prerequisite checking
 
     ===============================================================================================================
     .SYNOPSIS
@@ -35,33 +36,105 @@ Param (
 
 #Region    Supporting Functions
 
-Function checkPowerValidatedSolutions {
-    Try  {
-        $powerValidatedSolutionsModulePresent = Get-InstalledModule -Name "PowerValidatedSolutions" -ErrorAction SilentlyContinue
-        if (!($powerValidatedSolutionsModulePresent)) {
-            Write-Warning "PowerShell Module 'PowerValidatedSolutions' Not Installed. Attempting to Install.."
-            Install-Module -Name "PowerValidatedSolutions"
-        } else {
-            Write-LogMessage -Type INFO -Message "Checking if PowerShell Module 'PowerValidatedSolutions' is Installed"
-            Write-LogMessage -Type INFO -Message "Found PowerShell Module 'PowerValidatedSolutions'" -Colour Green
+# Function checkPowerValidatedSolutions {
+#     Try  {
+#         $powerValidatedSolutionsModulePresent = Get-InstalledModule -Name "PowerValidatedSolutions" -ErrorAction SilentlyContinue
+#         if (!($powerValidatedSolutionsModulePresent)) {
+#             Write-Warning "PowerShell Module 'PowerValidatedSolutions' Not Installed. Attempting to Install.."
+#             Install-Module -Name "PowerValidatedSolutions"
+#         } else {
+#             Write-LogMessage -Type INFO -Message "Checking if PowerShell Module 'PowerValidatedSolutions' is Installed"
+#             Write-LogMessage -Type INFO -Message "Found PowerShell Module 'PowerValidatedSolutions'" -Colour Green
+#         }
+#     } Catch {
+#         Write-Error $_.Exception.Message
+#     }
+# }
+
+# Function checkPowerShellModule ($moduleName) {
+#     Try  {
+#         $modulePresent = Get-InstalledModule -Name $moduleName -ErrorAction SilentlyContinue
+#         if (!($modulePresent)) {
+#             Write-LogMessage -Type INFO -Message "PowerShell Module '$moduleName' Not Installed. Attempting to Install.."
+#             Install-Module -Name $moduleName
+#         } else {
+#             Write-LogMessage -Type INFO -Message "Checking if PowerShell Module '$moduleName' is Installed"
+#             Write-LogMessage -Type INFO -Message "Found PowerShell Module '$moduleName'" -Colour Green
+#         }
+#     } Catch {
+#         Write-Error $_.Exception.Message
+#     }
+# }
+
+Function Test-CbaMenuPrereq {
+    <#
+		.SYNOPSIS
+        Validate prerequisites to run the PowerShell module
+
+        .DESCRIPTION
+        The Test-CbaMenuPrereq cmdlet checks that all the prerequisites have been met to run the PowerShell module
+
+        .EXAMPLE
+        Test-CbaMenuPrereq
+        This example runs the prerequisite validation
+    #>
+
+    Try {
+        Clear-Host; Write-Host ""
+
+        $modules = @(
+            @{ Name=("VMware.PowerCLI"); MinimumVersion=("12.7.0")}
+            @{ Name=("VMware.vSphere.SsoAdmin"); MinimumVersion=("1.3.9")}
+            @{ Name=("PowerVCF"); MinimumVersion=("2.3.0")}
+            @{ Name=("PowerValidatedSolutions"); MinimumVersion=("2.2.0")}
+        )
+
+        foreach ($module in $modules ) {
+            if ((Get-InstalledModule -ErrorAction SilentlyContinue -Name $module.Name).Version -lt $module.MinimumVersion) {
+                $message = "PowerShell Module: $($module.Name) $($module.MinimumVersion) minimum required version is not installed."
+                Show-CbaMenuLogMessage -type ERROR -message $message
+                Update-Module -Name $module.Name -RequiredVersion $module.MinimumVersion
+                $message = "PowerShell Module: $($module.Name) Updating to $($module.MinimumVersion) the minimum required version."
+                Show-CbaMenuLogMessage -type INFO -message $message
+            } else {
+                $moduleCurrentVersion = (Get-InstalledModule -Name $module.Name).Version
+                $message = "PowerShell Module: $($module.Name) $($moduleCurrentVersion) is installed and supports the minimum required version."
+                Show-CbaMenuLogMessage -type INFO -message $message
+            }
         }
-    } Catch {
+        anyKey 
+    }
+    Catch {
         Write-Error $_.Exception.Message
     }
 }
 
-Function checkPowerShellModule ($moduleName) {
-    Try  {
-        $modulePresent = Get-InstalledModule -Name $moduleName -ErrorAction SilentlyContinue
-        if (!($modulePresent)) {
-            Write-LogMessage -Type INFO -Message "PowerShell Module '$moduleName' Not Installed. Attempting to Install.."
-            Install-Module -Name $moduleName
-        } else {
-            Write-LogMessage -Type INFO -Message "Checking if PowerShell Module '$moduleName' is Installed"
-            Write-LogMessage -Type INFO -Message "Found PowerShell Module '$moduleName'" -Colour Green
-        }
-    } Catch {
-        Write-Error $_.Exception.Message
+Function Show-CbaMenuLogMessage {
+    Param (
+        [Parameter (Mandatory = $true)] [AllowEmptyString()] [String]$message,
+        [Parameter (Mandatory = $false)] [ValidateSet("INFO", "ERROR", "WARNING", "EXCEPTION","ADVISORY","NOTE","QUESTION","WAIT")] [String]$type = "INFO",
+        [Parameter (Mandatory = $false)] [Switch]$skipnewline
+    )
+
+    If ($type -eq "INFO") {
+        $messageColour = "92m" #Green
+    } elseIf ($type -in "ERROR","EXCEPTION") {
+        $messageColour = "91m" # Red
+    } elseIf ($type -in "WARNING","ADVISORY","QUESTION") {
+        $messageColour = "93m" #Yellow
+    } elseIf ($type -in "NOTE","WAIT") {
+        $messageColour = "97m" # White
+    }
+
+    $ESC = [char]0x1b
+    $timestampColour = "97m"
+
+    $timeStamp = Get-Date -Format "MM-dd-yyyy_HH:mm:ss"
+
+    If ($skipnewline) {
+        Write-Host -NoNewline "$ESC[${timestampcolour} [$timestamp]$ESC[${threadColour} $ESC[${messageColour} [$type] $message$ESC[0m"
+    } else {
+        Write-Host "$ESC[${timestampcolour} [$timestamp]$ESC[${threadColour} $ESC[${messageColour} [$type] $message$ESC[0m"
     }
 }
 
@@ -117,6 +190,10 @@ Function executeTerraformPlan {
         Debug-CatchWriter -object $_
     }
 }
+
+#EndRegion Supporting Functions
+
+#Region     Solution Implementation
 
 Function createCbaVsphereRoles {
     Param (
@@ -520,11 +597,11 @@ Function configureCbaCloudZone {
             } | Set-Content -Path "$planPath\terraform.tfvars"
             
             executeTerraformPlan -planDirectory $planPath -planOnly
-            Request-CSPToken -apiToken $($pnpWorkbook.Workbook.Names["csp_api_token"].Value) -environment staging | Out-Null
-            $uri = "https://api.staging.symphony-dev.com/iaas/api/zones"
+            Request-CSPToken -apiToken $($pnpWorkbook.Workbook.Names["csp_api_token"].Value) -environment production | Out-Null
+            $uri = "https://api.mgmt.cloud.vmware.com/iaas/api/zones"
             $cloudZoneId = ((Invoke-RestMethod -Method 'GET' -Uri $uri -Headers $cspHeader).content | Where-Object {$_.name -eq $($pnpWorkbook.Workbook.Names["wld_vc_hostname"].Value)}).id
             $terraformOutput = Invoke-Expression "terraform import vra_zone.cloud_zone_update $cloudZoneId"
-            $uri = "https://api.staging.symphony-dev.com/iaas/api/fabric-computes"
+            $uri = "https://api.mgmt.cloud.vmware.com/iaas/api/fabric-computes"
             $resourcePoolId = ((Invoke-RestMethod -Method 'GET' -Uri $uri -Headers $cspHeader).content | Where-Object {$_.name -eq $($pnpWorkbook.Workbook.Names["wld_cluster"].Value + " / " + $pnpWorkbook.Workbook.Names["wld_vmc_vm_rp"].Value)}).id
             $terraformOutput = Invoke-Expression "terraform import vra_fabric_compute.resource_pool $resourcePoolId"
             Close-ExcelPackage $pnpWorkbook -NoSave -ErrorAction SilentlyContinue
@@ -532,6 +609,10 @@ Function configureCbaCloudZone {
         }
     }
 }
+
+#EndRegion  Solution Implementation
+
+#Region     Menu
 
 Function CBATerraformMenu { 
     Param (
@@ -587,100 +668,100 @@ Function CBATerraformMenu {
         {
             1 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem01
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem01
                 $StatusMsg = createCbaVsphereRoles -planPath ($parentPath + "\terraform-solution-implementation\01-vsphere-roles-automation-assembler") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             2 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem02
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem02
                 $StatusMsg = createCbaApplianceFolder -planPath ($parentPath + "\terraform-solution-implementation\02-vsphere-folders-appliance-management") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             3 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem03
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem03
                 $StatusMsg = createCbaWorkloadFolders -planPath ($parentPath + "\terraform-solution-implementation\03-vsphere-folders-managed-workloads") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             4 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem04
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem04
                 $StatusMsg = applyCbaGlobalPermissions -planPath ($parentPath + "\terraform-solution-implementation\04-vsphere-permissions-apply-global") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             5 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem05
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem05
                 $StatusMsg = applyCbaMgmtRestrictions -planPath ($parentPath + "\terraform-solution-implementation\05-vsphere-permissions-restrict-vcenters") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             6 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem06
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem06
                 $StatusMsg = applyCbaWldRestrictions -planPath ($parentPath + "\terraform-solution-implementation\06-vsphere-permissions-restrict-folders") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             7 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem07
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem07
                 $StatusMsg = applyCbaNsxPermissions -planPath ($parentPath + "\terraform-solution-implementation\07-nsx-permissions-apply-role") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             8 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem08
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem08
                 $StatusMsg = deployCbaProxy -planPath ($parentPath + "\terraform-solution-implementation\08-assembler-deploy-cloud-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             9 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem09
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem09
                 $StatusMsg = deployCbaExtensibilityProxy -planPath ($parentPath + "\terraform-solution-implementation\09-assembler-deploy-cloud-extensibility-proxy") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             10 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem10
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem10
                 $StatusMsg = importCbaTrustedCertificate -planPath ($parentPath + "\terraform-solution-implementation\10-orchestrator-import-trusted-certificate") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             12 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem12
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem12
                 $StatusMsg = importCbaWldVcenter -planPath ($parentPath + "\terraform-solution-implementation\12-orchestrator-add-vcenter-server") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             13 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem13
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem13
                 $StatusMsg = createCbaAvailabilityZoneGroup -planPath ($parentPath + "\terraform-solution-implementation\13-vsphere-drs-az-vm-group") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             14 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem14
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem14
                 $StatusMsg = createCbaCloudAccounts -planPath ($parentPath + "\terraform-solution-implementation\14-assembler-create-cloud-accounts") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             15 {
                 Clear-Host
-                Write-Host ""; Write-LogMessage -Type INFO -Message $menuitem15
+                Write-Host ""; Show-CbaMenuLogMessage -Type INFO -Message $menuitem15
                 $StatusMsg = configureCbaCloudZone -planPath ($parentPath + "\terraform-solution-implementation\15-assembler-cloud-zone-config") -Workbook $workbook -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -WarningVariable WarnMsg -ErrorVariable ErrorMsg
-                if ( $StatusMsg ) { Write-LogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Write-LogMessage -Type WARNING -Message $WarnMsg -Colour Magenta } if ( $ErrorMsg ) { Write-LogMessage -Type ERROR -Message $ErrorMsg -Colour Red }
+                if ( $StatusMsg ) { Show-CbaMenuLogMessage -Type INFO -Message "$StatusMsg" } if ( $WarnMsg ) { Show-CbaMenuLogMessage -Type WARNING -Message $WarnMsg } if ( $ErrorMsg ) { Show-CbaMenuLogMessage -Type ERROR -Message $ErrorMsg }
                 anyKey
             }
             Q {
@@ -691,34 +772,40 @@ Function CBATerraformMenu {
     Until ($MenuInput -eq 'q')
 }
 
-#EndRegion Supporting Functions
+#EndRegion  Menu
+
+#Region     Main Script
 
 $solutionName = "Cloud-Based Automation"
 Clear-Host; Write-Host ""
 
-checkPowerValidatedSolutions                                # Check that PowerValidatedSolutions PowerShell module is installed, attempt to install if not found
+Test-CbaMenuPrereq
+
+# checkPowerValidatedSolutions                                # Check that PowerValidatedSolutions PowerShell module is installed, attempt to install if not found
 
 Start-SetupLogFile -Path $parentPath -ScriptName $MyInvocation.MyCommand.Name
-checkPowerShellModule -moduleName VMware.PowerCLI           # Check that VMware.PowerCLI PowerShell module is installed, attempt to install if not found
-checkPowerShellModule -moduleName ImportExcel               # Check that ImportExcel PowerShell module is installed, attempt to install if not found
-checkPowerShellModule -moduleName WriteAscii                # Check that WriteAscii PowerShell module is installed, attempt to install if not found
-checkPowerShellModule -moduleName PowerVCF                  # Check that PowerVCF PowerShell module is installed, attempt to install if not found
-checkPowerShellModule -moduleName VMware.vSphere.SsoAdmin   # Check that VMware.vSphere.SsoAdmin PowerShell module is installed, attempt to install if not found
+# checkPowerShellModule -moduleName VMware.PowerCLI           # Check that VMware.PowerCLI PowerShell module is installed, attempt to install if not found
+# checkPowerShellModule -moduleName ImportExcel               # Check that ImportExcel PowerShell module is installed, attempt to install if not found
+# checkPowerShellModule -moduleName WriteAscii                # Check that WriteAscii PowerShell module is installed, attempt to install if not found
+# checkPowerShellModule -moduleName PowerVCF                  # Check that PowerVCF PowerShell module is installed, attempt to install if not found
+# checkPowerShellModule -moduleName VMware.vSphere.SsoAdmin   # Check that VMware.vSphere.SsoAdmin PowerShell module is installed, attempt to install if not found
 
-Write-LogMessage -Type INFO -Message "Starting the Process of Loading the Terraform Menu for Cloud-Based Automation for VMWare Cloud Foundation" -Colour Yellow
-Write-LogMessage -Type INFO -Message "Setting up the log file to path $parentPath"
+Show-CbaMenuLogMessage -Type INFO -Message "Starting the Process of Loading the Terraform Menu for Cloud-Based Automation for VMWare Cloud Foundation"
+Show-CbaMenuLogMessage -Type INFO -Message "Setting up the log file to path $parentPath"
 
 Try {
-    Write-LogMessage -Type INFO -Message "Checking Existance of Planning and Preparation Workbook: $workbook"
+    Show-CbaMenuLogMessage -Type INFO -Message "Checking Existance of Planning and Preparation Workbook: $workbook"
     if (!(Test-Path -Path $workbook )) {
-        Write-LogMessage -Type ERROR -Message "Unable to Find Planning and Preparation Workbook: $workbook, check details and try again" -Colour Red
+        Show-CbaMenuLogMessage -Type ERROR -Message "Unable to Find Planning and Preparation Workbook: $workbook, check details and try again"
         Break
     }
     else {
-        Write-LogMessage -Type INFO -Message "Found Planning and Preparation Workbook: $workbook"
+        Show-CbaMenuLogMessage -Type INFO -Message "Found Planning and Preparation Workbook: $workbook"
     }
     CBATerraformMenu -solutionName $solutionName
 }
 Catch {
     Debug-CatchWriter -object $_
 }
+
+#EndRegion  Main Script

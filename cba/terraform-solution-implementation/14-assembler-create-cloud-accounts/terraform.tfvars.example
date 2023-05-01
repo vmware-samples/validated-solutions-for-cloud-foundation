@@ -14,7 +14,7 @@ cloud_accounts_vsphere = {
   account0 = {
     name        = "sfo-w01-vc01"
     hostname    = "sfo-w01-vc01.sfo.rainpole.io"
-    username    = "svc-ca-vsphere@sfo.rainpole.io"
+    username    = "svc-vaa-vsphere@sfo.rainpole.io"
     password    = "VMw@re1!"
     region      = "Datacenter:datacenter-3"
     description = "San Francisco - Workload Domain 01"
@@ -29,7 +29,7 @@ cloud_accounts_nsx = {
   account0 = {
     name        = "sfo-w01-nsx01"
     hostname    = "sfo-w01-nsx01.sfo.rainpole.io"
-    username    = "svc-ca-nsx@sfo.rainpole.io"
+    username    = "svc-vaa-nsx@sfo.rainpole.io"
     password    = "VMw@re1!"
     description = "San Francisco - Workload Domain 01"
     tag_region   = "sfo-w01"
@@ -37,4 +37,4 @@ cloud_accounts_nsx = {
 }
 
 accept_self_signed = true
-cloud_proxy        = "sfo-vmc-cdp01"
+cloud_proxy        = "sfo-cba-cdp01"

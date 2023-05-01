@@ -35,7 +35,7 @@ variable "cloud_accounts_vsphere" {
     tag_region  = string
     association = list(string)
   }))
-  description = "A mapping of objects for vCenter Server cloud accounts and their associated settings."
+  description = "A mapping of objects for vCenter Server Cloud Account and their associated settings"
 }
 
 variable "cloud_accounts_nsx" {
@@ -47,7 +47,7 @@ variable "cloud_accounts_nsx" {
     password    = string
     tag_region   = string
   }))
-  description = "A mapping of objects for NSX Manager cloud accounts and their associated settings."
+  description = "A mapping of objects for NSX Manager Cloud Account and their associated settings"
 }
 
 variable "accept_self_signed" {

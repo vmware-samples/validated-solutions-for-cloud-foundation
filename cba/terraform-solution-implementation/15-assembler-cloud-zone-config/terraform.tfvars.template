@@ -2,7 +2,7 @@
 # VARIABLES
 ##################################################################################
 
-aria_automation_url       = "https://api.staging.symphony-dev.com"
+aria_automation_url       = "https://api.mgmt.cloud.vmware.com"
 aria_automation_api_token = "<!--REPLACE WITH CSP TOKEN-->"
 aria_automation_insecure  = false
 
