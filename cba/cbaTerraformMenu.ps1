@@ -50,13 +50,12 @@ Function Test-CbaMenuPrereq {
     #>
 
     Try {
-        Clear-Host; Write-Host ""
-
         $modules = @(
-            @{ Name=("VMware.PowerCLI"); MinimumVersion=("13.0.0")}
+            @{ Name=("VMware.PowerCLI"); MinimumVersion=("12.7.0")}
             @{ Name=("VMware.vSphere.SsoAdmin"); MinimumVersion=("1.3.9")}
             @{ Name=("PowerVCF"); MinimumVersion=("2.3.0")}
             @{ Name=("PowerValidatedSolutions"); MinimumVersion=("2.2.0")}
+            @{ Name=("WriteAscii"); MinimumVersion=("1.2.2")}
         )
 
         foreach ($module in $modules ) {
@@ -126,32 +125,39 @@ Function executeTerraformPlan {
         $env:path = $origEnvPath+";C:\Users\All Users\chocolatey\bin"
         Set-Location -Path $planDirectory
         if (!(Test-Path -Path ".terraform.lock.hcl")) {
+            Show-CbaMenuLogMessage -type INFO -message "Installing the Terrform Providers (terraform init)"
             $terraformOutput = Invoke-Expression "terraform init"
+        } else {
+            Show-CbaMenuLogMessage -type NOTE -message "Installing the Terrform Providers (terraform init), already installed : SKIPPED"
         }
 
         if ($PsBoundParameters.ContainsKey("skipCheck")) {
+            Show-CbaMenuLogMessage -type NOTE -message "Generating Terraform Plan (terraform plan -out=tfplan)"
             $terraformOutput += Invoke-Expression "terraform plan -out=tfplan"
+            Show-CbaMenuLogMessage -type NOTE -message "Applying Terraform Plan (terraform apply tfplan)"
             $terraformOutput += Invoke-Expression "terraform apply tfplan" 
             $terraformOutput | Out-File "terraform-output.log"
-            Write-Output "Attempting to apply Terraform plan '$($($planDirectory.Split('\')[-1]))', $(($terraformOutput | Select-String -Pattern "Apply complete")[-1]): SUCCESSFUL"
+            Show-CbaMenuLogMessage -type INFO -message "Attempting to apply Terraform plan ($($($planDirectory.Split('\')[-1]))), $(($terraformOutput | Select-String -Pattern "Apply complete")[-1]): SUCCESSFUL"
         } else {
             if (!(Test-Path -Path "terraform.tfstate")) {
                 if (Test-Path -Path "tfplan") {
                     Remove-Item "tfplan" -Confirm:$false
                 }
+                Show-CbaMenuLogMessage -type NOTE -message "Generating Terraform Plan (terraform plan -out=tfplan)"
                 $terraformOutput += Invoke-Expression "terraform plan -out=tfplan"
                 if ($PsBoundParameters.ContainsKey("planOnly")) {
                     return
                 }
+                Show-CbaMenuLogMessage -type NOTE -message "Applying Terraform Plan (terraform apply tfplan)"
                 $terraformOutput += Invoke-Expression "terraform apply tfplan" 
                 $terraformOutput | Out-File "terraform-output.log"
                 if (Test-Path -Path "terraform.tfstate") {
-                    Write-Output "Attempting to apply Terraform plan '$($($planDirectory.Split('\')[-1]))', $(($terraformOutput | Select-String -Pattern "Apply complete")[-1]): SUCCESSFUL"
+                    Show-CbaMenuLogMessage -type INFO -message "Attempting to apply Terraform plan ($($($planDirectory.Split('\')[-1]))), $(($terraformOutput | Select-String -Pattern "Apply complete")[-1]): SUCCESSFUL"
                 } else {
-                    Write-Error "Attempting to apply Terraform plan '$($($planDirectory.Split('\')[-1]))', see 'terraform-output.log': PRE_VALIDATION_FAILED"
+                    Show-CbaMenuLogMessage -type ERROR -message "Attempting to apply Terraform plan ($($($planDirectory.Split('\')[-1]))), see 'terraform-output.log': PRE_VALIDATION_FAILED"
                 }
             } else {
-                Write-Warning "Attempting to apply Terraform plan '$($($planDirectory.Split('\')[-1]))', already applied: SKIPPED"
+                Show-CbaMenuLogMessage -type NOTE -message "Attempting to apply Terraform plan ($($($planDirectory.Split('\')[-1]))), already applied: SKIPPED"
             }
         }
         $env:path = $origEnvPath
@@ -563,7 +569,7 @@ Function configureCbaCloudZone {
                 -replace '<!--REPLACE WITH CSP TOKEN-->',$pnpWorkbook.Workbook.Names["csp_api_token"].Value `
                 -replace '<!--REPLACE WITH WORKLOAD VCENTER HOSTNAME-->',$pnpWorkbook.Workbook.Names["wld_vc_hostname"].Value `
                 -replace '<!--REPLACE WITH WORKLOAD FOLDER-->',$pnpWorkbook.Workbook.Names["wld_vmc_vm_folder"].Value `
-                -replace '<!--REPLACE WITH CLOUD ASSEMBLY FABRIC NAME-->',($pnpWorkbook.Workbook.Names["wld_cluster"].Value + " / " + $pnpWorkbook.Workbook.Names["wld_vmc_vm_rp"].Value) `
+                -replace '<!--REPLACE WITH ARIA AUTOMATION ASSEMBLER FABRIC NAME-->',($pnpWorkbook.Workbook.Names["wld_cluster"].Value + " / " + $pnpWorkbook.Workbook.Names["wld_vmc_vm_rp"].Value) `
             } | Set-Content -Path "$planPath\terraform.tfvars"
             
             executeTerraformPlan -planDirectory $planPath -planOnly
@@ -746,24 +752,15 @@ Function CBATerraformMenu {
 
 #Region     Main Script
 
-$solutionName = "Cloud-Based Automation"
-Clear-Host; Write-Host ""
-
-Test-CbaMenuPrereq
-
-# checkPowerValidatedSolutions                                # Check that PowerValidatedSolutions PowerShell module is installed, attempt to install if not found
-
-Start-SetupLogFile -Path $parentPath -ScriptName $MyInvocation.MyCommand.Name
-# checkPowerShellModule -moduleName VMware.PowerCLI           # Check that VMware.PowerCLI PowerShell module is installed, attempt to install if not found
-# checkPowerShellModule -moduleName ImportExcel               # Check that ImportExcel PowerShell module is installed, attempt to install if not found
-# checkPowerShellModule -moduleName WriteAscii                # Check that WriteAscii PowerShell module is installed, attempt to install if not found
-# checkPowerShellModule -moduleName PowerVCF                  # Check that PowerVCF PowerShell module is installed, attempt to install if not found
-# checkPowerShellModule -moduleName VMware.vSphere.SsoAdmin   # Check that VMware.vSphere.SsoAdmin PowerShell module is installed, attempt to install if not found
-
-Show-CbaMenuLogMessage -Type INFO -Message "Starting the Process of Loading the Terraform Menu for Cloud-Based Automation for VMWare Cloud Foundation"
-Show-CbaMenuLogMessage -Type INFO -Message "Setting up the log file to path $parentPath"
-
 Try {
+    $solutionName = "Cloud-Based Automation"
+    Clear-Host; Write-Host ""
+
+    Test-CbaMenuPrereq
+    Start-SetupLogFile -Path $parentPath -ScriptName $MyInvocation.MyCommand.Name
+
+    Show-CbaMenuLogMessage -Type INFO -Message "Starting the Process of Loading the Terraform Menu for Cloud-Based Automation for VMWare Cloud Foundation"
+    Show-CbaMenuLogMessage -Type INFO -Message "Setting up the log file to path $parentPath"
     Show-CbaMenuLogMessage -Type INFO -Message "Checking Existance of Planning and Preparation Workbook: $workbook"
     if (!(Test-Path -Path $workbook )) {
         Show-CbaMenuLogMessage -Type ERROR -Message "Unable to Find Planning and Preparation Workbook: $workbook, check details and try again"
