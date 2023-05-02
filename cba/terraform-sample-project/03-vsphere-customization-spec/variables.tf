@@ -6,36 +6,41 @@
 
 variable "vsphere_server" {
   type        = string
-  description = "The fully qualified domain name or IP address of the vCenter Server instance. (e.g. sfo-m01-vc01.sfo.rainpole.io)"
+  description = "Fully qualified domain name or IP address of the vCenter Server instance. (e.g. sfo-m01-vc01.sfo.rainpole.io)"
 }
 
 variable "vsphere_username" {
   type        = string
-  description = "The username to login to the vCenter Server instance. (e.g administrator@vsphere.local)"
+  description = "Username to login to the vCenter Server instance. (e.g administrator@vsphere.local)"
   default     = "administrator@vsphere.local"
 }
 
 variable "vsphere_password" {
   type        = string
-  description = "The password for the login to the vCenter Server instance."
+  description = "Password for the user to login to the vCenter Server instance"
 }
 
 variable "customization_name" {
-  type = string
+  type        = string
+  description = "Name of the vSphere VM Customization Specification"
 }
 
 variable "customization_description" {
   type = string
+  description = "Decription for the vSphere VM Customization Specification"
 }
 
 variable "customization_type" {
   type = string
+  description = "Target Operating System for the vSphere VM Customization Specification"
 }
 
 variable "customization_domain" {
   type = string
+  description = "Target domain for the vSphere VM Customization Specification"
 }
 
 variable "customization_timezone" {
   type = string
+  description = "Target timezone for the vSphere VM Customization Specification"
 }

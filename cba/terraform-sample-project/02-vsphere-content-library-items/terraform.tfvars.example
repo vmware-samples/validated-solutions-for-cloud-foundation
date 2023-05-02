@@ -6,12 +6,12 @@
 
 vsphere_server          = "sfo-w01-vc01.sfo.rainpole.io"
 vsphere_username        = "administrator@vsphere.local"
-vsphere_password        = "********************"
+vsphere_password        = "VMw@re1!"
 vsphere_insecure        = false
 
 # Content Library Settings
 
-content_library_name    = "sfo-vmc-lib01"
+content_library_name    = "sfo-cba-lib01"
 content_library_items   = {
   item0 = {
     name                = "photon-4.0"

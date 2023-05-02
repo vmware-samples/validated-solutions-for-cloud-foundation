@@ -6,24 +6,24 @@
 
 variable "vsphere_server" {
   type        = string
-  description = "The fully qualified domain name or IP address of the vCenter Server instance. (e.g. sfo-w01-vc01.sfo.rainpole.io)"
+  description = "Fully qualified domain name or IP address of the vCenter Server instance. (e.g. sfo-w01-vc01.sfo.rainpole.io)"
 }
 
 variable "vsphere_username" {
   type        = string
-  description = "The username to login to the vCenter Server instance. (e.g administrator@vsphere.local)"
+  description = "Username to login to the vCenter Server instance. (e.g administrator@vsphere.local)"
   default     = "administrator@vsphere.local"
 }
 
 variable "vsphere_password" {
   type        = string
-  description = "The password for the login to the vCenter Server instance."
+  description = "Password for user to login to the vCenter Server instance"
   sensitive   = true
 }
 
 variable "vsphere_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
@@ -31,7 +31,7 @@ variable "vsphere_insecure" {
 
 variable "content_library_name" {
   type        = string
-  description = "The target vSphere Content Library object name. (e.g. sfo-w01-lib01)"
+  description = "Ttarget vSphere Content Library object name. (e.g. sfo-cba-lib01)"
 }
 
 variable "content_library_items" {
@@ -40,5 +40,5 @@ variable "content_library_items" {
     description = string
     file_url    = string
   }))
-  description = "The machine images to load into the vSphere Content Library."
+  description = "Machine images to load into the vSphere Content Library"
 }

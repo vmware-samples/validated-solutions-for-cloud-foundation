@@ -2,7 +2,7 @@
 
 # Create a Customization Specification for Photon Operating Systems
 
-Create a customization specification for the Photon Operating System, for use by the virtual machine images you deploy. You can use the customization specifications when you create cloud templates in Cloud Assembly.
+Create a customization specification for the Photon Operating System, for use by the virtual machine images you deploy. You can use the customization specifications when you create cloud templates in VMware Aria Automation Assembler.
 
 ## UI Procedure
 
@@ -82,4 +82,4 @@ Create a customization specification for the Photon Operating System, for use by
 
 [Back: Import Photon OS OVF Images to the Publishing Content Library](2-import-photon-template.md)
 
-[Next: Configure Flavor Mappings in Cloud Assembly](4-configure-flavour-mappings.md)
+[Next: Configure Flavor Mappings in VMware Aria Automation Assembler](4-configure-flavour-mappings.md)

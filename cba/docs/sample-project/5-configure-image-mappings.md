@@ -1,6 +1,6 @@
 [Back: Home](README.md)
 
-# Configure Image Mappings in Cloud Assembly
+# Configure Image Mappings in VMware Aria Automation Assembler
 
 You configure image mappings for images in content libraries.
 
@@ -8,8 +8,8 @@ In the sample, the following image mappings are used:
 
 | Name            | Account / Region                        | Content Library / Image         |
 | :-              | :-                                      | :-                              |
-| photon-4.0      | sfo-w01-vc01 / Datacenter:datacenter-3  | sfo-vmc-lib01 / photon-4.0      |
-| photon-4.0-uefi | sfo-w01-vc01 / Datacenter:datacenter-3  | sfo-vmc-lib01 / photon-4.0-uefi |
+| photon-4.0      | sfo-w01-vc01 / Datacenter:datacenter-3  | sfo-cba-lib01 / photon-4.0      |
+| photon-4.0-uefi | sfo-w01-vc01 / Datacenter:datacenter-3  | sfo-cba-lib01 / photon-4.0-uefi |
 
 ## UI Procedure
 
@@ -17,11 +17,11 @@ In the sample, the following image mappings are used:
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Service Broker** card click **Launch Service**.
+3. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-4. Click the **Infrastructure** tab.
+4. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile.
 
-5. In the left pane, select **Configure > Image mappings**.
+5. Click the **Infrastructure** tab and, in the left pane, select **Configure > Image mappings**.
 
 6. Click **New image mapping**, configure these settings.
 
@@ -29,7 +29,7 @@ In the sample, the following image mappings are used:
    | :-                    | :-                                      |
    | Image name            | photon-4.0                              |
    | Account / region      | sfo-w01-vc01 / Datacenter:datacenter-3  |
-   | Image                 | sfo-vmc-lib01 / photon-4.0              |
+   | Image                 | sfo-cba-lib01 / photon-4.0              |
    | Constraints           | -                                       |
    | Cloud configuration   | -                                       |
 
@@ -42,7 +42,7 @@ In the sample, the following image mappings are used:
 1. Navigate to the Terraform example in the repository.
 
    ```bash
-   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/05-cloud-assembly-image-mapping
+   cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/05-assembler-image-mapping
    ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
@@ -71,6 +71,6 @@ In the sample, the following image mappings are used:
    terraform apply tfplan
    ```
 
-[Back: Configure Flavor Mappings in Cloud Assembly](4-configure-flavour-mappings.md)
+[Back: Configure Flavor Mappings in VMware Aria Automation Assembler](4-configure-flavour-mappings.md)
 
 [Next: Configure NSX Overlay Segments to NSX-T Data Center](6-configure-nsx-segements.md)

@@ -15,13 +15,13 @@ variable "nsxt_username" {
 
 variable "nsxt_password" {
   type        = string
-  description = "The password for the login to the NSX Manager instance."
+  description = "The password for the login to the NSX Manager instance"
   sensitive   = true
 }
 
 variable "nsxt_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
@@ -40,5 +40,5 @@ variable "nsxt_segments" {
     name = string
     cidr = string
   }))
-  description = "A list of objects for the creation of NSX Segments."
+  description = "A list of objects for the creation of NSX Segments"
 }

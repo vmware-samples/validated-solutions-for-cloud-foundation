@@ -38,66 +38,66 @@ data "vsphere_role" "role_name" {
 ##################################################################################
 
 
-resource "vsphere_entity_permissions" "edge-ca-user" {
+resource "vsphere_entity_permissions" "edge-assembler-user" {
   entity_id   = data.vsphere_folder.edge_folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.ca_service_account
+    user_or_group = var.assembler_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id
   }
 }
 
-resource "vsphere_entity_permissions" "storage-local-ca-user" {
+resource "vsphere_entity_permissions" "storage-local-assembler-user" {
   entity_id   = data.vsphere_folder.storage_local_folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.ca_service_account
+    user_or_group = var.assembler_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id
   }
 }
 
-resource "vsphere_entity_permissions" "storage-readonly-ca-user" {
+resource "vsphere_entity_permissions" "storage-readonly-assembler-user" {
   entity_id   = data.vsphere_folder.storage_readonly_folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.ca_service_account
+    user_or_group = var.assembler_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id
   }
 }
 
-resource "vsphere_entity_permissions" "edge-vro-user" {
+resource "vsphere_entity_permissions" "edge-orchestrator-user" {
   entity_id   = data.vsphere_folder.edge_folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.vro_service_account
+    user_or_group = var.orchestrator_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id
   }
 }
 
-resource "vsphere_entity_permissions" "storage-local-vro-user" {
+resource "vsphere_entity_permissions" "storage-local-orchestrator-user" {
   entity_id   = data.vsphere_folder.storage_local_folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.vro_service_account
+    user_or_group = var.orchestrator_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id
   }
 }
 
-resource "vsphere_entity_permissions" "storage-readonly-vro-user" {
+resource "vsphere_entity_permissions" "storage-readonly-orchestrator-user" {
   entity_id   = data.vsphere_folder.storage_readonly_folder.id
   entity_type = "Folder"
   permissions {
-    user_or_group = var.vro_service_account
+    user_or_group = var.orchestrator_service_account
     propagate     = true
     is_group      = false
     role_id       = data.vsphere_role.role_name.id

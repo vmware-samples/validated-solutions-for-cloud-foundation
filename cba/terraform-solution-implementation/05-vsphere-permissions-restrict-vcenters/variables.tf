@@ -17,13 +17,13 @@ variable "vsphere_username" {
 
 variable "vsphere_password" {
   type        = string
-  description = "The password for the login to the vCenter Server instance."
+  description = "The password for the login to the vCenter Server instance"
   sensitive   = true
 }
 
 variable "vsphere_insecure" {
   type        = bool
-  description = "Set to true for self-signed certificates."
+  description = "Set to true for self-signed certificates"
   default     = false
 }
 
@@ -35,14 +35,14 @@ variable "folder_path" {
   default     = "/"
 }
 
-variable "ca_service_account" {
+variable "assembler_service_account" {
   type        = string
-  description = "The target Cloud Assembly Service account to assign the role to. (e.g. svc-ca-vsphere@sfo)"
+  description = "The target Aria Automation Assembler service account to assign the permissions on. (e.g. svc-vaa-vsphere@sfo)"
 }
 
-variable "vro_service_account" {
+variable "orchestrator_service_account" {
   type        = string
-  description = "The target Cloud Assembly Service account to assign the role to. (e.g. svc-vro-vsphere@sfo)"
+  description = "The target Aria Automation Orchestraor service account to assign the permissions on. (e.g. svc-vao-vsphere@sfo)"
 }
 
 variable "role_name" {

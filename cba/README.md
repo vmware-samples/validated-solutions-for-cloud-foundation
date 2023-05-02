@@ -63,17 +63,17 @@ To help simplify this end-to-end process, a PowerShell based menu has also been 
 .\cbaTerraformMenu.ps1 -workbook F:\MyLab\pnpWorkbook.xlsx -parentPath F:\validated-solutions-for-cloud-foundation\cba
 ```
 
-### Setup the Sample Project in vRealize Automation
+### Setup the Sample Project in VMware Aria Automation
 
-Once you have deployed the **Cloud-Based Automation for VMware Cloud Foundation** validated solution, you can use the step-by-step implementation guidance to create a **sample** project in vRealize Automation Cloud after deploying the solution using either the UI or infrastructure-as-code procedures.
+Once you have deployed the **Cloud-Based Automation for VMware Cloud Foundation** validated solution, you can use the step-by-step implementation guidance to create a **sample** project in VMware Aria Automation after deploying the solution using either the UI or infrastructure-as-code procedures.
 
 No matter which path you choose to use - IaC or UI - the sample project implementation guidance can help you:
 
-1. Learn how to get up and running with vRealize Automation Cloud.
+1. Learn how to get up and running with VMware Aria Automation.
 2. Ensure the solution is operational.
-3. Learn how to get started managing the desired state configuration of vRealize Automation Cloud using Terraform.
+3. Learn how to get started managing the desired state configuration of VMware Aria Automation using Terraform.
 
-Learn more on how to [Configure a Sample Project in vRealize Automation Cloud](docs/sample-project/README.md).
+Learn more on how to [Configure a Sample Project in VMware Aria Automation](docs/sample-project/README.md).
 
 ## Issues
 

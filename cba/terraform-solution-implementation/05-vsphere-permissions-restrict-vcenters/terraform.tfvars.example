@@ -6,10 +6,10 @@
 
 vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
-vsphere_password = "********************"
+vsphere_password = "VMw@re1!"
 
 # vSphere Permissions
 
 role_name           = "No access"
-ca_service_account  = "SFO\\svc-ca-vsphere"
-vro_service_account = "SFO\\svc-vro-vsphere"
+assembler_service_account  = "SFO\\svc-vaa-vsphere"
+orchestrator_service_account = "SFO\\svc-vao-vsphere"

@@ -12,11 +12,11 @@ Create a content library for storing the images that you can then use to deploy 
 
 3. On the **Name and location** page, configure the settings and click **Next**.
 
-   | **Setting**     | **Value**                          |
-   | :-              | :-                                 |
-   | Name            | sfo-vmc-lib01                      |
-   | Notes           | Publishing Content Library for VMC |
-   | vCenter Server  | sfo-w01-vc01.sfo.rainpole.io       |
+   | **Setting**     | **Value**                                             |
+   | :-              | :-                                                    |
+   | Name            | sfo-cba-lib01                                         |
+   | Notes           | Publishing Content Library for VMware Aria Automation |
+   | vCenter Server  | sfo-w01-vc01.sfo.rainpole.io                          |
 
 4. On the **Configure content library** page, configure the settings and click **Next**.
 

@@ -1,6 +1,6 @@
 [Back: Home](README.md)
 
-# Configure Flavor Mappings in Cloud Assembly
+# Configure Flavor Mappings in VMware Aria Automation Assembler
 
 You configure flavor mappings to define different deployment sizings.
 
@@ -20,11 +20,11 @@ In the sample, the following flavor mappings are used:
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Service Broker** card click **Launch Service**.
+3. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-4. Click the **Infrastructure** tab.
+4. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile.
 
-5. In the left pane, select **Configure > Flavor mappings**.
+5. Click the **Infrastructure** tab and, in the left pane, select **Configure > Flavor mappings**.
 
 6. Click **New flavor mapping** and configure these settings.
 
@@ -44,7 +44,7 @@ In the sample, the following flavor mappings are used:
 1. Navigate to the Terraform example in the repository.
 
     ```bash
-    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/04-cloud-assembly-flavor-mapping
+    cd /validated-solutions-for-cloud-foundation/cba/terraform-sample-project/04-assembler-flavor-mapping
     ```
 
 2. Duplicate the `terraform.tfvars.example` file to `terraform.tfvars` in the directory.
@@ -75,4 +75,4 @@ In the sample, the following flavor mappings are used:
 
 [Back: Configure a Customization Specification for Photon Operating Systems](3-configure-custom-specs.md)
 
-[Next: Configure Image Mappings in Cloud Assembly](5-configure-image-mappings.md)
+[Next: Configure Image Mappings in VMware Aria Automation Assembler](5-configure-image-mappings.md)

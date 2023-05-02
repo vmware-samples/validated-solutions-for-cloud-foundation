@@ -2,18 +2,18 @@
 # OUTPUTS
 ##################################################################################
 
-output "ca_role" {
-  value = var.ca_vsphere_role
+output "assembler_role" {
+  value = var.assembler_vsphere_role
 }
 
-output "ca_account" {
-  value = var.ca_service_account
+output "assembler_account" {
+  value = var.assembler_service_account
 }
 
-output "vro_role" {
-  value = var.vro_vsphere_role
+output "orchestrator_role" {
+  value = var.orchestrator_vsphere_role
 }
 
-output "vro_account" {
-  value = var.vro_service_account
+output "orchestrator_account" {
+  value = var.orchestrator_service_account
 }

@@ -6,14 +6,14 @@
 
 vsphere_server   = "sfo-m01-vc01.sfo.rainpole.io"
 vsphere_username = "administrator@vsphere.local"
-vsphere_password = "********************"
+vsphere_password = "VMw@re1!"
 
 # vSphere Settings
 
 vsphere_datacenter = "sfo-m01-dc01"
 vsphere_folders = {
   folder0 = {
-    path = "sfo-m01-fd-vmc"
+    path = "sfo-m01-fd-cba"
     type = "vm"
   }
 }

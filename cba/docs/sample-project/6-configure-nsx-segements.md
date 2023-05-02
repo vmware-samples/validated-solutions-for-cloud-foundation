@@ -69,6 +69,6 @@ NSX Segments for Existing Networks
    terraform apply tfplan
    ```
 
-[Back: Configure Image Mappings in Cloud Assembly](5-configure-image-mappings.md)
+[Back: Configure Image Mappings in VMware Aria Automation Assembler](5-configure-image-mappings.md)
 
 [Next: Configure Network IP Address Settings for Existing Networks](7-configure-segment-networking.md)

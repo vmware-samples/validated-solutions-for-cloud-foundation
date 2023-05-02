@@ -17,34 +17,36 @@ variable "vcf_username" {
 
 variable "vcf_password" {
   type        = string
-  description = "The password for the login to the SDDC Manager instance."
+  description = "The password for the login to the SDDC Manager instance"
 }
 
-# vSphere Objects
+# Aria Automation Assembler Role and Service Account
 
-variable "ca_vsphere_role" {
+variable "assembler_vsphere_role" {
   type        = string
-  description = "The target vSphere role to be assigned to the VMC Service account. (e.g. Cloud Assembly to vSphere Integration)"
-  default     = "Cloud Assembly to vSphere Integration"
+  description = "The name of the Aria Automation Assembler vSphere custom role. (e.g. Aria Automation Assembler to vSphere Integration)"
+  default     = "Aria Automation Assembler to vSphere Integration"
 }
 
-variable "ca_service_account" {
+variable "assembler_service_account" {
   type        = string
-  description = "The target VMC Service account to assign the role to. (e.g. svc-vmc-vsphere@sfo)"
+  description = "The target service account to assign the Aria Automation Assembler vSphere custom role to. (e.g. svc-vaa-vsphere@sfo)"
 }
 
-variable "vro_vsphere_role" {
+# Aria Automation Orchestrator Role and Service Account
+
+variable "orchestrator_vsphere_role" {
   type        = string
-  description = "The target vSphere role to be assigned to the VMC Service account. (e.g. vRealize Orchestrator to vSphere Integration)"
-  default     = "vRealize Orchestrator to vSphere Integration"
+  description = "The name of the Automation Orchestrator to vSphere Integration custom role. (e.g. Aria Automation Orchestrator to vSphere Integration)"
+  default     = "Aria Automation Orchestrator to vSphere Integration"
 }
 
-variable "vro_service_account" {
+variable "orchestrator_service_account" {
   type        = string
-  description = "The target VMC Service account to assign the role to. (e.g. svc-vro-vsphere@sfo)"
+  description = "The target service account to assign the Aria Automation Orchestrator vSphere custom role to. (e.g. svc-vao-vsphere@sfo)"
 }
 
-# Active Directory
+# Active Directory and Bind User Credentials
 
 variable "domain_fqdn" {
   type        = string
@@ -53,10 +55,10 @@ variable "domain_fqdn" {
 
 variable "domain_bind_username" {
   type        = string
-  description = "The bind user to login to Active Directory."
+  description = "The bind user to login to Active Directory"
 }
 
 variable "domain_bind_password" {
   type        = string
-  description = "The password for the bind user to login to Active Directory."
+  description = "The password for the bind user to login to Active Directory"
 }

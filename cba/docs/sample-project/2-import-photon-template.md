@@ -2,7 +2,7 @@
 
 # Import Photon OS OVF Images to the Publishing Content Library
 
-Import virtual machine images in OVA format into a publishing content library to use for image mappings in Cloud Assembly.
+Import virtual machine images in OVA format into a publishing content vSphere library to use for image mappings in VMware Aria Automation Assembler.
 
 In the sample, the following operating system images are used:
 
@@ -15,7 +15,7 @@ In the sample, the following operating system images are used:
 
 1. Log in to vCenter Server at **`https://<vi_workload_domain_vcenter_server_fqdn>/ui`** with a user assigned the **Administrator** role.
 
-2. In the **Content libraries** inventory, click the content library `sfo-vmc-lib01`.
+2. In the **Content libraries** inventory, click the content library `sfo-cba-lib01`.
 
 3. From the **Actions** menu, select **Import item**.
 
@@ -67,11 +67,11 @@ Initialize an on-demand image synchronization for the vCenter Server cloud accou
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, in the **VMware Cloud Assembly** card click **Launch Service**.
+3. Under **My services**, in the **VMware Aria Automation** card click **Launch Service**.
 
-4. Click the **Infrastructure** tab.
+4. On the **Welcome to VMware Aria Automation** page, click the **Assembler** tile.
 
-5. In the left pane, select **Connections > Cloud accounts**.
+5. Select the **Infrastructure** tab and, in the left pane, select **Connections > Cloud accounts**.
 
 6. In the card for the VI workload domain vCenter Server cloud account and click **Open**.
 
