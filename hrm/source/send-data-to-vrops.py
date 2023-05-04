@@ -7,14 +7,17 @@
 # ===================================================================================================================
 # Created by:  Bhumitra Nagar - Senior Member of Technical Staff
 # Authors: Bhumitra Nagar, Sowjanya V
-# Date:   2023-01-01
-# Version: 1.0.0.1001
+# Date:   2023-05-04
+# Version: 1.0.0.1002
 # ===================================================================================================================
 #
 # Description:
 # The send-data-to-vrops.py script receives the operational health data as JSON from SOS utility and supporting
 # Powershell modules and then sends it to objects in vRealize Operations as custom metrics for use in dashboards
 # to monitor the platform's health.
+#
+# Change Log:
+# 1.0.0.1002 - Fix for [HRM] Exception while sending Backup status data to vROps #48
 #
 # Example:
 # python send-data-to-vrops.py
@@ -933,8 +936,7 @@ class PushDataVrops:
         data_type = "Backup"
         self.logger.info(f"Pushing {data_type} status data to vrops")
 
-        for arr_val in data_arr:
-            data = arr_val
+        for data in data_arr:
             component = data["Component"]
             index_val = data["Resource"]
             hostname = data["Element"]
@@ -948,14 +950,22 @@ class PushDataVrops:
             timestamp = time.mktime(datetime.datetime.now().timetuple())
             resource_id = self.get_resource_id(hostname, resource_name)
 
-            for k, v in arr_val.items():
+            for k, v in data.items():
                 if k.lower() == 'date':
                     if v:
-                        val = re.search(r"\d{10}", v)
-                        timestamp_raw = int(val.group())
-                        date_time = datetime.datetime.fromtimestamp(timestamp_raw)
-                        datetime_str = date_time.strftime("%b %d %H:%M:%S %Y GMT")
-                        v = datetime_str
+                        match = re.search(r"\d{10}", v)
+                        if match:
+                            timestamp_raw = int(match.group())
+                            parsed_date = datetime.datetime.fromtimestamp(timestamp_raw)
+                            datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                            v = datetime_str
+                        else:
+                            match = re.search("\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}", v)
+                            if match:
+                                date_format = "%Y-%m-%dT%H:%M:%S"
+                                parsed_date = datetime.datetime.strptime(match.group(), date_format)
+                                datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                                v = datetime_str
                 details = {
                     "statKey": f"{statkey}|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
@@ -986,8 +996,7 @@ class PushDataVrops:
         data_type = "Snapshot"
         self.logger.info(f"Pushing {data_type} status data to vrops")
         update_count = 0
-        for arr_val in data_arr:
-            data = arr_val
+        for data in data_arr:
             component = data["Component"]
             hostname = data["Element"]
             resource_name = hostname.split(".")[0]
@@ -997,14 +1006,22 @@ class PushDataVrops:
             timestamp = time.mktime(datetime.datetime.now().timetuple())
             resource_id = self.get_resource_id(hostname, resource_name)
 
-            for k, v in arr_val.items():
+            for k, v in data.items():
                 if k.lower() == 'latest':
                     if v:
-                        val = re.search(r"\d{10}", v)
-                        timestamp_raw = int(val.group())
-                        date_time = datetime.datetime.fromtimestamp(timestamp_raw)
-                        datetime_str = date_time.strftime("%b %d %H:%M:%S %Y GMT")
-                        v = datetime_str
+                        match = re.search(r"\d{10}", v)
+                        if match:
+                            timestamp_raw = int(match.group())
+                            parsed_date = datetime.datetime.fromtimestamp(timestamp_raw)
+                            datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                            v = datetime_str
+                        else:
+                            match = re.search("\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}", v)
+                            if match:
+                                date_format = "%Y-%m-%dT%H:%M:%S"
+                                parsed_date = datetime.datetime.strptime(match.group(), date_format)
+                                datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                                v = datetime_str
                 details = {
                     "statKey": f"HRM {data_type} Status|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
