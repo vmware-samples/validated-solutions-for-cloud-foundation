@@ -8,7 +8,7 @@
 # Created by:  Bhumitra Nagar - Senior Member of Technical Staff
 # Authors: Bhumitra Nagar, Sowjanya V
 # Date:   2023-05-04
-# Version: 1.0.0.1002
+# Version: 1.1.0.1001
 # ===================================================================================================================
 #
 # Description:
@@ -106,7 +106,8 @@ class PushDataVrops:
         self.sddc_manager_fqdn = env_info["sddc_manager"]["fqdn"]
         self.sddc_manager_pwd = None
         self.sddc_manager_user = env_info["sddc_manager"]["user"]
-        self.sddc_manager_root_pwd = None
+        self.sddc_manager_local_user = env_info["sddc_manager"]["local_user"]
+        self.sddc_manager_local_pwd = None
 
         # set status codes
         self.codes = {'green': 0, 'yellow': 1, 'red': 2, 'NA': 1, 'skipped': 0}
@@ -154,7 +155,7 @@ class PushDataVrops:
         fkey = Fernet(keybyt)
         self.vrops_passwd = fkey.decrypt(pwds[0]).decode()
         self.sddc_manager_pwd = fkey.decrypt(pwds[1]).decode()
-        self.sddc_manager_root_pwd = fkey.decrypt(pwds[2]).decode()
+        self.sddc_manager_local_pwd = fkey.decrypt(pwds[2]).decode()
 
     def get_resource_mapping_info(self):
         esx_res = self.match_resources(self.esx_resource_kind, self.esx_adapter_kind)
@@ -215,7 +216,8 @@ class PushDataVrops:
         psu.execute_ps_cmd(combined_cmd)
 
         # module requiring sddc root user
-        psu.execute_ps_cmd(f'Publish-StorageCapacityHealth {without_root_cmd} -rootPass {self.sddc_manager_pwd}')
+        psu.execute_ps_cmd(f'Publish-StorageCapacityHealth {without_root_cmd} -localUser {self.sddc_manager_local_user}'
+                           f' -localPass {self.sddc_manager_local_pwd}')
 
         for module in modules_without_root:
             psu.execute_ps_cmd(f'{module} {without_root_cmd}')
