@@ -17,7 +17,10 @@
 # to monitor the platform's health.
 #
 # Change Log:
-# 1.0.0.1002 - Fix for [HRM] Exception while sending Backup status data to vROps #48
+# 1.1.0.1001 - fix: [HRM] Date on Backups and Snapshot dashboard shown incorrectly #50
+# 1.1.0.1001 - feat: [HRM] Remove SDDC Manager root password from Python module #38
+
+# 1.0.0.1002 - fix: [HRM] Exception while sending Backup status data to vROps #48
 #
 # Example:
 # python send-data-to-vrops.py
@@ -26,7 +29,8 @@
 # python send-data-to-vrops.py [-options]
 #
 # Options:
-# -np : Gets the data and saves it JSON files but will not send the data to vrops
+# -np : Retrieves the data from SOS Utility and Powershell cmdlets and saves it JSON files.
+# It will not send the data to vrops
 
 
 import argparse
@@ -51,8 +55,8 @@ def push_handler(func):
             func(*args, **kwargs)
             args[0].logger.info("############################################################################")
         except Exception as e:
-            args[0].logger.info('Exception occurred. Details - ')
-            args[0].logger.info(e)
+            args[0].logger.error('Exception occurred. Details - ')
+            args[0].logger.error(e)
 
     return inner_function
 
@@ -119,11 +123,11 @@ class PushDataVrops:
             self.log_retention = int(env_info["log_retention_in_days"])
             self.logger.info(f'Performing older logs cleanup from location '
                              f'{os.path.dirname(self.logger.test_log_folder)}')
-            self.logger.info(f'deleting logs older than {self.log_retention} days')
+            self.logger.info(f'Deleting logs older than {self.log_retention} days')
             FolderUtility.delete_logs_older_than_days(self.log_retention, self.logger)
         except Exception as e:
-            self.logger.info('Exception occurred while deleting older logs')
-            self.logger.info(e)
+            self.logger.error('Exception occurred while deleting older logs')
+            self.logger.error(e)
 
         self.decrypt_pwds()
 
@@ -133,13 +137,13 @@ class PushDataVrops:
         self.logger.info('Fetching data from VMware.Cloudfoundation.Reporting cmdlets...')
         self.get_data_from_reporting_module()
 
-        self.logger.info('Fetching data from SOS tool which runs on SDDC Manager...')
-        self.logger.info('This can take between 15 to 90 min depending on the size of your environment. '
+        self.logger.info('Fetching data from SOS Utility on SDDC Manager...')
+        self.logger.info('This can take 15~90 min (or even more) depending on the size of your environment. '
                          'Please wait....')
         self.data = self.get_sos_data_from_sddc_manager()
 
         if not self.data:
-            self.logger.info("Unable to get SOS data from SDDC Manager")
+            self.logger.error("Unable to get data from SOS Utility on SDDC Manager")
 
     def decrypt_pwds(self):
         # read encrypted pwd and convert into byte
@@ -183,9 +187,9 @@ class PushDataVrops:
 
         total_len = len(esx_res) + len(nsx_res) + len(vm_res) + len(cluster_res) + len(pod_res)
 
-        self.logger.info(f'TOTAL resources (adding 5 categories above) = {total_len}')
+        self.logger.info(f'Total resources (adding 5 categories above) = {total_len}')
         if total_len != len(self.resource_inventory):
-            self.logger.warn(f'It seems there is a possibility of duplicate entries in the inventory, please check')
+            self.logger.warn(f'There are duplicate resources in the inventory, please check.')
         return
 
     def backup_existing_file(self, data_file):
@@ -206,21 +210,22 @@ class PushDataVrops:
                                 'Publish-SnapshotStatus',
                                 'Publish-ComponentConnectivityHealthNonSOS']
 
-        without_root_cmd = f'-server {self.sddc_manager_fqdn} -user {self.sddc_manager_user} ' \
-                           f'-pass {self.sddc_manager_pwd} -allDomains -outputJson {self.logger.test_log_folder}'
+        without_local_user_cmd = f'-server {self.sddc_manager_fqdn} -user {self.sddc_manager_user} ' \
+                                 f'-pass {self.sddc_manager_pwd} -allDomains -outputJson {self.logger.test_log_folder}'
         request_token_cmd = f'Request-VCFToken -fqdn {self.sddc_manager_fqdn} -username {self.sddc_manager_user} ' \
                             f'-password {self.sddc_manager_pwd}'
-        publish_nsx_cmd = 'Publish-NsxtHealthNonSOS ' + without_root_cmd
+        publish_nsx_cmd = 'Publish-NsxtHealthNonSOS ' + without_local_user_cmd
 
         combined_cmd = request_token_cmd + ' ; ' + publish_nsx_cmd
         psu.execute_ps_cmd(combined_cmd)
 
-        # module requiring sddc root user
-        psu.execute_ps_cmd(f'Publish-StorageCapacityHealth {without_root_cmd} -localUser {self.sddc_manager_local_user}'
+        # module requiring sddc local user
+        psu.execute_ps_cmd(f'Publish-StorageCapacityHealth {without_local_user_cmd} '
+                           f' -localUser {self.sddc_manager_local_user}'
                            f' -localPass {self.sddc_manager_local_pwd}')
 
         for module in modules_without_root:
-            psu.execute_ps_cmd(f'{module} {without_root_cmd}')
+            psu.execute_ps_cmd(f'{module} {without_local_user_cmd}')
 
         self.logger.info(f'Generated JSON files for Publish-* cmdlets in location {self.logger.test_log_folder}')
 
@@ -232,14 +237,14 @@ class PushDataVrops:
         sosrest = SosRest(host=self.sddc_manager_fqdn, user=self.sddc_manager_user,
                           password=self.sddc_manager_pwd, logger=self.logger)
         sosrest.get_auth_token()
-        id = sosrest.start_health_checks_op()
-        sosrest.get_health_checks_status(id)
-        sosrest.get_health_check_bundle(id, path=self.logger.test_log_folder)
+        request_id = sosrest.start_health_checks_op()
+        sosrest.get_health_checks_status(request_id)
+        sosrest.get_health_check_bundle(request_id, path=self.logger.test_log_folder)
 
         if os.path.exists(dest):
             data = self.read_data(os.path.join(dest))
         else:
-            self.logger.info(f'Unable to find {self.data_file} in {dest}')
+            self.logger.error(f'Unable to find {self.data_file} in {dest}')
         return data
 
     def match_resources(self, resource_kind, adapter_kind):
@@ -264,14 +269,14 @@ class PushDataVrops:
                 for resource in data['resourceList']:
                     resource_data[resource['resourceKey']['name']] = resource['identifier']
 
-            self.logger.info(f'Resource inventory data from vrops for ResourceKind - {resource_kind} '
+            self.logger.info(f'Resource inventory data from vROps for ResourceKind - {resource_kind} '
                              f'and AdapterKind - {adapter_kind}')
             self.logger.info(resource_data)
 
             return resource_data
         except Exception as e:
-            self.logger.info(e)
-            self.logger.info("Unable to connect to vrops using given credentials")
+            self.logger.error(e)
+            self.logger.error("Unable to connect to vROps using given credentials")
             raise e
 
     def read_data(self, data_file):
@@ -287,7 +292,6 @@ class PushDataVrops:
                 break
         if not path:
             self.logger.info(f'Unable to find file ending with {file_name} in {self.logger.test_log_folder}')
-
         return path
 
     def push_data(self):
@@ -332,9 +336,9 @@ class PushDataVrops:
             self.push_hw_compatibility()
             self.push_general()
         else:
-            self.logger.info('Skipping pushing SOS data to vrops. No data received')
+            self.logger.info('Skipping pushing SOS data to vROps. No data received.')
 
-        self.logger.info("###############################Script Complete############################################")
+        self.logger.info("############################### Script Complete ############################################")
         self.logger.info(f'Log files located at - {self.logger.test_log_folder}')
 
     def get_most_nested_dict(self, dictionary, parent_key=None, prev_keys=[]):
@@ -349,21 +353,21 @@ class PushDataVrops:
 
     def push_data_to_vrops(self, category, resource_id, hostname, metrics_payload_json):
         if category.lstrip().startswith("HRM"):
-            suc_log_msg = f"**********************Pushed '{category}' to vrops**********************"
-            fail_log_msg = f"**********************Unable to Push '{category}' to vrops**********************"
+            suc_log_msg = f"********************** Pushed '{category}' to vROps **********************"
+            fail_log_msg = f"********************** Unable to Push '{category}' to vROps**********************"
         else:
-            suc_log_msg = f"**********************Pushed 'SOS {category}' to vrops**********************"
-            fail_log_msg = f"**********************Unable to Push 'SOS {category}' to vrops**********************"
+            suc_log_msg = f"********************** Pushed 'SOS {category}' to vROps **********************"
+            fail_log_msg = f"********************** Unable to Push 'SOS {category}' to vROps **********************"
 
         if not resource_id:
-            self.logger.info(f'Cannot add data for {hostname}, resource id is {resource_id}')
-            self.logger.info(fail_log_msg)
+            self.logger.error(f'Cannot add data for {hostname}, resource id is {resource_id}')
+            self.logger.error(fail_log_msg)
         else:
             if self.push_to_vrops:
                 self.vrops.add_stats(metrics_payload_json, id=resource_id)
                 self.logger.info(suc_log_msg)
             else:
-                self.logger.info(f"********************** will not push '{category}' data to vrops******************")
+                self.logger.error(f"********************** Will not push '{category}' data to vROps ******************")
 
     @push_handler
     def push_general(self):
@@ -828,7 +832,7 @@ class PushDataVrops:
     def push_flat_struct(self, data_type, data_arr, key_var):
         update_count = 0
         category = f"HRM {data_type} Status"
-        self.logger.info(f"Pushing {data_type} status data to vrops")
+        self.logger.info(f"Pushing {data_type} status data to vROps")
         for arr_val in data_arr:
             data = arr_val
             user = None
@@ -879,7 +883,7 @@ class PushDataVrops:
     @push_handler
     def push_data_password(self):
         category = "Password Expiry Status"
-        self.logger.info('Pushing SOS password data to vrops')
+        self.logger.info('Pushing SOS password data to vROps')
         update_count = 0
         for key, value in self.data[category].items():
             hostname, user = key.split(':')
@@ -936,7 +940,7 @@ class PushDataVrops:
         update_count = 0
         category = "HRM Backup Status"
         data_type = "Backup"
-        self.logger.info(f"Pushing {data_type} status data to vrops")
+        self.logger.info(f"Pushing {data_type} status data to vROps")
 
         for data in data_arr:
             component = data["Component"]
@@ -954,6 +958,7 @@ class PushDataVrops:
 
             for k, v in data.items():
                 if k.lower() == 'date':
+                    k = "date_taken"
                     if v:
                         match = re.search(r"\d{10}", v)
                         if match:
@@ -968,6 +973,8 @@ class PushDataVrops:
                                 parsed_date = datetime.datetime.strptime(match.group(), date_format)
                                 datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
                                 v = datetime_str
+                    else:
+                        v = ""
                 details = {
                     "statKey": f"{statkey}|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
@@ -996,7 +1003,7 @@ class PushDataVrops:
         data_arr = self.read_data(file_name)
         category = "HRM Snapshot Status"
         data_type = "Snapshot"
-        self.logger.info(f"Pushing {data_type} status data to vrops")
+        self.logger.info(f"Pushing {data_type} status data to vROps")
         update_count = 0
         for data in data_arr:
             component = data["Component"]
@@ -1010,6 +1017,7 @@ class PushDataVrops:
 
             for k, v in data.items():
                 if k.lower() == 'latest':
+                    k = "date_taken"
                     if v:
                         match = re.search(r"\d{10}", v)
                         if match:
@@ -1024,6 +1032,8 @@ class PushDataVrops:
                                 parsed_date = datetime.datetime.strptime(match.group(), date_format)
                                 datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
                                 v = datetime_str
+                    else:
+                        v = ""
                 details = {
                     "statKey": f"HRM {data_type} Status|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
@@ -1118,7 +1128,6 @@ class PushDataVrops:
                     self.logger.info(f"hostname = {hostname}")
                     metrics_payload = {"stat-content": []}
 
-                    # timestamp_raw = value['timestamp']
                     timestamp = time.mktime(datetime.datetime.now().timetuple())
                     resource_id = self.get_resource_id(hostname, resource_name)
 
@@ -1188,7 +1197,7 @@ class PushDataVrops:
     def push_nsxttier0_backup_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM NSXT TIER0 BGP Backup Status"
-        self.logger.info('Pushing nsxt tier0 bgp backup status data to vrops')
+        self.logger.info('Pushing nsxt tier0 bgp backup status data to vROps')
         update_count = 0
         instance_hash = {}
 
@@ -1236,7 +1245,7 @@ class PushDataVrops:
     def push_nsxt_transportnode_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM NSXT Transport Node Status"
-        self.logger.info('Pushing nsxt transport node status data to vrops')
+        self.logger.info('Pushing nsxt transport node status data to vROps')
         update_count = 0
         instance_hash = {}
 
@@ -1284,7 +1293,7 @@ class PushDataVrops:
     def push_nsxt_tunnel_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM NSXT Tunnel Status"
-        self.logger.info('Pushing nsxt tunnel status data to vrops')
+        self.logger.info('Pushing nsxt tunnel status data to vROps')
         update_count = 0
         instance_hash = {}
 
@@ -1332,7 +1341,7 @@ class PushDataVrops:
     def push_nsxtcombinedhealthnonsos_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM NSXTCombinedHealth Status"
-        self.logger.info('Pushing NSXT Combined Health Status data to vrops')
+        self.logger.info('Pushing NSXT Combined Health Status data to vROps')
         update_count = 0
         instance_hash = {}
 
@@ -1379,7 +1388,7 @@ class PushDataVrops:
     @push_handler
     def push_data_certificates(self):
         category = "Certificates"
-        self.logger.info('Pushing SOS Certificate Health data to vrops')
+        self.logger.info('Pushing SOS Certificate Health data to vROps')
         update_count = 0
         for key, value in self.data[category]['Certificate Status'].items():
             for hostname, cert_data in value.items():
@@ -1472,9 +1481,9 @@ if __name__ == "__main__":
     parser.add_argument("-e", "--env-json", default='env.json',
                         help="path of env.json file. Default is in same folder as env.json")
     parser.add_argument('-p', '--push-data', dest='push_data', action='store_true',
-                        help="This is default option to push data to vrops")
+                        help="This is default option to push data to vROps")
     parser.add_argument('-np', '--no-push-data', dest='push_data', action='store_false',
-                        help="Use this option if you do not want to push data to vrops")
+                        help="Use this option if you do not want to push data to vROps")
     parser.set_defaults(push_data=True)
 
     args = parser.parse_args()
