@@ -17,11 +17,14 @@
 # to monitor the platform's health.
 #
 # Change Log:
+# ---------------------------------------------------------------------------------------
+#    Version - Description
+# 1.1.0.1002 - chore: code cleanup
 # 1.1.0.1001 - bug: [HRM] Date on Backups and Snapshot dashboard shown incorrectly #50
 # 1.1.0.1001 - artifacts_update: Updated views for backup and snapshots to address issue #50
 # 1.1.0.1001 - feat: [HRM] Remove SDDC Manager root password from Python module #38
-# 1.1.0.1001 -
-#
+# 1.1.0.1000 - feat: [HRM] Update project structure to host module on PyPI
+# ---------------------------------------------------------------------------------------
 # 1.0.0.1002 - bug: [HRM] Exception while sending Backup status data to vROps #48
 #
 # Example:
@@ -52,11 +55,10 @@ def push_handler(func):
     def inner_function(*args, **kwargs):
         try:
             func(*args, **kwargs)
-            args[0].logger.info("############################################################################")
+            args[0].logger.info('############################################################################')
         except Exception as e:
             args[0].logger.error('Exception occurred. Details - ')
             args[0].logger.error(e)
-
     return inner_function
 
 
@@ -75,7 +77,7 @@ class PushDataVrops:
         requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
         self.logger.info('Gathering environment info..')
         self.logger.info(f'script started in path - {os.getcwd()}')
-        self.logger.info(f"change current working directory to - {os.path.dirname(__file__)}")
+        self.logger.info(f'change current working directory to - {os.path.dirname(__file__)}')
         self.logger.info(os.getcwd())
         self.logger.info(f'Log files located at - {self.logger.test_log_folder}')
 
@@ -120,7 +122,7 @@ class PushDataVrops:
 
         try:
             self.log_retention = int(env_info["log_retention_in_days"])
-            self.logger.info(f'Performing older logs cleanup from location '
+            self.logger.info(f'Cleaning up older logs from location: '
                              f'{os.path.dirname(self.logger.test_log_folder)}')
             self.logger.info(f'Deleting logs older than {self.log_retention} days')
             FolderUtility.delete_logs_older_than_days(self.log_retention, self.logger)
@@ -133,7 +135,7 @@ class PushDataVrops:
         # get vrops nagini client
         self.vrops = nagini.Nagini(host=self.vrops_fqdn, user_pass=(self.vrops_user, self.vrops_passwd))
 
-        self.logger.info('Fetching data from VMware.Cloudfoundation.Reporting cmdlets...')
+        self.logger.info('Fetching data from VMware.CloudFoundation.Reporting cmdlets...')
         self.get_data_from_reporting_module()
 
         self.logger.info('Fetching data from SOS Utility on SDDC Manager...')
@@ -162,31 +164,31 @@ class PushDataVrops:
 
     def get_resource_mapping_info(self):
         esx_res = self.match_resources(self.esx_resource_kind, self.esx_adapter_kind)
-        self.logger.info(f"ESX Resource mapping info - {esx_res}, size {len(esx_res)}")
+        self.logger.info(f'ESX Resource mapping info - {esx_res}, size {len(esx_res)}')
 
         nsx_res = self.match_resources(self.nsx_resource_kind, self.nsx_adapter_kind)
-        self.logger.info(f"NSX Resource mapping info - {nsx_res},  size {len(nsx_res)}")
+        self.logger.info(f'NSX Resource mapping info - {nsx_res},  size {len(nsx_res)}')
 
         vm_res = self.match_resources(self.vm_resource_kind, self.adapter_kind)
-        self.logger.info(f"VM Resource mapping info - {vm_res},  size {len(vm_res)}")
+        self.logger.info(f'VM Resource mapping info - {vm_res},  size {len(vm_res)}')
 
         pod_res = self.match_resources(self.pod_resource_kind, self.adapter_kind)
-        self.logger.info(f"Pod Resource mapping info - {pod_res},  size {len(pod_res)}")
+        self.logger.info(f'Pod Resource mapping info - {pod_res},  size {len(pod_res)}')
 
         cluster_res = self.match_resources(self.cluster_resource_kind, self.adapter_kind)
-        self.logger.info(f"Cluster Resource mapping info - {cluster_res},  size {len(cluster_res)}")
+        self.logger.info(f'Cluster Resource mapping info - {cluster_res},  size {len(cluster_res)}')
 
         self.resource_inventory = {**esx_res, **nsx_res, **vm_res, **cluster_res, **pod_res}
-        self.logger.info(f'Total number of resources in inventory = {len(self.resource_inventory)}')
-        self.logger.info(f'Number of esx resources - {len(esx_res)} ')
-        self.logger.info(f'Number of nsx resources - {len(nsx_res)} ')
-        self.logger.info(f'Number of vm resources - {len(vm_res)} ')
-        self.logger.info(f'Number of cluster resources  - {len(cluster_res)} ')
-        self.logger.info(f'Number of pod resources  - {len(pod_res)} ')
+        self.logger.info(f'Total number of resources in inventory: {len(self.resource_inventory)}')
+        self.logger.info(f'Number of esx resources: {len(esx_res)} ')
+        self.logger.info(f'Number of nsx resources: {len(nsx_res)} ')
+        self.logger.info(f'Number of vm resources: {len(vm_res)} ')
+        self.logger.info(f'Number of cluster resources: {len(cluster_res)} ')
+        self.logger.info(f'Number of pod resources: {len(pod_res)} ')
 
         total_len = len(esx_res) + len(nsx_res) + len(vm_res) + len(cluster_res) + len(pod_res)
 
-        self.logger.info(f'Total resources (adding 5 categories above) = {total_len}')
+        self.logger.info(f'Total resources (adding all categories above): {total_len}')
         if total_len != len(self.resource_inventory):
             self.logger.warn(f'There are duplicate resources in the inventory, please check.')
         return
@@ -268,14 +270,14 @@ class PushDataVrops:
                 for resource in data['resourceList']:
                     resource_data[resource['resourceKey']['name']] = resource['identifier']
 
-            self.logger.info(f'Resource inventory data from vROps for ResourceKind - {resource_kind} '
-                             f'and AdapterKind - {adapter_kind}')
+            self.logger.info(f'Resource inventory data from vROps for ResourceKind: {resource_kind} '
+                             f'and AdapterKind: {adapter_kind}')
             self.logger.info(resource_data)
 
             return resource_data
         except Exception as e:
             self.logger.error(e)
-            self.logger.error("Unable to connect to vROps using given credentials")
+            self.logger.error('Unable to connect to vROps using given credentials')
             raise e
 
     def read_data(self, data_file):
@@ -295,7 +297,7 @@ class PushDataVrops:
 
     def push_data(self):
         self.get_resource_mapping_info()
-        self.logger.info("############################################################################")
+        self.logger.info('############################################################################')
 
         file_name = self.get_complete_json_file_name(self.backup_status_json)
         self.push_backup_status(file_name)
@@ -313,7 +315,7 @@ class PushDataVrops:
         self.push_snapshot_status(file_name)
 
         file_name = self.get_complete_json_file_name(self.nsxttier0bgp_status_json)
-        self.push_nsxttier0_backup_status(file_name)
+        self.push_nsxttier0_status(file_name)
 
         file_name = self.get_complete_json_file_name(self.nsxttransportnode_status_json)
         self.push_nsxt_transportnode_status(file_name)
@@ -352,21 +354,21 @@ class PushDataVrops:
 
     def push_data_to_vrops(self, category, resource_id, hostname, metrics_payload_json):
         if category.lstrip().startswith("HRM"):
-            suc_log_msg = f"********************** Pushed '{category}' to vROps **********************"
-            fail_log_msg = f"********************** Unable to Push '{category}' to vROps**********************"
+            suc_log_msg = f'********************** Pushed "{category}" to vROps **********************'
+            fail_log_msg = f'********************** Unable to Push "{category}" to vROps**********************'
         else:
-            suc_log_msg = f"********************** Pushed 'SOS {category}' to vROps **********************"
-            fail_log_msg = f"********************** Unable to Push 'SOS {category}' to vROps **********************"
+            suc_log_msg = f'********************** Pushed "SOS {category}" to vROps **********************'
+            fail_log_msg = f'********************** Unable to Push "SOS {category}" to vROps **********************'
 
         if not resource_id:
-            self.logger.error(f'Cannot add data for {hostname}, resource id is {resource_id}')
+            self.logger.error(f'Unable to add data for Hostname: {hostname} | Resource id: {resource_id}')
             self.logger.error(fail_log_msg)
         else:
             if self.push_to_vrops:
                 self.vrops.add_stats(metrics_payload_json, id=resource_id)
                 self.logger.info(suc_log_msg)
             else:
-                self.logger.error(f"********************** Will not push '{category}' data to vROps ******************")
+                self.logger.info(f"********************** Will not push '{category}' data to vROps ******************")
 
     @push_handler
     def push_general(self):
@@ -387,7 +389,7 @@ class PushDataVrops:
                 hostname = hostname.lstrip('*').lstrip().rstrip()
                 component = component.lstrip('*').rstrip().lstrip()
             resource_name = hostname.split(".")[0]
-            self.logger.info(f"hostname = {hostname}, component = {component}")
+            self.logger.info(f'Hostname: {hostname}, Component: {component}')
 
             resource_id = self.get_resource_id(hostname, resource_name)
 
@@ -441,7 +443,7 @@ class PushDataVrops:
             component, hostname = d['area'].split(':')
             hostname = hostname.lstrip().rstrip()
             component = component.rstrip().lstrip()
-            self.logger.info(f"hostname = {hostname}, component = {component}")
+            self.logger.info(f'Hostname: {hostname}, Component: {component}')
 
             resource_id = self.get_resource_id(hostname, None)
 
@@ -496,7 +498,7 @@ class PushDataVrops:
                 hostname = hostname.lstrip().rstrip()
                 component = component.rstrip().lstrip()
             resource_name = hostname.split(".")[0]
-            self.logger.info(f"hostname = {hostname}, component = {component}")
+            self.logger.info(f'Hostname: {hostname}, Component: {component}')
 
             resource_id = self.get_resource_id(hostname, resource_name)
 
@@ -646,7 +648,7 @@ class PushDataVrops:
                 hostname = hostname.lstrip().rstrip()
                 component = component.rstrip().lstrip()
                 resource_name = hostname.split(".")[0]
-                self.logger.info(f"hostname = {hostname}, component = {component}")
+                self.logger.info(f'Hostname: {hostname}, Component: {component}')
 
                 metrics_payload = {"stat-content": []}
 
@@ -689,7 +691,7 @@ class PushDataVrops:
                 hostname = hostname.lstrip().rstrip()
                 component = component.rstrip().lstrip()
                 resource_name = hostname.split(".")[0]
-                self.logger.info(f"hostname = {hostname}, component = {component}")
+                self.logger.info(f'Hostname: {hostname}, Component: {component}')
 
                 metrics_payload = {"stat-content": []}
 
@@ -742,7 +744,7 @@ class PushDataVrops:
                 else:
                     continue
             resource_name = hostname.split(".")[0]
-            self.logger.info(f"hostname = {hostname}")
+            self.logger.info(f'Hostname: {hostname}')
             metrics_payload = {"stat-content": []}
 
             timestamp_raw = value['timestamp']
@@ -785,7 +787,7 @@ class PushDataVrops:
         for key, value in self.data[category][dns_type].items():
             hostname = key.rstrip()
             resource_name = hostname.split(".")[0]
-            self.logger.info(f"hostname = {hostname}")
+            self.logger.info(f'Hostname = {hostname}')
             metrics_payload = {"stat-content": []}
 
             timestamp_raw = value['timestamp']
@@ -831,7 +833,7 @@ class PushDataVrops:
     def push_flat_struct(self, data_type, data_arr, key_var):
         update_count = 0
         category = f"HRM {data_type} Status"
-        self.logger.info(f"Pushing {data_type} status data to vROps")
+        self.logger.info(f'Pushing {data_type} status data to vROps')
         for arr_val in data_arr:
             data = arr_val
             user = None
@@ -845,7 +847,7 @@ class PushDataVrops:
             else:
                 hostname = data["Resource"]
             resource_name = hostname.split(".")[0]
-            self.logger.info(f"hostname = {hostname}, component = {component}")
+            self.logger.info(f'Hostname: {hostname}, Component: {component}')
             metrics_payload = {"stat-content": []}
 
             timestamp = time.mktime(datetime.datetime.now().timetuple())
@@ -939,7 +941,7 @@ class PushDataVrops:
         update_count = 0
         category = "HRM Backup Status"
         data_type = "Backup"
-        self.logger.info(f"Pushing {data_type} status data to vROps")
+        self.logger.info(f'Pushing {data_type} status data to vROps')
 
         for data in data_arr:
             component = data["Component"]
@@ -950,7 +952,7 @@ class PushDataVrops:
             else:
                 statkey = f"HRM {data_type} Status"
             resource_name = hostname.split(".")[0]
-            self.logger.info(f"hostname = {hostname}, component = {component}")
+            self.logger.info(f'Hostname: {hostname}, Component: {component}')
             metrics_payload = {"stat-content": []}
             timestamp = time.mktime(datetime.datetime.now().timetuple())
             resource_id = self.get_resource_id(hostname, resource_name)
@@ -1002,13 +1004,13 @@ class PushDataVrops:
         data_arr = self.read_data(file_name)
         category = "HRM Snapshot Status"
         data_type = "Snapshot"
-        self.logger.info(f"Pushing {data_type} status data to vROps")
+        self.logger.info(f'Pushing {data_type} status data to vROps')
         update_count = 0
         for data in data_arr:
             component = data["Component"]
             hostname = data["Element"]
             resource_name = hostname.split(".")[0]
-            self.logger.info(f"hostname = {hostname}, component = {component}")
+            self.logger.info(f'Hostname: {hostname}, Component: {component}')
             metrics_payload = {"stat-content": []}
 
             timestamp = time.mktime(datetime.datetime.now().timetuple())
@@ -1193,10 +1195,10 @@ class PushDataVrops:
         self.logger.info(f'Total object update requests = {update_count} ')
 
     @push_handler
-    def push_nsxttier0_backup_status(self, file_name):
+    def push_nsxttier0_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM NSXT TIER0 BGP Backup Status"
-        self.logger.info('Pushing nsxt tier0 bgp backup status data to vROps')
+        self.logger.info('Pushing nsxt tier0 bgp status data to vROps')
         update_count = 0
         instance_hash = {}
 
@@ -1215,14 +1217,14 @@ class PushDataVrops:
 
             for k, v in arr_val.items():
                 details = {
-                    "statKey": f"HRM NSXT TIER0 BGP Backup Status:{instance_hash[hostname]}|{k.lower()}",
+                    "statKey": f"{category}:{instance_hash[hostname]}|{k.lower()}",
                     "timestamps": [int(timestamp * 1000)],
                     "values": [v]
                 }
                 metrics_payload["stat-content"].append(details)
                 if k.lower() == 'alert':
                     details = {
-                        "statKey": f"HRM NSXT TIER0 BGP Backup Status:{instance_hash[hostname]}|alert_code",
+                        "statKey": f"{category}:{instance_hash[hostname]}|alert_code",
                         "timestamps": [int(timestamp * 1000)],
                         "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
                     }
@@ -1476,11 +1478,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument("-e", "--env-json", default='env.json',
-                        help="path of env.json file. Default is in same folder as env.json")
+                        help="path of env.json file. Default is in same directory as this file")
     parser.add_argument('-p', '--push-data', dest='push_data', action='store_true',
-                        help="This is default option to push data to vROps")
+                        help="This is default option to send the data to vROps")
     parser.add_argument('-np', '--no-push-data', dest='push_data', action='store_false',
-                        help="Use this option if you do not want to push data to vROps")
+                        help="Use this option if you do not want to send the data to vROps")
     parser.set_defaults(push_data=True)
 
     args = parser.parse_args()
