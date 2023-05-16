@@ -17,20 +17,19 @@
 # to monitor the platform's health.
 #
 # Change Log:
-# 1.1.0.1001 - fix: [HRM] Date on Backups and Snapshot dashboard shown incorrectly #50
+# 1.1.0.1001 - bug: [HRM] Date on Backups and Snapshot dashboard shown incorrectly #50
+# 1.1.0.1001 - artifacts_update: Updated views for backup and snapshots to address issue #50
 # 1.1.0.1001 - feat: [HRM] Remove SDDC Manager root password from Python module #38
-
-# 1.0.0.1002 - fix: [HRM] Exception while sending Backup status data to vROps #48
+# 1.1.0.1001 -
 #
-# Example:
-# python send-data-to-vrops.py
+# 1.0.0.1002 - bug: [HRM] Exception while sending Backup status data to vROps #48
 #
 # Example:
 # python send-data-to-vrops.py [-options]
 #
-# Options:
-# -np : Retrieves the data from SOS Utility and Powershell cmdlets and saves it JSON files.
-# It will not send the data to vrops
+# [Options]:
+# -np : Retrieves the health data from SOS Utility and Powershell cmdlets and saves it JSON files.
+# It will not send the data to vRealize Operations
 
 
 import argparse
@@ -1211,8 +1210,6 @@ class PushDataVrops:
             resource_name = hostname.split(".")[0]
             self.logger.info(f"hostname = {hostname}")
             metrics_payload = {"stat-content": []}
-
-            # timestamp_raw = value['timestamp']
             timestamp = time.mktime(datetime.datetime.now().timetuple())
             resource_id = self.get_resource_id(hostname, resource_name)
 
