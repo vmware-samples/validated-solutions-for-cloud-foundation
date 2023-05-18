@@ -61,60 +61,60 @@ Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud F
 ## vRealize Operations Dashboards Preview
  
 1. VCF Health Rollup
-<img width="500" src="./images/Rollup1-min.png">
-<img width="500" src="./images/Rollup2-min.png">
-<img width="500" src="./images/Rollup3-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Rollup1-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Rollup2-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Rollup3-min.png)
 
 2. VCF Backup Health
-<img width="500" src="./images/Backups1-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Backups1-min.png)
    
 3. VCF Certificate Health
-<img width="500" src="./images/Certificates1-min.png">
-<img width="500" src="./images/Certificates2-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Certificates1-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Certificates2-min.png)
    
 4. VCF Compute Health
-<img width="500" alt="Compute1" src="./images/Compute1-min.png">
-<img width="500" alt="Compute2" src="./images/Compute2-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Compute1-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Compute2-min.png)
    
 5. VCF Connectivity Health
-<img width="500" alt="Connectivity1" src="./images/Connectivity1-min.png">
-<img width="500" alt="Connectivity2" src="./images/Connectivity2-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Connectivity1-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Connectivity2-min.png)
 
 6. VCF DNS Health
-<img width="500" alt="DNS1" src="./images/DNS1-min.png">
-<img width="500" alt="DNS2" src="./images/DNS2-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/DNS1-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/DNS2-min.png)
 
 7. VCF Hardware Compatibility
-<img width="500" alt="Hardware Compatibility1" src="./images/hw-compatibility-min.png">
-<img width="500" alt="Hardware Compatibility2" src="./images/hw-compatibility-min2.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/hw-compatibility-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/hw-compatibility-min2.png)
    
 8. VCF Networking Health
-<img width="500" alt="Networking1" src="./images/Networking-min.png">
-<img width="500" alt="Networking2" src="./images/Networking3-min.png">
-<img width="500" alt="Networking3" src="./images/Networking4-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Networking-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Networking3-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Networking4-min.png)
 
 9. VCF NTP Health
-<img width="500" alt="NTP" src="./images/NTP-min.png">
-<img width="500" alt="NTP3"  src="./images/NTP3-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/NTP-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/NTP3-min.png)
    
 10. VCF Password Health
-<img width="500" alt="Password1" src="./images/Password1-min.png">
-<img width="500" alt="Password2" src="./images/Password2-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Password1-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Password2-min.png)
 
 11. VCF SDDC Manager and vCenter Services Health
-<img width="500" alt="Services1" src="./images/Services1-min.png">
-<img width="500" alt="Services2" src="./images/Services2-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Services1-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Services2-min.png)
     
 12. VCF Snapshot Health
-<img width="500" alt="Snapshots" src="./images/Snapshots1-min.png">
-<img width="500" alt="Snapshot2" src="./images/Snapshots2-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Snapshots1-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Snapshots2-min.png)
 
 13. VCF Storage Health
-<img width="500" alt="storage1" src="./images/storage1-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/storage1-min.png)
 
 14. VCF vSAN Health
-<img width="500" alt="vSAN" src="./images/vSAN-min.png">
-<img width="500" alt="vSAN2" src="./images/vSAN2-min.png">
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/vSAN-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/vSAN2-min.png)
 
 
 ## Known Issues
