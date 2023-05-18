@@ -125,7 +125,7 @@ Please make sure that your NSX-T account name is configured as mentioned in this
 ### 2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.4.x. The filters on the vReaize Operations dashboards depend on the name.
 
 To set the Product Name for the vCenter Server, follow the below steps - 
-1. Log in to the management domain vCenter Server at `https://<management_vcenter_server_fqdn/ui` as `administrator@vsphere.local`.
+1. Log in to the management domain vCenter Server at `https://<management_vcenter_server_fqdn>/ui` as `administrator@vsphere.local`.
 2. In the `VMs and templates` inventory, expand the `management domain vCenter Server` tree and expand the management domain data center.
 3. Select the first `management domain vCenter Server virtual machine` and select `Configure` tab.
 4. In the `Settings` pane select `vApp Options`.
