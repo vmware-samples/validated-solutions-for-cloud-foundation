@@ -49,7 +49,7 @@ Install requried Python libraries by running the following commands on the host 
 
 ### PowerShell Modules
 
-- [PowerShell Module for VMware Cloud Foundation Reporting](https://github.com/vmware/powershell-module-for-vmware-cloud-foundation-reporting) 1.1.0
+- [PowerShell Module for VMware Cloud Foundation Reporting](https://github.com/vmware/powershell-module-for-vmware-cloud-foundation-reporting) 2.0.1
 
 
 
