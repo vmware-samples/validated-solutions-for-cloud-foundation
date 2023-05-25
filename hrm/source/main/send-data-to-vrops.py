@@ -8,7 +8,7 @@
 # Created by:  Bhumitra Nagar - Senior Member of Technical Staff
 # Authors: Bhumitra Nagar, Sowjanya V
 # Date:   2023-05-04
-# Version: 1.1.0.1002
+# Version: 1.1.0.1003
 # ===================================================================================================================
 #
 # Description:
@@ -19,6 +19,7 @@
 # Change Log:
 # ---------------------------------------------------------------------------------------
 #    Version - Description
+# 1.1.0.1003 - docs: readme update and update version and dist files for release
 # 1.1.0.1002 - chore: code cleanup
 # 1.1.0.1001 - bug: [HRM] Date on Backups and Snapshot dashboard shown incorrectly #50
 # 1.1.0.1001 - artifacts_update: Updated views for backup and snapshots to address issue #50
