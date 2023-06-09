@@ -63,7 +63,7 @@ AVI_CREDENTIALS:
   controller: *\<CONTROLLER_CLUSTER_IP\>*</br>
   username: *\<Avi Username\>*</br>
   password: *\<Avi User Password\>*</br>
-  api_version: *\<Avi Controller Version\>* #Ex. "20.1.6"
+  api_version: *\<Avi Controller Version\>* #Ex. "22.1.3"
 
 ### Controller Name and IP Addresses
 CONTROLLER_IP_1: *\<Node 1 IP Address\>*</br>
@@ -140,6 +140,6 @@ If the Actions steps 3-8 fail, the remaining Cluster Deployment steps will need 
 
 The following are considerations that need to be understood when executing this Playbook:
 
-* In this version of the workflow, we are deploying the Controllers using the default "small" sizing (8 vCPU/ 24 GB with 128 GB of disk space). The ovftool command allows us to specify the RAM and vCPU, however we are not able to specify the provisioned disk space during deployment. To specify the provisioned disk space, we will need to implement another command to increase the disk, after the VM has been deployed. We are currently working on this as of September 2021.
+* The newest release supports NSX ALB 22.x+ and the customization of VM resources (vCPU, RAM and disk space).
 
 

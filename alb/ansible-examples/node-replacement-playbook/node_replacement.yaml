@@ -3,6 +3,9 @@
   collections:
     - vmware.alb
     - community.vmware
+  roles:
+    - { role: avinetworks.avicontroller_vmware }
+
   tasks:
   - include_vars: variables.yml
 

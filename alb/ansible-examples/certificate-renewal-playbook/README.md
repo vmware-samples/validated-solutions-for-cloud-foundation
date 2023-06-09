@@ -48,7 +48,7 @@ AVI_CREDENTIALS:
   controller: *\<CONTROLLER_CLUSTER_IP\>*</br>
   username: *\<Avi Username\>*</br> 
   password: *\<Avi User Password\>*</br> 
-  api_version: *\<Avi Controller Version\>* #Ex. "20.1.6"
+  api_version: *\<Avi Controller Version\>* #Ex. "22.1.3"
 
 ### New Certificate file
 CERT_NAME: *\<Certificate Object Name\>*</br>
