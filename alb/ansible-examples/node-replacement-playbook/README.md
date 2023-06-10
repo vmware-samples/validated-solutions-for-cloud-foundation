@@ -52,7 +52,7 @@ AVI_CREDENTIALS:
   controller: *\<CONTROLLER_CLUSTER_IP\>*</br>
   username: *\<Avi Username\>*</br>
   password: *\<Avi User Password\>*</br>
-  api_version: *\<Avi Controller Version\>* #Ex. "20.1.6"
+  api_version: *\<Avi Controller Version\>* #Ex. "22.1.3"
 
 ### Vmware vCenter Credentials and Other Parameters
 VCENTER_HOST: *\<vCenter FQDN/IP Address\>* # In a VCF environment, provide the Management Domain vCenter Server</br>
@@ -90,6 +90,6 @@ The flow of Actions for this Playbook are:
 
 The following are considerations that need to be understood when executing this Playbook:
 
-* In this version of the workflow, we are deploying the Controllers using the default "small" sizing (8 vCPU/ 24 GB with 128 GB of disk space). The ovftool command allows us to specify the RAM and vCPU, however we are not able to specify the provisioned disk space during deployment. To specify the provisioned disk space, we will need to implement another command to increase the disk, after the VM has been deployed. Content Library support will be added in the future.
+* The newest release supports NSX ALB 22.x+ and the customization of VM resources (vCPU, RAM and disk space).
 
 
