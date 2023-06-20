@@ -1,8 +1,8 @@
 # Contributing Guidelines
 
-The project team welcomes contributions from the community. Before you start, 
-please read our Developer Certificate of Origin (https://cla.vmware.com/dco). 
-All contributions to this repository must be signed as described on that page. 
+The project team welcomes contributions from the community. Before you start,
+please read our Developer Certificate of Origin (<https://cla.vmware.com/dco>).
+All contributions to this repository must be signed as described on that page.
 Your signature certifies that you wrote the patch or have the right to pass it
 on as an open-source patch.
 
@@ -42,9 +42,9 @@ To send us a pull request, please:
 contributing.
 3. Ensure local tests pass.
 4. Updated the documentation, if required.
-4. Commit to your fork [using a clear commit messages](http://chris.beams.io/posts/git-commit/).
-5. Send us a pull request, answering any default questions in the pull request.
-6. Pay attention to any automated failures reported in the pull request, and
+5. Commit to your fork [using a clear commit messages](http://chris.beams.io/posts/git-commit/).
+6. Send us a pull request, answering any default questions in the pull request.
+7. Pay attention to any automated failures reported in the pull request, and
 stay involved in the conversation.
 
 GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/)
@@ -54,11 +54,11 @@ and [creating a pull request](https://help.github.com/articles/creating-a-pull-r
 
 This is a rough outline of what a contributor's workflow looks like:
 
-- Create a topic branch from where you want to base your work.
-- Make commits of logical units.
-- Make sure your commit messages are [in the proper format](http://chris.beams.io/posts/git-commit/).
-- Push your changes to a topic branch in your fork of the repository.
-- Submit a pull request.
+* Create a topic branch from where you want to base your work.
+* Make commits of logical units.
+* Make sure your commit messages are [in the proper format](http://chris.beams.io/posts/git-commit/).
+* Push your changes to a topic branch in your fork of the repository.
+* Submit a pull request.
 
 Example:
 
@@ -114,7 +114,7 @@ We follow the conventions on [How to Write a Git Commit Message](http://chris.be
 
 Be sure to include any related GitHub issue references in the commit message.
 
-See [GFM syntax](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown) 
+See [GFM syntax](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown)
 for referencing issues and commits.
 
 ## Reporting Bugs and Creating Issues
