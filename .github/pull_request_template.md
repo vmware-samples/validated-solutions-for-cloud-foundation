@@ -1,65 +1,77 @@
-## Code of Conduct
+<!-- markdownlint-disable first-line-h1 no-inline-html -->
 
-This project has a [Code of Conduct](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/blob/main/CODE_OF_CONDUCT.md) that all participants are expected to understand and follow.
-- [ ] I have read and agree to the project's Code of Conduct.
+<!--
+    In order to have the best experience with our community, we recommend that you read the code of conduct and contributing guidelines before submitting a pull request.
+    
+    By submitting this pull request, you confirm that you have read, understood, and agreed to the project's code of conduct and contributing guidelines.
 
-## Pull Request Checklist
+    Please use conventional commits to format the title of the pull request and the commit messages.
+    For more information, please refer to https://www.conventionalcommits.org.
+-->
 
-In order to have a good experience with our community, we recommend that you read the [contributing guidelines](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/blob/main/CONTRIBUTING.md) for making a pull request.
-
-- [ ] Please use the `WIP` keyword in the title of your pull request if you are not ready for review.
-- [ ] Please ensure that you have opened a GitHub Issue if you are resolving/fixing a problem.
-- [ ] Please ensure that you have [signed](https://help.github.com/en/github/authenticating-to-github/signing-commits) all commits and that you have [squashed](https://medium.com/@slamflipstrom/a-beginners-guide-to-squashing-commits-with-git-rebase-8185cf6e62ec) all relevant commits related to your change.
-- [ ] Please make sure that you have tested your changes.
-- [ ] Please include any relevant screenshots and/or output as part of your testing.
-- [ ] Please include any documentation updates that is applicable for your changes.
-
-## Summary of Pull Request
+### Summary
 
 <!--
     Please provide a clear and concise description of the pull request.
 -->
 
-## Type of Pull Request
+### Type
+
+<!--
+    Please check the one(s) that applies to this pull request using "x".
+-->
+
+- [ ] Bugfix
+- [ ] Enhancement or Feature
+- [ ] Code Style or Formatting
+- [ ] Documentation
+- [ ] Refactoring
+- [ ] Chore
+- [ ] Other
+        Please describe:
+
+### Breaking Changes?
 
 <!--
     Please check the one that applies to this pull request using "x".
--->
-
-- [ ] This is a bug fix.
-- [ ] This is an enhancement or feature.
-- [ ] This is a code style / formatting update.
-- [ ] This is a documentation update.
-- [ ] This is a refactoring update.
-- [ ] This is something else.
-      Please describe:
-
-## Related to Existing Issues
-
-<!--
-  Is this related to any GitHub issue(s)?
--->
-
-Issue Number: GH-XXXX
-
-## Test and Documentation Coverage
-
-<!--
-    Please check the one that applies to this pull request using "x".
--->
-
-- [ ] Tests have been completed (for bug fixes / features).
-- [ ] Documentation has been added / updated (for bug fixes / features).
-
-## Breaking Changes
-
-<!--
-    Please check the one that applies to this pull request using "x".
+    If this pull request contains a breaking change, please describe the impact and mitigation path.
 -->
 
 - [ ] Yes, there are breaking changes.
 - [ ] No, there are no breaking changes.
 
+### Test and Documentation
+
 <!--
-    If this pull request contains a breaking change, please describe the impact and mitigation path.
+    Please check the one(s) that applies to this pull request using "x".
+    For bug fixes and enhancements/features, please ensure that tests and documentation have been completed and provide details.
+-->
+
+- [ ] Tests have been completed.
+- [ ] Documentation has been added or updated.
+
+<!--
+    Please describe the tests that have been completed and/or the documentation that has been added/updated.
+-->
+
+### Issue References
+
+<!--
+    Is this related to any GitHub issue(s)? If so, please provide the issue number(s) that are closed or resolved by this pull request.
+
+    For bug fixes and enhancements/features, please ensure that a GitHub issue has been created and provide the issue number(s) here.
+
+    Please use the 'Closes' keyword followed by the a hash and issue number.
+    This will link the pull request to the issue(s) and automatically close them when the pull request is merged.
+
+    Example:
+
+    Closes #000
+    Closes #001
+-->
+
+### Additional Information
+
+<!--
+    Please provide any additional information that may be helpful.
 -->
