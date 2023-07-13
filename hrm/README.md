@@ -52,7 +52,7 @@ Install requried Python libraries by running the following commands on the host 
 
 ### PowerShell Modules
 
-- [PowerShell Module for VMware Cloud Foundation Reporting](https://github.com/vmware/powershell-module-for-vmware-cloud-foundation-reporting) 2.1.0
+- [PowerShell Module for VMware Cloud Foundation Reporting](https://github.com/vmware/powershell-module-for-vmware-cloud-foundation-reporting) - latest version
 
 ## Implementation
 
@@ -122,7 +122,7 @@ Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud F
 
     Please make sure that your NSX-T account name is configured as mentioned in this issue.
 
-2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.4.x. The filters on the vReaize Operations dashboards depend on the name.
+2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.4.x. The filters on the vRealize Operations dashboards depend on the name.
 
     To set the Product Name for the vCenter Server, follow the below steps:
 
