@@ -5,13 +5,16 @@
 > Release Date: Unreleased
 
 Enhancements:
-- Updated format for `Notifications.json` file to make it readable [GH-60](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/60)
+
+- Updated format for `Notifications.json` file to make it readable. [GH-61](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/61)
 
 Documentation: 
-- Updated `README.md` and update version and dist files for release
+
+- Updated `README.md` and update version and dist files for release. [GH-61](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/61)
 
 Chore:
-- Added `CHANGELOG.md` and removed changelog from `send-data-to-vrops.py` file 
+
+- Added `CHANGELOG.md` and removed changelog from `send-data-to-vrops.py` file. [GH-61](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/61)
 
 ## [v1.1.0]
 
