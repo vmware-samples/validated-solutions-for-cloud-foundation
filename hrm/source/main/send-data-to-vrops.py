@@ -8,25 +8,12 @@
 # Created by:  Bhumitra Nagar - Senior Member of Technical Staff
 # Authors: Bhumitra Nagar, Sowjanya V
 # Date:   2023-05-04
-# Version: 1.1.0.1003
 # ===================================================================================================================
 #
 # Description:
 # The send-data-to-vrops.py script receives the operational health data as JSON from SOS utility and supporting
 # Powershell modules and then sends it to objects in vRealize Operations as custom metrics for use in dashboards
 # to monitor the platform's health.
-#
-# Change Log:
-# ---------------------------------------------------------------------------------------
-#    Version - Description
-# 1.1.0.1003 - docs: readme update and update version and dist files for release
-# 1.1.0.1002 - chore: code cleanup
-# 1.1.0.1001 - bug: [HRM] Date on Backups and Snapshot dashboard shown incorrectly #50
-# 1.1.0.1001 - artifacts_update: Updated views for backup and snapshots to address issue #50
-# 1.1.0.1001 - feat: [HRM] Remove SDDC Manager root password from Python module #38
-# 1.1.0.1000 - feat: [HRM] Update project structure to host module on PyPI
-# ---------------------------------------------------------------------------------------
-# 1.0.0.1002 - bug: [HRM] Exception while sending Backup status data to vROps #48
 #
 # Example:
 # python send-data-to-vrops.py [-options]
