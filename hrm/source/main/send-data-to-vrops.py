@@ -199,19 +199,20 @@ class PushDataVrops:
                                 'Publish-SnapshotStatus',
                                 'Publish-ComponentConnectivityHealthNonSOS']
 
-        without_local_user_cmd = f'-server {self.sddc_manager_fqdn} -user {self.sddc_manager_user} ' \
-                                 f'-pass {self.sddc_manager_pwd} -allDomains -outputJson {self.logger.test_log_folder}'
-        request_token_cmd = f'Request-VCFToken -fqdn {self.sddc_manager_fqdn} -username {self.sddc_manager_user} ' \
-                            f'-password {self.sddc_manager_pwd}'
+        without_local_user_cmd = f"-server {self.sddc_manager_fqdn} -user {self.sddc_manager_user} " \
+                                 f"-pass '{self.sddc_manager_pwd}' -allDomains " \
+                                 f"-outputJson {self.logger.test_log_folder}"
+        request_token_cmd = f"Request-VCFToken -fqdn {self.sddc_manager_fqdn} -username {self.sddc_manager_user} " \
+                            f"-password '{self.sddc_manager_pwd}'"
         publish_nsx_cmd = 'Publish-NsxtHealthNonSOS ' + without_local_user_cmd
 
         combined_cmd = request_token_cmd + ' ; ' + publish_nsx_cmd
         psu.execute_ps_cmd(combined_cmd)
 
         # module requiring sddc local user
-        psu.execute_ps_cmd(f'Publish-StorageCapacityHealth {without_local_user_cmd} '
-                           f' -localUser {self.sddc_manager_local_user}'
-                           f' -localPass {self.sddc_manager_local_pwd}')
+        psu.execute_ps_cmd(f"Publish-StorageCapacityHealth {without_local_user_cmd} "
+                           f" -localUser {self.sddc_manager_local_user}"
+                           f" -localPass '{self.sddc_manager_local_pwd}'")
 
         for module in modules_without_root:
             psu.execute_ps_cmd(f'{module} {without_local_user_cmd}')

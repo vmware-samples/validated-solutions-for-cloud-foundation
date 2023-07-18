@@ -4,6 +4,10 @@
 
 > Release Date: Unreleased
 
+Bugfix:
+
+- Update code to handle special characters in Passwords for Powershell cmdlets
+
 Enhancements:
 
 - Updated format for `Notifications.json` file to make it readable. [GH-61](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/61)
