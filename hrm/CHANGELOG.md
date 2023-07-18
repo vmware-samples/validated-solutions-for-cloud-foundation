@@ -6,7 +6,8 @@
 
 Bugfix:
 
-- Update code to handle special characters in Passwords for Powershell cmdlets
+- Update code to handle special characters in Passwords for Powershell cmdlets  [GH-62](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/62)
+
 
 Enhancements:
 
