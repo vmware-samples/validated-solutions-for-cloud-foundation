@@ -1,5 +1,7 @@
 # Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations
 
+![PyPI](https://img.shields.io/pypi/v/vmware-cloud-foundation-health-monitoring?logo=python&logoColor=yellow&label=PyPI&labelColor=Grey&link=https%3A%2F%2Fpypi.org%2Fproject%2Fvmware-cloud-foundation-health-monitoring%2F)
+&nbsp;&nbsp;
 [![Downloads](https://static.pepy.tech/personalized-badge/vmware-cloud-foundation-health-monitoring?period=total&units=abbreviation&left_color=grey&right_color=green&left_text=DOWNLOADS)](https://pepy.tech/project/vmware-cloud-foundation-health-monitoring) &nbsp;&nbsp; [![Downloads](https://static.pepy.tech/personalized-badge/vmware-cloud-foundation-health-monitoring?period=month&units=international_system&left_color=grey&right_color=green&left_text=DOWNLOADS/WEEK)](https://pepy.tech/project/vmware-cloud-foundation-health-monitoring) &nbsp;&nbsp; [<img src="https://img.shields.io/badge/CHANGELOG-READ-blue?&logo=github&logoColor=white" alt="CHANGELOG" >][changelog]
 
 
