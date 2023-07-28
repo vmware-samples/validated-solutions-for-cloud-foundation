@@ -1,5 +1,8 @@
 # Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations
 
+[![Downloads](https://static.pepy.tech/personalized-badge/vmware-cloud-foundation-health-monitoring?period=total&units=abbreviation&left_color=grey&right_color=green&left_text=DOWNLOADS)](https://pepy.tech/project/vmware-cloud-foundation-health-monitoring) &nbsp;&nbsp; [![Downloads](https://static.pepy.tech/personalized-badge/vmware-cloud-foundation-health-monitoring?period=month&units=international_system&left_color=grey&right_color=green&left_text=DOWNLOADS/WEEK)](https://pepy.tech/project/vmware-cloud-foundation-health-monitoring) &nbsp;&nbsp; [<img src="https://img.shields.io/badge/CHANGELOG-READ-blue?&logo=github&logoColor=white" alt="CHANGELOG" >][changelog]
+
+
 ## Table of Contents
 
 - [Health Reporting and Monitoring for VMware Cloud Foundation](#health-reporting-and-monitoring-vmware-cloud-foundation)
@@ -166,3 +169,7 @@ Redistribution and use in source and binary forms, with or without modification,
 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+[//]: Links
+
+[changelog]: CHANGELOG.md
