@@ -116,7 +116,7 @@ class FolderUtility(object):
         if os.path.exists(path):
             for root_folder, folders, files in os.walk(path):
                 for folder in folders:
-                    if 'run_' in folder:
+                    if 'send-data_' in folder:
                         folder_path = os.path.join(root_folder, folder)
                         if seconds >= os.stat(folder_path).st_ctime:
                             if logger:
