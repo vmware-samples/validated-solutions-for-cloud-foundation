@@ -17,3 +17,6 @@ packer_cache/
 appliance/output-appliance/*.ova
 ## Ignore crash log files.
 crash.log
+*.pyc
+hrm/source/main/encrypted_files/encrypted_pwds
+hrm/source/main/encrypted_files/key
