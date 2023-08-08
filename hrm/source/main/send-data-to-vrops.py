@@ -7,7 +7,6 @@
 # ===================================================================================================================
 # Created by:  Bhumitra Nagar - Senior Member of Technical Staff
 # Authors: Bhumitra Nagar, Sowjanya V
-# Date:   2023-05-04
 # ===================================================================================================================
 #
 # Description:
@@ -352,12 +351,16 @@ class PushDataVrops:
         if not resource_id:
             self.logger.error(f'Unable to add data for Hostname: {hostname} | Resource id: {resource_id}')
             self.logger.error(fail_log_msg)
+            return 2
         else:
             if self.push_to_vrops:
                 self.vrops.add_stats(metrics_payload_json, id=resource_id)
                 self.logger.info(suc_log_msg)
+                return 0
             else:
                 self.logger.info(f"********************** Will not push '{category}' data to vROps ******************")
+                return 1
+
 
     @push_handler
     def push_general(self):
