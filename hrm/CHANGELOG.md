@@ -1,5 +1,19 @@
 # Release History
 
+## [v2.0.0]
+
+> Release Date: Unreleased
+
+Enhancements:
+
+- Added notifications.py to create `Notifications.json` file from template
+- Updated artifacts to address changes to VCF cloud account
+
+Chore:
+
+- Code cleanup
+
+
 ## [v1.2.0]
 
 > Release Date: 2023-07-25
