@@ -12,6 +12,7 @@ Enhancements:
 Chore:
 
 - Code cleanup.
+- Remove unused files
 
 ## [v1.2.0]
 
