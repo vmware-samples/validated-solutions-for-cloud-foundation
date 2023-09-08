@@ -8,7 +8,12 @@
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Requirements](#requirements)
+    - [Terraform](#terraform)
+    - [Installing Terraform Providers](#installing-terraform-providers)
   - [Get Started](#get-started)
+    - [Clone the Repository](#clone-the-repository)
+    - [Implementation of the Cloud-Based Automation for VMware Cloud Foundation](#implementation-of-the-cloud-based-automation-for-vmware-cloud-foundation)
+    - [Setup the Sample Project in VMware Aria Automation](#setup-the-sample-project-in-vmware-aria-automation)
   - [Issues](#issues)
 
 ## Introduction
@@ -25,7 +30,7 @@ If you want to use the Terraform procedures to perform implementation and config
 
 - Verify the your system has a code editor installed. Microsoft Visual Studio Code is recommended. Learn more at [Visual Studio Code](https://code.visualstudio.com/).
 
-- Install the Terraform Visual Studio Code extension 2.23.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
+- Install the Terraform Visual Studio Code extension 2.27.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
 
 ### Installing Terraform Providers
 
@@ -37,13 +42,13 @@ However, some environments do not allow systems direct access to the Internet. T
 
 ## Get Started
 
-### Download the Latest Release or Clone the Repository
+### Clone the Repository
 
-Download the [**latest**](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/releases/latest) release or clone `main` for the latest updates.
+Clone `main` for the latest updates.
 
 **Example**:
 
-``` bash
+```bash
 git clone https://github.com/vmware-samples/validated-solutions-for-cloud-foundation.git
 ```
 
@@ -59,7 +64,7 @@ Each procedure contained within the **Cloud-Based Automation for VMware Cloud Fo
 
 To help simplify this end-to-end process, a PowerShell based menu has also been provided in the root folder, this menu not only reduces the manual typing of commands terraform command execution but also automates the process of creating and populating the terraform.tfvars file by extracting the required input values from the Planning and Preparation Workbook.
 
-``` PowerShell
+```powershell
 .\cbaTerraformMenu.ps1 -workbook F:\MyLab\pnpWorkbook.xlsx -parentPath F:\validated-solutions-for-cloud-foundation\cba
 ```
 

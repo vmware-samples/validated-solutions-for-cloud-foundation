@@ -22,7 +22,7 @@ variable "aria_automation_insecure" {
   default     = false
 }
 
-# Cloud Assembly
+# Aria Automation Assembler
 
 variable "cloud_account_vsphere" {
   type        = string

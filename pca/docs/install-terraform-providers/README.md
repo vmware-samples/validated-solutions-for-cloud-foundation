@@ -2,7 +2,7 @@
 
 ## Automated Installation (Recommended)
 
-The Terraform providers used in this repository are official and verified providers. Official providers are managed by HashiCorp. Verified providers are owned and maintained by members of the HashiCorp Technology Partner Program. HashiCorp verifies the authenticity of the publisher and the providers are listed on the [Terraform Registry](https://registry.terraform.io) with a verified tier label. 
+The Terraform providers used in this repository are official and verified providers. Official providers are managed by HashiCorp. Verified providers are owned and maintained by members of the HashiCorp Technology Partner Program. HashiCorp verifies the authenticity of the publisher and the providers are listed on the [Terraform Registry](https://registry.terraform.io) with a verified tier label.
 
 ### Configure the Terraform Configuration Files
 
@@ -21,7 +21,7 @@ terraform {
 }
 ```
 
-You can use `version` locking and operators to require specific versions of the provider. 
+You can use `version` locking and operators to require specific versions of the provider.
 
 **Example**: A Terraform configuration block with the provider versions.
 
@@ -62,23 +62,23 @@ Terraform has been successfully initialized!
 
 ## Manual Installation
 
-The latest releases of the provider can be found on GitHub. You can download the appropriate version of the provider for your operating system using a command line shell or a browser. 
+The latest releases of the provider can be found on GitHub. You can download the appropriate version of the provider for your operating system using a command line shell or a browser.
 
 This can be useful in environments that do not allow systems direct access to the Internet.
 
-    * [VMware vSphere provider](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs) by HashiCorp.
+* [VMware vSphere provider](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs) by HashiCorp.
 
-    * [VMware NSX-T Data Center provider](https://registry.terraform.io/providers/vmware/nsxt/latest) by VMware.
+* [VMware NSX provider](https://registry.terraform.io/providers/vmware/nsxt/latest) by VMware.
 
-    * [VMware vRealize Automation provider](https://registry.terraform.io/providers/vmware/vra/latest) by VMware.
+* [VMware Aria Automation provider](https://registry.terraform.io/providers/vmware/vra/latest) by VMware.
 
-The examples belows demonstrate the steps using the Terraform provider for VMware vRealize Automation.
+The examples belows demonstrate the steps using the Terraform provider for VMware Aria Automation.
 
 ### Linux
 
 The following examples use Bash on Linux (x64).
 
-1. On an a Linux operating system with Internet access, download the plugin from GitHub using the shell. 
+1. On an a Linux operating system with Internet access, download the plugin from GitHub using the shell.
 
     ```bash
     RELEASE=x.y.z
@@ -90,6 +90,7 @@ The following examples use Bash on Linux (x64).
     ```bash
     tar xvf terraform-provider-vra_${RELEASE}_linux_amd64.zip
     ```
+
 3. Create a directory for the provider.
 
     >**Note**: The directory hierarchy that Terraform use to precisely determine the source of each provider it finds locally.<br/>
@@ -123,7 +124,7 @@ The following example uses Bash (default) on macOS (Intel).
     brew install wget
     ```
 
-2. Download the plugin from GitHub using the shell. 
+2. Download the plugin from GitHub using the shell.
 
     ```bash
     RELEASE=x.y.x
@@ -135,6 +136,7 @@ The following example uses Bash (default) on macOS (Intel).
     ```bash
     tar xvf terraform-provider-vra_${RELEASE}_darwin_amd64.zip
     ```
+
 4. Create a directory for the provider.
 
     >**Note**: The directory hierarchy that Terraform use to precisely determine the source of each provider it finds locally.<br/>
@@ -162,7 +164,7 @@ The following example uses Bash (default) on macOS (Intel).
 
 The following examples use PowerShell on Windows (x64).
 
-1. On a Windows operating system with Internet access, download the plugin using the PowerShell. 
+1. On a Windows operating system with Internet access, download the plugin using the PowerShell.
 
     ```powershell
     $RELEASE="x.y.z"
@@ -216,7 +218,7 @@ terraform {
 
 ### Verify the Terraform Initialization of a Manually Installed Provider
 
-To verify the initialization, navigate to the working directory for your Terraform configuration and run `terraform init`. You should see a message indicating that Terraform has been successfully initialized and the installed version of the Terraform Provider for vRealize Automation.
+To verify the initialization, navigate to the working directory for your Terraform configuration and run `terraform init`. You should see a message indicating that Terraform has been successfully initialized and the installed version of the Terraform Provider for Aria Automation.
 
 **Example**: Initialize and Use a Manually Installed Provider
 
@@ -235,9 +237,10 @@ Terraform has been successfully initialized!
 ```
 
 ## Get the Provider Version
+
 To find the provider version, navigate to the working directory of your Terraform configuration and run `terraform version`. You should see a message indicating the provider version.
 
-**Example**: Terraform Provider Version from the Terraform Registry 
+**Example**: Terraform Provider Version from the Terraform Registry
 
 ```powershell
 PS > terraform version
@@ -245,6 +248,7 @@ Terraform x.y.z
 on linux_amd64
 + provider registry.terraform.io/vmware/vra x.y.z
 ```
+
 **Example**: Terraform Provider Version for a Manually Installed Provider
 
 ```powershell

@@ -5,10 +5,10 @@
 
 <#
     .SYNOPSIS
-    Generates and returns a `refresh_token` from vRealize Automation Cloud or vRealize Automation for use by the Terraform provider.
+    Generates and returns a `refresh_token` from Aria Automation (SaaS) or Aria Automation for use by the Terraform provider.
 
     .DESCRIPTION
-    The Request-vRARefreshToken function connects to the specified vRealize Automation endpoint and obtains a refresh token that is needed the Terraform provider.
+    The Request-vRARefreshToken function connects to the specified Aria Automation endpoint and obtains a refresh token that is needed the Terraform provider.
 
         terraform {
             required_providers {
@@ -39,9 +39,9 @@ Function Set-BasicAuthHeader {
 }
 Function Request-vRARefreshToken {
     Param (
-        [Parameter (HelpMessage = "FQDN for the vRealize Automation.")] [String]$fqdn,
-        [Parameter (HelpMessage = "Username to authenticate with vRealize Automation.")] [String]$username,
-        [Parameter (HelpMessage = "Password to authenticate with vRealize Automation.")] [String]$password,
+        [Parameter (HelpMessage = "FQDN for the Aria Automation.")] [String]$fqdn,
+        [Parameter (HelpMessage = "Username to authenticate with Aria Automation.")] [String]$username,
+        [Parameter (HelpMessage = "Password to authenticate with Aria Automation.")] [String]$password,
         [Parameter (HelpMessage = "Domain for the user or press enter to skip.")] [String]$domain,
         [Parameter (HelpMessage = "Skip certificate validation.")] [switch]$SkipCertValidation
     )
@@ -49,19 +49,19 @@ Function Request-vRARefreshToken {
     if ($PSBoundParameters.Keys.Contains("fqdn")) { 
         Write-Host "FQDN variable found: $fqdn Skipping..."
     } else {
-        $fqdn = Read-Host -Prompt "Enter the FQDN for the vRealize Automation services"
+        $fqdn = Read-Host -Prompt "Enter the FQDN for the Aria Automation services"
     }
 
     if ($PSBoundParameters.Keys.Contains("username")) { 
         Write-Host "Username variable found: $username. Skipping..."
     } else {
-        $username = Read-Host -Prompt "Enter the username to authenticate with vRealize Automation"
+        $username = Read-Host -Prompt "Enter the username to authenticate with Aria Automation"
     }
 
     if ($PSBoundParameters.Keys.Contains("password")) { 
         Write-Host "Password variable found. Skipping..."
     } else {
-        $password = Read-Host -Prompt "Enter the password to authenticate with vRealize Automation"
+        $password = Read-Host -Prompt "Enter the password to authenticate with Aria Automation"
     }
 
     if ($PSBoundParameters.Keys.Contains("domain")) { 
@@ -110,7 +110,7 @@ Function Request-vRARefreshToken {
             $vraHeaders.Add("Accept", "application/json")
             $vraHeaders.Add("Content-Type", "application/json")
             $vraHeaders.Add("Authorization", "Bearer " + $vraResponse.Headers.'Csp-Auth-Token')
-            Write-Output "Successfully connected to endpoint for vRealize Automation services: $vraFqdn"
+            Write-Output "Successfully connected to endpoint for Aria Automation services: $vraFqdn"
             Write-Output "Generating token..."
             Write-Output "`n---------Refresh Token---------"
             ((Select-String -InputObject $vraResponse -Pattern '"refresh_token":') -Split ('"'))[3]

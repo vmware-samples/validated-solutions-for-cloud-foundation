@@ -1,19 +1,19 @@
-# Get Your Refresh Token for the vRealize Automation API
+# Get Your Refresh Token for the Aria Automation API
 
-Before making a call to vRealize Automation, you request an API token that authenticates you for authorized API connections. The API token is also known as a "refresh token".
+Before making a call to Aria Automation, you request an API token that authenticates you for authorized API connections. The API token is also known as a "refresh token".
 
-The Terraform provider for VMware vRealize Automation accepts either a `refresh_token` or an `access_token`, but not both at the same time. 
+The Terraform provider for VMware Aria Automation accepts either a `refresh_token` or an `access_token`, but not both at the same time. 
 
 * Refresh token are valid for **90 days**, when using the API.
 * Access tokens are valid for **8 hours**, but times out after **25 minutes** of inactivity.
 
-  For more information on obtaining an `access_token`, see [Get Your Access Token for the vRealize Automation API](https://code.vmware.com/docs/14701/vrealize-automation-8-6-api-programming-guide/GUID-AC1E4407-6139-412A-B4AA-1F102942EA94.html) on VMware {code}.
+  For more information on obtaining an `access_token`, see [Get Your Access Token for the Aria Automation API](https://code.vmware.com/docs/14701/vrealize-automation-8-6-api-programming-guide/GUID-AC1E4407-6139-412A-B4AA-1F102942EA94.html) on VMware {code}.
 
-# Procedures
+## Procedures
 
-## PowerShell Procedure
+### PowerShell Procedure
 
-If you want to use the Terraform procedures that use the Terraform provider for vRealize Automation, you must obtain an API refresh token from vRealize Automation. You can a cmdlet included in the PowerValidatedSolutions Module.
+If you want to use the Terraform procedures that use the Terraform provider for Aria Automation, you must obtain an API refresh token from Aria Automation. You can a cmdlet included in the PowerValidatedSolutions Module.
 
 1. Start Windows PowerShell.
 
@@ -50,7 +50,7 @@ If you want to use the Terraform procedures that use the Terraform provider for 
     }
     ```
 
-## API Procedure
+### API Procedure
 
 To request a `refresh_token` using the API, you will need your user credentials:
 
@@ -58,7 +58,7 @@ To request a `refresh_token` using the API, you will need your user credentials:
   * password
   * domain (optional)
 
-In addition, you will need the fully qualified domain name (FQDN) of the endpoint associated with the identity access service. For vRealize Automation 8, this will be the fully qualified domain name of the vRealize Automation cluster VIP or appliance. For example, `cloud.rainpole.io`.
+In addition, you will need the fully qualified domain name (FQDN) of the endpoint associated with the identity access service. For Aria Automation 8, this will be the fully qualified domain name of the Aria Automation cluster VIP or appliance. For example, `cloud.rainpole.io`.
 
 You then pass a JSON body containing the credentials to the API.
 
@@ -80,7 +80,7 @@ You then pass a JSON body containing the credentials to the API.
 
 If successful, a JSON response will be returned with the value for the `refresh_token`.
 
-### API Using PowerShell Example
+#### API Using PowerShell Example
 
 1. Set the variables:
 
@@ -126,7 +126,7 @@ If successful, a JSON response will be returned with the value for the `refresh_
     }
     ```
 
-### API Using Bash Example
+#### API Using Bash Example
 
 1. Set the variables:
 
@@ -165,27 +165,27 @@ If successful, a JSON response will be returned with the value for the `refresh_
     }
     ```
 
-## Scripts
+### Scripts
 
 Scripts for both PowerShell and Bash are included in the project repository in the `scripts` directory. These scripts will prompt you for the values and return the `refresh_token`.  
 
 * PowerShell Script: [`get_token.ps1`](../../scripts/get_token.ps1)
 * Bash Script: [`get_token.sh`](../../scripts/get_token.sh)
 
-### PowerShell Script on Windows: `get_token.ps1`
+#### PowerShell Script on Windows: `get_token.ps1`
 
 ```powershell
 > ./get_token.ps1
 
-Enter the FQDN for the vRealize Automation services: cloud.rainpole.io
+Enter the FQDN for the Aria Automation services: cloud.rainpole.io
 
-Enter the username to authenticate with vRealize Automation: john.doe
+Enter the username to authenticate with Aria Automation: john.doe
 
-Enter the password to authenticate with vRealize Automation: ********
+Enter the password to authenticate with Aria Automation: ********
 
 Enter the domain or press enter to skip: rainpole.io
 
-Successfully connected to the endpoint for vRealize Automation services: cloud.rainpole.io
+Successfully connected to the endpoint for Aria Automation services: cloud.rainpole.io
 
 Generating Refresh Token...
 
@@ -199,18 +199,18 @@ VRA_URL = https://cloud.rainpole.io
 VRA_REFRESH_TOKEN = mx7w9**********************zB3UC
 ```
 
-### Bash Script on Linux or macOS: `get_token.sh`
+#### Bash Script on Linux or macOS: `get_token.sh`
 
 ```bash
 $ ./get_token.sh
 
-Enter the FQDN for the vRealize Automation services:
+Enter the FQDN for the Aria Automation services:
 cloud.rainpole.io
 
-Enter the username to authenticate with vRealize Automation:
+Enter the username to authenticate with Aria Automation:
 john.doe
 
-Enter the password to authenticate with vRealize Automation:
+Enter the password to authenticate with Aria Automation:
 ********
 
 Enter the domain or press enter to skip:

@@ -41,7 +41,7 @@ data "vra_region_enumeration_vsphere" "this" {
 
 // CLOUD ASSEMBLY
 
-# Create the Cloud Accounts for Cloud Foundation in Cloud Assembly.
+# Create the Cloud Accounts for Cloud Foundation in Aria Automation Assembler.
 
 resource "vra_cloud_account_vsphere" "this" {
   for_each                     = var.cloud_accounts_vsphere
@@ -73,7 +73,7 @@ resource "vra_cloud_account_nsxt" "this" {
   }
 }
 
- # Create the Cloud Zones for Cloud Foundation in Cloud Assembly.
+ # Create the Cloud Zones for Cloud Foundation in Aria Automation Assembler.
 
 resource "vra_zone" "this" {
   for_each    = var.cloud_accounts_vsphere

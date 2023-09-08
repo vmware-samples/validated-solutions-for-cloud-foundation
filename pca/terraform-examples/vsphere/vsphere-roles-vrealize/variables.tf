@@ -38,20 +38,20 @@ variable "vsphere_datacenter" {
 
 variable "vra_vsphere_role" {
   type        = string
-  description = "The name for the vRealize Automation to vSphere custom role."
+  description = "The name for the Aria Automation to vSphere custom role."
 }
 
 variable "vro_vsphere_role" {
   type        = string
-  description = "The name for the vRealize Orchestrator to vSphere.custom role."
+  description = "The name for the Aria Automation Orchestrator to vSphere custom role."
 }
 
 variable "vra_vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere permissions for the vRealize Automation to vSphere custom role."
+  description = "The vSphere permissions for the Aria Automation to vSphere custom role."
 }
 
 variable "vro_vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere permissions for the vRealize Orchestrator to vSphere.custom role."
+  description = "The vSphere permissions for the Aria Automation Orchestrator to vSphere custom role."
 }

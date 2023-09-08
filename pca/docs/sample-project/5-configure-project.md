@@ -1,14 +1,14 @@
-# Configure a Sample Project in Cloud Assembly
+# Configure a Sample Project in Aria Automation Assembler
 
 You configure a project to define the users that can provision workloads, the priority and cloud zone of deployments, and the maximum allowed deployment instances.
 
-#### UI Procedure
+## UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler Administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, click **Aria Automation Assembler**.
 
 4. Click the **Infrastructure** tab.
 
@@ -53,7 +53,7 @@ You configure a project to define the users that can provision workloads, the pr
 
 14. If you want to create more projects, repeat the procedure for each additional project.
 
-#### Terraform Procedure
+## Terraform Procedure
 
 1. Navigate to the Terraform example in the repository.
 
@@ -91,6 +91,6 @@ You configure a project to define the users that can provision workloads, the pr
     terraform apply tfplan
     ```
 
-[Back: Configure Profiles in Cloud Assembly](4-configure-profiles.md)
+[Back: Configure Profiles in Aria Automation Assembler](4-configure-profiles.md)
 
-[Next: Configure a Sample Cloud Template in Cloud Assembly](6-configure-cloud-template.md)
+[Next: Configure a Sample Cloud Template in Aria Automation Assembler](6-configure-cloud-template.md)

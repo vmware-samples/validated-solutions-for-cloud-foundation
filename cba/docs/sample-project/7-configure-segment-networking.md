@@ -56,7 +56,7 @@ Each network profile is configured for a specific network port group or network 
    terraform plan -out=tfplan
    ```
 
-6. Import the current state of two existing networks, by obtaining the UUID from the VMware Cloud Assembly console.
+6. Import the current state of two existing networks, by obtaining the UUID from the Aria Automation Assembler console.
 
    a. Log in to the VMware Cloud Services console at **`https://console.cloud.vmware.com`**.
 

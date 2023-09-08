@@ -6,7 +6,7 @@ Enable users to deploy workloads by importing the cloud templates, creating a co
 
 1. [Configure a Content Source for the Project in Service Broker](#configure-a-content-source-for-the-project-in-service-broker)
 
-    Provide access to vRealize Automation cloud templates to users by creating and configuring a content source for the project in Service Broker.
+    Provide access to Aria Automation cloud templates to users by creating and configuring a content source for the project in Service Broker.
 
 2. [Share Cloud Templates from a Content Source in Service Broker](#share-cloud-templates-from-a-content-source-in-service-broker)
 
@@ -14,13 +14,13 @@ Enable users to deploy workloads by importing the cloud templates, creating a co
 
 ### Configure a Content Source for the Project in Service Broker
 
-Provide access to vRealize Automation cloud templates to users by creating and configuring a content source for the project in Service Broker.
+Provide access to Aria Automation cloud templates to users by creating and configuring a content source for the project in Service Broker.
 
 **Important** You cannot create more than one catalog source of the same type from the same project.
 
 #### UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Service Broker Administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Service Broker Administrator** service role.
 
 1. On the main navigation bar, click **Services**.
 
@@ -82,7 +82,7 @@ You can share cloud templates and content sources within a project to enable pro
 
 #### UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Service Broker Administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Service Broker Administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
@@ -132,6 +132,6 @@ You can share cloud templates and content sources within a project to enable pro
     terraform apply tfplan
     ```
 
-[Back: Configure a Sample Cloud Template in Cloud Assembly](6-configure-cloud-template.md)
+[Back: Configure a Sample Cloud Template in Aria Automation Assembler](6-configure-cloud-template.md)
 
 [Next: Deploy a Sample Cloud Template in Service Broker](8-deploy-cloud-template.md)

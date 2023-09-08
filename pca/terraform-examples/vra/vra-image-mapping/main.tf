@@ -32,7 +32,7 @@ data "vra_image" "this" {
 
 // CLOUD ASSEMBLY
 
-# Create the image mappings in Cloud Assembly for a vCenter Server cloud account.
+# Create the image mappings in Aria Automation Assembler for a vCenter Server cloud account.
 
 resource "vra_image_profile" "this" {
   name      = var.cloud_account_vsphere

@@ -5,7 +5,7 @@
 # COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 # OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-# Generates and returns a `refresh_token` from vRealize Automation Cloud or vRealize Automation for use by the Terraform P\provider.
+# Generates and returns a `refresh_token` from Aria Automation (SaaS) or Aria Automation for use by the Terraform P\provider.
 # 
 #        terraform {
 #            required_providers {
@@ -40,7 +40,7 @@ then
 	echo -e "\nFQDN variable found: $fqdn. Skipping...\n"
 	export VRA_URL="https://$fqdn"
 else
- 	echo -e "\nEnter the FQDN for the vRealize Automation services:"
+ 	echo -e "\nEnter the FQDN for the Aria Automation services:"
 	read fqdn
 	export VRA_URL="https://$fqdn"
 fi
@@ -51,7 +51,7 @@ if [[ -v username ]]
 then
 	echo -e "\nUsername variable found: $username. Skipping...\n"
 else
-	echo -e "\nEnter the username to authenticate with vRealize Automation:"
+	echo -e "\nEnter the username to authenticate with Aria Automation:"
 	read username
 fi
 
@@ -61,7 +61,7 @@ if [[ -v password ]]
 then
     echo -e "\nPassword variable found. Skipping...\n"
 else
-    echo -e "\nEnter the password to authenticate with vRealize Automation:"
+    echo -e "\nEnter the password to authenticate with Aria Automation:"
     read -s password
 fi
 

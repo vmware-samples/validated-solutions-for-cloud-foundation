@@ -62,7 +62,7 @@ This is a rough outline of what a contributor's workflow looks like:
 
 Example:
 
-``` shell
+```bash
 git remote add upstream https://github.com/<org>/<repo>.git
 git checkout -b my-new-feature main
 git commit -s -a
@@ -74,7 +74,7 @@ git push origin my-new-feature
 When your branch gets out of sync with the `main` branch, use the following to
 update:
 
-``` shell
+```bash
 git checkout my-new-feature
 git fetch -a
 git pull --rebase upstream main
@@ -89,7 +89,7 @@ you'll most likely want to squash these changes into existing commits.
 If your pull request contains a single commit or your changes are related to
 the most recent commit, you can simply amend the commit.
 
-``` shell
+```bash
 git add .
 git commit --amend
 git push --force-with-lease origin my-new-feature
@@ -97,7 +97,7 @@ git push --force-with-lease origin my-new-feature
 
 If you need to squash changes into an earlier commit, you can use:
 
-``` shell
+```bash
 git add .
 git commit --fixup <commit>
 git rebase -i --autosquash main

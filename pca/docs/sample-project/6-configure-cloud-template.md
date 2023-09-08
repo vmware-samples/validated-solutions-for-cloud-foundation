@@ -1,14 +1,14 @@
-# Configure a Sample Cloud Template in Cloud Assembly
+# Configure a Sample Cloud Template in Aria Automation Assembler
 
 Cloud templates determine the specifications, such as target cloud region, resources, guest operating systems, and others, for the services or applications that consumers of this template can deploy.
 
 ## UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler Administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, click **Aria Automation Assembler**.
 
 4. Click the **Design** tab.
 
@@ -20,7 +20,7 @@ Cloud templates determine the specifications, such as target cloud region, resou
     | :-                                        | :-                            |
     | Name                                      | Sample Template               |
     | Description                               | Sample Cloud Template         |
-    | Project	                                  | Rainpole Sample               |
+    | Project                                   | Rainpole Sample               |
     | Cloud template sharing in Service Broker  | Share only with this project  |
 
 7. On the **Sample** template design page, in the **Code** tab, enter the following example YAML.
@@ -135,7 +135,7 @@ resources:
 
     c. Verify that the test finishes successfully.
 
-9.  Version the cloud template.
+9. Version the cloud template.
 
     a. On the **Sample** template design page, click **Version**.
 
@@ -186,14 +186,14 @@ resources:
 
 7. Test the cloud template by using the UI.
 
-    a. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+    a. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler Administrator** service role.
 
-    b. On the main navigation bar, click **Services**. 
-    
-    c. Under **My services**, click **Cloud Assembly**. 
-    
+    b. On the main navigation bar, click **Services**.
+
+    c. Under **My services**, click **Aria Automation Assembler**.
+
     d. Click the **Design** tab.
-    
+
     e. On the **Sample** template design page, click **Test**.
 
     f. In the **Testing Sample** dialog box, configure the settings and click **Test**.
@@ -213,6 +213,6 @@ resources:
 
     g. Verify that the test finishes successfully.
 
-[Back: Configure a Sample Project in Cloud Assembly](5-configure-project.md)
+[Back: Configure a Sample Project in Aria Automation Assembler](5-configure-project.md)
 
 [Next: Configure the Project in Service Broker](7-configure-project-service-broker.md)

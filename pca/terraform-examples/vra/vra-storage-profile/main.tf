@@ -41,7 +41,7 @@ data "vra_fabric_storage_policy_vsphere" "this" {
 
 // CLOUD ASSEMBLY
 
-# Add storage profiles in Cloud Assembly for a vSAN Datastores in a vCenter Server cloud account.
+# Add storage profiles in Aria Automation Assembler for a vSAN Datastores in a vCenter Server cloud account.
 
 resource "vra_storage_profile_vsphere" "this" {
   for_each          = var.storage_profile_vsphere
