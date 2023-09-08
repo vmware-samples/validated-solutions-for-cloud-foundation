@@ -20,7 +20,7 @@ git clone https://github.com/vmware-samples/validated-solutions-for-cloud-founda
 
 ### Choose an Automation Path
 
-This solution offers automation using either VMware vRealize Orchestrator workflows or Ansible playbooks. Select a tool of choice and review the detailed information on how to execute either the sorkflow or the playbook.
+This solution offers automation using either Aria Automation Orchestrator workflows or Ansible playbooks. Select a tool of choice and review the detailed information on how to execute either the sorkflow or the playbook.
 
 The content layout provides easy navigation to the automation options.
 

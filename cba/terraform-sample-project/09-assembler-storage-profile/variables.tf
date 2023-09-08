@@ -59,7 +59,7 @@ variable "vsphere_cluster" {
   description = "The target vSphere cluster object name. (e.g. sfo-w01-cl01)"
 }
 
-# Cloud Assembly Storage Profile
+# Aria Automation Assembler Storage Profile
 
 variable "storage_profile_vsphere" {
   type = map(object({

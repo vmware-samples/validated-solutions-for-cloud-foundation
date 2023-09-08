@@ -1,18 +1,19 @@
-# Configure Mappings in Cloud Assembly
+# Configure Mappings in Aria Automation Assembler
 
-You define deployment sizing and deployment parameters for workloads by using flavor and image mappings in Cloud Assembly.
+You define deployment sizing and deployment parameters for workloads by using flavor and image mappings in Aria Automation Assembler.
 
 ## Procedure
 
-1. [Add Flavor Mappings in Cloud Assembly](#add-flavor-mappings-in-cloud-assembly)
+- [Configure Mappings in Aria Automation Assembler](#configure-mappings-in-aria-automation-assembler)
+  - [Procedure](#procedure)
+    - [Add Flavor Mappings in Aria Automation Assembler](#add-flavor-mappings-in-aria-automation-assembler)
+      - [UI Procedure](#ui-procedure)
+      - [Terraform Procedure](#terraform-procedure)
+    - [Add Image Mappings in Aria Automation Assembler](#add-image-mappings-in-aria-automation-assembler)
+      - [UI Procedure](#ui-procedure-1)
+      - [Terraform Procedure](#terraform-procedure-1)
 
-    You configure flavor mappings for the vCenter Server cloud accounts to define and group a set of target deployment sizings.
-
-2. [Add Image Mappings in Cloud Assembly](#add-image-mappings-in-cloud-assembly)
-
-    You configure image mappings for the vCenter Server cloud accounts to define target deployment operating system and related configuration settings.
-
-### Add Flavor Mappings in Cloud Assembly
+### Add Flavor Mappings in Aria Automation Assembler
 
 You configure flavor mappings for the vCenter Server cloud accounts to define and group a set of target deployment sizings.
 
@@ -30,11 +31,11 @@ In the sample, the following flavor mappings are used:
 
 #### UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler Administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, click **Aria Automation Assembler**.
 
 4. Click the **Infrastructure** tab.
 
@@ -91,7 +92,7 @@ In the sample, the following flavor mappings are used:
     terraform apply tfplan
     ```
 
-### Add Image Mappings in Cloud Assembly
+### Add Image Mappings in Aria Automation Assembler
 
 You configure image mappings for the vCenter Server cloud accounts to define target deployment operating system and related configuration settings.
 
@@ -106,11 +107,11 @@ In the sample, the following image mappings are used:
 
 #### UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler Administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, click **Aria Automation Assembler**.
 
 4. Click the **Infrastructure** tab.
 
@@ -169,6 +170,6 @@ In the sample, the following image mappings are used:
     ```
 
 
-[Back: Configure Customization Specifications in vSphere](2-custom-specs.md)
+[Back: Configure Customization Specifications in vSphere](2-configure-custom-specs.md)
 
-[Next: Configure Profiles in Cloud Assembly](4-configure-profiles.md)
+[Next: Configure Profiles in Aria Automation Assembler](4-configure-profiles.md)

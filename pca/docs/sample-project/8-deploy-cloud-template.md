@@ -4,7 +4,7 @@ After you import the cloud template and share it with members of your project, y
 
 ## Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Service Broker Administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Service Broker Administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
@@ -32,7 +32,7 @@ After you import the cloud template and share it with members of your project, y
 
 6. Verify that the deployment completed successfully.
 
-    a. Click the **Deployments** tab and click the **Sample Deployment** card. 
+    a. Click the **Deployments** tab and click the **Sample Deployment** card.
 
     b. Click the **History** tab and click the **Request details** tab.
 

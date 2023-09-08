@@ -2,7 +2,7 @@
 
 # Configure Content Libraries in vSphere
 
-Content libraries are containers for VM templates, vApp templates, and other resources used for vRealize Automation deployment of virtual machines and vApps. Sharing templates and files across multiple vCenter Server instances brings out consistency, compliance, efficiency, and automation in deploying workloads at scale.
+Content libraries are containers for VM templates, vApp templates, and other resources used for Aria Automation deployment of virtual machines and vApps. Sharing templates and files across multiple vCenter Server instances brings out consistency, compliance, efficiency, and automation in deploying workloads at scale.
 
 You create and manage a content library from a single vCenter Server instance. If HTTPS traffic is allowed between vCenter Server instances, you can share the library items.
 
@@ -14,7 +14,7 @@ You create and manage a content library from a single vCenter Server instance. I
 
 2. [Import OVF Images to the Publishing Content Library on the First VI Workload Domain vCenter Server](#import-ovf-images-to-the-publishing-content-library-on-the-first-vi-workload-domain-vcenter-server)
 
-   You can import virtual machine images in OVF format into a publishing content library to use for image mappings in vRealize Automation.
+   You can import virtual machine images in OVF format into a publishing content library to use for image mappings in Aria Automation.
 
 3. [Configure Subscribed Content Libraries on an Additional VI Workload Domain vCenter Server](#configure-subscribed-content-libraries-on-an-additional-vi-workload-domain-vcenter-server)
 
@@ -43,7 +43,7 @@ Create a content library for images that you can use to deploy virtual machines 
    | **Setting**            | **Value**   |
    | :-                     | :-          |
    | Local content library  | Selected    |
-   | Enable publishing	    | Selected    |
+   | Enable publishing     | Selected    |
    | Enable authentication  | Disabled    |
 
 5. On the **Add storage** page, select the storage location **sfo-w01-cl01-ds-vsan01** and click **Next**.
@@ -107,7 +107,7 @@ Create a content library for images that you can use to deploy virtual machines 
 
 ### Import OVF Images to the Publishing Content Library on the First VI Workload Domain vCenter Server
 
-You can import virtual machine images in OVF format into a publishing content library to use for image mappings in vRealize Automation. 
+You can import virtual machine images in OVF format into a publishing content library to use for image mappings in Aria Automation.
 
 In the sample, the following operating system images are used:
 
@@ -134,7 +134,7 @@ Learn more about creating machine images with HashiCorp Packer and the Packer Pl
    | :-              | :-                       |
    | Clone as        | New template             |
    | Content library | sfo-w01-lib01            |
-   | Template name	| linux-ubuntu-server-lts  |
+   | Template name | linux-ubuntu-server-lts  |
    | Notes           | Ubuntu Server LTS        |
 
 6. Repeat the procedure for the virtual machine template for the Windows Server Standard operating system.
@@ -197,17 +197,17 @@ Learn more about creating machine images with HashiCorp Packer and the Packer Pl
 
    ```powershell
    terraform apply tfplan
-   ```   
+   ```
 
 #### What to do next?
 
-Initialize an on-demand image synchronization for the vCenter Server cloud account in vRealize Automation.
+Initialize an on-demand image synchronization for the vCenter Server cloud account in Aria Automation.
 
-1. Log in to the vRealize Automation at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly administrator** service role.
+1. Log in to the Aria Automation at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, click **Aria Automation Assembler**.
 
 4. Click the **Infrastructure** tab.
 
@@ -233,11 +233,11 @@ To ensure that all virtual machine images in your environment are consistent, sy
 
 3. Create the subscribed content library on the additional VI workload domain vCenter Server.
 
-   a	In the **Content libraries** inventory, click **Create**.
+   a In the **Content libraries** inventory, click **Create**.
 
    b. On the **Name and location** page, configure these settings and click **Next**.
 
-      | Setting         | Example Value                           |   
+      | Setting         | Example Value                           |
       | :-              | :-                                      |
       | Name            | sfo-w02-lib01                           |
       | Notes           | Subscribed Content Library for sfo-w02  |
@@ -248,7 +248,7 @@ To ensure that all virtual machine images in your environment are consistent, sy
       | Setting                     | Example Value                                 |
       | :-                          | :-                                            |
       | Subscribed content library  | Selected                                      |
-      | Subscription URL	         | Paste the URL that you copied in step [2]().  |
+      | Subscription URL          | Paste the URL that you copied in step [2]().  |
       | Enable authentication       | Disabled                                      |
       | Download content            | Immediately                                   |
 
@@ -314,6 +314,6 @@ To ensure that all virtual machine images in your environment are consistent, sy
    Add-ContentLibrary -server $sddcManagerFqdn -user $sddcManagerUser -pass $sddcManagerPass -domain $sddcDomainName -contentLibraryName $contentLibraryName -subscriptionUrl $subscriptionUrl
    ```
 
-[Back: Home](README.md) 
+[Back: Home](README.md)
 
 [Next: Configure Customization Specifications in vSphere](2-configure-custom-specs.md)

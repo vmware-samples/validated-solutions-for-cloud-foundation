@@ -11,7 +11,7 @@ vsphere_insecure = false
 
 # Role
 
-vsphere_role = "vRealize Operations Cloud to vSphere Integration"
+vsphere_role = "Aria Operations (SaaS) to vSphere Integration"
 vsphere_privileges = [
 "System.Anonymous",
 "System.Read",

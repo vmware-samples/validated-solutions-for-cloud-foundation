@@ -2,7 +2,7 @@
 
 # Configure a Content Source for the Project in VMware Aria Automation Service Broker
 
-Provide access to VMware Aria Automation cloud templates to users by creating and configuring a content source for the project in VMware Aria Automation Service Broker.
+Provide access to VMware Aria Automation (SaaS) templates to users by creating and configuring a content source for the project in VMware Aria Automation Service Broker.
 
 ## UI Procedure
 

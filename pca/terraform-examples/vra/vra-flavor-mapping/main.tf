@@ -29,7 +29,7 @@ data "vra_region" "this" {
 
 // CLOUD ASSEMBLY
 
-# Create the flavor mappings in Cloud Assembly for a vCenter Server cloud account.
+# Create the flavor mappings in Aria Automation Assembler for a vCenter Server cloud account.
 
 resource "vra_flavor_profile" "this" {
   name      = var.cloud_account_vsphere

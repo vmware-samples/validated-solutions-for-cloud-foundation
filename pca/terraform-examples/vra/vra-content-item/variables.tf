@@ -6,12 +6,12 @@
 
 variable "vra_url" {
   type        = string
-  description = "The base URL of the vRealize Automation endpoint. (e.g. https://xint-vra01.rainpole.io)"
+  description = "The base URL of the Aria Automation endpoint. (e.g. https://xint-vra01.rainpole.io)"
 }
 
 variable "vra_api_token" {
   type        = string
-  description = "API token from the vRealize Automation endpoint."
+  description = "API token from the Aria Automation endpoint."
   sensitive   = true
 }
 
