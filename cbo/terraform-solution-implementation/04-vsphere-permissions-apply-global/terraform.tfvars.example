@@ -16,5 +16,5 @@ domain_bind_password = "********************"
 
 # vSphere Permissions
 
-vsphere_role     = "vRealize Operations Cloud to vSphere Integration"
+vsphere_role     = "Aria Operations (SaaS) to vSphere Integration"
 service_account  = "svc-cbo-vsphere"

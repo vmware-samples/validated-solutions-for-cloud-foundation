@@ -25,7 +25,7 @@ data "vra_zone" "this" {
 
 // CLOUD ASSEMBLY
 
-# Create a project in Cloud Assembly and assign cloud zones.
+# Create a project in Aria Automation Assembler and assign cloud zones.
 
 resource "vra_project" "this" {
   name                    = var.project_name

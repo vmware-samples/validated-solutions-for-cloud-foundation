@@ -24,8 +24,8 @@ variable "vcf_password" {
 
 variable "vsphere_role" {
   type        = string
-  description = "The target vSphere role to be assigned to the vRealize Operations Cloud service account. (e.g. vRealize Operations Cloud to vSphere Integration)"
-  default     = "vRealize Operations Cloud to vSphere Integration"
+  description = "The target vSphere role to be assigned to the Aria Operations (SaaS) service account. (e.g. Aria Operations (SaaS) to vSphere Integration)"
+  default     = "Aria Operations (SaaS) to vSphere Integration"
 }
 
 variable "service_account" {

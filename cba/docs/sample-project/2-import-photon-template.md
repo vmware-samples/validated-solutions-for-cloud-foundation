@@ -61,7 +61,7 @@ In the sample, the following operating system images are used:
 
 ## What to do next?
 
-Initialize an on-demand image synchronization for the vCenter Server cloud account in Cloud Assembly.
+Initialize an on-demand image synchronization for the vCenter Server cloud account in Aria Automation Assembler.
 
 1. Log in to the VMware Cloud Services console at **`https://console.cloud.vmware.com`**.
 

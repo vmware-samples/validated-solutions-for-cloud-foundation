@@ -1,6 +1,6 @@
-# Configure Profiles in Cloud Assembly
+# Configure Profiles in Aria Automation Assembler
 
-You define target networks and datastores for workload provisioning by using network and storage profiles in Cloud Assembly.
+You define target networks and datastores for workload provisioning by using network and storage profiles in Aria Automation Assembler.
 
 ## Procedure
 
@@ -10,17 +10,17 @@ You define target networks and datastores for workload provisioning by using net
 
 2. [Configure Network Profiles for On-Demand Networks](#configure-network-profiles-for-on-demand-networks)
 
-3. [Configure Storage Profiles in Cloud Assembly](#configure-storage-profiles-in-cloud-assembly)
+3. [Configure Storage Profiles in Aria Automation Assembler](#configure-storage-profiles-in-cloud-assembly)
 
-    You configure type of storage for the provisioned workloads by defining a storage profile in Cloud Assembly for the specific cloud account and region.
+    You configure type of storage for the provisioned workloads by defining a storage profile in Aria Automation Assembler for the specific cloud account and region.
 
 ### Configure Network Profiles for Existing Networks
 
 Each network profile is configured for a specific network port group or virtual network segment to specify the IP address and the routing configuration for virtual machines provisioned to that network.
 
-#### Add NSX Segments in NSX-T Data Center for Use of Existing Networks in vRealize Automation
+#### Add NSX Segments in NSX-T Data Center for Use of Existing Networks in Aria Automation
 
-Before project members can request workloads on existing networks, you must add the network segments from the VI workload domain NSX Local Manager to the network profiles defined in vRealize Automation. You configure separate segments for the environment type and application tier.
+Before project members can request workloads on existing networks, you must add the network segments from the VI workload domain NSX Local Manager to the network profiles defined in Aria Automation. You configure separate segments for the environment type and application tier.
 
 NSX Segments for Existing Networks
 
@@ -97,11 +97,11 @@ Each network profile is configured for a specific network port group or network 
 
 ##### UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler Administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, click **Aria Automation Assembler**.
 
 4. Click the **Infrastructure** tab.
 
@@ -178,11 +178,11 @@ Each network profile is configured for a specific network port group or network 
 
 2. Apply the capability tags by using the UI.
 
-    a. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+    a. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler Administrator** service role.
 
     b. On the main navigation bar, click **Services**. 
     
-    c. Under **My services**, click **Cloud Assembly**. 
+    c. Under **My services**, click **Aria Automation Assembler**. 
     
     d. Click the **Infrastructure** tab.
 
@@ -254,9 +254,9 @@ Each network profile is configured for a specific network port group or network 
 
 ### Configure Network Profiles for On-Demand Networks
 
-#### Add NSX Segments for Use of On-Demand Networks and in vRealize Automation
+#### Add NSX Segments for Use of On-Demand Networks and in Aria Automation
 
-Before project members can request workloads using on-demand networks, you must add a network segment to the VI workload domain NSX Local Manager to the network profiles defined in vRealize Automation. In this sample, you configure one segment for on-demand networks.
+Before project members can request workloads using on-demand networks, you must add a network segment to the VI workload domain NSX Local Manager to the network profiles defined in Aria Automation. In this sample, you configure one segment for on-demand networks.
 
 ##### UI Procedure
 
@@ -326,11 +326,11 @@ Each network profile is configured for a specific network port group or virtual 
 
 ##### UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly Administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler Administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, click **Aria Automation Assembler**.
 
 4. Click the **Infrastructure** tab.
 
@@ -413,11 +413,11 @@ Each network profile is configured for a specific network port group or virtual 
 
 2. Apply the capability tags by using the UI.
 
-    a. Log in to the vRealize Automation cloud services console at **https://****<vra\_cluster\_fqdn>/csp/gateway/portal** with a user assigned the **Cloud Assembly administrator** service role.
+    a. Log in to the Aria Automation services console at **https://****<vra\_cluster\_fqdn>/csp/gateway/portal** with a user assigned the **Aria Automation Assembler administrator** service role.
 
     b. On the main navigation bar, click **Services**. 
     
-    c. Under **My services**, click **Cloud Assembly**. 
+    c. Under **My services**, click **Aria Automation Assembler**. 
     
     d. Click the **Infrastructure** tab.
 
@@ -461,7 +461,7 @@ Each network profile is configured for a specific network port group or virtual 
 
 5. Configure the NSX Tier-0 gateway and the NSX Edge cluster on the network profile by using the UI.
 
-    a. Back in the vRealize Automation cloud services console, in the left pane, select **Configure > Network profiles**.
+    a. Back in the Aria Automation services console, in the left pane, select **Configure > Network profiles**.
 
     b. In the **net-ondemand-sfo-w01-vc01** card, click **Open**.
 
@@ -472,17 +472,17 @@ Each network profile is configured for a specific network port group or virtual 
     | Tier-0 logical router | sfo-w01-ec01-t0-gw01  |
     | Edge cluster          | sfo-w01-ec01          |
 
-#### Configure Storage Profiles in Cloud Assembly
+#### Configure Storage Profiles in Aria Automation Assembler
 
-You configure type of storage for the provisioned workloads by defining a storage profile in Cloud Assembly for the specific cloud account and region.
+You configure type of storage for the provisioned workloads by defining a storage profile in Aria Automation Assembler for the specific cloud account and region.
 
 ##### UI Procedure
 
-1. Log in to the vRealize Automation cloud services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Cloud Assembly administrator** service role.
+1. Log in to the Aria Automation services console at **`https://<vra_fqdn>/csp/gateway/portal`** with a user assigned the **Aria Automation Assembler administrator** service role.
 
 2. On the main navigation bar, click **Services**.
 
-3. Under **My services**, click **Cloud Assembly**.
+3. Under **My services**, click **Aria Automation Assembler**.
 
 4. Click the **Infrastructure** tab.
 
@@ -545,6 +545,6 @@ You configure type of storage for the provisioned workloads by defining a storag
     terraform apply tfplan
     ```
 
-[Back: Configure Mappings in Cloud Assembly](3-configure-mappings.md)
+[Back: Configure Mappings in Aria Automation Assembler](3-configure-mappings.md)
 
-[Next: Configure a Sample Project in Cloud Assembly](5-configure-project.md)
+[Next: Configure a Sample Project in Aria Automation Assembler](5-configure-project.md)

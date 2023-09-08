@@ -186,12 +186,12 @@ variable "cloud_proxy_k8s_service_cidr" {
   default     = "10.244.4.0/22"
 }
 
-# vRealize Orchestrator Integration
+# Aria Automation Orchestrator Integration
 variable "vro_integration_name" {
   type        = string
-  description = "Name of the vRealize Orchestrator Integration. (e.g. sfo-w01-orchestrator-integration)"
+  description = "Name of the Aria Automation Orchestrator Integration. (e.g. sfo-w01-orchestrator-integration)"
 }
 variable "vro_integration_tag" {
   type        = string
-  description = "Name of the Capability Tag for the vRealize Orchestrator Integration. (e.g. integration:sfo-w01-orchestrator)"
+  description = "Name of the Capability Tag for the Aria Automation Orchestrator Integration. (e.g. integration:sfo-w01-orchestrator)"
 }

@@ -19,9 +19,9 @@ vsphere_cluster    = "sfo-m01-cl01"
 vm_vm_dependency_rule_name_0 = "vm-vm-rule-wsa-vra"
 
 dependency_vm_group_name_0 = "xint-vm-group-wsa"   // Cross-instance Workspace ONE Access Virtual Machine Dependency Group Name
-vm_group_name_0 = "xint-vm-group-vra"              // vRealize Automation Virtual Machine Group Name
+vm_group_name_0 = "xint-vm-group-vra"              // Aria Automation Virtual Machine Group Name
 vm_group_vms_0 = [
   "xint-vra01a",
   "xint-vra01b",
   "xint-vra01c"
-]                                                     // vRealize Automation Group Virtual Machines
+]                                                     // Aria Automation Group Virtual Machines

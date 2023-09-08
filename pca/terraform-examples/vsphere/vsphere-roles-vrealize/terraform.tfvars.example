@@ -15,8 +15,8 @@ vsphere_datacenter = "sfo-m01-dc01"
 
 # Roles
 
-vra_vsphere_role = "vRealize Automation to vSphere Integration"
-vro_vsphere_role = "vRealize Orchestrator to vSphere Integration"
+vra_vsphere_role = "Aria Automation to vSphere Integration"
+vro_vsphere_role = "Aria Automation Orchestrator to vSphere Integration"
 vra_vsphere_privileges = [
   "System.Anonymous",
   "System.Read",

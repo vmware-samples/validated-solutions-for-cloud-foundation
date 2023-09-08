@@ -1,20 +1,20 @@
 # Configure Customization Specifications in vSphere
 
-Create customization specifications, one for Linux and one for Windows, for use by the virtual machines images you deploy. Customization specifications are XML files that contain system configuration settings for the guest operating systems used in the virtual machines. You can use the customization specifications when you create cloud templates in vRealize Automation.
+Create customization specifications, one for Linux and one for Windows, for use by the virtual machines images you deploy. Customization specifications are XML files that contain system configuration settings for the guest operating systems used in the virtual machines. You can use the customization specifications when you create cloud templates in Aria Automation.
 
 ## Procedure
 
 1. [Create a Customization Specification for Linux Guest Operating Systems](#create-a-customization-specification-for-linux-guest-operating-systems)
 
-    Create a Linux guest operating system specification that you can apply when you create cloud templates for use with vRealize Automation. This customization specification can be used to customize virtual machine guest operating systems when provisioning new virtual machines from vRealize Automation.
+    Create a Linux guest operating system specification that you can apply when you create cloud templates for use with Aria Automation. This customization specification can be used to customize virtual machine guest operating systems when provisioning new virtual machines from Aria Automation.
 
 2. [Create a Customization Specification for Windows Guest Operating Systems](#create-a-customization-specification-for-windows-guest-operating-systems)
 
-    Create a Windows guest operating system specification that you can apply when you create cloud templates for use with vRealize Automation. This customization specification can be used to customize virtual machine guest operating systems when provisioning new virtual machines from vRealize Automation.
+    Create a Windows guest operating system specification that you can apply when you create cloud templates for use with Aria Automation. This customization specification can be used to customize virtual machine guest operating systems when provisioning new virtual machines from Aria Automation.
 
 ### Create a Customization Specification for Linux Guest Operating Systems
 
-Create a Linux guest operating system specification that you can apply when you create cloud templates for use with vRealize Automation. This customization specification can be used to customize virtual machine guest operating systems when provisioning new virtual machines from vRealize Automation.
+Create a Linux guest operating system specification that you can apply when you create cloud templates for use with Aria Automation. This customization specification can be used to customize virtual machine guest operating systems when provisioning new virtual machines from Aria Automation.
 
 #### UI Procedure
 
@@ -35,7 +35,7 @@ Create a Linux guest operating system specification that you can apply when you 
     | Name              | linux-ubuntu-server-lts       |
     | Description       | Ubuntu Linux Server LTS       |
     | vCenter Server    | sfo-w01-vc01.sfo.rainpole.io  |
-    | Target guest OS	| Linux                         |
+    | Target guest OS | Linux                         |
 
 6. On the **Computer name** page, configure the settings and click **Next**.
 
@@ -116,7 +116,7 @@ Create a Linux guest operating system specification that you can apply when you 
 
 ### Create a Customization Specification for Windows Guest Operating Systems
 
-Create a Windows guest operating system specification that you can apply when you create cloud templates for use with vRealize Automation. This customization specification can be used to customize virtual machine guest operating systems when provisioning new virtual machines from vRealize Automation.
+Create a Windows guest operating system specification that you can apply when you create cloud templates for use with Aria Automation. This customization specification can be used to customize virtual machine guest operating systems when provisioning new virtual machines from Aria Automation.
 
 #### UI Procedure
 
@@ -137,9 +137,9 @@ Create a Windows guest operating system specification that you can apply when yo
     | Name                              | windows-server-standard       |
     | Description                       | Windows Server Standard       |
     | vCenter Server                    | sfo-w01-vc01.sfo.rainpole.io  |
-    | Target guest OS	                | Windows                       |
-    | Use custom SysPrep answer file	| Deselected                    |
-    | Generate new Security ID (SID)	| Selected                      |
+    | Target guest OS                 | Windows                       |
+    | Use custom SysPrep answer file | Deselected                    |
+    | Generate new Security ID (SID) | Selected                      |
 
 6. On the **Registration information** page, configure the settings and click **Next**.
 
@@ -222,9 +222,9 @@ Create a Windows guest operating system specification that you can apply when yo
     ```
 
 6. If you want to add more Windows customization specifications, repeat this procedure for each additional Windows customization specification.
-    
+
 7. Repeat this procedure for each VI workload domain vCenter Server in each VMware Cloud Foundation instance.
-    
+
 [Back: Configure Content Libraries](1-configure-content-libraries.md)
 
-[Next: Configure Mappings in Cloud Assembly](3-configure-mappings.md)
+[Next: Configure Mappings in Aria Automation Assembler](3-configure-mappings.md)

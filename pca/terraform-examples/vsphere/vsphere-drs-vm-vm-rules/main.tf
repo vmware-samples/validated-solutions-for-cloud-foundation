@@ -32,19 +32,19 @@ data "vsphere_virtual_machine" "vm_group_vms_0" {
 # RESOURCES
 ##################################################################################
 
-# VM Group for vRealize Automation
+# VM Group for Aria Automation
 
 resource "vsphere_compute_cluster_vm_group" "vm_group_name_0" {
-  name                = var.vm_group_name_0                                         // vRealize Automation Virtual Machine Group Name
+  name                = var.vm_group_name_0                                         // Aria Automation Virtual Machine Group Name
   compute_cluster_id  = data.vsphere_compute_cluster.cluster.id
-  virtual_machine_ids = data.vsphere_virtual_machine.vm_group_vms_0[*].id           // vRealize Automation Group Virtual Machines
+  virtual_machine_ids = data.vsphere_virtual_machine.vm_group_vms_0[*].id           // Aria Automation Group Virtual Machines
 }
 
-# VM-VM Group Dependency - Cross-instance Workspace ONE Access and vRealize Automation
+# VM-VM Group Dependency - Cross-instance Workspace ONE Access and Aria Automation
 
 resource "vsphere_compute_cluster_vm_dependency_rule" "vm_vm_dependency_rule_name_0" {
   compute_cluster_id       = data.vsphere_compute_cluster.cluster.id
   name                     = var.vm_vm_dependency_rule_name_0
   dependency_vm_group_name = var.dependency_vm_group_name_0                          // Cross-instance Workspace ONE Access Virtual Machine Dependency Group Name
-  vm_group_name            = vsphere_compute_cluster_vm_group.vm_group_name_0.name   // vRealize Automation Virtual Machine Group Name
+  vm_group_name            = vsphere_compute_cluster_vm_group.vm_group_name_0.name   // Aria Automation Virtual Machine Group Name
 }

@@ -31,10 +31,10 @@ variable "vsphere_insecure" {
 
 variable "vsphere_role" {
   type        = string
-  description = "The name for the vRealize Operations Cloud to vSphere Integration role."
+  description = "The name for the Aria Operations (SaaS) to vSphere Integration role."
 }
 
 variable "vsphere_privileges" {
   type        = list(string)
-  description = "The vSphere privileges for the vRealize Operations Cloud to vSphere Integration role."
+  description = "The vSphere privileges for the Aria Operations (SaaS) to vSphere Integration role."
 }
