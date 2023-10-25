@@ -21,12 +21,12 @@ AVI_CREDENTIALS:
 SAML_PROF_NAME: <SAML Profile Name>
 SAML_METADATA: <SAML METADATA>
 SAML_ENTITY_TYPE: <SAMl Entity Type - "AUTH_SAML_CLUSTER_VIP" | "AUTH_SAML_DNS_FQDN" | "AUTH_SAML_APP_VS> 
-SAML_ORG_NAME: <SAML ORG Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-SAML_DISPLAY_NAME: <SAML Display Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-SAML_ORG_URL: <SAML ORG URL> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-TECH_CONTACT_NAME: <SAML Tech Contact Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-TECH_CONTACT_EMAIL: <SAML Tech Email Address> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-SAML_FQDN: <SAML FQDN> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_CLUSTER_VIP" or "AUTH_SAML_APP_VS" then connent this line.
+SAML_ORG_NAME: <SAML ORG Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+SAML_DISPLAY_NAME: <SAML Display Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+SAML_ORG_URL: <SAML ORG URL> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+TECH_CONTACT_NAME: <SAML Tech Contact Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+TECH_CONTACT_EMAIL: <SAML Tech Email Address> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+SAML_FQDN: <SAML FQDN> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_CLUSTER_VIP" or "AUTH_SAML_APP_VS" then comment this line.
 
 
 
@@ -57,7 +57,7 @@ IGNORE_REF: <LDAP Ignore Ref - true | false> # Default is set to false
 # Required Variables / Group Mapping
 # Description: This are the main variables required for Avi User Password Change.
 # --------------------------------------------------------------------
-
+AUTH_MAPPING_PROF_NAME: <Auth Mapping Profile Name> # Define for 22.x+, or comment for 20.x and 21.x
+AUTH_MAPPING_PROF_TYPE: <Auth Mapping Profile Type - AUTH_PROFILE_SAML | AUTH_PROFILE_LDAP> # Define for 22.x+, or comment for 20.x and 21.x
 AUTH_MAPPING:  
- - {group: "<LDAP Group Name>", tenant: "<Avi Tenant Name>", role: "<Avi Role Name>"}
-- # Additional Array elements can be added below
+ - {group: "<LDAP Group Name>", tenant: "<Avi Tenant Name>", role: "<Avi Role Name>"} # Additional Array elements can be added below
