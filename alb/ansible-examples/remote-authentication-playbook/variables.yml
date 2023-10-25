@@ -21,12 +21,12 @@ AVI_CREDENTIALS:
 SAML_PROF_NAME: <SAML Profile Name>
 SAML_METADATA: <SAML METADATA>
 SAML_ENTITY_TYPE: <SAMl Entity Type - "AUTH_SAML_CLUSTER_VIP" | "AUTH_SAML_DNS_FQDN" | "AUTH_SAML_APP_VS> 
-SAML_ORG_NAME: <SAML ORG Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-SAML_DISPLAY_NAME: <SAML Display Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-SAML_ORG_URL: <SAML ORG URL> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-TECH_CONTACT_NAME: <SAML Tech Contact Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-TECH_CONTACT_EMAIL: <SAML Tech Email Address> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then connent this line. 
-SAML_FQDN: <SAML FQDN> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_CLUSTER_VIP" or "AUTH_SAML_APP_VS" then connent this line.
+SAML_ORG_NAME: <SAML ORG Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+SAML_DISPLAY_NAME: <SAML Display Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+SAML_ORG_URL: <SAML ORG URL> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+TECH_CONTACT_NAME: <SAML Tech Contact Name> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+TECH_CONTACT_EMAIL: <SAML Tech Email Address> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_APP_VS" then comment this line. 
+SAML_FQDN: <SAML FQDN> # If SAML_ENTITY_TYPE is set to "AUTH_SAML_CLUSTER_VIP" or "AUTH_SAML_APP_VS" then comment this line.
 
 
 
