@@ -10,7 +10,7 @@
 # ===================================================================================================================
 #
 # Description:
-# Script to encrypt passwords for SDDC Manager and vRealize Operations credentials. Passwords are encrypted and saved
+# Script to encrypt passwords for SDDC Manager and VMware Aria Operations credentials. Passwords are encrypted and saved
 # in an encrypted_pwds file and a key file in encrypted_files directory.
 #
 # Example:
