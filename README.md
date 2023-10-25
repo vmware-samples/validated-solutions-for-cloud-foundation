@@ -12,11 +12,11 @@ This repository is a companion to the following validated solutions:
 
 * [**Health Reporting and Monitoring for VMware Cloud Foundation**](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)\
   
-  A validated solution that provides health monitoring for the VMware Cloud Foundation components using HTML reports and custom dashboards, alerts, and notifications using vRealize Operations.
+  A validated solution that provides health monitoring for the VMware Cloud Foundation components using HTML reports and custom dashboards, alerts, and notifications using VMware Aria Operations.
 
   The repository provides:
 
-  * Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations.
+  * Python Module for VMware Cloud Foundation Health Monitoring in VMware Aria Operations.
   * vRealize Operations custom dashboards, alerts, notifications and super metric artifacts.
 
 * [**Advanced Load Balancing for VMware Cloud Foundation**](https://core.vmware.com/advanced-load-balancing-vmware-cloud-foundation)

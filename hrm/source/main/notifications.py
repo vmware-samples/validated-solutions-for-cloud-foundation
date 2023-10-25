@@ -50,8 +50,8 @@ class CreateNotificationsJsonFromTemplate(object):
             plugin_description = "Slack"
 
         # Get user inputs
-        plugin_name = input("Enter the plugin name configured in VMware vRealize Operations "
-                            "\n (vROps > Configure > Alerts > Outbound Settings > Instance Name): ")
+        plugin_name = input("Enter the plugin name configured in VMware Aria Operations "
+                            "\n (VMware Aria Operations > Configure > Alerts > Outbound Settings > Instance Name): ")
         if plugin_type == "StandardEmailPlugin":
             property_name = "emailaddr"
             property_value = input(f"Enter the recipient(s) for the {plugin_description} plugin "
