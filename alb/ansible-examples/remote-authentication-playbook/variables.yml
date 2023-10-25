@@ -60,5 +60,4 @@ IGNORE_REF: <LDAP Ignore Ref - true | false> # Default is set to false
 AUTH_MAPPING_PROF_NAME: <Auth Mapping Profile Name> # Define for 22.x+, or comment for 20.x and 21.x
 AUTH_MAPPING_PROF_TYPE: <Auth Mapping Profile Type - AUTH_PROFILE_SAML | AUTH_PROFILE_LDAP> # Define for 22.x+, or comment for 20.x and 21.x
 AUTH_MAPPING:  
- - {group: "<LDAP Group Name>", tenant: "<Avi Tenant Name>", role: "<Avi Role Name>"}
-- # Additional Array elements can be added below
+ - {group: "<LDAP Group Name>", tenant: "<Avi Tenant Name>", role: "<Avi Role Name>"} # Additional Array elements can be added below
