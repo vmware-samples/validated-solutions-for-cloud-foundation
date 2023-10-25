@@ -10,7 +10,7 @@
 # ===================================================================================================================
 #
 # Description:
-# Script to encrypt passwords for SDDC Manager and vRealize Operations credentials. Passwords are encrypted and saved
+# Script to encrypt passwords for SDDC Manager and VMware Aria Operations credentials. Passwords are encrypted and saved
 # in an encrypted_pwds file and a key file in encrypted_files directory.
 #
 # Example:
@@ -38,7 +38,7 @@ class EncryptPasswords:
         vrops_user = env_info["vrops"]["user"]
         sddc_manager_user = env_info["sddc_manager"]["user"]
         sddc_manager_local_user = env_info["sddc_manager"]["local_user"]
-        vrops_pwd = maskpass.askpass(prompt=f"Enter password for vRealize Operations user - {vrops_user}: ", mask="*")
+        vrops_pwd = maskpass.askpass(prompt=f"Enter password for VMware Aria Operations user - {vrops_user}: ", mask="*")
         sddc_manager_user_pwd = maskpass.askpass(prompt=f"Enter password for SDDC Manager user - {sddc_manager_user}: ",
                                                  mask="*")
         sddc_manager_vcf_pwd = maskpass.askpass(prompt=f"Enter password for SDDC Manager local user - "

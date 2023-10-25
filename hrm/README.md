@@ -1,4 +1,4 @@
-# Python Module for VMware Cloud Foundation Health Monitoring in vRealize Operations
+# Python Module for VMware Cloud Foundation Health Monitoring in VMware Aria Operations
 
 ![PyPI](https://img.shields.io/pypi/v/vmware-cloud-foundation-health-monitoring?logo=python&logoColor=yellow&label=PyPI&labelColor=Grey&link=https%3A%2F%2Fpypi.org%2Fproject%2Fvmware-cloud-foundation-health-monitoring%2F)
 &nbsp;&nbsp;
@@ -12,18 +12,19 @@
   - [Introduction](#introduction)
   - [Requirements](#requirements)
   - [Implementation](#implementation)
-  - [vRealize Operations Dashboards Preview](#vRealize-operations-dashboards-preview)
+  - [VMware Aria Operations Dashboards Preview](#vmware-aria-operations-dashboards-preview)
   - [Known Issues](#known-issues)
   - [Support](#support)
 
 ## Introduction
 
-This content supports the [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation) validated solution which enables the user to monitor the operational state of your [VMware Cloud Foundation](https://docs.vmware.com/en/VMware-Cloud-Foundation) environment through custom dashboards, alerts, and notifications. These custom dashboards are intended to serve as an extension to native vRealize Operations dashboards and dashboards that are enabled using the respective management packs.
+This content supports the [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation) validated solution which enables the user to monitor the operational state of your [VMware Cloud Foundation](https://docs.vmware.com/en/VMware-Cloud-Foundation) environment through custom dashboards, alerts, and notifications. These custom dashboards are intended to serve as an extension to native VMware Aria Operations dashboards and dashboards that are enabled using the respective management packs.
 
 ## Requirements
 
 ### Platforms
 
+- VMware Cloud Foundation 5.1
 - VMware Cloud Foundation 5.0
 - VMware Cloud Foundation 4.5
 - VMware Cloud Foundation 4.4
@@ -63,7 +64,7 @@ Install requried Python libraries by running the following commands on the host 
 
 Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud Foundation](https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-AD58BAF1-7DC9-4514-90B7-7E9FA2E9E5FA.html) from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
 
-## vRealize Operations Dashboards Preview
+## VMware Aria Operations Dashboards Preview
 
 1. VCF Health Rollup
 ![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/Rollup1-min.png)
@@ -123,11 +124,11 @@ Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud F
 
 ## Known Issues
 
-1. [Remove FQDN suffix dependency in the name when configuring an NSX-T cloud account in vRealize Operations](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/35)
+1. [Remove FQDN suffix dependency in the name when configuring an NSX-T cloud account in VMware Aria Operations](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues/35)
 
     Please make sure that your NSX-T account name is configured as mentioned in this issue.
 
-2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.4.x. The filters on the vRealize Operations dashboards depend on the name.
+2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.4.x. The filters on the VMware Aria Operations dashboards depend on the name.
 
     To set the Product Name for the vCenter Server, follow the below steps:
 
@@ -139,9 +140,9 @@ Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud F
     6. If vApp options are disabled, select the `Enable vApp options` check box and click `OK`.
     7. Click the `Details` tab and enter `VMware vCenter Server Appliance` as product name in the `Name` field.
 
-3. Shades of red, green, and yellow may vary on vRealize Operations widgets
+3. Shades of red, green, and yellow may vary on VMware Aria Operations widgets
 
-    Shades of red, green, and yellow may be different in different widgets but they represent the same thing. Ignore the shades as this is a vRealize Operations product limitation.
+    Shades of red, green, and yellow may be different in different widgets but they represent the same thing. Ignore the shades as this is a VMware Aria Operations product limitation.
 
 ## Support
 

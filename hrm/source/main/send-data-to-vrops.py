@@ -11,7 +11,7 @@
 #
 # Description:
 # The send-data-to-vrops.py script receives the operational health data as JSON from SOS utility and supporting
-# Powershell modules and then sends it to objects in vRealize Operations as custom metrics for use in dashboards
+# Powershell modules and then sends it to objects in VMware Aria Operations as custom metrics for use in dashboards
 # to monitor the platform's health.
 #
 # Example:
@@ -19,7 +19,7 @@
 #
 # [Options]:
 # -np : Retrieves the health data from SOS Utility and Powershell cmdlets and saves it JSON files.
-# It will not send the data to vRealize Operations
+# It will not send the data to VMware Aria Operations
 
 
 import argparse
@@ -258,14 +258,14 @@ class PushDataVrops:
                 for resource in data['resourceList']:
                     resource_data[resource['resourceKey']['name']] = resource['identifier']
 
-            self.logger.info(f'Resource inventory data from vROps for ResourceKind: {resource_kind} '
+            self.logger.info(f'Resource inventory data from VMware Aria Operations for ResourceKind: {resource_kind} '
                              f'and AdapterKind: {adapter_kind}')
             self.logger.info(resource_data)
 
             return resource_data
         except Exception as e:
             self.logger.error(e)
-            self.logger.error('Unable to connect to vROps using given credentials')
+            self.logger.error('Unable to connect to VMware Aria Operations using given credentials')
             raise e
 
     def read_data(self, data_file):
@@ -325,7 +325,7 @@ class PushDataVrops:
             self.push_hw_compatibility()
             self.push_general()
         else:
-            self.logger.info('Skipping pushing SOS data to vROps. No data received.')
+            self.logger.info('Skipping pushing SOS data to VMware Aria Operations. No data received.')
 
         self.logger.info("############################### Script Complete ############################################")
         self.logger.info(f'Log files located at - {self.logger.test_log_folder}')
@@ -342,11 +342,11 @@ class PushDataVrops:
 
     def push_data_to_vrops(self, category, resource_id, hostname, metrics_payload_json):
         if category.lstrip().startswith("HRM"):
-            suc_log_msg = f'********************** Pushed "{category}" to vROps **********************'
-            fail_log_msg = f'********************** Unable to Push "{category}" to vROps**********************'
+            suc_log_msg = f'********************** Pushed "{category}" to VMware Aria Operations **********************'
+            fail_log_msg = f'********************** Unable to Push "{category}" to VMware Aria Operations**********************'
         else:
-            suc_log_msg = f'********************** Pushed "SOS {category}" to vROps **********************'
-            fail_log_msg = f'********************** Unable to Push "SOS {category}" to vROps **********************'
+            suc_log_msg = f'********************** Pushed "SOS {category}" to VMware Aria Operations **********************'
+            fail_log_msg = f'********************** Unable to Push "SOS {category}" to VMware Aria Operations **********************'
 
         if not resource_id:
             self.logger.error(f'Unable to add data for Hostname: {hostname} | Resource id: {resource_id}')
@@ -358,7 +358,7 @@ class PushDataVrops:
                 self.logger.info(suc_log_msg)
                 return 0
             else:
-                self.logger.info(f"********************** Will not push '{category}' data to vROps ******************")
+                self.logger.info(f"********************** Will not push '{category}' data to VMware Aria Operations ******************")
                 return 1
 
 
@@ -825,7 +825,7 @@ class PushDataVrops:
     def push_flat_struct(self, data_type, data_arr, key_var):
         update_count = 0
         category = f"HRM {data_type} Status"
-        self.logger.info(f'Pushing {data_type} status data to vROps')
+        self.logger.info(f'Pushing {data_type} status data to VMware Aria Operations')
         for arr_val in data_arr:
             data = arr_val
             user = None
@@ -876,7 +876,7 @@ class PushDataVrops:
     @push_handler
     def push_data_password(self):
         category = "Password Expiry Status"
-        self.logger.info('Pushing SOS password data to vROps')
+        self.logger.info('Pushing SOS password data to VMware Aria Operations')
         update_count = 0
         for key, value in self.data[category].items():
             hostname, user = key.split(':')
@@ -933,7 +933,7 @@ class PushDataVrops:
         update_count = 0
         category = "HRM Backup Status"
         data_type = "Backup"
-        self.logger.info(f'Pushing {data_type} status data to vROps')
+        self.logger.info(f'Pushing {data_type} status data to VMware Aria Operations')
 
         for data in data_arr:
             component = data["Component"]
@@ -996,7 +996,7 @@ class PushDataVrops:
         data_arr = self.read_data(file_name)
         category = "HRM Snapshot Status"
         data_type = "Snapshot"
-        self.logger.info(f'Pushing {data_type} status data to vROps')
+        self.logger.info(f'Pushing {data_type} status data to VMware Aria Operations')
         update_count = 0
         for data in data_arr:
             component = data["Component"]
@@ -1190,7 +1190,7 @@ class PushDataVrops:
     def push_nsxttier0_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM NSXT TIER0 BGP Backup Status"
-        self.logger.info('Pushing nsxt tier0 bgp status data to vROps')
+        self.logger.info('Pushing nsxt tier0 bgp status data to VMware Aria Operations')
         update_count = 0
         instance_hash = {}
 
@@ -1236,7 +1236,7 @@ class PushDataVrops:
     def push_nsxt_transportnode_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM NSXT Transport Node Status"
-        self.logger.info('Pushing nsxt transport node status data to vROps')
+        self.logger.info('Pushing nsxt transport node status data to VMware Aria Operations')
         update_count = 0
         instance_hash = {}
 
@@ -1284,7 +1284,7 @@ class PushDataVrops:
     def push_nsxt_tunnel_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM NSXT Tunnel Status"
-        self.logger.info('Pushing nsxt tunnel status data to vROps')
+        self.logger.info('Pushing nsxt tunnel status data to VMware Aria Operations')
         update_count = 0
         instance_hash = {}
 
@@ -1332,7 +1332,7 @@ class PushDataVrops:
     def push_nsxtcombinedhealthnonsos_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM NSXTCombinedHealth Status"
-        self.logger.info('Pushing NSXT Combined Health Status data to vROps')
+        self.logger.info('Pushing NSXT Combined Health Status data to VMware Aria Operations')
         update_count = 0
         instance_hash = {}
 
@@ -1379,7 +1379,7 @@ class PushDataVrops:
     @push_handler
     def push_data_certificates(self):
         category = "Certificates"
-        self.logger.info('Pushing SOS Certificate Health data to vROps')
+        self.logger.info('Pushing SOS Certificate Health data to VMware Aria Operations')
         update_count = 0
         for key, value in self.data[category]['Certificate Status'].items():
             for hostname, cert_data in value.items():
@@ -1472,9 +1472,9 @@ if __name__ == "__main__":
     parser.add_argument("-e", "--env-json", default='env.json',
                         help="path of env.json file. Default is in same directory as this file")
     parser.add_argument('-p', '--push-data', dest='push_data', action='store_true',
-                        help="This is default option to send the data to vROps")
+                        help="This is default option to send the data to VMware Aria Operations")
     parser.add_argument('-np', '--no-push-data', dest='push_data', action='store_false',
-                        help="Use this option if you do not want to send the data to vROps")
+                        help="Use this option if you do not want to send the data to VMware Aria Operations")
     parser.set_defaults(push_data=True)
 
     args = parser.parse_args()
