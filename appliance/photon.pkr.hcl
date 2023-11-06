@@ -15,10 +15,10 @@
 //  The Packer configuration.
 
 packer {
-  required_version = ">= 1.8.6"
+  required_version = ">= 1.9.4"
   required_plugins {
     vmware = {
-      version = ">= v1.0.7"
+      version = ">= v1.0.10"
       source  = "github.com/hashicorp/vmware"
     }
   }

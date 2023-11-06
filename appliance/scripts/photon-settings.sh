@@ -42,7 +42,7 @@ tdnf install -y \
 ### Install Python packages. ###
 echo -e "\e[92mInstalling Python packages..."
 MASKPASS_VERSION=$(jq -r < ${BOM_FILE} '.["maskpass"].version' | sed 's/v//g')
-ln -s /usr/bin/pip3 /usr/bin/pip
+ln -sf /usr/bin/pip3 /usr/bin/pip
 pip install requests
 pip install setuptools
 pip install paramiko

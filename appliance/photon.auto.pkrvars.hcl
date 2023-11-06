@@ -8,7 +8,7 @@
 
 /*
     DESCRIPTION:
-    The Packer variable settings for the VMware Photon OS appliance.w
+    The Packer variable settings for the VMware Photon OS appliance.
 */
 
 // ESXi Host Settings
