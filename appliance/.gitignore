@@ -1,0 +1,11 @@
+# macOS
+## Ignore desktop services files.
+**/.DS_Store
+
+# HashiCorp Packer
+## Ignore cache directories.
+packer_cache/
+## Ignore the outputs.
+output-appliance/
+## Ignore crash log files.
+crash.log

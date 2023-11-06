@@ -32,11 +32,13 @@ variable "esxi_host_username" {
   type        = string
   description = "The ESXi host username."
   default     = "root"
+  sensitive   = true
 }
 
 variable "esxi_host_password" {
   type        = string
   description = "The ESXi host password."
+  sensitive   = true
 }
 
 variable "esxi_host_portgroup" {
@@ -227,12 +229,14 @@ variable "ovftool_deploy_vcenter_username" {
   type        = string
   description = "The vCenter Server username."
   default     = null
+  sensitive   = true
 }
 
 variable "ovftool_deploy_vcenter_password" {
   type        = string
   description = "The vCenter Server password."
   default     = null
+  sensitive   = true
 }
 
 variable "ovf_template" {
