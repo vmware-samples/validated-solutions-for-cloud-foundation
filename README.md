@@ -57,7 +57,7 @@ Clone `main` branch for the latest updates.
 
 **Example**:
 
-```
+```bash
 git clone https://github.com/vmware-samples/validated-solutions-for-cloud-foundation.git
 ```
 
@@ -74,7 +74,7 @@ The directory structure of the repository.
 ├── appliance
 │   ├── files
 │   ├── manual
-│   ├── output-applicance
+│   ├── output-appliance
 │   ├── scripts
 │   ├── appliance-build.sh
 │   └── ...
