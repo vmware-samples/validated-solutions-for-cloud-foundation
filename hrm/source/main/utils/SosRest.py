@@ -1,20 +1,16 @@
-# Copyright 2022-2023 VMware, Inc.
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+# Copyright 2023 Broadcom. All Rights Reserved.
+# SPDX-License-Identifier: BSD-2
 
 # ===================================================================================================================
-# Created by:  Bhumitra Nagar - Senior Member of Technical Staff
-# Authors: Bhumitra Nagar
-# Date:   2023-02-01
-# Version: 1.0.0.1001
+# Created by: Bhumitra Nagar
+# Authors:    Bhumitra Nagar
+# Date:       2023-02-01
+# Version:    1.0.0.1001
 # ===================================================================================================================
 #
 # Description:
-# Helper script to run health checks on SDDC Manager using SOS Utility and get the data. It saves it as
-# health-results.json in test log directory.
-
+# Runs health checks on SDDC Manager using SOS Utility and get the data.
+# Saves the results as health-results.json in test log directory.
 
 import requests
 import time
