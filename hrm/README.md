@@ -42,7 +42,7 @@ Follow the [Python Beginners Guide](https://wiki.python.org/moin/BeginnersGuide/
 
 ### Python Libraries
 
-Install requried Python libraries by running the following commands on the host virtual machine:
+Install required Python libraries by running the following commands on the host virtual machine:
 
   ```python
   pip install requests

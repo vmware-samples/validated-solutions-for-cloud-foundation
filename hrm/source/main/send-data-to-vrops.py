@@ -1,26 +1,21 @@
-# Copyright 2022-2023 VMware, Inc.
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+# Copyright 2023 Broadcom. All Rights Reserved.
+# SPDX-License-Identifier: BSD-2
 
 # ===================================================================================================================
-# Created by:  Bhumitra Nagar - Senior Member of Technical Staff
-# Authors: Bhumitra Nagar, Sowjanya V
+# Created by: Bhumitra Nagar
+# Authors:    Bhumitra Nagar, Sowjanya V
 # ===================================================================================================================
 #
 # Description:
-# The send-data-to-vrops.py script receives the operational health data as JSON from SOS utility and supporting
-# Powershell modules and then sends it to objects in VMware Aria Operations as custom metrics for use in dashboards
-# to monitor the platform's health.
+# Receives the operational health data as JSON from SOS utility and supporting Powershell modules and then sends the
+# data to objects in VMware Aria Operations as custom metrics for use in dashboards to monitor the platform's health.
 #
 # Example:
 # python send-data-to-vrops.py [-options]
 #
 # [Options]:
 # -np : Retrieves the health data from SOS Utility and Powershell cmdlets and saves it JSON files.
-# It will not send the data to VMware Aria Operations
-
+# It will not send the data to VMware Aria Operations.
 
 import argparse
 import nagini
@@ -37,7 +32,6 @@ from utils.SosRest import SosRest
 from utils.PSUtility import PSUtility
 from cryptography.fernet import Fernet
 
-
 def push_handler(func):
     def inner_function(*args, **kwargs):
         try:
@@ -47,7 +41,6 @@ def push_handler(func):
             args[0].logger.error('Exception occurred. Details - ')
             args[0].logger.error(e)
     return inner_function
-
 
 class PushDataVrops:
 

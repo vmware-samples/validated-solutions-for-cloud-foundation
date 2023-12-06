@@ -1,8 +1,18 @@
+# Copyright 2023 Broadcom. All Rights Reserved.
+# SPDX-License-Identifier: BSD-2
+
+# ===================================================================================================================
+# Created by: Bhumitra Nagar
+# Authors:    Bhumitra Nagar
+# ===================================================================================================================
+#
+# Description:
+# Generates the notifications JSON based on user inputs.
+
 import json
 import sys
 import os
 import argparse
-
 
 class CreateNotificationsJsonFromTemplate(object):
 
@@ -74,7 +84,6 @@ class CreateNotificationsJsonFromTemplate(object):
             json.dump(data, out_file, indent=4)
 
         print("JSON file generated at location:", os.path.abspath(self.output_file))
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
