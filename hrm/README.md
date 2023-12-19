@@ -27,7 +27,6 @@ This content supports the [Health Reporting and Monitoring for VMware Cloud Foun
 - VMware Cloud Foundation 5.1
 - VMware Cloud Foundation 5.0
 - VMware Cloud Foundation 4.5
-- VMware Cloud Foundation 4.4
 
 ### Operating Systems
 

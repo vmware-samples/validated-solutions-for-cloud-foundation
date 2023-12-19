@@ -72,7 +72,8 @@ class SosRest(object):
                 "ntpHealth": True,
                 "passwordHealth": True,
                 "servicesHealth": True,
-                "storageHealth": True
+                "storageHealth": True,
+                "versionHealth": True
             },
             "options": {
                 "config": {
