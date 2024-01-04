@@ -84,6 +84,9 @@ class PushDataVrops:
         self.nsxttier0bgp_status_json = env_info["constants"]["nsxttier0bgp_status_json"]
         self.nsxttransportnode_status_json = env_info["constants"]["nsxttransportnode_status_json"]
         self.nsxttntunnel_status_json = env_info["constants"]["nsxttntunnel_status_json"]
+        self.cdrom_status_json = env_info["constants"]["cdrom_status_json"]
+        self.esxi_connection_status_json = env_info["constants"]["esxi_connection_status_json"]
+        self.sddc_manager_free_pool_status_json = env_info["constants"]["sddc_manager_free_pool_status_json"]
 
         self.vrops_fqdn = env_info["vrops"]["fqdn"]
         self.vrops_passwd = None
@@ -189,7 +192,9 @@ class PushDataVrops:
                                 'Publish-NsxtTransportNodeTunnelStatus',
                                 'Publish-NsxtTier0BgpStatus',
                                 'Publish-SnapshotStatus',
-                                'Publish-ComponentConnectivityHealthNonSOS']
+                                'Publish-ComponentConnectivityHealthNonSOS',
+                                'Publish-VmConnectedCdrom',
+                                'Publish-EsxiConnectionHealth']
 
         without_local_user_cmd = f"-server {self.sddc_manager_fqdn} -user {self.sddc_manager_user} " \
                                  f"-pass '{self.sddc_manager_pwd}' -allDomains " \
@@ -200,6 +205,13 @@ class PushDataVrops:
 
         combined_cmd = request_token_cmd + ' ; ' + publish_nsx_cmd
         psu.execute_ps_cmd(combined_cmd)
+
+        # module w/out -allDomains (ex. Publish-SddcManagerFreePool)
+        without_all_domain_cmd = f"-server {self.sddc_manager_fqdn} -user {self.sddc_manager_user} " \
+                                 f"-pass '{self.sddc_manager_pwd}' " \
+                                 f"-outputJson {self.logger.test_log_folder}"
+        publish_freepool_cmd = 'Publish-SddcManagerFreePool ' + without_all_domain_cmd
+        psu.execute_ps_cmd(publish_freepool_cmd)
 
         # module requiring sddc local user
         psu.execute_ps_cmd(f"Publish-StorageCapacityHealth {without_local_user_cmd} "
@@ -304,6 +316,16 @@ class PushDataVrops:
         file_name = self.get_complete_json_file_name(self.nsxttntunnel_status_json)
         self.push_nsxt_tunnel_status(file_name)
 
+        file_name = self.get_complete_json_file_name(self.cdrom_status_json)
+        self.push_vm_connected_cdrom_status(file_name)
+
+        file_name = self.get_complete_json_file_name(self.esxi_connection_status_json)
+        self.push_esxi_connection_health(file_name)
+
+        file_name = self.get_complete_json_file_name(self.sddc_manager_free_pool_status_json)
+        self.push_sddc_manager_free_pool_status(file_name)
+
+
         # pushing data from sos utility health-results.json
         if self.data:
             self.push_data_password()
@@ -317,6 +339,7 @@ class PushDataVrops:
             self.push_connectivity()
             self.push_hw_compatibility()
             self.push_general()
+            self.push_sddc_versions()
         else:
             self.logger.info('Skipping pushing SOS data to VMware Aria Operations. No data received.')
 
@@ -1044,6 +1067,67 @@ class PushDataVrops:
         self.logger.info(f'Total object update requests = {update_count} ')
 
     @push_handler
+    def push_vm_connected_cdrom_status(self, file_name):
+        data_arr = self.read_data(file_name)
+        category = "HRM VM with Connected CD-ROMs Status"
+        data_type = "VM Connected CDROM"
+        self.logger.info(f'Pushing {data_type} status data to VMware Aria Operations')
+        update_count = 0
+        for data in data_arr:
+            hostname = data["vCenter Server"]
+            resource_name = data["VM Name"]
+            self.logger.info(f'Resource: {resource_name} that recides on hostname {hostname}')
+            metrics_payload = {"stat-content": []}
+
+            # timestamp_raw = value['timestamp']
+            timestamp = time.mktime(datetime.datetime.now().timetuple())
+            
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, v in data.items():
+                if k.lower() == 'latest':
+                    k = "date_taken"
+                    if v:
+                        match = re.search(r"\d{10}", v)
+                        if match:
+                            timestamp_raw = int(match.group())
+                            parsed_date = datetime.datetime.fromtimestamp(timestamp_raw)
+                            datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                            v = datetime_str
+                        else:
+                            match = re.search("\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}", v)
+                            if match:
+                                date_format = "%Y-%m-%dT%H:%M:%S"
+                                parsed_date = datetime.datetime.strptime(match.group(), date_format)
+                                datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                                v = datetime_str
+                    else:
+                        v = ""
+                details = {
+                    "statKey": f"HRM {data_type} Status|{k.lower()}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k.lower() == 'alert':
+                    details = {
+                        "statKey": f"HRM {data_type} Status|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+
+    @push_handler
     def push_localuserexpiry_status(self, file_name):
         data_type = "Localuserexpiry"
         datastruct = self.get_complete_json_file_name(file_name)
@@ -1177,6 +1261,124 @@ class PushDataVrops:
                     self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
 
                     update_count = update_count + 1
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+    @push_handler
+    def push_esxi_connection_health(self, file_name):
+        data_arr = self.read_data(file_name)
+        category = "HRM ESXi Connection Health"
+        data_type = "ESXi Connection Health"
+        self.logger.info(f'Pushing {data_type} status data to VMware Aria Operations')
+        update_count = 0
+        for data in data_arr:
+            component = data["Component"]
+            hostname = data["Resource"]
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f'Hostname: {hostname}, Component: {component}')
+            metrics_payload = {"stat-content": []}
+
+            timestamp = time.mktime(datetime.datetime.now().timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, v in data.items():
+                if k.lower() == 'latest':
+                    k = "date_taken"
+                    if v:
+                        match = re.search(r"\d{10}", v)
+                        if match:
+                            timestamp_raw = int(match.group())
+                            parsed_date = datetime.datetime.fromtimestamp(timestamp_raw)
+                            datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                            v = datetime_str
+                        else:
+                            match = re.search("\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}", v)
+                            if match:
+                                date_format = "%Y-%m-%dT%H:%M:%S"
+                                parsed_date = datetime.datetime.strptime(match.group(), date_format)
+                                datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                                v = datetime_str
+                    else:
+                        v = ""
+                details = {
+                    "statKey": f"HRM {data_type} Status|{k.lower()}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k.lower() == 'alert':
+                    details = {
+                        "statKey": f"HRM {data_type} Status|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count} ')
+
+    @push_handler
+    def push_sddc_manager_free_pool_status (self, file_name):
+        data_arr = self.read_data(file_name)
+        category = "HRM Free Pool Health"
+        data_type = "SDDC Free Pool"
+        self.logger.info(f'Pushing {data_type} status data to VMware Aria Operations')
+        update_count = 0
+        for data in data_arr:
+            component = data["Component"]
+            hostname = data["ESXi FQDN"]
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f'Hostname: {hostname}, Component: {component}')
+            metrics_payload = {"stat-content": []}
+
+            timestamp = time.mktime(datetime.datetime.now().timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, v in data.items():
+                if k.lower() == 'latest':
+                    k = "date_taken"
+                    if v:
+                        match = re.search(r"\d{10}", v)
+                        if match:
+                            timestamp_raw = int(match.group())
+                            parsed_date = datetime.datetime.fromtimestamp(timestamp_raw)
+                            datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                            v = datetime_str
+                        else:
+                            match = re.search("\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}", v)
+                            if match:
+                                date_format = "%Y-%m-%dT%H:%M:%S"
+                                parsed_date = datetime.datetime.strptime(match.group(), date_format)
+                                datetime_str = parsed_date.strftime("%b %d %H:%M:%S %Y GMT")
+                                v = datetime_str
+                    else:
+                        v = ""
+                details = {
+                    "statKey": f"HRM {data_type} Status|{k.lower()}",
+                    "timestamps": [int(timestamp * 1000)],
+                    "values": [v]
+                }
+                metrics_payload["stat-content"].append(details)
+                if k.lower() == 'alert':
+                    details = {
+                        "statKey": f"HRM {data_type} Status|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[v.lower()]] if v.lower() in self.codes else [self.codes['NA']]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
         self.logger.info(f'Total object update requests = {update_count} ')
 
     @push_handler
@@ -1458,6 +1660,54 @@ class PushDataVrops:
 
         self.logger.info(f'Total object update requests = {update_count}')
 
+    @push_handler
+    def push_sddc_versions(self):
+        category = "Version Check Status"
+        self.logger.info('Pushing SOS version health check of BOM components (vCenter Server, NSX, ESXi, and SDDC Manager) data to VMware Aria Operations')
+        update_count = 0
+        for key, value in self.data[category].items():
+            hostname = key.rstrip()
+            resource_name = hostname.split(".")[0]
+            self.logger.info(f'Hostname = {hostname}')
+            metrics_payload = {"stat-content": []}
+
+            timestamp_raw = value['timestamp']
+            timestamp = time.mktime(datetime.datetime.strptime(timestamp_raw, "%c").timetuple())
+            resource_id = self.get_resource_id(hostname, resource_name)
+
+            for k, val in value.items():
+                if k == 'title' and val:
+                    details = {
+                        "statKey": f"SOS Version Health Summary|{k}",
+                        "timestamps": [int(timestamp * 1000)],
+                        "values": [val[0]]
+                    }
+                else:
+                    details = {
+                        "statKey": f"SOS Version Health Summary|{k}",
+                        "timestamps": [int(timestamp * 1000)],
+                        "values": [val]
+                    }
+                
+                metrics_payload["stat-content"].append(details)
+                
+                if k == 'alert':
+                    details = {
+                        "statKey": f"SOS Version Health Summary|alert_code",
+                        "timestamps": [int(timestamp * 1000)],
+                        "data": [self.codes[val.lower()]]
+                    }
+                    metrics_payload["stat-content"].append(details)
+
+            metrics_payload_json = json.dumps(metrics_payload)
+
+            self.logger.info(resource_id)
+            self.logger.info(metrics_payload_json)
+            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            update_count = update_count + 1
+
+        self.logger.info(f'Total object update requests = {update_count}')
+    
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)

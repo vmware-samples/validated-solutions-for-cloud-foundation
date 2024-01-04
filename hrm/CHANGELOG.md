@@ -1,5 +1,17 @@
 # Release History
 
+## [v2.1.0]
+
+> Release Date: 2024-01-30
+
+Enhancements:
+
+- Added VMware Aria Operations dashboards to have parity with `VMware.CloudFoundation.Reporting`.
+  - ESXi Connection Health
+  - SDDC Free Pool
+  - VM Connected CD-ROM Status
+  - SOS Version Health
+
 ## [v2.0.0]
 
 > Release Date: 2023-08-29
