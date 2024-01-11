@@ -12,6 +12,8 @@
   - [Introduction](#introduction)
   - [Requirements](#requirements)
   - [Implementation](#implementation)
+  - [Install the Python Module in a Disconnected Environment](install-the-python-module-in-a-disconnected-environment)
+  - [Updating the Python Module to the Latest Version](#updating-the-python-module-to-the-latest-version)
   - [VMware Aria Operations Dashboards Preview](#vmware-aria-operations-dashboards-preview)
   - [Known Issues](#known-issues)
   - [Support](#support)
@@ -62,6 +64,161 @@ Install required Python libraries by running the following commands on the host 
 ## Implementation
 
 Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud Foundation](https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-AD58BAF1-7DC9-4514-90B7-7E9FA2E9E5FA.html) from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)
+
+## Install the Python Module in a Disconnected Environment
+For environments disconnected from the Internet (e.g., dark-site, air-gapped), you can save the Health Reporting and Monitoring Python module and its dependencies from the PyPI using the below instructions. 
+
+### For Photon OS - 
+
+- On the target system, create a directory to save the Python modules
+```
+  mkdir -p /opt/vmware/hrm-modules
+```
+
+- From a system with an Internet connection, make a modules directory and create a new file `requirements.txt` inside it. 
+```
+  mkdir -p /home/hrm-modules/
+  cd /home/hrm-modules/
+  vi requirements.txt
+```
+- Add below content to the `requirements.txt` file and save it. 
+```
+requests
+setuptools
+paramiko
+maskpass==0.3.1
+```
+
+- Create another file `module.txt` in the same location.
+```
+  vi module.txt
+```
+  
+- Add below content to the `module.txt` file and save it. 
+```
+vmware-cloud-foundation-health-monitoring
+```
+  
+- From a system with an Internet connection, save the module and its dependencies from PyPI by running the following commands in the terminal:
+
+```
+  pip download -r module.txt
+  pip download -r requirements.txt
+```
+
+- From the system with an Internet connection, copy the module and its dependencies to a target system by running the following commands in the terminal:
+```
+  scp -r /home/vcf/hrm-modules/* username@remote_host:/opt/vmware/hrm-modules/
+```
+  
+- On the target system, install the module and its dependencies by running the following commands in the terminal:
+```
+  cd /opt/vmware/hrm-modules
+  pip install -r requirements.txt --no-index --find-links .
+  pip install -r module.txt --no-index --find-links . -t /opt/vmware/hrm-<sddc_manager_vm_name>
+```
+
+### For Windows Server -
+
+- From a system with an Internet connection, make a modules folder `F:\hrm-modules`.
+
+- Create a new file `requirements.txt` inside the modules folder. 
+
+- Add the below content to the `requirements.txt` file and save it. 
+```
+requests
+setuptools
+paramiko
+maskpass==0.3.1
+```
+- In the modules folder `f:\hrm-modules`, create a new file `module.txt` 
+  
+- Add below content to `module.txt` file and save it. 
+```
+vmware-cloud-foundation-health-monitoring
+```
+
+- From a system with an Internet connection, save the module and its dependencies from PyPI by running the following commands from cmdline:
+
+```
+  cd f:\hrm-modules
+  pip download -r module.txt 
+  pip download -r requirements.txt
+```
+
+- From the system with the Internet connection, copy the module and its dependencies to a target system by running the following commands in the PowerShell console:
+
+```
+  Copy-Item -Path F:\hrm-modules\* -Destination '\\<destination_host>\C$\vmware\hrm-modules
+```
+
+- On the target system, install the module and its dependencies by running the following commands in the terminal:
+```
+  cd c:\vmware\hrm-modules
+  pip install -r requirements.txt --no-index --find-links .
+  pip install -r module.txt --no-index --find-links . -t c:\vmware\hrm-<sddc_manager_vm_name>
+```
+
+
+**Once the Python modules are installed, continue to follow the [Implementation of Health Reporting and Monitoring for VMware Cloud Foundation](https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-AD58BAF1-7DC9-4514-90B7-7E9FA2E9E5FA.html) from [Health Reporting and Monitoring for VMware Cloud Foundation](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)**
+
+## Updating the Python Module to the Latest Version
+
+### For Photon OS - 
+
+- Log in to the host virtual machine at `<host_virtual_machine_fqdn>:22` as the `root` user by using a Secure Shell (SSH) client.
+
+- Update the Python Module for Health Reporting and Monitoring in VMware Aria Operations.
+```
+  pip install vmware-cloud-foundation-health-monitoring --target=/opt/vmware/hrm-<sddc_manager_vm_name> --upgrade
+```  
+- Provide execute permissions to the files in the `hrm-<sddc_manager_vm_name>` directory.
+```
+  chmod -R 755 /opt/vmware/hrm-<sddc_manager_vm_name>
+```  
+- Switch to the `hrm-<sddc_manager_vm_name>/main` directory.
+```
+  cd /opt/vmware/hrm-<sddc_manager_vm_name>/main
+```
+- Edit the `env.json` file and configure the values according to your VMware Cloud Foundation Planning and Preparation Workbook.
+```
+  vi env.json
+```
+- Encrypt the service account passwords.
+```
+  python encrypt-passwords.py
+```
+- Enter the password for the VMware Aria Operations service account.
+- Enter the password for the SDDC Manager service account.
+- Enter the password for the SDDC Manager appliance local user.
+- Repeat this procedure for each VMware Cloud Foundation instance.
+
+
+### For Windows Server - 
+
+- Log in to the host virtual machine at `<host_virtual_machine_fqdn>` as the `Administrator` user by using a Remote Desktop Connection (RDC) client and open a PowerShell console.
+- Start Windows Command Prompt.
+- Update the Python Module for Health Reporting and Monitoring in VMware Aria Operations.
+```
+  pip install vmware-cloud-foundation-health-monitoring --target=C:\vmware\hrm-<sddc_manager_vm_name>\ --upgrade
+```
+ 
+- Change to the `hrm-<sddc_manager_vm_name>\main` folder.
+```
+  cd c:\vmware\hrm-<sddc_manager_vm_name>\main
+```
+- Edit the `env.json` file and configure the values according to your VMware Cloud Foundation Planning and Preparation Workbook.
+```
+  notepad env.json
+```
+- Encrypt the service account passwords.
+```
+  python encrypt-passwords.py
+```
+- Enter the password for the VMware Aria Operations service account.
+- Enter the password for the SDDC Manager service account.
+- Enter the password for the SDDC Manager appliance local user.
+- Repeat this procedure for each VMware Cloud Foundation instance.
 
 ## VMware Aria Operations Dashboards Preview
 
@@ -116,10 +273,16 @@ Follow the [Implementation of Health Reporting and Monitoring for VMware Cloud F
 
 13. VCF Storage Health
 ![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/storage1-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/storage2-min.png)
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/connected-roms-min.png)
+
 
 14. VCF vSAN Health
 ![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/vSAN-min.png)
 ![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/vSAN2-min.png)
+
+15. VCF Version Health
+![](https://raw.githubusercontent.com/vmware-samples/validated-solutions-for-cloud-foundation/main/hrm/images/version-min.png)
 
 ## Known Issues
 

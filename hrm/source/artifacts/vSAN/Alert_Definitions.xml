@@ -804,8 +804,122 @@
                 </Recommendations>
             </State>
         </AlertDefinition>
+		<AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-c5356e1c-039f-49c0-8d8f-5fb3bfad3a14" name="HRM: Host in the free pool does not belong to a workload domain" resourceKind="HostSystem" subType="18" type="16">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-ed940b89-e1ab-46bd-bc30-824ea830dfc9"/>
+                    <Symptom ref="SymptomDefinition-42459698-5fca-4661-960a-dd9f8602f0c4"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-3f7965d0-eb1e-4e56-83e9-0c4254abf433" name="SoS: Host version mismatch found in Bill of Materials (BOM) for VMware Cloud Foundation" resourceKind="HostSystem" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-790bdf9d-42e8-4277-a852-c9ef4dbb3b51"/>
+                    <Symptom ref="SymptomDefinition-a0bed303-6b32-474b-9897-d2092e85d800"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-b27a6455-60fc-437e-af7a-ee1afc0d0046" name="SoS: NSX Manager version mismatch found in Bill of Materials (BOM) for VMware Cloud Foundation" resourceKind="NSXTAdapterInstance" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-313ff545-3aed-4a7d-80cc-3dd8b1da9233"/>
+                    <Symptom ref="SymptomDefinition-7fb9b030-faec-492d-829c-e8a5b6c90b05"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-0f2c6aa2-5a20-46fa-b36a-77393219dc24" name="HRM: Host is disconnected" resourceKind="HostSystem" subType="18" type="16">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-3d956b76-0fe4-47cd-8261-002107e66e89"/>
+                    <Symptom ref="SymptomDefinition-161efa44-38cd-4147-8d1c-695ae207c0a2"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-a95a44a6-4a9c-4bf7-a22d-f4a245265a2f" name="HRM: A virtual CD-ROM is connected to the Virtual machine" resourceKind="VirtualMachine" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-2d1e2b7e-284e-431e-87d7-e44540600d1c"/>
+                    <Symptom ref="SymptomDefinition-c05b7de4-3485-4258-9640-4392a949adf8"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-ec7fb0e3-a9af-40b6-b9d3-4f239b136496" name="SoS: Version mismatch found in Bill of Materials (BOM) for VMware Cloud Foundation" resourceKind="VirtualMachine" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-edc441be-812a-4e21-8877-268261ffd710"/>
+                    <Symptom ref="SymptomDefinition-b79e651e-153d-4eb3-a71b-fa1821409e92"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
     </AlertDefinitions>
     <SymptomDefinitions>
+	    <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-3d956b76-0fe4-47cd-8261-002107e66e89" name="Condition_18bf90fc-c5d2-4da2-bad4-706e93a98107" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="HRM ESXi Connection Health Status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-2d1e2b7e-284e-431e-87d7-e44540600d1c" name="Condition_c6b77c8a-966d-43e7-ac35-5a9b50292e16" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="HRM VM Connected CDROM Status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-ed940b89-e1ab-46bd-bc30-824ea830dfc9" name="Condition_e265e933-b234-4d26-b5b0-4c2d9822078d" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="HRM SDDC Free Pool Status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-c05b7de4-3485-4258-9640-4392a949adf8" name="Condition_3edd7ccb-33e9-43fb-ac3c-89495623b5da" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="HRM VM Connected CDROM Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-42459698-5fca-4661-960a-dd9f8602f0c4" name="Condition_12c46bb5-6569-45b0-afe6-e84c1b60bc5c" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="HRM SDDC Free Pool Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-161efa44-38cd-4147-8d1c-695ae207c0a2" name="Condition_c1ff8b12-bafc-425b-b1c3-9953d8ddc5ee" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="HRM ESXi Connection Health Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-b79e651e-153d-4eb3-a71b-fa1821409e92" name="Condition_91347f6b-9186-4aff-9b27-9c3ea950985a" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Version Health Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-7fb9b030-faec-492d-829c-e8a5b6c90b05" name="Condition_1783cd4d-d6da-4bd1-962e-1ab33c6f2e39" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Version Health Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-a0bed303-6b32-474b-9897-d2092e85d800" name="Condition_84876813-5f45-4655-9487-e6467d152465" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS Version Health Summary|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-790bdf9d-42e8-4277-a852-c9ef4dbb3b51" name="Condition_326a5af6-17e9-4f57-a09d-4aa4f5512cc1" resourceKind="HostSystem" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Version Health Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-edc441be-812a-4e21-8877-268261ffd710" name="Condition_d8a347f7-d4e8-452c-87e8-7b947856ddba" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Version Health Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="SymptomDefinition-313ff545-3aed-4a7d-80cc-3dd8b1da9233" name="Condition_7a94a865-4800-4544-b7b1-2c2f955e3f69" resourceKind="NSXTAdapterInstance" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS Version Health Summary|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
         <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-13ac44f2-bc12-4abf-8786-1fe39e2459ea" name="HRM Backup Critical Status" resourceKind="VirtualMachine">
             <State severity="critical">
                 <Condition instanced="true" key="HRM Backup Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
@@ -1568,7 +1682,7 @@
             <Description>Ensure that Forward and Reverse DNS records are configured correctly.</Description>
         </Recommendation>
         <Recommendation key="Recommendation-ud-fc9fee61-6a5c-4d13-93ac-7191b178dbe6">
-            <Description>To manually reset SDDC component passwords, please see the related VMware documentation and VMware Knowledge Base articles for respective components.&amp;nbsp;&lt;div&gt;- For SDDC Manager, see&amp;nbsp;&lt;a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/4.4/vcf-admin/GUID-93AA6610-4171-4BD4-B450-A735FDC19E96.html#GUID-93AA6610-4171-4BD4-B450-A735FDC19E96"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vCenter Server, see&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2147144"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For NSX Manager, see&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/70691"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vRealize Suite Lifecycle Manager, see&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/52434"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vRealize Operations, see&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2001476"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vRealize Automation, see&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/76530"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vRealize Log Insight, see&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/53649"&gt;here&lt;/a&gt;.&lt;/div&gt;</Description>
+            <Description>To manually reset SDDC component passwords, please see the related VMware documentation and VMware Knowledge Base articles for respective components.&amp;nbsp;&lt;div&gt;- For SDDC Manager, see&amp;nbsp;&lt;a target="_blank" href="https://docs.vmware.com/en/VMware-Cloud-Foundation/5.1/vcf-admin/GUID-10D19314-D2A6-4CF9-B833-03284C280DE1.html"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For vCenter Server, see&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2147144"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For NSX Manager, see&amp;nbsp;&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/70691"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For VMware Aria Suite Lifecycle, see&amp;nbsp;&amp;nbsp;&lt;a target="_blank" href="https://kb.vmware.com/s/article/52431"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For VMware Aria&amp;nbsp;Operations, see&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/2001476"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For VMware Aria&amp;nbsp;Automation, see&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/76530"&gt;here&lt;/a&gt;.&lt;/div&gt;&lt;div&gt;- For VMware Aria Operations for Logs, see&amp;nbsp;&lt;a href="https://kb.vmware.com/s/article/53649"&gt;here&lt;/a&gt;.&lt;br&gt;- For VMware Workspace One Access, see&amp;nbsp;&lt;a target="_blank" href="https://kb.vmware.com/s/article/2149950"&gt;here&lt;/a&gt;.&lt;/div&gt;</Description>
         </Recommendation>
         <Recommendation key="Recommendation-ud-6096673d-c197-43a9-a8aa-f80896cdb038">
             <Description>Check if there are any core dumps on the ESXi host generated as a result of a failure.</Description>
