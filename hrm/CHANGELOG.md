@@ -6,11 +6,22 @@
 
 Enhancements:
 
-- Added VMware Aria Operations dashboards to have parity with `VMware.CloudFoundation.Reporting`.
-  - ESXi Connection Health
-  - SDDC Free Pool
-  - VM Connected CD-ROM Status
-  - SOS Version Health
+- Added new health checks and updated dashboards to have parity with `VMware.CloudFoundation.Reporting`.
+  - ESXi Connection Health table is added to VCF Compute dashboard
+  - Free Pool Health table is added to VCF Compute dashboard
+  - VMs with Connected CD-ROMs table is added to VCF Compute dashboard
+  - VCF Version Health (New Dashboard)
+  
+- Updated artifacts - Alerts, Notifications, Supermetrics, Views and Dashboards for new health checks.
+  
+Documentation: 
+- Removed support for VCF version 4.4.
+- `Install the Python Module in a Disconnected Environment` section has been added to the `README.md`
+- `Updating the Python Module to the Latest Version` section has been added to the `README.md`
+- Updated Screenshots for new dashboards in the `README.md`
+
+Chore: 
+- Updated headers in .py files. 
 
 ## [v2.0.0]
 
