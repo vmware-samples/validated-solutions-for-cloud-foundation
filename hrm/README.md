@@ -12,7 +12,7 @@
   - [Introduction](#introduction)
   - [Requirements](#requirements)
   - [Implementation](#implementation)
-  - [Install the Python Module in a Disconnected Environment](install-the-python-module-in-a-disconnected-environment)
+  - [Install the Python Module in a Disconnected Environment](#install-the-python-module-in-a-disconnected-environment)
   - [Updating the Python Module to the Latest Version](#updating-the-python-module-to-the-latest-version)
   - [VMware Aria Operations Dashboards Preview](#vmware-aria-operations-dashboards-preview)
   - [Known Issues](#known-issues)
