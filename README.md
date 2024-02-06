@@ -27,18 +27,6 @@ This repository is a companion to the following validated solutions:
 
   * Infrastructure-as-code examples for the solution. This includes Terraform examples for the deployment and configuration of the solution.
 
-* [**Cloud-Based Automation for VMware Cloud Foundation**](https://core.vmware.com/cloud-based-automation-vmware-cloud-foundation)
-
-  A validated solution which enables a cloud-based infrastructure automation platform that delivers an agnostic self-service catalog for VMware Cloud Foundation and multi-cloud environments.
-
-  The repository provides:
-
-  * Infrastructure-as-code examples for the solution. This includes Terraform examples for the deployment and configuration of the solution.
-
-  * Step-by-step implementation guidance to create a **sample** project in Aria Automation (SaaS) after deploying the solution using both the UI and infrastructure-as-code where applicable.
-
-  * A PowerShell menu to automate the population of the Terraform variables file using the Planning and Preparation Workbook and the execute the plans.
-
 * [**Private Cloud Automation for VMware Cloud Foundation**](https://core.vmware.com/private-cloud-automation-vmware-cloud-foundation)  
 
   A validated solution which enables you to implement a modern cloud automation platform that delivers self-service automation, DevOps for infrastructure, and orchestration using Aria Automation and VMware Cloud Foundation.
@@ -78,12 +66,6 @@ The directory structure of the repository.
 │   ├── scripts
 │   ├── appliance-build.sh
 │   └── ...
-├── cba
-│   ├── docs
-│   ├── terraform-sample-project
-│   ├── terraform-solution-implementation
-│   ├── cbaTerraformMenu.ps1
-│   └── README.md
 ├── hrm
 │   ├── images
 │   ├── releases
@@ -99,8 +81,6 @@ The directory structure of the repository.
 ### Navigate to the Companion Solution Content
 
 * [Advanced Load Balancing for VMware Cloud Foundation](alb/README.md)
-
-* [Cloud-Based Automation for VMware Cloud Foundation](cba/README.md)
 
 * [Health Reporting and Monitoring for VMware Cloud Foundation](hrm/README.md)
 
