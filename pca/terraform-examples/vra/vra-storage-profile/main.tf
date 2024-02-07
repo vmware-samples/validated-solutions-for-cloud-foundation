@@ -26,13 +26,13 @@ data "vra_region" "this" {
 }
 
 data "vra_fabric_datastore_vsphere" "this" {
-  for_each   = var.storage_profile_vsphere
-  filter     = "name eq '${each.value["datastore"]}' and cloudAccountId eq '${data.vra_cloud_account_vsphere.this[each.key].id}'"
+  for_each = var.storage_profile_vsphere
+  filter   = "name eq '${each.value["datastore"]}' and cloudAccountId eq '${data.vra_cloud_account_vsphere.this[each.key].id}'"
 }
 
 data "vra_fabric_storage_policy_vsphere" "this" {
-  for_each   = var.storage_profile_vsphere
-  filter     = "name eq '${each.value["storage_policy"]}' and cloudAccountId eq '${data.vra_cloud_account_vsphere.this[each.key].id}'"
+  for_each = var.storage_profile_vsphere
+  filter   = "name eq '${each.value["storage_policy"]}' and cloudAccountId eq '${data.vra_cloud_account_vsphere.this[each.key].id}'"
 }
 
 ##################################################################################

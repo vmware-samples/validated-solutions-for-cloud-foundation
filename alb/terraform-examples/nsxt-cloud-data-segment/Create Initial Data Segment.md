@@ -18,7 +18,7 @@ Example:
 
 ```hcl
 terraform {
-  required_version = ">= 1.0.7"
+  required_version = ">= 1.7.0"
   required_providers {
     avi = {
       source  = "vmware/avi"
@@ -109,7 +109,7 @@ Example:
 
 ```hcl
 terraform {
-  required_version = ">= 1.0.7"
+  required_version = ">= 1.7.0"
   required_providers {
     avi = {
       source  = "vmware/avi"

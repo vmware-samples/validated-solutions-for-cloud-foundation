@@ -3,12 +3,13 @@
 Developed by: William Stoneman  
 
 ## Table of Contents
-1.	[Introduction](#Introduction)
-1.	[Installation](#Installation)
-1.	[Requirements](#Requirements)
-1.	[Variable Input File](#Variable-Input-File)
-1.	[Runningn](#Running)
-1.	[Considerations](#Considerations)
+
+1. [Introduction](#introduction)
+1. [Installation](#installation)
+1. [Requirements](#requirements)
+1. [Variable Input File](#variable-input-file)
+1. [Running](#running)
+1. [Considerations](#considerations)
 
 # Introduction
 
@@ -16,16 +17,17 @@ The purpose of this Terraform configuration is to configure an NSX-T Cloud Conne
 
 # Installation
 
-The methods used within this Terraform configuration can be found in the Terrform Provider (FOR avi Networks `vmware/avi`). 
+The methods used within this Terraform configuration can be found in the Terraform Provider (FOR avi Networks `vmware/avi`).
 
 The following software is required to successfully execute this Terraform Script:
-- Terraform v1.1.0 and higher.
+
+- Terraform v1.7.0 and higher.
 
 # Requirements
 
 The following prerequisites are required to successfully utilize this Workflow:
 
-* A fully deployed NSX-T environment is required before connecting an Avi Cluster.
+- A fully deployed NSX environment is required before connecting an Avi Cluster.
 
 **[Back to top](#table-of-contents)**
 
@@ -62,7 +64,7 @@ content_library_name.default : "<Content Library Name>"
 
 # Running
 
-The flow of cctions for thisTerraform configuration are:
+The flow of actions for this Terraform configuration are:
 
 1. Retrieve Transport Zone, as well as the vCenter Content Library.
 2. Create NSX-T Cloud Connector User.
@@ -78,8 +80,8 @@ The flow of cctions for thisTerraform configuration are:
 
 The following are considerations that need to be understood when executing this Terraform configuration:
 
-* This Terraform configuration does not require Data Segments to be defined for it to execute successfully. This is useful if seperate teams handle the individual parts of the Cloud. To configure the intial Data Segment or add additional Data Segments at a later time, the end user can utilize the NSX-T Cloud - Data Segments Terraform configuration.
+- This Terraform configuration does not require Data Segments to be defined for it to execute successfully. This is useful if separate teams handle the individual parts of the Cloud. To configure the initial Data Segment or add additional Data Segments at a later time, the end user can utilize the NSX-T Cloud - Data Segments Terraform configuration.
 
-* This Terraform configuration assumes the same transport Zone for both management and data.
+- This Terraform configuration assumes the same transport Zone for both management and data.
 
-* This Terraform configuration deploys using overlay segments for both management and data, if required. VLAN segments can easily be configured.
+- This Terraform configuration deploys using overlay segments for both management and data, if required. VLAN segments can easily be configured.

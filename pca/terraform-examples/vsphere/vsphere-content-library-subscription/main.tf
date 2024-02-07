@@ -31,8 +31,8 @@ resource "vsphere_content_library" "content_library" {
   description     = var.vsphere_content_library_description
   storage_backing = toset([data.vsphere_datastore.datastore.id])
   subscription {
-    subscription_url      = var.vsphere_content_library_subscription_url
-    automatic_sync        = var.vsphere_content_library_automatic_sync
-    on_demand             = var.vsphere_content_library_on_demand
+    subscription_url = var.vsphere_content_library_subscription_url
+    automatic_sync   = var.vsphere_content_library_automatic_sync
+    on_demand        = var.vsphere_content_library_on_demand
   }
 }

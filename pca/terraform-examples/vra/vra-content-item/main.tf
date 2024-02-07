@@ -22,8 +22,8 @@ data "vra_project" "this" {
 // SERVICE BROKER
 
 data "vra_catalog_source_blueprint" "this" {
-  for_each   = var.catalog_source_entitlements
-  name       = each.value.source_name
+  for_each = var.catalog_source_entitlements
+  name     = each.value.source_name
 }
 
 ##################################################################################
