@@ -20,9 +20,9 @@ data "vra_project" "this" {
 }
 
 data "vra_blueprint" "this" {
-  depends_on  = [vra_blueprint.this]
-  for_each    = var.cloud_templates
-  name        = each.value.name
+  depends_on = [vra_blueprint.this]
+  for_each   = var.cloud_templates
+  name       = each.value.name
 }
 
 ##################################################################################

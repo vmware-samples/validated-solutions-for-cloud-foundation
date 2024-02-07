@@ -25,5 +25,5 @@ resource "vsphere_folder" "folder" {
   for_each      = var.vsphere_folders
   path          = each.value["path"]
   type          = each.value["type"]
-  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
+  datacenter_id = data.vsphere_datacenter.datacenter.id
 }

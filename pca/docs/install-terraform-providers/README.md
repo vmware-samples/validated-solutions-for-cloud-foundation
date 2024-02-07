@@ -17,7 +17,7 @@ terraform {
       source  = "vmware/vra"
     }
   }
-  required_version = ">= 1.2.0"
+  required_version = ">= 1.7.0"
 }
 ```
 
@@ -33,7 +33,7 @@ terraform {
       version = ">= x.y.z"
     }
   }
-  required_version = ">= 1.2.0"
+  required_version = ">= 1.7.0"
 }
 ```
 
@@ -212,7 +212,7 @@ terraform {
       version = ">= x.y.z"
     }
   }
-  required_version = ">= 1.2.0"
+  required_version = ">= 1.7.0"
 }
 ```
 

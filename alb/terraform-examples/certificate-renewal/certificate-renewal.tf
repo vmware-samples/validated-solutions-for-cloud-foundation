@@ -1,9 +1,9 @@
 terraform {
-  required_version = ">= 1.0.7"
+  required_version = ">= 1.7.0"
   required_providers {
     avi = {
-      source = "vmware/avi"
-      version = "21.1.3"
+      source  = "vmware/avi"
+      version = "22.1.5"
     }
   }
 }
@@ -21,12 +21,12 @@ data "avi_sslkeyandcertificate" "custom_csr" {
 }
 
 resource "avi_sslkeyandcertificate" "terraform_vs_cert" {
-  name = var.cert_name
+  name       = var.cert_name
   tenant_ref = data.avi_sslkeyandcertificate.custom_csr.tenant_ref
-  uuid = data.avi_sslkeyandcertificate.custom_csr.uuid
+  uuid       = data.avi_sslkeyandcertificate.custom_csr.uuid
   certificate {
     certificate = file(var.cert_file)
   }
-  key = data.avi_sslkeyandcertificate.custom_csr.key
-  type= "SSL_CERTIFICATE_TYPE_VIRTUALSERVICE"
+  key  = data.avi_sslkeyandcertificate.custom_csr.key
+  type = "SSL_CERTIFICATE_TYPE_VIRTUALSERVICE"
 }

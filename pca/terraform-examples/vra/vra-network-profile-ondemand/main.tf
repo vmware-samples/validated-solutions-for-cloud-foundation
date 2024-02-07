@@ -52,7 +52,7 @@ resource "vra_network_profile" "this" {
   isolated_network_cidr_prefix        = var.isolated_network_cidr_prefix
   isolated_external_fabric_network_id = data.vra_fabric_network.this.id
   custom_properties = {
-    onDemandNetworkIPAssignmentType   = var.onDemandNetworkIPAssignmentType 
+    onDemandNetworkIPAssignmentType = var.onDemandNetworkIPAssignmentType
   }
   tags {
     key   = "network"

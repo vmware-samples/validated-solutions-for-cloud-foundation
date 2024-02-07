@@ -19,28 +19,30 @@ This content is a companion to the [Private Cloud Automation for VMware Cloud Fo
 
 If you want to use the PowerShell procedures to perform implementation and configuration procedures:
 
-* Verify that your system has [Microsoft PowerShell 5.1](https://docs.microsoft.com/en-us/powershell/) installed.
+* Verify that your system has [Microsoft PowerShell 7](https://docs.microsoft.com/en-us/powershell/) or later installed.
 
 * Verify that your system has [VMware PowerCLI 13.1.0](https://code.vmware.com/web/tool/13.1.0/vmware-powercli) or higher installed.
 
 * Install the [PowerValidatedSolutions](https://github.com/vmware-samples/power-validated-solutions-for-cloud-foundation) PowerShell module together with the supporting modules from the PowerShell Gallery by running the following commands.
 
     ```powershell
-    Install-Module -Name VMware.PowerCLI -MinimumVersion 13.1.0
-    Install-Module -Name VMware.vSphere.SsoAdmin -MinimumVersion 1.3.8
-    Install-Module -Name PowerVCF -MinimumVersion 2.3.0
-    Install-Module -Name PowerValidatedSolutions -MinimumVersion 2.6.0
+    Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+    Install-Module -Name VMware.PowerCLI -MinimumVersion 13.1.0 -Repository PSGallery 
+    Install-Module -Name VMware.vSphere.SsoAdmin -MinimumVersion 1.3.9 -Repository PSGallery
+    Install-Module -Name PowerVCF -MinimumVersion 2.4.0 -Repository PSGallery
+    Install-Module -Name ImportExcel -MinimumVersion 7.8.5 -Repository PSGallery
+    Install-Module -Name PowerValidatedSolutions -MinimumVersion 2.8.0 -Repository PSGallery
     ```
 
 ### Terraform
 
 If you want to use the Terraform procedures to perform implementation and configuration procedures:
 
-* Verify that your system has Terraform 1.2.0 or later installed. Learn more at [terraform.io](https://terraform.io).
+* Verify that your system has Terraform 1.7.0 or later installed. Learn more at [terraform.io](https://terraform.io).
 
 * Verify the your system has a code editor installed. Microsoft Visual Studio Code is recommended. Learn more at [Visual Studio Code](https://code.visualstudio.com/).
 
-* Install the Terraform Visual Studio Code extension 2.27.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
+* Install the Terraform Visual Studio Code extension 2.29.0 or later by HashiCorp for syntax highlighting and other editing features for Terraform files. Learn more at [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
 
 ## Get Started
 
