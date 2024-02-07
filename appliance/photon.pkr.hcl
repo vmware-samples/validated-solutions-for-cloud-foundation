@@ -1,4 +1,4 @@
-# Copyright 2023 Broadcom. All Rights Reserved.
+# Copyright 2023-2024 Broadcom. All Rights Reserved.
 # SPDX-License-Identifier: BSD-2
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
@@ -15,10 +15,10 @@
 //  The Packer configuration.
 
 packer {
-  required_version = ">= 1.9.4"
+  required_version = ">= 1.10.1"
   required_plugins {
     vmware = {
-      version = ">= v1.0.10"
+      version = ">= v1.0.11"
       source  = "github.com/hashicorp/vmware"
     }
   }
