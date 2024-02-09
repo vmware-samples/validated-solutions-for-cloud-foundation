@@ -14,14 +14,16 @@ Enhancements:
   
 - Updated artifacts - Alerts, Notifications, Supermetrics, Views and Dashboards for new health checks.
   
-Documentation: 
+Documentation:
+
 - Removed support for VCF version 4.4.
 - `Install the Python Module in a Disconnected Environment` section has been added to the `README.md`
 - `Updating the Python Module to the Latest Version` section has been added to the `README.md`
 - Updated Screenshots for new dashboards in the `README.md`
 
-Chore: 
-- Updated headers in .py files. 
+Chore:
+
+- Updated headers in .py files.
 
 ## [v2.0.0]
 

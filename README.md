@@ -17,7 +17,7 @@ This repository is a companion to the following validated solutions:
   The repository provides:
 
   * Python Module for VMware Cloud Foundation Health Monitoring in VMware Aria Operations.
-  * vRealize Operations custom dashboards, alerts, notifications and super metric artifacts.
+  * Custom dashboards, alerts, notifications, and super metric artifacts in VMware Aria Operations.
 
 * [**Advanced Load Balancing for VMware Cloud Foundation**](https://core.vmware.com/advanced-load-balancing-vmware-cloud-foundation)
   
