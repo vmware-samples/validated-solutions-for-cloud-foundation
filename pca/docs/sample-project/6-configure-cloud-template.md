@@ -26,54 +26,82 @@ Cloud templates determine the specifications, such as target cloud region, resou
 7. On the **Sample** template design page, in the **Code** tab, enter the following example YAML.
 
 ```yaml
-name: Sample Template
+name: Sample Cloud Template
 formatVersion: 1
 inputs:
   targetCloud:
     type: string
     oneOf:
-      - title: VMware Cloud Foundation
-        const: cloud:private
+      - title: Rainpole Private Cloud
+        const: 'cloud:private'
     title: Cloud
-    description: Select a target cloud.
+    description: |-
+      Select a cloud platform:<br/>
+      <ul>
+        <li>VMware Cloud Foundation</li>
+      </ul>
+    default: 'cloud:private'
   targetRegion:
     type: string
     oneOf:
-      - title: sfo-w01-vc01
-        const: region:sfo
+      - title: San Francisco (US West 1)
+        const: 'region:us-west-1'
+      - title: Los Angeles (US West 2)
+        const: 'region:us-west-2'
     title: Region
-    description: Select a target region.
+    description: |-
+      Select a region:<br/>
+      <ul>
+        <li>San Francisco, California US (us-west-1)</li>
+        <li>Los Angeles, California US (us-west-2)</li>
+      </ul>
+    default: 'region:us-west-1'
   targetEnvironment:
     type: string
     oneOf:
       - title: Production
-        const: enabled:true
+        const: 'env:prod'
+      - title: Development
+        const: 'env:dev'
     title: Environment
-    description: Select a target environment.
-  targetFunction:
-    type: string
-    oneOf:
-      - title: General Application
-        const: function:general
-    title: Function
-    description: Select a target function.
-  performanceTier:
-    type: string
-    oneOf:
-      - title: Platinum
-        const: tier:platinum
-    title: Performance Tier
-    description: Select a performance tier.
+    description: |-
+      Select an environment:<br/>
+      <ul>
+        <li>Production</li>
+        <li>Development</li>
+      </ul>
+    default: 'env:prod'
   operatingSystem:
     type: string
     oneOf:
-      - title: Photon 4.0
-        const: photon-4.0
-      - title: photon 4.0 (UEFI)
-        const: photon-4.0-uefi
+      - title: Ubuntu Server LTS
+        const: linux-ubuntu-server-lts
+      - title: Microsoft Windows Server Standard
+        const: windows-server-standard
     title: Operating System and Version
-    description: Select a operating system and version.
-  nodeSize:
+    description: |-
+      Select an operating system and version.:<br/>
+      <ul>
+        <li>Ubuntu Server LTS</li>
+        <li>Microsoft Windows Server Standard</li>
+      </ul>
+    default: linux-ubuntu-server-lts
+  networkType:
+    type: string
+    oneOf:
+      - title: Existing
+        const: existing
+      - title: On-Demand Routed
+        const: routed
+    title: NSX Network Segments
+    description: |-
+      Select an NSX segment type:<br/>
+      <ul>
+        <li>Existing NSX Segments</li>
+        <li>On-Demand Routed NSX Segments</li>
+      </ul>
+    default: routed
+  webNodeSize:
     type: string
     oneOf:
       - title: X-Small
@@ -86,37 +114,135 @@ inputs:
         const: large
       - title: X-Large
         const: x-large
-    title: Node Size
-  nodeCount:
+    title: Node Size for Web Tier
+    description: |-
+      Select the size for the node:<br/>
+      <ul>
+        <li><strong>X-Small</strong>: 1 vCPU x 1 GB Memory</li>
+        <li><strong>Small</strong>: 2 vCPU x 2 GB Memory</li>
+        <li><strong>Medium</strong>: 4 vCPU x 8 GB Memory</li>
+        <li><strong>Large</strong>: 8 vCPU x 16 GB Memory</li>
+        <li><strong>X-Large</strong>: 16 vCPU x 32 GB Memory</li>
+      </ul>
+    default: small
+  webNodeCount:
     type: integer
+    maximum: 10
+    title: Node Count for Web Tier
+    description: Select the number of VMs between 1 and 10.
     default: 1
-    maximum: 5
-    title: Node Count
-    description: Select the number of VMs between 1 and 5.
+  appNodeSize:
+    type: string
+    oneOf:
+      - title: X-Small
+        const: x-small
+      - title: Small
+        const: small
+      - title: Medium
+        const: medium
+      - title: Large
+        const: large
+      - title: X-Large
+        const: x-large
+    title: Node Size for Application Tier
+    description: |-
+      Select the size for the node:<br/>
+      <ul>
+        <li><strong>X-Small</strong>: 1 vCPU x 1 GB Memory</li>
+        <li><strong>Small</strong>: 2 vCPU x 2 GB Memory</li>
+        <li><strong>Medium</strong>: 4 vCPU x 8 GB Memory</li>
+        <li><strong>Large</strong>: 8 vCPU x 16 GB Memory</li>
+        <li><strong>X-Large</strong>: 16 vCPU x 32 GB Memory</li>
+      </ul>
+    default: small
+  appNodeCount:
+    type: integer
+    maximum: 10
+    title: Node Count for App Tier
+    description: Select the number of VMs between 1 and 10.
+    default: 1
+  dbNodeSize:
+    type: string
+    oneOf:
+      - title: X-Small
+        const: x-small
+      - title: Small
+        const: small
+      - title: Medium
+        const: medium
+      - title: Large
+        const: large
+      - title: X-Large
+        const: x-large
+    title: Node Size for Database Tier
+    description: |-
+      Select the size for the node:<br/>
+      <ul>
+        <li><strong>X-Small</strong>: 1 vCPU x 1 GB Memory</li>
+        <li><strong>Small</strong>: 2 vCPU x 2 GB Memory</li>
+        <li><strong>Medium</strong>: 4 vCPU x 8 GB Memory</li>
+        <li><strong>Large</strong>: 8 vCPU x 16 GB Memory</li>
+        <li><strong>X-Large</strong>: 16 vCPU x 32 GB Memory</li>
+      </ul>
+    default: small
 resources:
-  Cloud_vSphere_Machine_1:
+  web:
     type: Cloud.vSphere.Machine
     properties:
       image: ${input.operatingSystem}
-      flavor: ${input.nodeSize}
-      count: ${input.nodeCount}
-      customizationSpec: photon-4.0
+      flavor: ${input.webNodeSize}
+      count: ${input.webNodeCount}
+      customizationSpec: ${input.operatingSystem}
+      networks:
+        - network: ${resource.network.id}
+          assignment: static
+      tags:
+        - key: function
+          value: web
       constraints:
         - tag: ${input.targetCloud}
         - tag: ${input.targetRegion}
+  app:
+    type: Cloud.vSphere.Machine
+    properties:
+      image: ${input.operatingSystem}
+      flavor: ${input.appNodeSize}
+      count: ${input.appNodeCount}
+      customizationSpec: ${input.operatingSystem}
       networks:
-        - network: ${resource.Cloud_NSX_Network_1.id}
+        - network: ${resource.network.id}
           assignment: static
-      attachedDisks: []
-  Cloud_NSX_Network_1:
+      tags:
+        - key: function
+          value: app
+      constraints:
+        - tag: ${input.targetCloud}
+        - tag: ${input.targetRegion}
+  db:
+    type: Cloud.vSphere.Machine
+    properties:
+      image: ${input.operatingSystem}
+      flavor: ${input.dbNodeSize}
+      customizationSpec: ${input.operatingSystem}
+      networks:
+        - network: ${resource.network.id}
+          assignment: static
+      tags:
+        - key: function
+          value: db
+      constraints:
+        - tag: ${input.targetCloud}
+        - tag: ${input.targetRegion}
+  network:
     type: Cloud.NSX.Network
     properties:
-      networkType: existing
+      networkType: ${input.networkType}
       constraints:
         - tag: ${input.targetEnvironment}
+        - tag: ${input.networkType == "routed" ? "network:ondemand" : (input.networkType == "existing" ? "network:existing" : "network:ondemand")}
 ```
 
-8. Test the cloud template.
+1. Test the cloud template.
 
     a. On the **Sample** template design page, click **Test**.
 
@@ -135,7 +261,7 @@ resources:
 
     c. Verify that the test finishes successfully.
 
-9. Version the cloud template.
+2. Version the cloud template.
 
     a. On the **Sample** template design page, click **Version**.
 
