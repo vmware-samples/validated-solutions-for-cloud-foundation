@@ -32,6 +32,7 @@ from utils.SosRest import SosRest
 from utils.PSUtility import PSUtility
 from cryptography.fernet import Fernet
 
+
 def push_handler(func):
     def inner_function(*args, **kwargs):
         try:
@@ -40,7 +41,9 @@ def push_handler(func):
         except Exception as e:
             args[0].logger.error('Exception occurred. Details - ')
             args[0].logger.error(e)
+
     return inner_function
+
 
 class PushDataVrops:
 
@@ -325,7 +328,6 @@ class PushDataVrops:
         file_name = self.get_complete_json_file_name(self.sddc_manager_free_pool_status_json)
         self.push_sddc_manager_free_pool_status(file_name)
 
-
         # pushing data from sos utility health-results.json
         if self.data:
             self.push_data_password()
@@ -374,9 +376,9 @@ class PushDataVrops:
                 self.logger.info(suc_log_msg)
                 return 0
             else:
-                self.logger.info(f"********************** Will not push '{category}' data to VMware Aria Operations ******************")
+                self.logger.info(
+                    f"********************** Will not push '{category}' data to VMware Aria Operations ******************")
                 return 1
-
 
     @push_handler
     def push_general(self):
@@ -1081,7 +1083,7 @@ class PushDataVrops:
 
             # timestamp_raw = value['timestamp']
             timestamp = time.mktime(datetime.datetime.now().timetuple())
-            
+
             resource_id = self.get_resource_id(hostname, resource_name)
 
             for k, v in data.items():
@@ -1125,7 +1127,6 @@ class PushDataVrops:
             update_count = update_count + 1
 
         self.logger.info(f'Total object update requests = {update_count} ')
-
 
     @push_handler
     def push_localuserexpiry_status(self, file_name):
@@ -1323,7 +1324,7 @@ class PushDataVrops:
         self.logger.info(f'Total object update requests = {update_count} ')
 
     @push_handler
-    def push_sddc_manager_free_pool_status (self, file_name):
+    def push_sddc_manager_free_pool_status(self, file_name):
         data_arr = self.read_data(file_name)
         category = "HRM Free Pool Health"
         data_type = "SDDC Free Pool"
@@ -1663,7 +1664,8 @@ class PushDataVrops:
     @push_handler
     def push_sddc_versions(self):
         category = "Version Check Status"
-        self.logger.info('Pushing SOS version health check of BOM components (vCenter Server, NSX, ESXi, and SDDC Manager) data to VMware Aria Operations')
+        self.logger.info(
+            'Pushing SOS version health check of BOM components (vCenter Server, NSX, ESXi, and SDDC Manager) data to VMware Aria Operations')
         update_count = 0
         for key, value in self.data[category].items():
             hostname = key.rstrip()
@@ -1677,10 +1679,15 @@ class PushDataVrops:
 
             for k, val in value.items():
                 if k == 'title' and val:
+                    try:
+                        title_value = val[0] if type(val[0]) == type("") else val[0][0]
+                    except Exception as e:
+                        title_value = "Unable to get the version. Please check the logs."
+
                     details = {
                         "statKey": f"SOS Version Health Summary|{k}",
                         "timestamps": [int(timestamp * 1000)],
-                        "values": [val[0]]
+                        "values": [title_value]
                     }
                 else:
                     details = {
@@ -1688,9 +1695,9 @@ class PushDataVrops:
                         "timestamps": [int(timestamp * 1000)],
                         "values": [val]
                     }
-                
+
                 metrics_payload["stat-content"].append(details)
-                
+
                 if k == 'alert':
                     details = {
                         "statKey": f"SOS Version Health Summary|alert_code",
@@ -1707,7 +1714,7 @@ class PushDataVrops:
             update_count = update_count + 1
 
         self.logger.info(f'Total object update requests = {update_count}')
-    
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)

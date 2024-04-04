@@ -354,7 +354,7 @@ For disconnected environments (_e.g._, dark-site, air-gapped), you can save the 
 
     Please make sure that your NSX-T account name is configured as mentioned in this issue.
 
-2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.4.x. The filters on the VMware Aria Operations dashboards depend on the name.
+2. The vCenter Server name needs to be updated in VMware Cloud Foundation 4.x. The filters on the VMware Aria Operations dashboards depend on the name.
 
     To set the Product Name for the vCenter Server, follow the below steps:
 
