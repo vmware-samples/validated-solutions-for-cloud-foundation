@@ -1,5 +1,15 @@
 # Release History
 
+## [v2.1.1]
+> Release Date: 2024-04-04
+
+Bugfix:
+- Fixed parsing of SOS Version health data for VxRail Manager VM
+- Updated Artifacts to address incorrect status reported for NSX Backup Health, Supermetrics and Rollup dashboard
+
+Chore:
+- Removed unused files
+
 ## [v2.1.0]
 
 > Release Date: 2024-01-30
