@@ -13,6 +13,15 @@
                 </Recommendations>
             </State>
         </AlertDefinition>
+		<AlertDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="AlertDefinition-dc36105e-a766-4a73-ac9f-8356f9ae9ed7" name="SoS: PSC Ring Topology Status" resourceKind="VirtualMachine" subType="19" type="15">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="or">
+                    <Symptom ref="SymptomDefinition-25725a2a-c727-49b4-bace-b4e11881feca"/>
+                    <Symptom ref="SymptomDefinition-a6d6e4d3-fadb-4e0a-9d20-32a4a9cd1789"/>
+                </SymptomSet>
+                <Impact key="health" type="badge"/>
+            </State>
+        </AlertDefinition>
         <AlertDefinition adapterKind="NSXTAdapter" disableInBasePolicy="true" id="AlertDefinition-7b8b9d51-8c9c-4e3e-99c5-34eea2e9a2ce" name="HRM: NSX Local Manager Cluster backup is more than 3 days old." resourceKind="NSXTAdapterInstance" subType="18" type="20">
             <State severity="automatic">
                 <SymptomSet applyOn="self" operator="and">
@@ -860,6 +869,16 @@
         </AlertDefinition>
     </AlertDefinitions>
     <SymptomDefinitions>
+	    <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-a6d6e4d3-fadb-4e0a-9d20-32a4a9cd1789" name="Condition_541b2319-a359-4b7e-bc7d-fd41375460c3" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="SOS General|Ring Health Status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-25725a2a-c727-49b4-bace-b4e11881feca" name="Condition_12be692e-dfe1-401a-83aa-99ad94397dba" resourceKind="VirtualMachine" symptomDefType="condition_self">
+            <State severity="critical">
+                <Condition key="SOS General|Ring Health Status|alert_code" operator="=" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
 	    <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-3d956b76-0fe4-47cd-8261-002107e66e89" name="Condition_18bf90fc-c5d2-4da2-bad4-706e93a98107" resourceKind="HostSystem" symptomDefType="condition_self">
             <State severity="warning">
                 <Condition key="HRM ESXi Connection Health Status|alert_code" operator="=" thresholdType="static" type="metric" value="1.0" valueType="numeric"/>

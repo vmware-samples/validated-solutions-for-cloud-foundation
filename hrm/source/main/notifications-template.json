@@ -3,6 +3,49 @@
       "notificationRules":[
          {
             "NotificationRule":[
+			   {
+                  "id":{
+                     "@UUID":"e792d731-e09a-43e8-afbe-dea385681d10",
+                     "@ObjectType":"NOTIFICATION_RULE"
+                  },
+                  "Name":"PSC Ring Topology health status",
+                  "Description":"",
+                  "PluginID":{
+                     "@pluginType":"",
+                     "@pluginName":""
+                  },
+                  "PluginType":"",
+                  "entry":[
+                     {
+                        "ConditionType":"RESOURCEKIND",
+                        "NotificationRuleResourceKindCondition":{
+                           "ResourceKindKeys":[
+                              {
+                                 "ResourceKindKey":{
+                                    "@resourceKind":"VirtualMachine",
+                                    "@adapterKind":"VMWARE"
+                                 }
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "ConditionType":"ALERT_DEFINITION_ID",
+                        "NotificationRuleAlertDefinitionCondition":{
+                           "AlertDefinitionIds":[
+                              {
+                                 "AlertDefinitionID":"AlertDefinition-dc36105e-a766-4a73-ac9f-8356f9ae9ed7"
+                              }
+                           ]
+                        }
+                     }
+                  ],
+                  "PluginNotificationProperty":{
+                     "PropertyName":"",
+                     "PropertyValue":""
+                  },
+                  "Disabled":false
+               },
                {
                   "id":{
                      "@UUID":"62d817a3-ad96-4189-9fba-a013df4094bb",
