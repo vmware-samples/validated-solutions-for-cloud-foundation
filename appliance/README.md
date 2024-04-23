@@ -12,18 +12,18 @@ Learn more about the [VMware Validated Solutions][vvs].
 
 **Packer**:
 
-- HashiCorp [Packer][packer] 1.9.4 or higher.
+- HashiCorp [Packer][packer] 1.10.1 or higher.
 
-  > **Note**
-  >
-  > Click on the operating system name to display the installation steps.
-
+> [!NOTE]
+>
+> Click on the operating system name to display the installation steps.
+>
   - <details>
       <summary>Photon OS</summary>
 
     ```shell
-    PACKER_VERSION="1.9.4"
-    OS_PACKAGES="wget unzip"
+    PACKER_VERSION="1.10.1"
+    OS_PACKAGES="wget unzip git jq xorriso"
 
     if [[ $(uname -m) == "x86_64" ]]; then
       LINUX_ARCH="amd64"
@@ -70,6 +70,12 @@ Learn more about the [VMware Validated Solutions][vvs].
     sudo apt update && sudo apt install packer
     ```
 
+    Install additional packages:
+
+    ```shell
+    sudo apt -y install jq xorriso
+    ```
+
     </details>
 
   - <details>
@@ -85,11 +91,11 @@ Learn more about the [VMware Validated Solutions][vvs].
 
 - Packer plugin:
 
-  > **Note**
-  >
-  > The required plugin is automatically downloaded and initialized when using `./appliance-build.sh`. For dark sites, you may download the plugin and place it in same directory as your Packer executable `/usr/local/bin` or `$HOME/.packer.d/plugins`.
+> [!NOTE]
+>
+> The required plugin is automatically downloaded and initialized when using `./appliance-build.sh`. For dark sites, you may download the plugin and place it in same directory as your Packer executable `/usr/local/bin` or `$HOME/.packer.d/plugins`.
 
-  - HashiCorp [Packer Plugin for VMware][packer-plugin-vmware] 1.0.10 or higher.
+  - HashiCorp [Packer Plugin for VMware][packer-plugin-vmware] 1.0.11 or higher.
 
 ## Build the Appliance
 
@@ -106,11 +112,11 @@ Learn more about the [VMware Validated Solutions][vvs].
    ./appliance-build.sh
    ```
 
-   > **Note**
-   >
-   > The appliance build takes approximately 10 minutes to complete.
+> [!NOTE]
+>
+> The appliance build takes approximately 10 minutes to complete.
 
-3. After the build process completes, the OVA is exported to the `output-appliance` directory and the temporary machine image is destroyed.
+1. After the build process completes, the OVA is exported to the `output-appliance` directory and the temporary machine image is destroyed.
 
 ## Contributing
 
