@@ -1,6 +1,6 @@
 #!/bin/bash
-# Copyright 2023-2024 Broadcom. All Rights Reserved.
-# SPDX-License-Identifier: BSD-2
+# Copyright 2024 Broadcom. All Rights Reserved.
+# SPDX-License-Identifier: BSD-2-Clause
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
 # WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
@@ -11,14 +11,15 @@
 
 set -euo pipefail
 
-BOM_FILE=/root/config/appliance-bom.json
-NAME_FROM_BOM=$(jq -r < ${BOM_FILE} '.appliance.name')
-VERSION_FROM_BOM=$(jq -r < ${BOM_FILE} '.appliance.version')
+# Set the variables.
+BOM_FILE=/root/config/appliance.json
+APPLIANCE_NAME=$(jq -r '.appliance.name' <${BOM_FILE})
+APPLIANCE_VERSION=$(jq -r '.appliance.version' <${BOM_FILE})
 
-echo -e "\e[92mCustomizing the appliance login banner..." > /dev/console
-cat << EOF > /etc/issue
-${NAME_FROM_BOM}
-${VERSION_FROM_BOM}
+# Setting the appliance login banner.
+echo -e "\e[92mSetting the appliance login banner..." >/dev/console
+cat <<EOF >/etc/issue
+Welcome to ${APPLIANCE_NAME} v${APPLIANCE_VERSION}
 EOF
 
 /usr/sbin/agetty --reload

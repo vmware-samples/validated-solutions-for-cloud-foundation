@@ -1,10 +1,10 @@
     <ProductSection ovf:required="true">
     <Info>Information about the installed software</Info>
       <Product>VMware Validated Solutions Sample Appliance</Product>
-      <Vendor>VMware</Vendor>
+      <Vendor>VMware by Broadcom</Vendor>
       <Version>{{VERSION}}</Version>
       <ProductUrl>https://vmware.com/go/vvs</ProductUrl>
-      <VendorUrl>https://www.vmware.com/</VendorUrl>
+      <VendorUrl>https://vmware.com/</VendorUrl>
       <Category>Networking</Category>
         <Property ovf:key="guestinfo.hostname" ovf:type="string" ovf:userConfigurable="true">
             <Label>Hostname</Label>
@@ -35,17 +35,12 @@
             <Description>NTP servers (space separated) for the appliance.</Description>
         </Property>
       <Category>OS Credentials</Category>
-        <Property ovf:key="guestinfo.root_password" ovf:password="true" ovf:type="string" ovf:userConfigurable="true" ovf:value="">
-            <Label>Root Password</Label>
-            <Description>The root password for the appliance.</Description>
+        <Property ovf:key="guestinfo.admin_password" ovf:password="true" ovf:type="string" ovf:userConfigurable="true" ovf:value="">
+            <Label>Admin Password</Label>
+            <Description>The admin password for the appliance.</Description>
         </Property>
         <Property ovf:key="guestinfo.enable_ssh" ovf:type="boolean" ovf:userConfigurable="true" ovf:value="false">
             <Label>Enable SSH</Label>
             <Description>Enable SSH on the appliance.</Description>
-        </Property>
-      <Category>Advanced</Category>
-        <Property ovf:key="guestinfo.debug" ovf:type="boolean" ovf:userConfigurable="true" ovf:value="false">
-            <Label>Debugging</Label>
-            <Description>Enable debugging for the appliance.</Description>
         </Property>
     </ProductSection>
