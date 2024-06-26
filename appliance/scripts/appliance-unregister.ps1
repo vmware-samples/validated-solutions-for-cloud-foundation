@@ -1,5 +1,5 @@
-# Copyright 2023-2024 Broadcom. All Rights Reserved.
-# SPDX-License-Identifier: BSD-2
+# Copyright 2024 Broadcom. All Rights Reserved.
+# SPDX-License-Identifier: BSD-2-Clause
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
 # WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
@@ -7,10 +7,10 @@
 # OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Param (
-    [Parameter(Position=1)] [String]$server,
-    [Parameter(Position=2)] [String]$username,
-    [Parameter(Position=3)] [String]$password,
-    [Parameter(Position=4)] [String]$name
+    [Parameter(Position = 1)] [String]$server,
+    [Parameter(Position = 2)] [String]$username,
+    [Parameter(Position = 3)] [String]$password,
+    [Parameter(Position = 4)] [String]$name
 )
 
 Connect-VIServer -Server "$server" -User "$username" -Password "$password"

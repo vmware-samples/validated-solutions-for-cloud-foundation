@@ -1,0 +1,11 @@
+{
+  "appliance": {
+    "name": "VMware Validated Solutions Appliance",
+    "version": "0.1.0",
+    "artifactName": "vvs-appliance",
+    "artifactPath": "artifacts"
+  },
+  "maskpass": {
+    "version": "0.3.1"
+  }
+}
