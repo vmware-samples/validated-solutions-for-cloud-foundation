@@ -1,4 +1,4 @@
-# Copyright 2023 Broadcom. All Rights Reserved.
+# Copyright 2023-2024 Broadcom. All Rights Reserved.
 # SPDX-License-Identifier: BSD-2
 
 # ===================================================================================================================
@@ -51,46 +51,81 @@ class SosRest(object):
             token = res['accessToken']
         return token
 
-    def start_health_checks_op(self):
+    def start_health_checks_op(self, vcf_version=None):
 
         headers = {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {self.token}'
         }
 
-        json_data = {
-            "healthChecks": {
-                "certificateHealth": True,
-                "composabilityHealth": True,
-                "computeHealth": True,
-                "connectivityHealth": True,
-                "dnsHealth": True,
-                "generalHealth": True,
-                "hardwareCompatibilityHealth": True,
-                "ntpHealth": True,
-                "passwordHealth": True,
-                "servicesHealth": True,
-                "storageHealth": True,
-                "versionHealth": True
-            },
-            "options": {
-                "config": {
-                    "force": True,
-                    "skipKnownHostCheck": True
+        if vcf_version >= '5.2':
+            json_data = {
+                "healthChecks": {
+                    "certificateHealth": True,
+                    "computeHealth": True,
+                    "connectivityHealth": True,
+                    "dnsHealth": True,
+                    "generalHealth": True,
+                    "hardwareCompatibilityHealth": True,
+                    "ntpHealth": True,
+                    "passwordHealth": True,
+                    "servicesHealth": True,
+                    "storageHealth": True,
+                    "versionHealth": True
                 },
-                "include": {
-                    "summaryReport": True
+                "options": {
+                    "config": {
+                        "force": True,
+                        "skipKnownHostCheck": True
+                    },
+                    "include": {
+                        "precheckReport": False,
+                        "summaryReport": True
+                    }
+                },
+                "scope": {
+                    "domains": [{
+                        "clusterNames": [""],
+                        "domainName": ""
+                    }],
+                    "includeAllDomains": True,
+                    "includeFreeHosts": True
                 }
-            },
-            "scope": {
-                "domains": [{
-                    "clusterNames": [""],
-                    "domainName": ""
-                }],
-                "includeAllDomains": True,
-                "includeFreeHosts": True
             }
-        }
+        else:
+            json_data = {
+                "healthChecks": {
+                    "certificateHealth": True,
+                    "composabilityHealth": True,
+                    "computeHealth": True,
+                    "connectivityHealth": True,
+                    "dnsHealth": True,
+                    "generalHealth": True,
+                    "hardwareCompatibilityHealth": True,
+                    "ntpHealth": True,
+                    "passwordHealth": True,
+                    "servicesHealth": True,
+                    "storageHealth": True,
+                    "versionHealth": True
+                },
+                "options": {
+                    "config": {
+                        "force": True,
+                        "skipKnownHostCheck": True
+                    },
+                    "include": {
+                        "summaryReport": True
+                    }
+                },
+                "scope": {
+                    "domains": [{
+                        "clusterNames": [""],
+                        "domainName": ""
+                    }],
+                    "includeAllDomains": True,
+                    "includeFreeHosts": True
+                }
+            }
 
         response = requests.post(f'https://{self.host}/v1/system/health-summary', headers=headers, json=json_data,
                                  verify=False)

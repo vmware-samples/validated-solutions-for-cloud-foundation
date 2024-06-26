@@ -1,4 +1,4 @@
-# Copyright 2023 Broadcom. All Rights Reserved.
+# Copyright 2023-2024 Broadcom. All Rights Reserved.
 # SPDX-License-Identifier: BSD-2
 
 # ===================================================================================================================
@@ -99,12 +99,14 @@ class PushDataVrops:
         self.sddc_manager_user = env_info["sddc_manager"]["user"]
         self.sddc_manager_local_user = env_info["sddc_manager"]["local_user"]
         self.sddc_manager_local_pwd = None
+        self.vcf_version = None
 
         # set status codes
         self.codes = {'green': 0, 'yellow': 1, 'red': 2, 'NA': 1, 'skipped': 0}
 
         # resource inventory object
         self.resource_inventory = {}
+        self.object_data = {}
 
         try:
             self.log_retention = int(env_info["log_retention_in_days"])
@@ -209,6 +211,17 @@ class PushDataVrops:
         combined_cmd = request_token_cmd + ' ; ' + publish_nsx_cmd
         psu.execute_ps_cmd(combined_cmd)
 
+        get_vcf_version_cmd = '(Get-VCFManager -version)'
+        combined_cmd = request_token_cmd + ' ; ' + get_vcf_version_cmd
+        version_output = psu.execute_ps_cmd(combined_cmd)
+        pattern = r'\b\d+\.\d+\.\d+\.\d+\b'
+        match = re.search(pattern, version_output)
+        if match:
+            version = match.group(0)
+            self.vcf_version = version[0:3]
+            self.logger.info(f"Extracted version: {self.vcf_version}")
+        else:
+            raise Exception('Unable to find VCF version.')
         # module w/out -allDomains (ex. Publish-SddcManagerFreePool)
         without_all_domain_cmd = f"-server {self.sddc_manager_fqdn} -user {self.sddc_manager_user} " \
                                  f"-pass '{self.sddc_manager_pwd}' " \
@@ -228,13 +241,15 @@ class PushDataVrops:
 
     # TODO: change this function
     def get_sos_data_from_sddc_manager(self):
+
+
         data = None
         dest = os.path.join(self.logger.test_log_folder, self.data_file)
 
         sosrest = SosRest(host=self.sddc_manager_fqdn, user=self.sddc_manager_user,
                           password=self.sddc_manager_pwd, logger=self.logger)
         sosrest.get_auth_token()
-        request_id = sosrest.start_health_checks_op()
+        request_id = sosrest.start_health_checks_op(vcf_version=self.vcf_version)
         sosrest.get_health_checks_status(request_id)
         sosrest.get_health_check_bundle(request_id, path=self.logger.test_log_folder)
 
@@ -277,8 +292,12 @@ class PushDataVrops:
             raise e
 
     def read_data(self, data_file):
-        with open(data_file) as df:
-            data = json.load(df)
+        if os.path.getsize(data_file) == 0:
+            self.logger.info(f"{data_file} is empty")
+            data = []
+        else:
+            with open(data_file) as df:
+                data = json.load(df)
         return data
 
     def get_complete_json_file_name(self, file_name):
@@ -345,6 +364,8 @@ class PushDataVrops:
         else:
             self.logger.info('Skipping pushing SOS data to VMware Aria Operations. No data received.')
 
+        self.push_data_to_vrops()
+
         self.logger.info("############################### Script Complete ############################################")
         self.logger.info(f'Log files located at - {self.logger.test_log_folder}')
 
@@ -358,27 +379,37 @@ class PushDataVrops:
                 yield dictionary, parent_key, prev_keys
                 break
 
-    def push_data_to_vrops(self, category, resource_id, hostname, metrics_payload_json):
-        if category.lstrip().startswith("HRM"):
-            suc_log_msg = f'********************** Pushed "{category}" to VMware Aria Operations **********************'
-            fail_log_msg = f'********************** Unable to Push "{category}" to VMware Aria Operations**********************'
-        else:
-            suc_log_msg = f'********************** Pushed "SOS {category}" to VMware Aria Operations **********************'
-            fail_log_msg = f'********************** Unable to Push "SOS {category}" to VMware Aria Operations **********************'
-
-        if not resource_id:
-            self.logger.error(f'Unable to add data for Hostname: {hostname} | Resource id: {resource_id}')
-            self.logger.error(fail_log_msg)
-            return 2
-        else:
-            if self.push_to_vrops:
-                self.vrops.add_stats(metrics_payload_json, id=resource_id)
-                self.logger.info(suc_log_msg)
-                return 0
+    def push_data_to_vrops(self):
+        for resource_id, data in self.object_data.items():
+            if data:
+                metrics_payload_json = {"stat-content": data}
+                if self.push_to_vrops:
+                    try:
+                        self.vrops.add_stats(metrics_payload_json, id=resource_id)
+                        self.logger.info(
+                            f'***** Pushed {len(data)} custom metrics to VMware Aria Operations Object ID: {resource_id}')
+                        # time.sleep(0.5)
+                    except Exception as e:
+                        self.logger.error(
+                            f'***** Unable to push custom metrics to VMware Aria Operations Object ID: {resource_id}')
+                        self.logger.error(e)
+                else:
+                    self.logger.info(
+                        f"***** Will not push data to VMware Aria Operations : args.push_data = False *****")
             else:
-                self.logger.info(
-                    f"********************** Will not push '{category}' data to VMware Aria Operations ******************")
-                return 1
+                self.logger.info(f'No data available for object id {resource_id}')
+
+    def build_payload(self, category, resource_id, hostname, metrics_payload):
+        self.logger.info(f'********************** Building Payload for {category}: {hostname} **********************')
+        existing_data = self.object_data.get(resource_id)
+        if existing_data:
+            new_data = metrics_payload.get('stat-content')
+            existing_data.extend(new_data)
+            self.object_data[resource_id] = existing_data
+        else:
+            self.object_data[resource_id] = metrics_payload.get('stat-content')
+
+        print(self.object_data[resource_id])
 
     @push_handler
     def push_general(self):
@@ -435,13 +466,12 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
     @push_handler
     def push_hw_compatibility(self):
@@ -485,13 +515,12 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
     @push_handler
     def push_connectivity(self):
@@ -561,13 +590,12 @@ class PushDataVrops:
                         }
                         metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
     @push_handler
     def push_vsan(self):
@@ -604,11 +632,9 @@ class PushDataVrops:
                         }
                         metrics_payload["stat-content"].append(details)
 
-                metrics_payload_json = json.dumps(metrics_payload)
-
                 self.logger.info(resource_id)
-                self.logger.info(metrics_payload_json)
-                self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                self.logger.info(metrics_payload)
+                self.build_payload(category, resource_id, hostname, metrics_payload)
                 update_count = update_count + 1
             else:
                 for host, val in value.items():
@@ -639,14 +665,12 @@ class PushDataVrops:
                             }
                             metrics_payload["stat-content"].append(details)
 
-                    metrics_payload_json = json.dumps(metrics_payload)
-
                     self.logger.info(resource_id)
-                    self.logger.info(metrics_payload_json)
-                    self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                    self.logger.info(metrics_payload)
+                    self.build_payload(category, resource_id, hostname, metrics_payload)
                     update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
     @push_handler
     def push_compute(self):
@@ -682,14 +706,12 @@ class PushDataVrops:
                         }
                         metrics_payload["stat-content"].append(details)
 
-                metrics_payload_json = json.dumps(metrics_payload)
-
                 self.logger.info(resource_id)
-                self.logger.info(metrics_payload_json)
-                self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                self.logger.info(metrics_payload)
+                self.build_payload(category, resource_id, hostname, metrics_payload)
                 update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
     @push_handler
     def push_services(self):
@@ -725,14 +747,12 @@ class PushDataVrops:
                         }
                         metrics_payload["stat-content"].append(details)
 
-                metrics_payload_json = json.dumps(metrics_payload)
-
                 self.logger.info(resource_id)
-                self.logger.info(metrics_payload_json)
-                self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                self.logger.info(metrics_payload)
+                self.build_payload(category, resource_id, hostname, metrics_payload)
                 update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
     @push_handler
     def push_ntp_iterator(self, category, data):
@@ -776,14 +796,12 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
     @push_handler
     def push_ntp(self):
@@ -820,14 +838,12 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
     def get_resource_id(self, hostname, resource_name):
         resource_id = self.resource_inventory.get(hostname)
@@ -883,11 +899,9 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
         return update_count
 
@@ -936,14 +950,12 @@ class PushDataVrops:
                         }
                         metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_backup_status(self, file_name):
@@ -1000,14 +1012,12 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_snapshot_status(self, file_name):
@@ -1059,14 +1069,12 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_vm_connected_cdrom_status(self, file_name):
@@ -1119,28 +1127,26 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_localuserexpiry_status(self, file_name):
         data_type = "Localuserexpiry"
         datastruct = self.get_complete_json_file_name(file_name)
         update_count = self.push_flat_struct(data_type, datastruct, None)
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_componentconnectivityhealth_status(self, file_name):
         data_type = "ComponentConnectivityHealth"
         datastruct = self.read_data(file_name)
         update_count = self.push_flat_struct(data_type, datastruct, None)
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_storagecapacityhealth_status(self, file_name):
@@ -1181,11 +1187,9 @@ class PushDataVrops:
                             }
                             metrics_payload["stat-content"].append(details)
 
-                    metrics_payload_json = json.dumps(metrics_payload)
-
                     self.logger.info(resource_id)
-                    self.logger.info(metrics_payload_json)
-                    self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                    self.logger.info(metrics_payload)
+                    self.build_payload(category, resource_id, hostname, metrics_payload)
                     update_count = update_count + 1
 
             elif key_val == "datastore":
@@ -1219,11 +1223,9 @@ class PushDataVrops:
                             }
                             metrics_payload["stat-content"].append(details)
 
-                    metrics_payload_json = json.dumps(metrics_payload)
-
                     self.logger.info(resource_id)
-                    self.logger.info(metrics_payload_json)
-                    self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                    self.logger.info(metrics_payload)
+                    self.build_payload(category, resource_id, hostname, metrics_payload)
                     update_count = update_count + 1
             else:
                 key_var = "FQDN"
@@ -1255,14 +1257,12 @@ class PushDataVrops:
                             }
                             metrics_payload["stat-content"].append(details)
 
-                    metrics_payload_json = json.dumps(metrics_payload)
-
                     self.logger.info(resource_id)
-                    self.logger.info(metrics_payload_json)
-                    self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                    self.logger.info(metrics_payload)
+                    self.build_payload(category, resource_id, hostname, metrics_payload)
 
                     update_count = update_count + 1
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_esxi_connection_health(self, file_name):
@@ -1314,14 +1314,12 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_sddc_manager_free_pool_status(self, file_name):
@@ -1373,14 +1371,12 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_nsxttier0_status(self, file_name):
@@ -1418,15 +1414,13 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
             instance_hash[hostname] += 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_nsxt_transportnode_status(self, file_name):
@@ -1466,15 +1460,13 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
             instance_hash[hostname] += 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_nsxt_tunnel_status(self, file_name):
@@ -1514,15 +1506,13 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
             instance_hash[hostname] += 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_nsxtcombinedhealthnonsos_status(self, file_name):
@@ -1562,15 +1552,13 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
             instance_hash[hostname] += 1
 
-        self.logger.info(f'Total object update requests = {update_count} ')
+        self.logger.info(f'Total statKeys = {update_count} ')
 
     @push_handler
     def push_data_certificates(self):
@@ -1652,14 +1640,12 @@ class PushDataVrops:
                 }
                 metrics_payload["stat-content"].append(details)
 
-                metrics_payload_json = json.dumps(metrics_payload)
-
                 self.logger.info(resource_id)
-                self.logger.info(metrics_payload_json)
-                self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+                self.logger.info(metrics_payload)
+                self.build_payload(category, resource_id, hostname, metrics_payload)
                 update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
     @push_handler
     def push_sddc_versions(self):
@@ -1682,7 +1668,7 @@ class PushDataVrops:
                     try:
                         title_value = val[0] if type(val[0]) == type("") else val[0][0]
                     except Exception as e:
-                        title_value = "Unable to get the version. Please check the logs."
+                        title_value = f"Unable to get the version. Please check the logs. {e}"
 
                     details = {
                         "statKey": f"SOS Version Health Summary|{k}",
@@ -1706,14 +1692,12 @@ class PushDataVrops:
                     }
                     metrics_payload["stat-content"].append(details)
 
-            metrics_payload_json = json.dumps(metrics_payload)
-
             self.logger.info(resource_id)
-            self.logger.info(metrics_payload_json)
-            self.push_data_to_vrops(category, resource_id, hostname, metrics_payload_json)
+            self.logger.info(metrics_payload)
+            self.build_payload(category, resource_id, hostname, metrics_payload)
             update_count = update_count + 1
 
-        self.logger.info(f'Total object update requests = {update_count}')
+        self.logger.info(f'Total statKeys = {update_count}')
 
 
 if __name__ == "__main__":
