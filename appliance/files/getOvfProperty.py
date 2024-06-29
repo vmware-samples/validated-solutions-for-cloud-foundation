@@ -50,7 +50,7 @@ def main(argv):
     # Strip enclosing quotes if not a password
     if not re.search('password', argv[0], flags=re.IGNORECASE):
         res = re.sub(r'^(["\'])(.*)\1$', r'\2', res)
-        
+
     print(res, end="")
     sys.exit(0)
 
