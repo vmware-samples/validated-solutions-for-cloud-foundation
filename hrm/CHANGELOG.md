@@ -1,5 +1,15 @@
 # Release History
 
+## v2.2
+
+> Release Date: TBD
+
+Enhancement:
+
+  - Support for VMware Cloud Foundation 5.2.
+  - Script improvements to handle missing metrics data in VMware Aria Operations.
+  - Script performance improvements.
+
 ## [v2.1.2]
 
 > Release Date: 2024-04-25

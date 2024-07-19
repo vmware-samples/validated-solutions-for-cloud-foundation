@@ -1,4 +1,4 @@
-# Copyright 2023 Broadcom. All Rights Reserved.
+# Copyright 2023-2024 Broadcom. All Rights Reserved.
 # SPDX-License-Identifier: BSD-2
 
 # ===================================================================================================================
@@ -52,6 +52,7 @@ class PSUtility:
             if err != '':
                 self.log_msg(f'Error encountered while running command - {err}')
             self.log_msg(f'output received = {output}')
+            return output
         except Exception as e:
             self.log_msg(e)
         finally:
