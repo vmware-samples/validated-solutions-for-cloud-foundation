@@ -1,4 +1,3 @@
-#!/bin/bash
 # Copyright 2024 Broadcom. All Rights Reserved.
 # SPDX-License-Identifier: BSD-2-Clause
 
@@ -7,8 +6,7 @@
 # COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 # OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-if [ -e /root/ran_customization ]; then
-    exit
-else
-    /root/setup/setup.sh &>/var/log/bootstrap.log
-fi
+.PHONY: build+
+
+default: build+
+	./appliance.sh
