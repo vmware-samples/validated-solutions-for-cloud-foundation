@@ -35,6 +35,7 @@ This content supports the [Health Reporting and Monitoring for VMware Cloud Foun
 ## Requirements
 
 ### Platforms
+
 - VMware Cloud Foundation 5.2
 - VMware Cloud Foundation 5.1
 - VMware Cloud Foundation 5.0
@@ -108,13 +109,13 @@ For disconnected environments (_e.g._, dark-site, air-gapped), you can save the 
   ```console
   vi module.txt
   ```
-  
+
 - Add below content to the `module.txt` file and save it.
 
   ```console
   vmware-cloud-foundation-health-monitoring
   ```
-  
+
 - From a system with an Internet connection, save the module and its dependencies from PyPI by running the following commands in the terminal:
 
   ```console
@@ -127,7 +128,7 @@ For disconnected environments (_e.g._, dark-site, air-gapped), you can save the 
   ```console
   scp -r /home/vcf/hrm-modules/* username@remote_host:/opt/vmware/hrm-modules/
   ```
-  
+
 - On the target system, install the module and its dependencies by running the following commands in the terminal:
 
   ```console
@@ -160,7 +161,7 @@ For disconnected environments (_e.g._, dark-site, air-gapped), you can save the 
 
   ```console
   cd f:\hrm-modules
-  pip download -r module.txt 
+  pip download -r module.txt
   pip download -r requirements.txt
   ```
 
@@ -190,13 +191,13 @@ For disconnected environments (_e.g._, dark-site, air-gapped), you can save the 
 
   ```console
   pip install vmware-cloud-foundation-health-monitoring --target=/opt/vmware/hrm-<sddc_manager_vm_name> --upgrade
-  ```  
+  ```
 
 - Provide execute permissions to the files in the `hrm-<sddc_manager_vm_name>` directory.
 
   ```console
   chmod -R 755 /opt/vmware/hrm-<sddc_manager_vm_name>
-  ```  
+  ```
 
 - Switch to the `hrm-<sddc_manager_vm_name>/main` directory.
 
@@ -372,8 +373,6 @@ For disconnected environments (_e.g._, dark-site, air-gapped), you can save the 
 
 ## Support
 
-This Python module is not supported by VMware Support Services.
-
 We welcome you to use the [GitHub Issues](https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/issues) to report bugs or suggest enhancements.
 
 In order to have a good experience with our community, we recommend that you read the [contributing guidelines](../CONTRIBUTING.md).
@@ -389,15 +388,10 @@ Please try to include as much information as you can. Details like these are inc
 
 ## License
 
-Copyright 2023-2024 Broadcom. All Rights Reserved.
+© Broadcom. All Rights Reserved.
+The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
 
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-
-2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+Licensed under the BSD 2-Clause license.
 
 [//]: Links
 

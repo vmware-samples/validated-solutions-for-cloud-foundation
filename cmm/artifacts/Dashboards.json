@@ -1,0 +1,1044 @@
+{
+   "entries": {
+      "resourceKind": [
+         {
+            "resourceKindKey": "ClusterComputeResource",
+            "internalId": "resourceKind:id:0_::_",
+            "adapterKindKey": "VMWARE"
+         },
+         {
+            "resourceKindKey": "Universe",
+            "internalId": "resourceKind:id:1_::_",
+            "adapterKindKey": "Container"
+         },
+         {
+            "resourceKindKey": "CAS Adapter Instance",
+            "internalId": "resourceKind:id:2_::_",
+            "adapterKindKey": "CASAdapter"
+         }
+      ]
+   },
+   "dashboards": [
+      {
+         "shared": false,
+         "temporary": false,
+         "hidden": false,
+         "creationTime": 1724440657005,
+         "autoswitchEnabled": false,
+         "importAttempts": 0,
+         "lastUpdateUserId": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57",
+         "columnProportion": "1-1",
+         "importComplete": true,
+         "description": "",
+         "columnCount": 1,
+         "widgets": [
+            {
+               "collapsed": false,
+               "id": "df574d2d-0c77-423d-bcd4-3190d11ef64c",
+               "gridsterCoords": {
+                  "w": 12,
+                  "x": 1,
+                  "h": 3,
+                  "y": 12
+               },
+               "type": "Scoreboard",
+               "title": "Technical Capability Assessment Levels (Out of 5)",
+               "config": {
+                  "maxCellCount": 10,
+                  "oldMetricValues": false,
+                  "relationshipMode": {
+                     "relationshipMode": 0
+                  },
+                  "valueSize": 24,
+                  "title": "Technical Capability Assessment Levels (Out of 5)",
+                  "boxHeight": null,
+                  "showResourceName": {
+                     "showResourceName": false
+                  },
+                  "roundDecimals": null,
+                  "mode": {
+                     "layoutMode": "fixedView"
+                  },
+                  "labelSize": 16,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "selfProvider": {
+                     "selfProvider": true
+                  },
+                  "resInteractionMode": null,
+                  "visualTheme": 8,
+                  "showMetricName": {
+                     "showMetricName": true
+                  },
+                  "refreshInterval": 900,
+                  "resource": [],
+                  "showDT": {
+                     "showDT": false
+                  },
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "showMetricUnit": {
+                     "showMetricUnit": false
+                  },
+                  "depth": 1,
+                  "metric": {
+                     "mode": "resourceKind",
+                     "resourceMetrics": [],
+                     "resourceKindMetrics": [
+                        {
+                           "yellowBound": 2,
+                           "metricUnitId": -1,
+                           "metricName": "Super Metrics|TCA_MI_UC1_Compute",
+                           "metricKey": "Super Metric|sm_41ee96ec-c07c-408e-a29f-9263ce2da448",
+                           "handleOldColoring": false,
+                           "link": "",
+                           "resourceKindName": "Cluster Compute Resource",
+                           "isStringMetric": false,
+                           "resourceKindId": "resourceKind:id:0_::_",
+                           "label": "Compute",
+                           "orangeBound": -1,
+                           "unit": "Auto",
+                           "redBound": -2,
+                           "id": "extModel3414-1",
+                           "colorMethod": 0
+                        },
+                        {
+                           "yellowBound": 1,
+                           "metricUnitId": -1,
+                           "metricName": "Super Metrics|TCA_MI_UC1_Storage",
+                           "metricKey": "Super Metric|sm_b56d1997-3314-477a-ab7d-310425d5a2e0",
+                           "handleOldColoring": false,
+                           "link": "",
+                           "resourceKindName": "Cluster Compute Resource",
+                           "isStringMetric": false,
+                           "resourceKindId": "resourceKind:id:0_::_",
+                           "label": "Storage",
+                           "orangeBound": -1,
+                           "unit": "Auto",
+                           "redBound": -2,
+                           "id": "extModel3414-8",
+                           "colorMethod": 0
+                        },
+                        {
+                           "yellowBound": 1,
+                           "metricUnitId": -1,
+                           "metricName": "Super Metrics|TCA_MI_UC1_Operations",
+                           "metricKey": "Super Metric|sm_44769a62-10ff-43e3-a16f-10eb3ad3bc27",
+                           "handleOldColoring": false,
+                           "link": "",
+                           "resourceKindName": "Cluster Compute Resource",
+                           "isStringMetric": false,
+                           "resourceKindId": "resourceKind:id:0_::_",
+                           "label": "Operations",
+                           "orangeBound": -1,
+                           "unit": "Auto",
+                           "redBound": -2,
+                           "id": "extModel3414-5",
+                           "colorMethod": 0
+                        },
+                        {
+                           "yellowBound": 0,
+                           "metricUnitId": -1,
+                           "metricName": "Super Metrics|TCA_MI_UC1_Services",
+                           "metricKey": "Super Metric|sm_f3ebd5ce-4b91-45e6-8ca0-3623fa69dcf8",
+                           "handleOldColoring": false,
+                           "link": "",
+                           "resourceKindName": "Cluster Compute Resource",
+                           "isStringMetric": false,
+                           "resourceKindId": "resourceKind:id:0_::_",
+                           "label": "Services",
+                           "orangeBound": -1,
+                           "unit": "Auto",
+                           "redBound": -2,
+                           "id": "extModel3414-7",
+                           "colorMethod": 0
+                        },
+                        {
+                           "yellowBound": 0,
+                           "metricUnitId": -1,
+                           "metricName": "Super Metrics|TCA_MI_UC1_Security and Compliance",
+                           "metricKey": "Super Metric|sm_f0bb8f91-0ec2-4347-b019-2ef1a5a136be",
+                           "handleOldColoring": false,
+                           "link": "",
+                           "resourceKindName": "Cluster Compute Resource",
+                           "isStringMetric": false,
+                           "resourceKindId": "resourceKind:id:0_::_",
+                           "label": "Security",
+                           "orangeBound": -1,
+                           "unit": "Auto",
+                           "redBound": -2,
+                           "id": "extModel3414-6",
+                           "colorMethod": 0
+                        },
+                        {
+                           "yellowBound": 2,
+                           "metricUnitId": -1,
+                           "metricName": "Super Metrics|TCA_MI_UC1_Data Protection and Recovery",
+                           "metricKey": "Super Metric|sm_7f8f1183-0807-47ab-8242-523416f895f1",
+                           "handleOldColoring": false,
+                           "link": "",
+                           "resourceKindName": "Cluster Compute Resource",
+                           "isStringMetric": false,
+                           "resourceKindId": "resourceKind:id:0_::_",
+                           "label": "DPR",
+                           "orangeBound": -1,
+                           "unit": "Auto",
+                           "redBound": -2,
+                           "id": "extModel3414-3",
+                           "colorMethod": 0
+                        },
+                        {
+                           "yellowBound": 1,
+                           "metricUnitId": -1,
+                           "metricName": "Super Metrics|TCA_MI_UC1_Network",
+                           "metricKey": "Super Metric|sm_ba7e37fe-445c-4a0c-8ebc-e5641edf1e1c",
+                           "handleOldColoring": false,
+                           "link": "",
+                           "resourceKindName": "Universe",
+                           "isStringMetric": false,
+                           "resourceKindId": "resourceKind:id:1_::_",
+                           "label": "Network",
+                           "orangeBound": -1,
+                           "unit": "Auto",
+                           "redBound": -2,
+                           "id": "extModel20048-1",
+                           "colorMethod": 0
+                        },
+                        {
+                           "yellowBound": 0,
+                           "metricUnitId": -1,
+                           "metricName": "Super Metrics|TCA_Common_Aria_Automation_Check",
+                           "metricKey": "Super Metric|sm_ceca303e-2bd2-44a6-be21-a6a5e0ec3bd2",
+                           "handleOldColoring": false,
+                           "link": "",
+                           "resourceKindName": "VMware Aria Automation",
+                           "isStringMetric": false,
+                           "resourceKindId": "resourceKind:id:2_::_",
+                           "label": "Consumption",
+                           "orangeBound": -1,
+                           "unit": "",
+                           "redBound": -2,
+                           "id": "extModel20048-2",
+                           "colorMethod": 0
+                        }
+                     ],
+                     "subMode": "resourceKindAll"
+                  },
+                  "showSparkline": {
+                     "showSparkline": false
+                  },
+                  "boxColumns": 8,
+                  "periodLength": null
+               },
+               "height": 153
+            },
+            {
+               "collapsed": false,
+               "id": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "gridsterCoords": {
+                  "w": 12,
+                  "x": 1,
+                  "h": 2,
+                  "y": 4
+               },
+               "type": "Heatmap",
+               "title": "Clusters",
+               "config": {
+                  "mode": "all",
+                  "configs": [
+                     {
+                        "colorBy": {
+                           "metricKey": "Super Metric|sm_c15bf3be-7bfd-40f3-84e7-4cdaba803c8e",
+                           "value": "Super Metrics|TCA Cluster Overall Status"
+                        },
+                        "focusOnGroups": false,
+                        "color": {
+                           "thresholds": {
+                              "values": [
+                                 0,
+                                 50,
+                                 100
+                              ],
+                              "colors": [
+                                 "#8ABF5B",
+                                 "#8ABF5B",
+                                 "#96BB69",
+                                 "#96BB69"
+                              ]
+                           },
+                           "minValue": 0
+                        },
+                        "sizeBy": {
+                           "metricKey": null,
+                           "value": ""
+                        },
+                        "relationalGrouping": false,
+                        "groupBy": {
+                           "originalText": "Cluster Compute Resource",
+                           "resourceKind": "ClusterComputeResource",
+                           "adapterKind": "VMWARE",
+                           "typeId": "resourceKind:id:0_::_",
+                           "id": "004null002006VMWAREClusterComputeResource",
+                           "text": "Cluster Compute Resource",
+                           "type": "resourceKind",
+                           "parentText": "vCenter",
+                           "parentId": "VMWARE"
+                        },
+                        "attributeKind": {
+                           "value": ""
+                        },
+                        "thenBy": null,
+                        "mode": {
+                           "mode": false
+                        },
+                        "resourceKind": "resourceKind:id:0_::_",
+                        "filterMode": "tagPicker",
+                        "tagFilter": null,
+                        "solidColoring": true,
+                        "name": "Clusters",
+                        "customFilter": {
+                           "filter": [],
+                           "excludedResources": null,
+                           "includedResources": null
+                        }
+                     }
+                  ],
+                  "depth": 10,
+                  "refreshInterval": 1500,
+                  "resource": [],
+                  "refreshContent": {
+                     "refreshContent": true
+                  },
+                  "relationshipMode": {
+                     "relationshipMode": [
+                        1,
+                        -1,
+                        0
+                     ]
+                  },
+                  "selfProvider": {
+                     "selfProvider": true
+                  },
+                  "title": "Clusters",
+                  "value": 0
+               },
+               "height": 96,
+               "states": [
+                  {
+                     "value": "b%3A0",
+                     "key": "perm_toolbarVisible_widget_551b989e-0463-42e8-b7a5-4b3869a3b875_78a20599-60ec-4e62-8df9-c14da56e21c7"
+                  },
+                  {
+                     "value": "o%3A",
+                     "key": "perm_HeatMap_widget_551b989e-0463-42e8-b7a5-4b3869a3b875_78a20599-60ec-4e62-8df9-c14da56e21c7"
+                  },
+                  {
+                     "value": "b%3A1",
+                     "key": "permBtn_showTextBtn_perm_HeatMap_widget_551b989e-0463-42e8-b7a5-4b3869a3b875_78a20599-60ec-4e62-8df9-c14da56e21c7"
+                  }
+               ]
+            },
+            {
+               "collapsed": false,
+               "id": "61904c93-5657-4ace-8b04-a02ec69f4f7a",
+               "gridsterCoords": {
+                  "w": 2,
+                  "x": 1,
+                  "h": 3,
+                  "y": 6
+               },
+               "type": "ParetoAnalysis",
+               "title": "Compute",
+               "config": {
+                  "yellowBound": 2,
+                  "regenerationTime": 5,
+                  "barsCount": null,
+                  "metricName": "Level",
+                  "relationshipMode": {
+                     "relationshipMode": 0
+                  },
+                  "title": "Compute",
+                  "additionalColumns": [],
+                  "roundDecimals": 0,
+                  "metricUnit": {
+                     "metricUnitId": null,
+                     "metricUnitName": ""
+                  },
+                  "mode": "all",
+                  "resourceKind": [
+                     {
+                        "id": "resourceKind:id:0_::_"
+                     }
+                  ],
+                  "filterMode": "tagPicker",
+                  "tagFilter": null,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "selfProvider": {
+                     "selfProvider": false
+                  },
+                  "filterOldMetrics": {
+                     "filterOldMetrics": false
+                  },
+                  "percentileValue": 1,
+                  "topOption": "metricsHighestUtilization",
+                  "refreshInterval": 300,
+                  "resource": [],
+                  "maxValue": 5,
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "orangeBound": -1,
+                  "depth": 10,
+                  "metric": {
+                     "metricKey": "Super Metric|sm_41ee96ec-c07c-408e-a29f-9263ce2da448",
+                     "name": "Super Metrics|TCA Compute (No unit)"
+                  },
+                  "redBound": -2
+               },
+               "height": 153,
+               "states": [
+                  {
+                     "value": "b%3A0",
+                     "key": "perm_toolbarVisible_widget_551b989e-0463-42e8-b7a5-4b3869a3b875_61904c93-5657-4ace-8b04-a02ec69f4f7a"
+                  }
+               ]
+            },
+            {
+               "collapsed": false,
+               "id": "7739a076-0f0c-4166-ac64-fdb21f79c79a",
+               "gridsterCoords": {
+                  "w": 2,
+                  "x": 3,
+                  "h": 3,
+                  "y": 6
+               },
+               "type": "ParetoAnalysis",
+               "title": "Network",
+               "config": {
+                  "yellowBound": 2,
+                  "regenerationTime": 15,
+                  "barsCount": 5,
+                  "metricName": "Level",
+                  "relationshipMode": {
+                     "relationshipMode": [
+                        -1,
+                        0
+                     ]
+                  },
+                  "title": "Network",
+                  "additionalColumns": [],
+                  "roundDecimals": 0,
+                  "metricUnit": {
+                     "metricUnitId": null,
+                     "metricUnitName": ""
+                  },
+                  "mode": "all",
+                  "resourceKind": [
+                     {
+                        "id": "resourceKind:id:1_::_"
+                     }
+                  ],
+                  "filterMode": "tagPicker",
+                  "tagFilter": null,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "selfProvider": {
+                     "selfProvider": true
+                  },
+                  "filterOldMetrics": {
+                     "filterOldMetrics": false
+                  },
+                  "percentileValue": 1,
+                  "topOption": "metricsHighestUtilization",
+                  "refreshInterval": 300,
+                  "resource": [],
+                  "maxValue": 5,
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "orangeBound": -1,
+                  "depth": 10,
+                  "metric": {
+                     "metricKey": "Super Metric|sm_ba7e37fe-445c-4a0c-8ebc-e5641edf1e1c",
+                     "name": "Super Metrics|TCA_MI_UC1_Network (No unit)"
+                  },
+                  "redBound": -2
+               },
+               "height": 153,
+               "states": [
+                  {
+                     "value": "b%3A0",
+                     "key": "perm_toolbarVisible_widget_551b989e-0463-42e8-b7a5-4b3869a3b875_7739a076-0f0c-4166-ac64-fdb21f79c79a"
+                  }
+               ]
+            },
+            {
+               "collapsed": false,
+               "id": "04d0b3ab-5a00-4938-9632-c3e8f824ba50",
+               "gridsterCoords": {
+                  "w": 2,
+                  "x": 7,
+                  "h": 3,
+                  "y": 6
+               },
+               "type": "ParetoAnalysis",
+               "title": "Storage",
+               "config": {
+                  "yellowBound": 1,
+                  "regenerationTime": 15,
+                  "barsCount": 5,
+                  "metricName": "Level",
+                  "relationshipMode": {
+                     "relationshipMode": [
+                        -1,
+                        0
+                     ]
+                  },
+                  "title": "Storage",
+                  "additionalColumns": [],
+                  "roundDecimals": 0,
+                  "metricUnit": {
+                     "metricUnitId": null,
+                     "metricUnitName": ""
+                  },
+                  "mode": "all",
+                  "resourceKind": [
+                     {
+                        "id": "resourceKind:id:0_::_"
+                     }
+                  ],
+                  "filterMode": "tagPicker",
+                  "tagFilter": null,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "selfProvider": {
+                     "selfProvider": false
+                  },
+                  "filterOldMetrics": {
+                     "filterOldMetrics": false
+                  },
+                  "percentileValue": 1,
+                  "topOption": "metricsHighestUtilization",
+                  "refreshInterval": 300,
+                  "resource": [],
+                  "maxValue": 5,
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "orangeBound": -1,
+                  "depth": 10,
+                  "metric": {
+                     "metricKey": "Super Metric|sm_b56d1997-3314-477a-ab7d-310425d5a2e0",
+                     "name": "Super Metrics|TCA Storage (No unit)"
+                  },
+                  "redBound": -2
+               },
+               "height": 153
+            },
+            {
+               "collapsed": false,
+               "id": "ca72b40f-44ed-4f3b-90a5-c2ff3824b05e",
+               "gridsterCoords": {
+                  "w": 2,
+                  "x": 1,
+                  "h": 3,
+                  "y": 9
+               },
+               "type": "ParetoAnalysis",
+               "title": "Operations",
+               "config": {
+                  "yellowBound": 1,
+                  "regenerationTime": 15,
+                  "barsCount": 5,
+                  "metricName": "Level",
+                  "relationshipMode": {
+                     "relationshipMode": [
+                        -1,
+                        0
+                     ]
+                  },
+                  "title": "Operations",
+                  "additionalColumns": [],
+                  "roundDecimals": 0,
+                  "metricUnit": {
+                     "metricUnitId": null,
+                     "metricUnitName": ""
+                  },
+                  "mode": "all",
+                  "resourceKind": [
+                     {
+                        "id": "resourceKind:id:0_::_"
+                     }
+                  ],
+                  "filterMode": "tagPicker",
+                  "tagFilter": null,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "selfProvider": {
+                     "selfProvider": false
+                  },
+                  "filterOldMetrics": {
+                     "filterOldMetrics": false
+                  },
+                  "percentileValue": 1,
+                  "topOption": "metricsHighestUtilization",
+                  "refreshInterval": 300,
+                  "resource": [],
+                  "maxValue": 5,
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "orangeBound": -1,
+                  "depth": 10,
+                  "metric": {
+                     "metricKey": "Super Metric|sm_44769a62-10ff-43e3-a16f-10eb3ad3bc27",
+                     "name": "Super Metrics|TCA Operations (No unit)"
+                  },
+                  "redBound": -2
+               },
+               "height": 153
+            },
+            {
+               "collapsed": false,
+               "id": "d604f181-b8e8-436d-80fa-17b4ea4c06a2",
+               "gridsterCoords": {
+                  "w": 2,
+                  "x": 5,
+                  "h": 3,
+                  "y": 9
+               },
+               "type": "ParetoAnalysis",
+               "title": "Consumption",
+               "config": {
+                  "yellowBound": 0,
+                  "regenerationTime": 15,
+                  "barsCount": 5,
+                  "metricName": "Level",
+                  "relationshipMode": {
+                     "relationshipMode": [
+                        -1,
+                        0
+                     ]
+                  },
+                  "title": "Consumption",
+                  "additionalColumns": [],
+                  "roundDecimals": 0,
+                  "metricUnit": {
+                     "metricUnitId": null,
+                     "metricUnitName": ""
+                  },
+                  "mode": "all",
+                  "resourceKind": [
+                     {
+                        "id": "resourceKind:id:2_::_"
+                     }
+                  ],
+                  "filterMode": "tagPicker",
+                  "tagFilter": null,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "maxValue": 5,
+                  "selfProvider": {
+                     "selfProvider": true
+                  },
+                  "filterOldMetrics": {
+                     "filterOldMetrics": false
+                  },
+                  "percentileValue": 1,
+                  "topOption": "metricsHighestUtilization",
+                  "refreshInterval": 300,
+                  "resource": [],
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "orangeBound": -1,
+                  "depth": 10,
+                  "metric": {
+                     "metricKey": "Super Metric|sm_ceca303e-2bd2-44a6-be21-a6a5e0ec3bd2",
+                     "name": "Super Metrics|TCA_Common_Aria_Automation_Check"
+                  },
+                  "redBound": -2
+               },
+               "height": 153
+            },
+            {
+               "collapsed": false,
+               "id": "ec2fe0c9-92a8-42ee-bd1c-0effeb928b9f",
+               "gridsterCoords": {
+                  "w": 2,
+                  "x": 3,
+                  "h": 3,
+                  "y": 9
+               },
+               "type": "ParetoAnalysis",
+               "title": "Services",
+               "config": {
+                  "yellowBound": 0,
+                  "regenerationTime": 15,
+                  "barsCount": 5,
+                  "metricName": "Level",
+                  "relationshipMode": {
+                     "relationshipMode": [
+                        -1,
+                        0
+                     ]
+                  },
+                  "title": "Services",
+                  "additionalColumns": [],
+                  "roundDecimals": 0,
+                  "metricUnit": {
+                     "metricUnitId": null,
+                     "metricUnitName": ""
+                  },
+                  "mode": "all",
+                  "resourceKind": [
+                     {
+                        "id": "resourceKind:id:0_::_"
+                     }
+                  ],
+                  "filterMode": "tagPicker",
+                  "tagFilter": null,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "selfProvider": {
+                     "selfProvider": false
+                  },
+                  "filterOldMetrics": {
+                     "filterOldMetrics": false
+                  },
+                  "percentileValue": 1,
+                  "topOption": "metricsHighestUtilization",
+                  "refreshInterval": 300,
+                  "resource": [],
+                  "maxValue": 5,
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "orangeBound": -1,
+                  "depth": 10,
+                  "metric": {
+                     "metricKey": "Super Metric|sm_f3ebd5ce-4b91-45e6-8ca0-3623fa69dcf8",
+                     "name": "Super Metrics|TCA Services (No unit)"
+                  },
+                  "redBound": -2
+               },
+               "height": 153,
+               "states": [
+                  {
+                     "value": "b%3A0",
+                     "key": "perm_toolbarVisible_widget_551b989e-0463-42e8-b7a5-4b3869a3b875_ec2fe0c9-92a8-42ee-bd1c-0effeb928b9f"
+                  }
+               ]
+            },
+            {
+               "collapsed": false,
+               "id": "723225c9-a4b8-49ec-8f1d-b045afd8ac7e",
+               "gridsterCoords": {
+                  "w": 2,
+                  "x": 7,
+                  "h": 3,
+                  "y": 9
+               },
+               "type": "ParetoAnalysis",
+               "title": "Data Protection & Recovery",
+               "config": {
+                  "yellowBound": 2,
+                  "regenerationTime": 5,
+                  "barsCount": 5,
+                  "metricName": "Level",
+                  "relationshipMode": {
+                     "relationshipMode": [
+                        -1,
+                        0
+                     ]
+                  },
+                  "title": "Data Protection & Recovery",
+                  "additionalColumns": [],
+                  "roundDecimals": 0,
+                  "metricUnit": {
+                     "metricUnitId": null,
+                     "metricUnitName": ""
+                  },
+                  "mode": "all",
+                  "resourceKind": [
+                     {
+                        "id": "resourceKind:id:0_::_"
+                     }
+                  ],
+                  "filterMode": "tagPicker",
+                  "tagFilter": null,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "selfProvider": {
+                     "selfProvider": false
+                  },
+                  "filterOldMetrics": {
+                     "filterOldMetrics": false
+                  },
+                  "percentileValue": 1,
+                  "topOption": "metricsHighestUtilization",
+                  "refreshInterval": 300,
+                  "resource": [],
+                  "maxValue": 5,
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "orangeBound": -1,
+                  "depth": 10,
+                  "metric": {
+                     "metricKey": "Super Metric|sm_7f8f1183-0807-47ab-8242-523416f895f1",
+                     "name": "Super Metrics|TCA Data Protection and Recovery (No unit)"
+                  },
+                  "redBound": -2
+               },
+               "height": 153
+            },
+            {
+               "collapsed": false,
+               "id": "464433c0-4f2e-4af8-9191-2c57f10cb638",
+               "gridsterCoords": {
+                  "w": 2,
+                  "x": 5,
+                  "h": 3,
+                  "y": 6
+               },
+               "type": "ParetoAnalysis",
+               "title": "Security",
+               "config": {
+                  "yellowBound": 0,
+                  "regenerationTime": 15,
+                  "barsCount": 1,
+                  "metricName": "Level",
+                  "relationshipMode": {
+                     "relationshipMode": [
+                        -1,
+                        0
+                     ]
+                  },
+                  "title": "Security",
+                  "additionalColumns": [],
+                  "roundDecimals": 0,
+                  "metricUnit": {
+                     "metricUnitId": null,
+                     "metricUnitName": ""
+                  },
+                  "mode": "all",
+                  "resourceKind": [
+                     {
+                        "id": "resourceKind:id:0_::_"
+                     }
+                  ],
+                  "filterMode": "tagPicker",
+                  "tagFilter": null,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "selfProvider": {
+                     "selfProvider": false
+                  },
+                  "filterOldMetrics": {
+                     "filterOldMetrics": false
+                  },
+                  "percentileValue": 1,
+                  "topOption": "metricsHighestUtilization",
+                  "refreshInterval": 300,
+                  "resource": [],
+                  "maxValue": 5,
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "orangeBound": -1,
+                  "depth": 10,
+                  "metric": {
+                     "metricKey": "Super Metric|sm_f0bb8f91-0ec2-4347-b019-2ef1a5a136be",
+                     "name": "Super Metrics|TCA Security and Compliance (No unit)"
+                  },
+                  "redBound": -2
+               },
+               "height": 153
+            },
+            {
+               "collapsed": false,
+               "id": "6c1dce85-7203-4ce8-8dbb-69f2d58e3214",
+               "gridsterCoords": {
+                  "w": 4,
+                  "x": 9,
+                  "h": 6,
+                  "y": 6
+               },
+               "type": "AlertList",
+               "title": "Alert List",
+               "config": {
+                  "alertImpact": [],
+                  "alertAction": [],
+                  "refreshInterval": 60,
+                  "resource": [],
+                  "refreshContent": {
+                     "refreshContent": true
+                  },
+                  "relationshipMode": {
+                     "relationshipMode": [
+                        -1,
+                        0
+                     ]
+                  },
+                  "criticalityLevel": [],
+                  "title": "Alert List",
+                  "type": [],
+                  "mode": "all",
+                  "filterMode": "tagPicker",
+                  "tagFilter": null,
+                  "alertDefinitions": [
+                     "AlertDefinition-3adea3af-0fa7-4e40-9659-499e89191ce8",
+                     "AlertDefinition-9911a36a-395b-4eed-baf4-d3d9cb1943ab",
+                     "AlertDefinition-f0f563ae-aa71-4388-aec2-cf790056302d"
+                  ],
+                  "depth": 1,
+                  "customFilter": {
+                     "filter": [],
+                     "excludedResources": null,
+                     "includedResources": null
+                  },
+                  "selfProvider": {
+                     "selfProvider": false
+                  },
+                  "state": [],
+                  "status": []
+               },
+               "height": 324,
+               "states": [
+                  {
+                     "value": "s%3A%7B%22dateRange%22%3A%22last30Days%22%2C%22dateFrom%22%3Anull%2C%22dateTo%22%3Anull%2C%22timeFrom%22%3Anull%2C%22timeTo%22%3Anull%7D",
+                     "key": "permDateFilter_widget_551b989e-0463-42e8-b7a5-4b3869a3b875_6c1dce85-7203-4ce8-8dbb-69f2d58e3214"
+                  },
+                  {
+                     "value": "s%3ADEFINITION",
+                     "key": "permViewMode_widget_551b989e-0463-42e8-b7a5-4b3869a3b875_6c1dce85-7203-4ce8-8dbb-69f2d58e3214"
+                  },
+                  {
+                     "value": "o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Ah16%255Eo%25253Aid%25253Ds%2525253Ah1%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah2%255Eo%25253Aid%25253Ds%2525253Ah3%255Eo%25253Aid%25253Ds%2525253Ah4%255Eo%25253Aid%25253Ds%2525253Ah5%255Eo%25253Aid%25253Ds%2525253Ah6%255Eo%25253Aid%25253Ds%2525253Ah7%25255Ehidden%25253Db%2525253A1%255Eo%25253Aid%25253Ds%2525253Ah8%25255Ehidden%25253Db%2525253A1%255Eo%25253Aid%25253Ds%2525253Ah9%25255Ehidden%25253Db%2525253A1%255Eo%25253Aid%25253Ds%2525253Ah10%25255Ehidden%25253Db%2525253A1%255Eo%25253Aid%25253Ds%2525253Ah11%255Eo%25253Aid%25253Ds%2525253Ah12%255Eo%25253Aid%25253Ds%2525253Ah13%25255Ehidden%25253Db%2525253A1%255Eo%25253Aid%25253Ds%2525253Ah14%25255Ehidden%25253Db%2525253A1%255Eo%25253Aid%25253Ds%2525253Ah15%25255Ehidden%25253Db%2525253A0%5EstoreState%3Do%253Asorters%253Da%25253Ao%2525253Aroot%2525253Ds%252525253Adata%2525255Eproperty%2525253Ds%252525253AalertLevel%2525255Edirection%2525253Ds%252525253ADESC%2525255Eid%2525253Ds%252525253AalertLevel",
+                     "key": "permAlertGrid_perm_widget_551b989e-0463-42e8-b7a5-4b3869a3b875_6c1dce85-7203-4ce8-8dbb-69f2d58e3214"
+                  }
+               ]
+            },
+            {
+               "collapsed": false,
+               "id": "6cf27366-aa92-4eae-aa8e-02d0ea09720e",
+               "gridsterCoords": {
+                  "w": 12,
+                  "x": 1,
+                  "h": 3,
+                  "y": 1
+               },
+               "type": "TextDisplay",
+               "title": "\u200bModernize or build an on-premises private cloud infrastructure",
+               "config": {
+                  "locationUrl": "",
+                  "locationFile": "",
+                  "editorData": "<div style=\"\"><font face=\"Metropolis, arial, sans-serif\" size=\"2\" style=\"background-color: rgb(255, 255, 255);\">\u200bThis dashboard displays the technical capability assessment levels for Modern Infrastructure Use Case - 1: Modernize or build an on-premises private cloud infrastructure<\/font><\/div><div style=\"\"><span style=\"background-color: rgb(255, 255, 255);\"><span style=\"font-size: small;\">Green - Meets or Exceeds the recommended assessment level<\/span><br><\/span><\/div><div style=\"\"><font face=\"Metropolis, arial, sans-serif\" size=\"2\" style=\"background-color: rgb(255, 255, 255);\">Yellow - Does not meet the recommended assessment level<\/font><\/div><div style=\"\"><span style=\"font-size: small; background-color: rgb(255, 255, 255);\">Maximum value for a level is 5.<\/span><br><\/div>",
+                  "refreshInterval": 300,
+                  "titleLocalized": "\u200bModernize or build an on-premises private cloud infrastructure",
+                  "refreshContent": {
+                     "refreshContent": false
+                  },
+                  "title": "\u200bModernize or build an on-premises private cloud infrastructure",
+                  "viewModeHTML": true
+               },
+               "height": 153
+            }
+         ],
+         "userId": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57",
+         "states": [],
+         "homeTab": false,
+         "name": "CMM: Modern Infrastructure - Use Case 1",
+         "gridsterMaxColumns": 12,
+         "rank": 0,
+         "disabled": false,
+         "id": "551b989e-0463-42e8-b7a5-4b3869a3b875",
+         "locked": false,
+         "dashboardNavigations": {},
+         "widgetInteractions": [
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "df574d2d-0c77-423d-bcd4-3190d11ef64c"
+            },
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "61904c93-5657-4ace-8b04-a02ec69f4f7a"
+            },
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "7739a076-0f0c-4166-ac64-fdb21f79c79a"
+            },
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "04d0b3ab-5a00-4938-9632-c3e8f824ba50"
+            },
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "723225c9-a4b8-49ec-8f1d-b045afd8ac7e"
+            },
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "464433c0-4f2e-4af8-9191-2c57f10cb638"
+            },
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "d604f181-b8e8-436d-80fa-17b4ea4c06a2"
+            },
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "ec2fe0c9-92a8-42ee-bd1c-0effeb928b9f"
+            },
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "ca72b40f-44ed-4f3b-90a5-c2ff3824b05e"
+            },
+            {
+               "widgetIdProvider": "78a20599-60ec-4e62-8df9-c14da56e21c7",
+               "type": "resourceId",
+               "widgetIdReceiver": "6c1dce85-7203-4ce8-8dbb-69f2d58e3214"
+            }
+         ],
+         "lastUpdateTime": 1724460134703
+      }
+   ],
+   "uuid": "cd1e6f32-995d-4e00-bfb0-245c311a18f8"
+}
