@@ -1,0 +1,146 @@
+{
+   "41ee96ec-c07c-408e-a29f-9263ce2da448": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "ClusterComputeResource",
+            "adapterKindKey": "VMWARE"
+         }
+      ],
+      "modificationTime": 1724440069343,
+      "name": "TCA_MI_UC1_Compute",
+      "formula": "max([\t((${adaptertype=VcfAdapter, objecttype=VCFWorld, objectname=VCF World, metric=summary|total_number_clusters, depth=8}) > 0 ? 1 : 0 ),\t(count(${this, metric=configuration|dasConfig|enabled,depth=8,  where=($value contains 'true')}) ? 2 : 0 ),\t(count(${this, metric=configuration|drsConfig|enabled,depth=8 , where=($value contains 'true')}) ? 2 : 0 ) ,  \t(count(${adaptertype=VMWARE, objecttype=VirtualMachine, metric=config|cpuAllocation|limit, depth=8, where=($value>0)}) > 0 ? 0 : 3 ),\t(count(${adaptertype=VMWARE, objecttype=VirtualMachine, metric=config|memoryAllocation|limit, depth=8, where=($value>0)}) > 0 ? 0 : 3 ),\t(count(${adaptertype=VMWARE, objecttype=*, attribute=gpu|utilization_average, depth=8, where=($value>0)}) > 0 ? 5 : 0 ),\t(count(${adaptertype=VMWARE, objecttype=*, attribute=gpu|mem.usage_average, depth=8, where=($value>0)}) > 0 ? 5 : 0 )\t])",
+      "description": "Technical Capability Assessment - Modern Infrastructure - Use Case 1 - Compute",
+      "unitId": "none",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   },
+   "54f0760a-3c01-46d8-83c9-ede891926758": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "CAS Adapter Instance",
+            "adapterKindKey": "CASAdapter"
+         }
+      ],
+      "modificationTime": 1724440602345,
+      "name": "TCA_MI_UC1_Consumption",
+      "formula": "(count(${this, metric=Super Metric|sm_ceca303e-2bd2-44a6-be21-a6a5e0ec3bd2}) > 0 ? 1 : 0)",
+      "description": "Technical Capability Assessment - Modern Infrastructure - Use Case 1 - Consumption",
+      "unitId": "none",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   },
+   "ba7e37fe-445c-4a0c-8ebc-e5641edf1e1c": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "Universe",
+            "adapterKindKey": "Container"
+         }
+      ],
+      "modificationTime": 1724459378311,
+      "name": "TCA_MI_UC1_Network",
+      "formula": "max([count(${adaptertype=VMWARE, objecttype=VmwareDistributedVirtualSwitch, metric=summary|version, depth=8}) > 0 ? 1:0 , count(${adaptertype=VMWARE, objecttype=VmwareStandardVirtualSwitch, metric=summary|version, depth=8}) > 0 ? 1:0, count(${adaptertype=NSXTAdapter, objecttype=RouterService, objectname=BGP Service, attribute=summary|Status, where=($value contains 'true'), depth = 8}) > 0 ? 3:0])",
+      "description": "Technical Capability Assessment - Modern Infrastructure - Use Case 1 - Network",
+      "unitId": "none",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   },
+   "f0bb8f91-0ec2-4347-b019-2ef1a5a136be": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "ClusterComputeResource",
+            "adapterKindKey": "VMWARE"
+         }
+      ],
+      "modificationTime": 1724440069578,
+      "name": "TCA_MI_UC1_Security and Compliance",
+      "formula": "1",
+      "description": "Technical Capability Assessment - Modern Infrastructure - Use Case 1  - Compliance",
+      "unitId": "none",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   },
+   "44769a62-10ff-43e3-a16f-10eb3ad3bc27": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "LoginSight Adapter Instance",
+            "adapterKindKey": "LogInsightAdapter"
+         },
+         {
+            "resourceKindKey": "VirtualMachine",
+            "adapterKindKey": "VMWARE"
+         }
+      ],
+      "modificationTime": 1725916612498,
+      "name": "TCA_MI_UC1_Operations",
+      "formula": "max([count(${this, attribute=System Properties|resource_kind_subtype}) > 0 ? 2 : 1, max(${this, metric=cost|effectiveTotalCost}) > 0 ? 2 : 1])",
+      "description": "Technical Capability Assessment - Modern Infrastructure - Use Case 1  - Operations",
+      "unitId": "none",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   },
+   "ceca303e-2bd2-44a6-be21-a6a5e0ec3bd2": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "CAS Adapter Instance",
+            "adapterKindKey": "CASAdapter"
+         }
+      ],
+      "modificationTime": 1724440369089,
+      "name": "TCA_Common_Aria_Automation_Check",
+      "formula": "count(${this, metric=summary|version, depth=0, where=($value contains '.')})",
+      "description": "Checks if Aria Automation Integration is enabled on Aria Ops. ",
+      "unitId": "",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   },
+   "7f8f1183-0807-47ab-8242-523416f895f1": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "ClusterComputeResource",
+            "adapterKindKey": "VMWARE"
+         }
+      ],
+      "modificationTime": 1724440069706,
+      "name": "TCA_MI_UC1_Data Protection and Recovery",
+      "formula": "3",
+      "description": "Technical Capability Assessment - Modern Infrastructure - Use Case 1 - Data Protection and Recovery",
+      "unitId": "none",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   },
+   "f3ebd5ce-4b91-45e6-8ca0-3623fa69dcf8": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "ClusterComputeResource",
+            "adapterKindKey": "VMWARE"
+         }
+      ],
+      "modificationTime": 1724440069750,
+      "name": "TCA_MI_UC1_Services",
+      "formula": "1",
+      "description": "Technical Capability Assessment - Modern Infrastructure - Use Case 1 - Services",
+      "unitId": "none",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   },
+   "c15bf3be-7bfd-40f3-84e7-4cdaba803c8e": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "ClusterComputeResource",
+            "adapterKindKey": "VMWARE"
+         }
+      ],
+      "modificationTime": 1724440069799,
+      "name": "TCA_MI_UC1_Cluster Overall Status",
+      "formula": "0",
+      "description": "Technical Capability Assessment - Modern Infrastructure - Use Case 1  - Cluster Overall Status",
+      "unitId": "",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   },
+   "b56d1997-3314-477a-ab7d-310425d5a2e0": {
+      "resourceKinds": [
+         {
+            "resourceKindKey": "ClusterComputeResource",
+            "adapterKindKey": "VMWARE"
+         }
+      ],
+      "modificationTime": 1724442757523,
+      "name": "TCA_MI_UC1_Storage",
+      "formula": "max([count(${adaptertype=VMWARE, objecttype=Datastore, metric=summary|type, depth=8, where=($value contains 'vsan')}) > 0 ? 2: 0,\ncount(${adaptertype=VMWARE, objecttype=Datastore, metric=summary|type, depth=8, where=($value contains 'vmfs')}),\ncount(${adaptertype=VMWARE, objecttype=Datastore, metric=summary|type, depth=8, where=($value contains 'nfs')}),\ncount(${adaptertype=VMWARE, objecttype=Datastore, metric=summary|type, depth=8, where=($value contains 'vvols')}), count(${adaptertype=VirtualAndPhysicalSANAdapter, objecttype=VirtualSANDCCluster, metric=configuration|vSAN|dataInTransitEncryption, depth=4, where=($value contains 'Enabled')}) > 0 ? 4 : 0, count(${adaptertype=VirtualAndPhysicalSANAdapter, objecttype=VirtualSANDCCluster, metric=configuration|vSAN|stretchedCluster, depth=4, where=($value contains 'Enabled')}) > 0 ? 3 : 0, count(${adaptertype=VirtualAndPhysicalSANAdapter, objecttype=VirtualSANDCCluster, metric=configuration|vSAN|fileService, depth=4, where=($value contains 'Enabled')}) > 0 ? 5 : 0, count(${adaptertype=VirtualAndPhysicalSANAdapter, objecttype=VirtualSANDCCluster, metric=configuration|vSAN|encryption, depth=1, where=($value contains 'Enabled')}) > 0 ? 5 : 0, count(${adaptertype=VirtualAndPhysicalSANAdapter, objecttype=vSAN World, metric=summary|max_cluster_count, depth=1}) > 0 ? 3 : 0])",
+      "description": "Technical Capability Assessment - Modern Infrastructure - Use Case 1 - Storage",
+      "unitId": "none",
+      "modifiedBy": "4e8067e6-0419-451a-90c4-7e2d6f9f9d57"
+   }
+}

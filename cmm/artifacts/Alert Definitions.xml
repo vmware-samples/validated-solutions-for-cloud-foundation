@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><alertContent>
+    <AlertDefinitions>
+        <AlertDefinition adapterKind="VMWARE" description="Network recommended level should be 2 or more" disableInBasePolicy="true" id="AlertDefinition-f0f563ae-aa71-4388-aec2-cf790056302d" name="TCA: Network - Modern Infrastructure - Use Case 1" resourceKind="ClusterComputeResource" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-a21259e4-99e8-49cd-b034-1c481ec10728"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-d44abbe6-fcc3-484e-9fd5-bcd5744a9605"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="Data Protection and Recovery recommended level should be 3 or more" disableInBasePolicy="true" id="AlertDefinition-3adea3af-0fa7-4e40-9659-499e89191ce8" name="TCA: DPR - Modern Infrastructure - Use Case 1" resourceKind="ClusterComputeResource" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-f1d0ec08-4f83-49e9-8a82-cf7a1f4c8d7e"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-7efc46c2-dc07-47ec-9a37-c3700349a318"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+        <AlertDefinition adapterKind="VMWARE" description="Alert for Modernize or Build an on-premises private cloud infrastructure : &#10;Storage Level should be 2 or more. " disableInBasePolicy="true" id="AlertDefinition-9911a36a-395b-4eed-baf4-d3d9cb1943ab" name="TCA: Storage - Modern Infrastructure - Use Case 1" resourceKind="ClusterComputeResource" subType="22" type="20">
+            <State severity="automatic">
+                <SymptomSet applyOn="self" operator="and" ref="SymptomDefinition-9c989c84-6a54-465c-91df-b28088cc8d99"/>
+                <Impact key="health" type="badge"/>
+                <Recommendations>
+                    <Recommendation priority="1" ref="Recommendation-ud-39b54f8c-3821-4680-ba9d-af812a2d1ca8"/>
+                </Recommendations>
+            </State>
+        </AlertDefinition>
+    </AlertDefinitions>
+    <SymptomDefinitions>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-f1d0ec08-4f83-49e9-8a82-cf7a1f4c8d7e" name="Condition_cbdfbd96-bc83-4c93-b036-09d5dbe43544" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="Super Metric|sm_7f8f1183-0807-47ab-8242-523416f895f1" operator="&lt;" thresholdType="static" type="metric" value="3.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-a21259e4-99e8-49cd-b034-1c481ec10728" name="Condition_7d34fa8a-e202-492c-a726-e4a9334b8910" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="Super Metric|sm_ba7e37fe-445c-4a0c-8ebc-e5641edf1e1c" operator="&lt;" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+        <SymptomDefinition adapterKind="VMWARE" disableInBasePolicy="true" id="SymptomDefinition-9c989c84-6a54-465c-91df-b28088cc8d99" name="Condition_a32464c9-e444-467d-b670-45542b2fb0ef" resourceKind="ClusterComputeResource" symptomDefType="condition_self">
+            <State severity="warning">
+                <Condition key="Super Metric|sm_b56d1997-3314-477a-ab7d-310425d5a2e0" operator="&lt;" thresholdType="static" type="metric" value="2.0" valueType="numeric"/>
+            </State>
+        </SymptomDefinition>
+    </SymptomDefinitions>
+    <Recommendations>
+        <Recommendation key="Recommendation-ud-39b54f8c-3821-4680-ba9d-af812a2d1ca8">
+            <Description>&lt;div style=""&gt;&lt;font color="#565656" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;Recommendation for Modernize or Build an on-premises private cloud infrastructure :&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=""&gt;&lt;font color="#565656" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;Network Level should be 2 or more.&amp;nbsp;&lt;br&gt;Please follow &amp;lt;link&amp;gt; to reach the recommended level&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-7efc46c2-dc07-47ec-9a37-c3700349a318">
+            <Description>&lt;div style=""&gt;&lt;font color="#565656" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;TCA Recommendation for Modernize or Build an on-premises private cloud infrastructure :&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=""&gt;&lt;font color="#565656" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;Data Protection and Recovery Level should be 3 or more.&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;</Description>
+        </Recommendation>
+        <Recommendation key="Recommendation-ud-d44abbe6-fcc3-484e-9fd5-bcd5744a9605">
+            <Description>&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;TCA Compute - Modern Infrastructure recommended level should be 3 or more. Click &amp;lt;some link&amp;gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;div style=""&gt;&lt;font color="#adbbc4" face="Metropolis, arial, sans-serif"&gt;&lt;span style="font-size: 13px;"&gt;Level - Title&lt;br&gt;1 - Fixed Compute Resources&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style="color: rgb(173, 187, 196); font-family: Metropolis, arial, sans-serif; font-size: 13px;"&gt;2 - HA&lt;br&gt;&lt;div&gt;2 - Automated Workload Load Balancing&lt;/div&gt;&lt;div&gt;3 - Resource Prioritization&lt;br&gt;4 - Scalable Compute&lt;br&gt;5 - Hardware Acceleration&lt;/div&gt;&lt;/div&gt;</Description>
+        </Recommendation>
+    </Recommendations>
+</alertContent>
