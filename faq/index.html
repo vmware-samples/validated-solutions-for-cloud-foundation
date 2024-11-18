@@ -1,0 +1,1575 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="VMware Validated Solutions">
+      
+      
+        <meta name="author" content="Broadcom">
+      
+      
+        <link rel="canonical" href="https://vmware-samples.github.io/validated-solutions-for-cloud-foundation/faq/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../pwsh/">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Frequently Asked Questions - VMware Validated Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/timeago.css">
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#general" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="VMware Validated Solutions" class="md-header__button md-logo" aria-label="VMware Validated Solutions" data-md-component="logo">
+      
+  <img src="../assets/images/icon-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VMware Validated Solutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Frequently Asked Questions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark Theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light Theme"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Theme" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+    
+  
+  Solutions
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+    
+  
+  FAQs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../pwsh/" class="md-tabs__link">
+          
+  
+    
+  
+  Automation Modules and Scripts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://blogs.vmware.com/cloud-foundation/products/vmware-validated-solutions/" class="md-tabs__link">
+          
+  
+    
+  
+  Blog Articles
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="VMware Validated Solutions" class="md-nav__button md-logo" aria-label="VMware Validated Solutions" data-md-component="logo">
+      
+  <img src="../assets/images/icon-white.png" alt="logo">
+
+    </a>
+    VMware Validated Solutions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Solutions
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solutions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            FAQs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Frequently Asked Questions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Frequently Asked Questions
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      General
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-premises-validated-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Premises Validated Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="On-Premises Validated Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity-and-access-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity and Access Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developer-ready-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Ready Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-reporting-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Reporting and Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-logging-and-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Logging and Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-operations-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Operations Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-network-visibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Network Visibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-cloud-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Cloud Automation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#site-protection-and-disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Site Protection and Disaster Recovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Load Balancing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hybrid-cloud-validated-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hybrid Cloud Validated Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hybrid Cloud Validated Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-based-ransomware-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud-based Ransomware Recovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-cloud-mobility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Cloud Mobility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Automation Modules and Scripts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Automation Modules and Scripts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pwsh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules and Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blog Articles
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Blog Articles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://blogs.vmware.com/cloud-foundation/products/vmware-validated-solutions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      General
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-premises-validated-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Premises Validated Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="On-Premises Validated Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity-and-access-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity and Access Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developer-ready-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Ready Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-reporting-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Reporting and Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-logging-and-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Logging and Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-operations-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Operations Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-network-visibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Network Visibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-cloud-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Cloud Automation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#site-protection-and-disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Site Protection and Disaster Recovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Load Balancing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hybrid-cloud-validated-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hybrid Cloud Validated Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hybrid Cloud Validated Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-based-ransomware-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud-based Ransomware Recovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-cloud-mobility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Cloud Mobility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Frequently Asked Questions</h1>
+
+<p>Find answers to frequently asked questions regarding VMware Validated Solutions including general questions that are applicable to all VMware Validated Solutions deployments, and also those specific to on-premises and hybrid deployments.</p>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
+<details class="note">
+<summary>What are VMware Validated Solutions?</summary>
+<p>VMware Validated Solutions are well-architected and validated implementations designed to help customers build secure, high-performing, resilient, and efficient infrastructure for their applications and workloads deployed on VMware Cloud Foundation.</p>
+<p>Each VMware Validated Solution comes with detailed design with design decisions, implementation guidance consisting of manual UI- based step-by-step procedures and, where applicable, automated steps using infrastructure-as-code. Individual VMware Validated Solutions may be supplemented with code samples &amp; how-tos, customer success stories, and links to other published assets to provide a one-stop experience for our customers.</p>
+</details>
+<details class="note">
+<summary>What goes into each VMware Validated Solution?</summary>
+<p>VMware Validated Solutions are relevant, easily discoverable, and consumable validated architecture for deploying value-enhancing solutions on top of the core VMware Cloud Foundation platform. These solutions are available to customers at no additional cost. Each VMware Validated Solution Guide provides all-encompassing documentation that delivers:</p>
+<p>Design Objectives
+Detailed Design with Design Decisions
+Planning and Preparation
+Implementation Procedures (UI and Infrastructure as Code where available)
+Operational Guidance
+Solution Interoperability</p>
+</details>
+<details class="note">
+<summary>What are the benefits of VMware Validated Solutions?</summary>
+<p>The benefits of VMware Validated Solutions are as follows:</p>
+<p>Validated - VMware Validated Solutions are designed by VMware architects to help customers build secure, high-performing, resilient, and efficient infrastructure.
+Scalable - Easily scale infrastructure and applications running on VMware Cloud Foundation with technically validated, repeatable, and automated solutions.
+Secure - Security-centric designs that offer prescriptive guidance and enhance post-deployment hardening of VCF infrastructure.
+Lower costs - Infrastructure as code accelerates deployments through automated workflows that reduce manual labor and rework.
+Faster time to value - Rapidly implement solutions on top of VMware Cloud Foundation.</p>
+</details>
+<details class="note">
+<summary>What are the pre-requisites to deploy a VMware Validated Solution?</summary>
+<p>VMware Validated Solutions requires an active VMware Cloud Foundation license (edition may matter per solution) with SDDC Manager. Each solution has additional pre-requisites listed in the solution, including specific versions of VMware Cloud Foundation, additional components as needed.</p>
+</details>
+<details class="note">
+<summary>What benefit does Infrastructure-as-code provide for each VMware Validated Solution?</summary>
+<p>Infrastructure-as-code examples with PowerShell will assist customers in automating the deployment of solutions, with the following benefits:</p>
+<p>Accelerate deployments through automated workflows
+Code offers a time-saving alternative to UI-based step-by-step procedures.</p>
+</details>
+<details class="note">
+<summary>How can I access these Validated Solutions and code samples?</summary>
+<p>VMware Validated Solutions are available at https://core.vmware.com/vmware-validated-solutions.</p>
+<p>The PowerShell module for VMware Validated Solutions (PowerValidatedSolutions) documentation is available online and the module can be downloaded from the PowerShell Gallery and it's documentation.</p>
+</details>
+<details class="note">
+<summary>I see various tiles available for every VMware Validated Solution? What do these tiles indicate?</summary>
+<p>Each Validated solution has multiple tiles including:</p>
+<p>Before You Begin - Before you apply this validated solution your environment must have a certain VMware Cloud Foundation configuration.
+Design Objectives - Design objectives drive the prescriptive outcome of this validated solution to deliver a faster deployment suitable for use in production</p>
+<p>Detailed Design - The design considers the components of this validated solution. It includes numbered design decisions, and the justification and implications of each decision.</p>
+<p>Designs Decisions - Consolidated view of design decisions, their justification and implications of each decision.</p>
+<p>Planning and Preparation workbook - Before you start implementing the components of the validated solution, you must plan and gather inputs such as external service information (DNS, NTP), IP Addresses, host names and more.</p>
+<p>Implementation - Step-by-step procedures guide you through the implementation of this validated solution.</p>
+<p>Operational Guidance - After you complete the implementation of the validated solution, you perform common operations on the environment, such as examining the operational state of the components added to the environment during the implementation and updating the certificates and account passwords for these components.</p>
+<p>Solution Interoperability - Integrate the validated solution with components added to your VMware Cloud Foundation environment by other validated solutions. You can use such validated solutions for monitoring and alerting, logging, backup and restore, disaster recovery, and life cycle management with certain considerations.</p>
+</details>
+<details class="note">
+<summary>In which order can I view these solution tiles?</summary>
+<p>Each Validated solution has multiple tiles and can be accessed in left to right order.</p>
+<ul>
+<li>Design Objectives</li>
+<li>Detailed design</li>
+<li>Designs decisions</li>
+<li>Implementation</li>
+<li>Operational Guidance</li>
+<li>Solution Interoperability</li>
+</ul>
+</details>
+<details class="note">
+<summary>I see an <strong>Estimated Time to Deploy</strong> value in every solution. What does this value indicate?</summary>
+<p><strong>Estimated Time to Deploy</strong> provides an approximate time to deploy the specific VMware Validated Solution following manual guidance and automated deployment code and procedures.</p>
+</details>
+<details class="note">
+<summary>Are there solutions for the VMware SaaS Services?</summary>
+<p>On January 16, 2024, it was announced that the VMware Aria offerings are no available for purchase as SaaS services.</p>
+<p>The four solutions for the use of VMware Aria SaaS services with VMware Cloud Foundation were removed on January 30, 2024.</p>
+</details>
+<h3 id="on-premises-validated-solutions">On-Premises Validated Solutions<a class="headerlink" href="#on-premises-validated-solutions" title="Permanent link">&para;</a></h3>
+<h4 id="identity-and-access-management">Identity and Access Management<a class="headerlink" href="#identity-and-access-management" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>What Identity Providers are used in the solution?</summary>
+<p>This solution uses Microsoft Active Directory over LDAPS (LDAP over SSL) as the identity provider for both vCenter Single Sign-On and Workspace ONE Access.</p>
+</details>
+<details class="note">
+<summary>Why is Active Directory with Integrated Windows Authentication not used in the solution?</summary>
+<p>Active Directory with Integrated Windows Authentication is deprecated in vSphere 7.0 and later. It will be phased out in a future release of vSphere. See the vSphere 7.0 Release Notes and KB 78506.</p>
+</details>
+<details class="note">
+<summary>Why is use of an external identity provider not used in the solution?</summary>
+<p>The use of an external identity provider is not included. However, the use is supported with the vSphere version used in this validated solution, but may introduce issues for other integrated solutions.</p>
+</details>
+<details class="note">
+<summary>Is LDAP over SSL (LDAPS) required by the solution?</summary>
+<p>No. This validated solution is based on the use of LDAPS for the connections between vCenter Server to Microsoft Active Directory. LDAP can be used during the configuration if required; however, Microsoft recommends a hardened configuration for LDAP channel binding and LDAP signing on Active Directory domain controllers. For more information, see Microsoft Security Advisory ADV190023.</p>
+</details>
+<details class="note">
+<summary>Does the solution provide any automation of initial deployment or on-going tasks?</summary>
+<p>Yes. This validated solution includes the optional use of Microsoft PowerShell cmdlets to perform many of the deployment and configuration procedures. You must first install the required PowerShell modules. The subsequent procedure options will set the minimally required variables and automate the procedure.</p>
+</details>
+<details class="note">
+<summary>Do I need to join ESXi hosts to the Active Directory domain?</summary>
+<p>No. It's not required or recommended to join ESXi hosts in a VMware Cloud Foundation system to Active Directory. SDDC Manager manages the commissioning, configuration, and lifecycle of the ESXi hosts. In the event that direct access to a ESXi host is required, the Cloud Administrator can obtain the root or SERVICE account credentials to troubleshoot any issues with the ESXi host. However, there are circumstances when you must enable Active Directory as the authentication system by joining each ESXi host to an Active Directory domain. VMware Cloud Foundation supports the use of NFS version 4.1 (and version 3) as supplemental storage. With NFS version 4.1, ESXi supports the RPCSEC_GSS Kerberos mechanism authentication service. It allows the built-in NFS 4.1 client for ESXi to prove its identity to an NFS server before mounting an NFS share. The Kerberos security uses cryptography to work across an insecure network connection. To use Kerberos authentication, each ESXi host that mounts that mounts an NFS 4.1 datastore must be joined to the required Active Directory domain and the NFS Kerberos credentials must be set on each host.</p>
+</details>
+<details class="note">
+<summary>Can I deploy this solution on Dell VxRail?</summary>
+<p>Yes.</p>
+</details>
+<h4 id="developer-ready-infrastructure">Developer Ready Infrastructure<a class="headerlink" href="#developer-ready-infrastructure" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>Which architecture model for VMware Cloud Foundation is used in the solution?</summary>
+<p>The solution is optimized for the standard architecture model with VMware Cloud Foundation instances consisting of a management domain and one or more workload domains.</p>
+<p>There are no known technical blockers to using this solution in the consolidated architecture, however you should consider the following:</p>
+<p>This combination is not explicitly tested by the VMware Validated Solution team.</p>
+<p>While the Planning &amp; Preparation workbook will display the management domain values instead of the workload domain values, but there may be nuances where the process slightly differs in the management domain vs the workload domain.</p>
+<p>You should ensure Management Domain performance is not effected by leveraging resource pools and by regular monitoring of resource consumption.</p>
+</details>
+<details class="note">
+<summary>Must I follow the naming and IP addressing format mentioned within the solution?</summary>
+<p>No. Customers should utilize the VMware Cloud Foundation Planning and Preparation Workbook to capture their own naming and IP addressing requirements and then use the workbook when following the implementation procedures.</p>
+</details>
+<details class="note">
+<summary>Can I build on top of this with Tanzu Standard/Advanced/Enterprise?</summary>
+<p>This solution is loosely coupled with Tanzu Basic, but you may build on top of it using any of the tooling included with other Tanzu license bundles.</p>
+</details>
+<details class="note">
+<summary>Must I use Microsoft Active Directory users and groups for Role Based Access Control? Can I just use vsphere.local users in vCenter Single Sign-On?</summary>
+<p>To deploy a compliant solution, you must use Active Directory users/groups for Role Based Access Control (RBAC). That said, vCenter SSO users will work fine. You should use an enterprise solution for access control to ensure auditability of logins and actions performed.</p>
+</details>
+<details class="note">
+<summary>Does the solution provide any automation of initial deployment or on-going tasks?</summary>
+<p>Yes. This validated solution includes the optional use of Microsoft PowerShell cmdlets to perform many of the deployment and configuration procedures. You must first install the required PowerShell modules. The subsequent procedure options will set the minimally required variables and automate the procedure.</p>
+</details>
+<h4 id="health-reporting-and-monitoring">Health Reporting and Monitoring<a class="headerlink" href="#health-reporting-and-monitoring" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>Does this solution include the use of VMware Aria Operations SaaS?</summary>
+<p>No, the solution's design is based on the use of the on-premises deployment and configuration of VMware Aria Operations and the related integrations native to VMware Cloud Foundation.</p>
+<p>For VMware Aria Operations see: Intelligent Operations for VMware Cloud Foundation</p>
+</details>
+<details class="note">
+<summary>Does this solution support more than one VMware Cloud Foundation instance?</summary>
+<p>Not at this time; however, the solution team has this on the roadmap.</p>
+</details>
+<details class="note">
+<summary>If I have issues with the Python module, how can I report the issues?</summary>
+<p>Please open an issue in the GitHub repository.</p>
+</details>
+<details class="note">
+<summary>If I don't want to use the sample appliance, is there a way for me to quickly build a compatible appliance?</summary>
+<p>Yes, the infrastructure-as-code example to automate the build of a virtual appliance in Open Virtualization Appliance (OVA) format with all the pre-requisites is available on GitHub.</p>
+<p>The appliance is built using HashiCorp Packer and the Packer Plugin for VMware using the vmware-iso builder.</p>
+</details>
+<h4 id="intelligent-logging-and-analytics">Intelligent Logging and Analytics<a class="headerlink" href="#intelligent-logging-and-analytics" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>Can I install/upgrade additional VMware Aria Operations for Logs content packs?</summary>
+<p>Yes.</p>
+</details>
+<details class="note">
+<summary>Can I create custom widgets and dashboards in VMware Aria Operations for Logs?</summary>
+<p>Yes.</p>
+</details>
+<details class="note">
+<summary>What are the benefits of VMware Cloud Foundation mode?</summary>
+<p>When VMware Aria Operations for Logs is deployed in VMware Cloud Foundation mode, the following benefits exist:</p>
+<ul>
+<li>Workload domain integration</li>
+<li>Password management</li>
+<li>Core component integration</li>
+<li>Content pack installation</li>
+<li>Cross component integration</li>
+</ul>
+</details>
+<details class="note">
+<summary>What are the limitations of VMware Cloud Foundation mode?</summary>
+<p>When VMware Aria Operations for Logs is deployed in VMware Cloud Foundation mode, the following limitations exist:</p>
+<p>Network placement is controlled.</p>
+</details>
+<details class="note">
+<summary>After the deployment of VMware Aria Operations for Logs on VMware Cloud Foundation, how is the certificate generated and updated as a day-two action?</summary>
+<p>The certificate for VMware Aria Operations for Logs is managed by VMware Aria Suite Lifecycle via the Locker.</p>
+<p>SDDC Manager only manages the certificate for VMware Aria Suite Lifecycle in the VMware Aria Suite.</p>
+</details>
+<details class="note">
+<summary>Does the solution allow the deployment of VMware Aria Operations for Logs at a baseline and then scale-up later, if needed?</summary>
+<p>Yes. VMware Aria Suite Lifecycle supports the scale-up operation for VMware Aria Operations for Logs nodes.</p>
+</details>
+<details class="note">
+<summary>Does the solution provide any automation of initial deployment or on-going tasks?</summary>
+<p>Yes. This validated solution includes the optional use of Microsoft PowerShell cmdlets to perform many of the deployment and configuration procedures. You must first install the required PowerShell modules. The subsequent procedure options will set the minimally required variables and automate the procedure.</p>
+</details>
+<details class="note">
+<summary>If an issue occurs with VMware Aria Operations for Logs and VMware issues a hot patch, is it okay to install the hot patch?</summary>
+<p>Yes, hot patches may be applied to the VMware Aria Operations for Logs as required using VMware Aria Suite Lifecycle. These hot patches may be download to VMware Aria Suite Lifecycle using the VMware Customer Connect integration or the binaries may be uploaded to VMware Aria Suite Lifecycle and then mapped in the user interface.</p>
+</details>
+<h4 id="intelligent-operations-management">Intelligent Operations Management<a class="headerlink" href="#intelligent-operations-management" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>Can I install additional VMware Aria Operations management packs?</summary>
+<p>Yes. You should however consider the existing sizing of VMware Aria Operations and scale out, as needed.</p>
+</details>
+<details class="note">
+<summary>Can I deploy additional VMware Aria Operations cloud proxies?</summary>
+<p>Yes. They must be deployed using VMware Aria Suite Lifecycle and added to the same environment as the analytics cluster.</p>
+</details>
+<details class="note">
+<summary>What are the benefits of VMware Cloud Foundation mode?</summary>
+<p>When VMware Aria Operations is deployed in VMware Cloud Foundation mode, the following benefits exist:</p>
+<ul>
+<li>Load balancer automation</li>
+<li>Password management</li>
+<li>Management pack installation</li>
+<li>Cross component integration (other VMware Validated Solutions)</li>
+</ul>
+</details>
+<details class="note">
+<summary>What are the limitations of VMware Cloud Foundation mode?</summary>
+<p>When VMware Aria Operations is deployed in VMware Cloud Foundation mode, the following limitations exist:</p>
+<p>Network placement is controlled</p>
+</details>
+<details class="note">
+<summary>Does this solution support the use of alternative to the VMware Cloud Foundation managed load balancer?</summary>
+<p>Some customers may have business or technical requirements to use alternative load balancer solution, such as, NSX Advanced Load Balancer (AVI), F5 Big-IP LTM, NetScaler, or others.</p>
+<p>VMware Aria Suite Lifecycle allows you to select a load balancer controller type:</p>
+<ul>
+<li>VMware Cloud Foundation managed</li>
+<li>NSX Advanced Load Balancer
+= Others</li>
+</ul>
+<p>The solution is authored to use VMware Cloud Foundation managed load balancer. This provides an automated deployment and configuration of the standalone NSX Tier-1 Gateway that is used for VMware Aria Suite load balancing. When a product is deployed by the VMware Aria Suite Lifecycle instance in Cloud Foundation-mode, the load balancer profiles, monitors, pools, and virtual servers are deployed to specification using a workflow step in the deployment request. VMware Aria Suite Lifecycle instructs SDDC Manager to create the load balancer objects on the standalone NSX Tier-1 Gateway that’s created during the initial deployment of VMware Aria Suite Lifecycle.</p>
+<p>If you have a requirement to use an alternative load balancer, you can do so.</p>
+<p>For NSX Advanced Load Balancer the configuration will be automated by VMware Aria Suite Lifecycle.</p>
+<p>For Others, please refer the load balancer configuration settings outlined in the detailed design and translate these to your required load balancer.</p>
+<p>After the deployment of VMware Aria Operations on VMware Cloud Foundation, how is the certificate generated and updated as a day-two action?
+The certificate for VMware Aria Operations is managed by VMware Aria Suite Lifecycle via the Locker.</p>
+<p>SDDC Manager only manages the certificate for VMware Aria Suite Lifecycle in the VMware Aria Suite.</p>
+</details>
+<details class="note">
+<summary>Does the solution allow the deployment of VMware Aria Operations at a baseline and then scale-up later, if needed?</summary>
+<p>Yes. VMware Aria Suite Lifecycle supports the scale-up operation for VMware Aria Operations analytics cluster and cloud proxy nodes.</p>
+</details>
+<details class="note">
+<summary>Does the solution provide any automation of initial deployment or on-going tasks?</summary>
+<p>Yes. This validated solution includes the optional use of Microsoft PowerShell cmdlets to perform many of the deployment and configuration procedures. You must first install the required PowerShell modules. The subsequent procedure options will set the minimally required variables and automate the procedure.</p>
+</details>
+<details class="note">
+<summary>If an issue occurs with VMware Aria Operations and VMware issues a hot patch, is it okay to install the hot patch?</summary>
+<p>Yes, hot patches may be applied to the VMware Aria Operations as required using VMware Aria Suite Lifecycle.</p>
+<p>These hot patches may be download to VMware Aria Suite Lifecycle using the VMware Customer Connect integration or the binaries may be uploaded to VMware Aria Suite Lifecycle and then mapped in the user interface.</p>
+</details>
+<details class="note">
+<summary>Does this solution enable VMware Aria Operations to support monitoring across multiple instances/sites?</summary>
+<p>Yes. You can configure cloud accounts for environments across instances/sites. Just be aware that firewall rules apply for the source/destination path.</p>
+</details>
+<h4 id="intelligent-network-visibility">Intelligent Network Visibility<a class="headerlink" href="#intelligent-network-visibility" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>Can this solution be implemented using a Consolidated architecture model for VMware Cloud Foundation?</summary>
+<p>The solution is optimized for the standard architecture model with VMware Cloud Foundation instances consisting of a management domain and one or more VI workload domains.</p>
+<p>This means the end to end implementation workflow has not been validated with a consolidated architecture and so some procedures may differ, however you may use still use the design with a consolidated deployment.</p>
+</details>
+<details class="note">
+<summary>Can I deploy this Validated Solution on VMware Cloud Foundation for Dell VxRail?</summary>
+<p>Yes.</p>
+<p>After the deployment of VMware Aria Operations for Networks on VMware Cloud Foundation, how is the certificate generated and updated as a day-two action?</p>
+<p>The certificate for VMware Aria Operations is managed by VMware Aria Suite Lifecycle via the Locker.</p>
+<p>SDDC Manager only manages the certificate for VMware Aria Suite Lifecycle in the VMware Aria Suite.</p>
+</details>
+<details class="note">
+<summary>Does the solution allow the deployment of VMware Aria Operations for Networks at a baseline and then scale-up later, if needed?</summary>
+<p>Yes. VMware Aria Suite Lifecycle supports the scale-up operation for VMware Aria Operations for Networks platform and collector nodes.</p>
+</details>
+<details class="note">
+<summary>Does the solution provide any automation of initial deployment or on-going tasks?</summary>
+<p>Yes. This validated solution includes the optional use of Microsoft PowerShell cmdlets to perform some of the deployment and configuration procedures. You must first install the required PowerShell modules. The subsequent procedure options will set the minimally required variables and automate the procedure.</p>
+</details>
+<details class="note">
+<summary>If an issue occurs with VMware Aria Operations for Networks and VMware issues a hot patch, is it okay to install the hot patch?</summary>
+<p>Yes, hot patches may be applied to the VMware Aria Operations for Networks as required using VMware Aria Suite Lifecycle.</p>
+<p>These hot patches may be download to VMware Aria Suite Lifecycle using the VMware Customer Connect integration or the binaries may be uploaded to VMware Aria Suite Lifecycle and then mapped in the user interface.</p>
+</details>
+<details class="note">
+<summary>Does this solution enable VMware Aria Operations for Networks to support monitoring across multiple instances/sites?</summary>
+<p>Yes. You can configure data sources for environments across instances/sites. Just be aware that firewall rules apply for the source/destination path.</p>
+</details>
+<h4 id="private-cloud-automation">Private Cloud Automation<a class="headerlink" href="#private-cloud-automation" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>What products are included in this solution?</summary>
+<p>The solution includes VMware Aria Automation. VMware Aria Automation streamlines multi-cloud infrastructure and application delivery, enhances visibility and cross-functional collaboration, and provides continuous delivery and release automation. VMware Aria Automation is a bundled offering of VMware Aria Automation VMware Aria Automation Service Broker™, VMware Aria Automation Pipeline™, and VMware Aria Automation Config. VMware Aria Automation contains an embedded VMware Aria Automation Orchestrator™ instance.</p>
+<p>VMware Aria Automation Pipeline is out of scope for this VMware Cloud Foundation validated solution, but may be used to further extend the solution capabilities.</p>
+<p>VMware Aria Automation Config is out of scope for this VMware Cloud Foundation validated solution, but may be used to further extend the solution capabilities.</p>
+</details>
+<details class="note">
+<summary>What clouds are supported in this solution?</summary>
+<p>The solution provides support for private cloud automation on VMware Cloud Foundation instances. You can extend the solution to connect hybrid (e.g., VMC) and public clouds (e.g., AWS, Azure, and GCP.)</p>
+</details>
+<details class="note">
+<summary>What are the benefits of VMware Cloud Foundation mode?</summary>
+<p>When VMware Aria Automation is deployed in VMware Cloud Foundation mode, the following benefits are available:</p>
+<ul>
+<li>Load balancer automation</li>
+<li>Password management</li>
+<li>Cross component integration</li>
+</ul>
+</details>
+<details class="note">
+<summary>What are the limitations of VMware Cloud Foundation mode?</summary>
+<p>When VMware Aria Automation is deployed in VMware Cloud Foundation mode, the following limitations exist:</p>
+<ul>
+<li>A three-node cluster is required</li>
+<li>Network placement is controlled</li>
+</ul>
+</details>
+<details class="note">
+<summary>Does this solution support the use of alternative to the VMware Cloud Foundation managed load balancer?</summary>
+<p>Some customers may have business or technical requirements to use alternative load balancer solution, such as, NSX Advanced Load Balancer (AVI), F5 Big-IP LTM, NetScaler, or others.</p>
+<p>VMware Aria Suite Lifecycle allows you to select a load balancer controller type:</p>
+<ul>
+<li>VMware Cloud Foundation managed</li>
+<li>NSX Advanced Load Balancer</li>
+<li>Others</li>
+</ul>
+<p>The solution is authored to use VMware Cloud Foundation managed load balancer. This provides an automated deployment and configuration of the standalone NSX Tier-1 Gateway that is used for VMware Aria Suite load balancing. When a product is deployed by the VMware Aria Suite Lifecycle instance in Cloud Foundation-mode, the load balancer profiles, monitors, pools, and virtual servers are deployed to specification using a workflow step in the deployment request. VMware Aria Suite Lifecycle instructs SDDC Manager to create the load balancer objects on the standalone NSX Tier-1 Gateway that’s created during the initial deployment of VMware Aria Suite Lifecycle.</p>
+<p>If you have a requirement to use an alternative load balancer, you can do so.</p>
+<p>For NSX Advanced Load Balancer the configuration will be automated by VMware Aria Suite Lifecycle.
+For Others, please refer the load balancer configuration settings outlined in the detailed design and translate these to your required load balancer.</p>
+</details>
+<details class="note">
+<summary>After the deployment of VMware Aria Automation on VMware Cloud Foundation, how is the certificate generated and updated as a day-two action?</summary>
+<p>The certificate for VMware Aria Automation is managed by VMware Aria Suite Lifecycle via the Locker. SDDC Manager only manages the certificate for VMware Aria Suite Lifecycle in the VMware Aria Suite.</p>
+</details>
+<details class="note">
+<summary>If an issue occurs with VMware Aria Automation and VMware issues a hot patch, is it okay to install the hot patch?</summary>
+<p>Yes, hot patches may be applied to the VMware Aria Automation as required using VMware Aria Suite Lifecycle.</p>
+<p>These hot patches may be download to VMware Aria Suite Lifecycle using the VMware Customer Connect integration or the binaries may be uploaded to VMware Aria Suite Lifecycle and then mapped in the user interface.</p>
+</details>
+<details class="note">
+<summary>Which architecture model for VMware Cloud Foundation is used in the solution?</summary>
+<p>The solution is optimized for the standard architecture model with VMware Cloud Foundation instances consisting of a management domain and one or more workload domains.</p>
+<p>You may use the design for the consolidated architecture models with the following exceptions and caveats:</p>
+<p>Do not set the No Access role on the management domain for the integration service accounts used for both VMware Aria Automation- and VMware Aria Automation Orchestrator-to-vSphere.</p>
+<p>Place the VMware Aria Automation virtual appliances within the resource pool for management workloads used in a consolidated architecture.</p>
+<p>Continue to deploy a three-node VMware Aria Automation cluster deployment with an NSX load-balancer. A single node VMware Aria Automation deployment is not available in a VMware Aria Suite Lifecycle environment that is enabled for VMware Cloud Foundation integration.</p>
+</details>
+<details class="note">
+<summary>Does the solution allow the deployment of VMware Aria Automation at a baseline and then scale-up later, if needed?</summary>
+<p>Yes. VMware Aria Suite Lifecycle supports the scale-up operation for VMware Aria Automation nodes.</p>
+</details>
+<details class="note">
+<summary>Does this solution enable VMware Aria Automation to support automated provisioning across multiple instances/sites?</summary>
+<p>Yes. You can configure cloud accounts for vSphere and NSX environments across instances/sites. Just be aware that firewall rules apply for the source/destination path.</p>
+<p>Additionally, VMware Aria Automation has support for cloud accounts hybrid (e.g., VMC) and public clouds (e.g., AWS, Azure, and GCP.)</p>
+</details>
+<details class="note">
+<summary>Does the solution support the use of NSX Federation?</summary>
+<p>The VMware Aria Automation version in this solution does not fully support integration with NSX Federation and therefore does not support the consumption or provisioning of NSX Federation global policy objects; however, VMware Aria Automation can be deployed on federated NSX segments.</p>
+<p>Additionally, this solution does not use the VMware Cloud Foundation cloud account type. SDDC Manager does not manage NSX Federation and related NSX Global Manager instances. This solution is designed to allow support when NSX Federation is enabled for VMware Aria Automation consumption and provisioning of NSX Federation global policy objects.</p>
+</details>
+<details class="note">
+<summary>Does the solution include the use of multi-tenancy with VMware Aria Automation?</summary>
+<p>The solution is authored to use multi-tenancy in VMware Aria Automation. You may adapt the solution to provide multi-tenancy as needed.</p>
+<p>Additional requirements will be required for DNS and multi-SAN certificates. Please refer to the VMware Aria Automation documentation.</p>
+</details>
+<details class="note">
+<summary>What integrations are supported in this solution?</summary>
+<p>Solution interoperability includes:</p>
+<p>VMware Aria Operations to direct workload placement and assign the pricing policies for the monetary impact of deployments and their resources. You can also use VMware Aria Operations to display metrics, insights, optimization opportunities, and alerts in VMware Aria Automation.</p>
+<p>VMware Aria Automation is automatically enabled to send logs to VMware Aria Operations for Logs. You can use the VMware Aria Automation and VMware Aria Automation Orchestrator content packs for VMware Aria Operations for Logs to provide a consolidated summary of log events across VMware Aria Automation components for log analysis.</p>
+<p>After the deployment of VMware Aria Automation on VMware Cloud Foundation, it's configured to send logs to VMware Aria Operations for Logs using cfapi 9000. Can this be updated to cfapi 9543 for encryption?</p>
+<p>The default configuration is unencrypted. To ensure that the transmission of logs between VMware Aria Automation and VMware Aria Operations for Logs is encrypted using SSL, you must update the default configuration for VMware Aria Automation to send logs to VMware Aria Operations for Logs using the ingestion API, cfapi, on TCP port 9543 using the VMware Aria Automation vracli.</p>
+<p>For example, on the primary VMware Aria Automation cluster node, execute the following: vracli vrli set https://<vrli_ilb_fqdn>:9543.</p>
+</details>
+<h4 id="site-protection-and-disaster-recovery">Site Protection and Disaster Recovery<a class="headerlink" href="#site-protection-and-disaster-recovery" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>What management applications are protected as part of this solution?</summary>
+<ul>
+<li>VMware Aria Suite Lifecycle Manager</li>
+<li>VMware Aria Operations</li>
+<li>VMware Aria Automation</li>
+<li>Workspace ONE Access</li>
+</ul>
+</details>
+<details class="note">
+<summary>Is NSX Federation required between the VMware Cloud Foundation instances?</summary>
+<p>Yes. NSX Federation is a key component of the design as it provides IP mobility for the management components.</p>
+</details>
+<details class="note">
+<summary>How is load balancing provided on the recovery site?</summary>
+<p>A stand-by NSX load balancer is configured, but not connected, in the recovery site. In the case of a disaster recovery event, this stand-by load balancer is connected to provide load balancing services to the components that require it.</p>
+</details>
+<details class="note">
+<summary>Is workload protection guidance included in the solution?</summary>
+<p>The solution provides the steps to setup Site Recovery Manager and vSphere Replication for a VI Workload Domain; however, protecting workloads is outside the scope as each workload will have specific requirements.</p>
+</details>
+<h4 id="advanced-load-balancing">Advanced Load Balancing<a class="headerlink" href="#advanced-load-balancing" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>What Load Balancing provider is used in the solution?</summary>
+<p>This solution uses VMware NSX Advanced Load Balancer (Avi Networks).</p>
+</details>
+<details class="note">
+<summary>Does this solution provide any automation of initial deployment or on-going tasks?</summary>
+<p>Yes. This validated solution includes the optional use of automation tools such as VMware Aria Automation Orchestrator to perform many of the deployment and configuration procedures. You can access the automation workflows on GitHub.</p>
+</details>
+<details class="note">
+<summary>Does this solution support the consolidated architecture?</summary>
+<p>Yes. This validated solution supports both consolidated and standard architectures.</p>
+</details>
+<details class="note">
+<summary>Does this solution support the VMware Cloud Foundation on VxRail?</summary>
+<p>Yes. This validated solution supports both standalone and VCF on VxRail.</p>
+</details>
+<details class="note">
+<summary>What ecosystem integration guidance is provided as part of this validated solution?</summary>
+<p>This validated solution guides customers to implement automated load balancing delivery in a vCenter Server environment with VMware NSX networking. A cloud connector of type NSX would be configured on the Avi Controller to deliver automated load balancing.</p>
+</details>
+<details class="note">
+<summary>Can I utilize vCenter Server only or No-Access ecosystem integration to deliver load balancing on VMware Cloud Foundation using this validated solution?</summary>
+<p>Yes. This validated solution provides guidance to setup the VMware NSX Advanced Load Balancer control plane i.e., the Avi Controller cluster
+Provide ecosystem integration guidance for the NSX Cloud Connector integration for automated load balancing.</p>
+<p>Customers could choose to skip the ecosystem integration portion as presented in this validated solution and configure vCenter Server Only integration.</p>
+</details>
+<details class="note">
+<summary>Can I use the Avi Controllers deployed through this validated solution to provide load balancing on baremetal servers that are hosted outside VMware Cloud Foundation?</summary>
+<p>Yes. VMware NSX Advanced Load Balancer is built to be a hybrid-cloud load balancing solution. A single Avi Controller cluster can manage and provide load balancing services across multiple hybrid-cloud ecosystems. Follow the guidance as per this validated solution, and then configure additional ecosystem integrations as required, not just limited to baremetal servers, but can also include native public clouds (AWS, Azure, GCP, etc.), OpenStack, container platforms such as Tanzu, OpenShift, etc.</p>
+</details>
+<details class="note">
+<summary>What are the licensing requirements?</summary>
+<p>It is recommended to utilize Enterprise licenses for VMware NSX Advanced Load Balancer as it offers the best experience and a true enterprise-grade feature set including local load balancing, GSLB, Application Security &amp; WAF, Container Ingress, and more. More information can be found at https://avinetworks.com/docs/20.1/nsx-license-editions/.</p>
+</details>
+<details class="note">
+<summary>Where can I learn more about VMware NSX Advanced Load Balancer?</summary>
+<ul>
+<li>https://www.vmware.com/products/nsx-advanced-load-balancer.html</li>
+<li>https://info.avinetworks.com/workshops</li>
+<li>https://www.youtube.com/c/Avinetworks/videos</li>
+</ul>
+</details>
+<h3 id="hybrid-cloud-validated-solutions">Hybrid Cloud Validated Solutions<a class="headerlink" href="#hybrid-cloud-validated-solutions" title="Permanent link">&para;</a></h3>
+<h4 id="cloud-based-ransomware-recovery">Cloud-based Ransomware Recovery<a class="headerlink" href="#cloud-based-ransomware-recovery" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>Can this solution be implemented using a Consolidated architecture model for VMware Cloud Foundation?</summary>
+<p>The solution is optimized for the standard architecture model with VMware Cloud Foundation instances consisting of a management domain and one or more VI workload domains.</p>
+<p>This means the end to end implementation workflow has not been validated with a consolidated architecture and so some procedures may differ, however you may use still use the design with a consolidated deployment.</p>
+</details>
+<details class="note">
+<summary>Can I deploy this Validated Solution on Dell VxRail System?</summary>
+<p>Yes.</p>
+</details>
+<h4 id="cross-cloud-mobility">Cross-Cloud Mobility<a class="headerlink" href="#cross-cloud-mobility" title="Permanent link">&para;</a></h4>
+<details class="note">
+<summary>Can this solution be implemented using a Consolidated architecture model for VMware Cloud Foundation?</summary>
+<p>The solution is optimized for the standard architecture model with VMware Cloud Foundation instances consisting of a management domain and one or more VI workload domains.</p>
+<p>This means the end to end implementation workflow has not been validated with a consolidated architecture and so some procedures may differ, however you may use still use the design with a consolidated deployment.</p>
+</details>
+<details class="note">
+<summary>Can I deploy this Validated Solution on Dell VxRail System?</summary>
+<p>Yes.</p>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-18T20:57:31+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-18</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: VMware Validated Solutions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                VMware Validated Solutions
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pwsh/" class="md-footer__link md-footer__link--next" aria-label="Next: Modules and Scripts">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Modules and Scripts
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2005-2024 Broadcom. All Rights Reserved.<br/>
+The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br/><br/>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/index.html" target="_blank" rel="noopener" title="docs.vmware.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c17.7 0 32-14.3 32-32s-14.3-32-32-32v-64c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H96m0 384h256v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32m32-240c0-8.8 7.2-16 16-16h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16m16 48h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.header", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../js/timeago.min.js"></script>
+      
+        <script src="../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://vmware-samples.github.io/validated-solutions-for-cloud-foundation/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware-samples.github.io/validated-solutions-for-cloud-foundation/faq/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware-samples.github.io/validated-solutions-for-cloud-foundation/pwsh/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware-samples.github.io/validated-solutions-for-cloud-foundation/community/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware-samples.github.io/validated-solutions-for-cloud-foundation/community/code-of-conduct/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware-samples.github.io/validated-solutions-for-cloud-foundation/community/contributing/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware-samples.github.io/validated-solutions-for-cloud-foundation/community/support/</loc>
+         <lastmod>2024-11-18</lastmod>
+    </url>
+</urlset>

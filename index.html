@@ -1,0 +1,1147 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="VMware Validated Solutions">
+      
+      
+        <meta name="author" content="Broadcom">
+      
+      
+        <link rel="canonical" href="https://vmware-samples.github.io/validated-solutions-for-cloud-foundation/">
+      
+      
+      
+        <link rel="next" href="faq/">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>VMware Validated Solutions - VMware Validated Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="css/timeago.css">
+    
+      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vmware-validated-solutions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="VMware Validated Solutions" class="md-header__button md-logo" aria-label="VMware Validated Solutions" data-md-component="logo">
+      
+  <img src="assets/images/icon-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VMware Validated Solutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VMware Validated Solutions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark Theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light Theme"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Theme" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="." class="md-tabs__link">
+          
+  
+    
+  
+  Solutions
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="faq/" class="md-tabs__link">
+          
+  
+    
+  
+  FAQs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="pwsh/" class="md-tabs__link">
+          
+  
+    
+  
+  Automation Modules and Scripts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://blogs.vmware.com/cloud-foundation/products/vmware-validated-solutions/" class="md-tabs__link">
+          
+  
+    
+  
+  Blog Articles
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="VMware Validated Solutions" class="md-nav__button md-logo" aria-label="VMware Validated Solutions" data-md-component="logo">
+      
+  <img src="assets/images/icon-white.png" alt="logo">
+
+    </a>
+    VMware Validated Solutions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="." class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    Solutions
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Solutions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            FAQs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Frequently Asked Questions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Automation Modules and Scripts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Automation Modules and Scripts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pwsh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules and Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blog Articles
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Blog Articles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://blogs.vmware.com/cloud-foundation/products/vmware-validated-solutions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#on-premises-validated-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Premises Validated Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="On-Premises Validated Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity-and-access-management-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity and Access Management for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developer-ready-infrastructure-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Ready Infrastructure for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-ai-ready-infrastructure-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private AI Ready Infrastructure for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-reporting-and-monitoring-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Reporting and Monitoring for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-logging-and-analytics-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Logging and Analytics for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-operations-management-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Operations Management for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-network-visibility-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Network Visibility for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-cloud-automation-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Cloud Automation for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#site-protection-and-disaster-recovery-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Site Protection and Disaster Recovery for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-load-balancing-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Load Balancing for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hybrid-cloud-validated-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hybrid Cloud Validated Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hybrid Cloud Validated Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-based-ransomware-recovery-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud-Based Ransomware Recovery for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-cloud-mobility-for-vmware-cloud-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Cloud Mobility for VMware Cloud Foundation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="vmware-validated-solutions">VMware Validated Solutions<a class="headerlink" href="#vmware-validated-solutions" title="Permanent link">&para;</a></h1>
+<p><strong>VMware Validated Solutions</strong> are technically validated implementations built and tested by VMware.</p>
+<p>They are designed to help customers solve common business problems using <a href="https://www.vmware.com/products/cloud-infrastructure/vmware-cloud-foundation">VMware Cloud Foundation</a> as the foundational infrastructure.</p>
+<h2 id="on-premises-validated-solutions">On-Premises Validated Solutions<a class="headerlink" href="#on-premises-validated-solutions" title="Permanent link">&para;</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-identity-and-access-management-v1/GUID-FF35966D-2225-4825-9E38-C7287B069D4D.html"><img alt="" src="assets/images/vvs-transparent-iam-850x250.png" /></a></p>
+<h3 id="identity-and-access-management-for-vmware-cloud-foundation">Identity and Access Management for VMware Cloud Foundation<a class="headerlink" href="#identity-and-access-management-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Bootstrap the platform with secure role-based access control, password management, and account policies using Active Directory.<br/><br/></p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-identity-and-access-management-v1/GUID-86196623-E675-4586-9F0A-B03551B008E0.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-identity-and-access-management-v1/GUID-0786CD45-F3C0-4024-9E24-6995AA25CB67.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-identity-and-access-management-v1/GUID-603B74C5-CD48-4D3C-ABF0-36B310312216.html">Planning and Preparation</a></li>
+<li><a href="Implementation of Identity and Access Management for VMware Cloud Foundation">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-identity-and-access-management-v1/GUID-8DD7206D-390A-457C-9F0C-F1A9A5BD811A.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-identity-and-access-management-v1/GUID-F70466C9-38C3-4BBE-90A0-2410C91BA1BF.html">Appendix: Design Decisions</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-identity-and-access-management-v1/GUID-7812DD93-3FD7-43DA-B8E8-5EF8BEC9D36F.html">Appendix: Default Password Policy Settings</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-developer-ready-infrastructure-v1/GUID-641F8C25-CA4E-4F27-B467-484C849C7332.html"><img alt="" src="assets/images/vvs-transparent-dri-850x250.png" /></a></p>
+<h3 id="developer-ready-infrastructure-for-vmware-cloud-foundation">Developer Ready Infrastructure for VMware Cloud Foundation<a class="headerlink" href="#developer-ready-infrastructure-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Provides design, implementation, and operational guidance for a workload domain that runs container workloads in VMware Cloud Foundation.</p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-developer-ready-infrastructure-v1/GUID-CC44137E-77C3-4BEA-ABA1-49E7AA929C70.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-developer-ready-infrastructure-v1/GUID-AE5F2385-BB1A-4B9E-AFDE-1C299490C342.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-developer-ready-infrastructure-v1/GUID-30646778-8504-4B8E-8793-3B3AF0215189.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-developer-ready-infrastructure-v1/GUID-E3C98B72-EE54-491E-AC71-C07F52AAF5E2.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-developer-ready-infrastructure-v1/GUID-B210C291-6686-42FA-B319-64569F0EC5EE.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-developer-ready-infrastructure-v1/GUID-117A4ADA-E4B1-41A5-8196-FB817955B1F8.html">Solution Interoperability</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-developer-ready-infrastructure-v1/GUID-20354530-BDBA-417F-ABED-10B93403C61A.html">Appendix: Design Decisions</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-ai-ready-infrastructure-v1/GUID-CBC30CB0-BF94-4D5A-97C0-EBF2003F3CB8.html"><img alt="" src="assets/images/vvs-transparent-paif-850x250.png" /></a></p>
+<h3 id="private-ai-ready-infrastructure-for-vmware-cloud-foundation">Private AI Ready Infrastructure for VMware Cloud Foundation<a class="headerlink" href="#private-ai-ready-infrastructure-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Provide enterprise private AI GPU-enabled infrastructure to build an AI platform for data scientists and ML engineers using VMware Cloud Foundation as its foundational layer.<br/></p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-ai-ready-infrastructure-v1/GUID-3FB9E005-D1D6-483C-97D1-14F72BA58AAE.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-ai-ready-infrastructure-v1/GUID-A6EE4729-9103-4AD7-9796-8BAE795C1A8E.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-ai-ready-infrastructure-v1/GUID-2CABCE73-2F6C-41F8-A516-12BBD38C9B82.html">Detailed Design with NVIDIA</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-ai-ready-infrastructure-v1/GUID-7695A8A1-E6B2-482D-82EF-64B2D0AA3604.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-ai-ready-infrastructure-v1/GUID-D4189196-B365-4007-93A1-86FAA42D0260.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-ai-ready-infrastructure-v1/GUID-840EAD8C-1308-4F6A-B3E1-A0806F1E6CE5.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-ai-ready-infrastructure-v1/GUID-25AC6AC7-DCC9-4F4C-B162-A117CEE087FF.html">Appendix: Design Decisions</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-ai-ready-infrastructure-v1/GUID-538DA04C-595A-4CF8-AF80-793117BB5973.html">Appendix: Default Password Policy Settings</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-CF73FFF1-7875-4A84-BECF-0EB4CA60279D.html"><img alt="" src="assets/images/vvs-transparent-hrm-850x250.png" /></a></p>
+<h3 id="health-reporting-and-monitoring-for-vmware-cloud-foundation">Health Reporting and Monitoring for VMware Cloud Foundation<a class="headerlink" href="#health-reporting-and-monitoring-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Enable health monitoring for VMware Cloud Foundation components using HTML reports and through custom dashboards, alerts, and notifications using VMware Aria Operations.<br/><br/></p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-18457454-3A0C-4404-8799-53766169C50D.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-1F6EE735-28FF-4EFC-A6A7-697321188651.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-2BFA7B68-795E-41F8-8BB9-495EC43C587A.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-AD58BAF1-7DC9-4514-90B7-7E9FA2E9E5FA.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-2E1DFDA5-2448-4207-80EF-20296794F427.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-health-reporting-and-monitoring-v1/GUID-2D3B4C5F-4883-4D11-9A1F-79423D2B0A9A.html">Appendix: Design Decisions</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-logging-and-analytics-v1/GUID-42022E8E-7C84-4864-AE49-69D016EF5600.html"><img alt="" src="assets/images/vvs-transparent-ila-850x250.png" /></a></p>
+<h3 id="intelligent-logging-and-analytics-for-vmware-cloud-foundation">Intelligent Logging and Analytics for VMware Cloud Foundation<a class="headerlink" href="#intelligent-logging-and-analytics-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Enable VMware Aria Operations for Logs to deliver a highly scalable log management capabilities with intuitive and actionable dashboards, sophisticated analytics, and broad third-party extensibility.</p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-logging-and-analytics-v1/GUID-7D7DE923-6B6D-4C4D-9CBB-B994A92F45F8.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-logging-and-analytics-v1/GUID-4E51D233-8EF2-4C9E-B20D-ACCAAE5AEFE9.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-logging-and-analytics-v1/GUID-3D6A90A8-0299-4D82-8F9B-0B868A7C7B9C.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-logging-and-analytics-v1/GUID-81771A14-7B6F-4280-8904-4A5A34D555EB.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-logging-and-analytics-v1/GUID-2F71F0D2-A1F2-4184-882D-78FEF3B990D1.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-logging-and-analytics-v1/GUID-73C5843E-623B-46EF-80D7-3111075F1CB2.html">Solution Interoperability</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-logging-and-analytics-v1/GUID-FBB7F6B1-6B90-4B40-9D08-FB208D47F2C7.html">Appendix: Design Decisions</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-logging-and-analytics-v1/GUID-E0531BEF-0E6C-4023-810C-2DF35891A8F9.html">Appendix: Default Password Policy Settings</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-operations-management-v1/GUID-31B18AB1-9E88-4355-BECF-A90F1E1F7C19.html"><img alt="" src="assets/images/vvs-transparent-iom-850x250.png" /></a></p>
+<h3 id="intelligent-operations-management-for-vmware-cloud-foundation">Intelligent Operations Management for VMware Cloud Foundation<a class="headerlink" href="#intelligent-operations-management-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Enable VMware Aria Operations for centralized monitoring and alerting through a single interface to review and act on events and alerts to deliver proactive management of system failures.<br/><br/></p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-operations-management-v1/GUID-596A4C9C-D397-4D64-A0DB-B5963D05F34A.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-operations-management-v1/GUID-12A1B626-B381-4B9E-AA5F-389574F99549.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-operations-management-v1/GUID-7A3CCE7F-3AC4-460B-8772-E0B2A8552BBE.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-operations-management-v1/GUID-459AFD5B-8B4C-4943-A61D-3AF21693EAF9.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-operations-management-v1/GUID-F6F60DF4-82B4-4830-B1F7-0EA1B5D25E42.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-operations-management-v1/GUID-AB481CE6-F457-40E9-9E14-292CB6A65E31.html">Solution Interoperability</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-operations-management-v1/GUID-3D882F01-4809-41AA-A31B-EC9CA083CAE7.html">Appendix: Design Decisions</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-operations-management-v1/GUID-E6AC4A6D-95AA-4EDC-95A9-16E2506162BD.html">Appendix: Default Password Policy Settings</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-network-visibility-v1/GUID-8E4C43CD-AFB2-48A6-B6F3-86BFBFE46C23.html"><img alt="" src="assets/images/vvs-transparent-inv-850x250.png" /></a></p>
+<h3 id="intelligent-network-visibility-for-vmware-cloud-foundation">Intelligent Network Visibility for VMware Cloud Foundation<a class="headerlink" href="#intelligent-network-visibility-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Enable VMware Aria Operations for Networks with VMware Cloud Foundation platforms to provide intelligent network analytics.<br/><br/><br/></p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-network-visibility-v1/GUID-37617F13-2BC2-4090-ACBA-4676ADB46D28.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-network-visibility-v1/GUID-8939DC77-EC55-4856-B266-F2FAEAC7AF92.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-network-visibility-v1/GUID-6AE4A0A4-90E7-47D7-9A8F-6AF0235EC10F.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-network-visibility-v1/GUID-41FFC86F-D4FA-46D1-8C3D-2DBE0DBEB9BD.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-network-visibility-v1/GUID-C156D288-CC3E-4227-B62B-92425C2C163D.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-network-visibility-v1/GUID-39789163-9D9A-4897-A1FE-25DBE77C5A1B.html">Solution Interoperability</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-network-visibility-v1/GUID-5F8F4134-6009-4957-A000-FB8F07176ECA.html">Appendix: Design Decisions</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-intelligent-network-visibility-v1/GUID-5E762E32-0714-45A7-AB10-E15FF4B7ACBC.html">Appendix: Default Password Policy Settings</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-cloud-automation-v1/GUID-33896484-4331-46F1-8875-B487BBEDCE05.html"><img alt="" src="assets/images/vvs-transparent-pca-850x250.png" /></a></p>
+<h3 id="private-cloud-automation-for-vmware-cloud-foundation">Private Cloud Automation for VMware Cloud Foundation<a class="headerlink" href="#private-cloud-automation-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Enable VMware Aria Automation to implement a modern cloud automation platform that delivers self-service automation, DevOps for infrastructure, and orchestration for VMware Cloud Foundation instances.</p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-cloud-automation-v1/GUID-751B2421-07B9-41F6-A50C-FEE66B8D5952.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-cloud-automation-v1/GUID-B2AD44CC-3268-4D1C-B832-E9578A908D94.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-cloud-automation-v1/GUID-238D2BCB-0925-4E53-AE36-0A763E43DD10.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-cloud-automation-v1/GUID-01B06797-B673-4FB9-9881-FF1C5A8038F1.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-cloud-automation-v1/GUID-A94BD94B-754A-42DC-B843-C48932D316AF.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-cloud-automation-v1/GUID-33E42387-62C2-4E4B-98AB-12639FCCA356.html">Solution Interoperability</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-cloud-automation-v1/GUID-50F5F7BC-F87C-4F44-A997-AA3ACB79834E.html">Appendix: Design Decisions</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-private-cloud-automation-v1/GUID-D6DE4619-ECF5-42CF-9197-9CA279036DE8.html">Appendix: Default Password Policy Settings</a></li>
+<li><a href="https://github.com/vmware-samples/validated-solutions-for-cloud-foundation/tree/main/pca">Sample Project</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-site-protection-and-disaster-recovery-v1/GUID-CA4DCF12-8BCC-4137-884C-E9DB2A19FAA4.html"><img alt="" src="assets/images/vvs-transparent-pdr-850x250.png" /></a></p>
+<h3 id="site-protection-and-disaster-recovery-for-vmware-cloud-foundation">Site Protection and Disaster Recovery for VMware Cloud Foundation<a class="headerlink" href="#site-protection-and-disaster-recovery-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Adapt a dual-instance SDDC using NSX Federation, deployed on top of VMware Cloud Foundation, to provide disaster recovery with VMware Site Recovery Manager and vSphere Replication.</p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-site-protection-and-disaster-recovery-v1/GUID-74B5567A-C3A8-4912-8CBD-F4C58F0C89C4.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-site-protection-and-disaster-recovery-v1/GUID-077D2CA4-F6E0-4507-A049-D9EAB0C81611.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-site-protection-and-disaster-recovery-v1/GUID-DF597EA2-392A-4769-8647-8406D84B2F19.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-site-protection-and-disaster-recovery-v1/GUID-088CFDE1-009C-433E-8E89-F86DFBB0A488.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-site-protection-and-disaster-recovery-v1/GUID-D60BD17D-5AF7-4DFB-A28A-B13530615854.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-site-protection-and-disaster-recovery-v1/GUID-F34AE321-C197-45BC-8DAE-EC9B5C1A8B1D.html">Solution Interoperability</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-site-protection-and-disaster-recovery-v1/GUID-18264E4A-2A35-4D73-8FF9-0E499961AF4F.html">Appendix: Design Decisions</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-site-protection-and-disaster-recovery-v1/GUID-B7513018-A7C3-4804-8C30-A1D3280BC978.html">Appendix: Default Password Policy Settings</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p>[<img alt="" src="" /></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-nsx-advanced-load-balancer-v1/GUID-F8696F0A-D91B-46B1-A824-8FAE461E57B3.html"><img alt="" src="assets/images/vvs-transparent-alb-850x250.png" /></a></p>
+<h3 id="advanced-load-balancing-for-vmware-cloud-foundation">Advanced Load Balancing for VMware Cloud Foundation<a class="headerlink" href="#advanced-load-balancing-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>VMware NSX Advanced Load Balancer as a Load Balancing solution for workloads on VMware Cloud Foundation.<br/><br/></p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-nsx-advanced-load-balancer-v1/GUID-B7BAAF20-A407-436F-A74D-7D4B0FE51FAB.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-nsx-advanced-load-balancer-v1/GUID-8E35A77E-C435-4510-BCF0-CAC08B7A1BBA.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-nsx-advanced-load-balancer-v1/GUID-AA21A8C6-CE40-4CDD-B210-0F48A12AC84A.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-nsx-advanced-load-balancer-v1/GUID-7047ACE0-FBE2-4A96-AFEA-7FED9893BEFE.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-nsx-advanced-load-balancer-v1/GUID-609DB1E6-A3D7-4011-ABFC-2E9398F342BA.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-nsx-advanced-load-balancer-v1/GUID-9AA759FA-C947-4A8C-8079-F9C676818CBE.html">Solution Interoperability</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-nsx-advanced-load-balancer-v1/GUID-7C33D9F4-1BB8-4BBF-BEAA-C3D5B49A4BB0.html">Appendix: Design Decisions</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p>[<img alt="" src="" /></p>
+</li>
+</ul>
+</div>
+<h2 id="hybrid-cloud-validated-solutions">Hybrid Cloud Validated Solutions<a class="headerlink" href="#hybrid-cloud-validated-solutions" title="Permanent link">&para;</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cloud-based-ransomware-recovery-v1/GUID-43595310-BDC8-49EA-AE68-1DD53A817781.html"><img alt="" src="assets/images/vvs-transparent-cbr-850x250.png" /></a></p>
+<h3 id="cloud-based-ransomware-recovery-for-vmware-cloud-foundation">Cloud-Based Ransomware Recovery for VMware Cloud Foundation<a class="headerlink" href="#cloud-based-ransomware-recovery-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Enable protection of business workloads running on a VMware Cloud Foundation instance against a ransomware attack by connecting the instance to VMware Cloud on AWS through the use of the VMware Cloud Disaster Recovery service.</p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cloud-based-ransomware-recovery-v1/GUID-D4E2CC83-8402-486A-9392-23D015A9154E.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cloud-based-ransomware-recovery-v1/GUID-E03B7F84-FE76-40C2-BA5E-929C0DF83A06.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cloud-based-ransomware-recovery-v1/GUID-77554316-BF46-4764-9A68-21BB4674FF93.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cloud-based-ransomware-recovery-v1/GUID-23D74046-C91F-4ADF-9C5E-93ECC6553976.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cloud-based-ransomware-recovery-v1/GUID-79993EA4-77BC-4C95-8082-9FD70C793312.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cloud-based-ransomware-recovery-v1/GUID-4E6C644A-799D-430B-906B-23D47EA19E05.html">Solution Interoperabiity</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cloud-based-ransomware-recovery-v1/GUID-5B4862E5-0CCB-472A-BBCC-BC3F200CF5DB.html">Appendix: Design Decisions</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cross-cloud-mobility-v1/GUID-20440B6A-0805-4A73-88A9-DD431088791C.html"><img alt="" src="assets/images/vvs-transparent-ccm-850x250.png" /></a></p>
+<h3 id="cross-cloud-mobility-for-vmware-cloud-foundation">Cross-Cloud Mobility for VMware Cloud Foundation<a class="headerlink" href="#cross-cloud-mobility-for-vmware-cloud-foundation" title="Permanent link">&para;</a></h3>
+<p>Enable cross cloud mobility for business workloads between VMware Cloud Foundation and VMware Cloud on AWS using VMware HCX.<br/><br/><br/></p>
+<details class="- abstract">
+<summary>View Resources</summary>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cross-cloud-mobility-v1/GUID-A8A1725F-4BC0-40E7-9C85-2A39F616AB93.html">Design Objectives</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cross-cloud-mobility-v1/GUID-99E8F1E1-F3DD-473D-977A-07A655AF37B4.html">Detailed Design</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cross-cloud-mobility-v1/GUID-9CC0E9A4-5A7C-4EE7-ABED-14E8FBA07C48.html">Planning and Preparation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cross-cloud-mobility-v1/GUID-375AA71B-D9B1-42AD-9741-239C125FC68D.html">Implementation</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cross-cloud-mobility-v1/GUID-1EFC92FA-A926-4424-8645-658F87855B2A.html">Operational Guidance</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cross-cloud-mobility-v1/GUID-A77287FB-AD4C-468C-8805-5C3FEC1B00FE.html">Solution Interoperability</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cross-cloud-mobility-v1/GUID-8DAA03FF-5F8B-4B9B-8A78-38364FE3B1DE.html">Appendix: Design Decisions</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/services/vcf-cross-cloud-mobility-v1/GUID-630E8BAA-50D8-463B-8BBD-7A20709B2C03.html">Appendix: Default Password Policy Settings</a></li>
+</ul>
+</details>
+</li>
+<li>
+<p>[<img alt="" src="" /></p>
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+        
+          
+          <a href="faq/" class="md-footer__link md-footer__link--next" aria-label="Next: Frequently Asked Questions">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Frequently Asked Questions
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2005-2024 Broadcom. All Rights Reserved.<br/>
+The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br/><br/>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/index.html" target="_blank" rel="noopener" title="docs.vmware.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c17.7 0 32-14.3 32-32s-14.3-32-32-32v-64c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H96m0 384h256v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32m32-240c0-8.8 7.2-16 16-16h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16m16 48h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.header", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="js/timeago.min.js"></script>
+      
+        <script src="js/timeago_mkdocs_material.js"></script>
+      
+        <script src="js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
