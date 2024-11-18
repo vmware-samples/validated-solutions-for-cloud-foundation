@@ -1,17 +1,15 @@
-![vvs](icon.png)
-
 # VMware Validated Solutions for VMware Cloud Foundation
 
 ## Introduction
 
-A VMware Validated Solution is a technical validated implementation that is built and tested by VMware and VMware partners to help customers resolve common business use cases. VMware Validated Solutions are operationally and cost-effective, reliable, and secure. Each solution contains a detailed design, implementation, and operational guidance.
+**VMware Validated Solutions** are technically validated implementations built and tested by VMware.
 
-Learn more at [vmware.com/go/vvs](https://vmware.com/go/vvs).
+They are designed to help customers solve common business problems using [VMware Cloud Foundation](https://www.vmware.com/products/cloud-infrastructure/vmware-cloud-foundation) as the foundational infrastructure.
 
 This repository is a companion to the following validated solutions:
 
 * [**Health Reporting and Monitoring for VMware Cloud Foundation**](https://core.vmware.com/health-reporting-and-monitoring-vmware-cloud-foundation)\
-  
+
   A validated solution that provides health monitoring for the VMware Cloud Foundation components using HTML reports and custom dashboards, alerts, and notifications using VMware Aria Operations.
 
   The repository provides:
@@ -20,14 +18,14 @@ This repository is a companion to the following validated solutions:
   * Custom dashboards, alerts, notifications, and super metric artifacts in VMware Aria Operations.
 
 * [**Advanced Load Balancing for VMware Cloud Foundation**](https://core.vmware.com/advanced-load-balancing-vmware-cloud-foundation)
-  
+
   A validated solution enables you to build secure, high-performing, resilient, and efficient load balancing infrastructure for applications and workloads deployed on VMware Cloud Foundation. You  can leverage this solution to rapidly implement VMware NSX Advanced Load Balancer in a VMware Cloud Foundation environment to increase security, automation, and provide enterprise-grade developer-ready infrastructure for load balancing.
 
   The repository provides:
 
   * Infrastructure-as-code examples for the solution. This includes Terraform examples for the deployment and configuration of the solution.
 
-* [**Private Cloud Automation for VMware Cloud Foundation**](https://core.vmware.com/private-cloud-automation-vmware-cloud-foundation)  
+* [**Private Cloud Automation for VMware Cloud Foundation**](https://core.vmware.com/private-cloud-automation-vmware-cloud-foundation)
 
   A validated solution which enables you to implement a modern cloud automation platform that delivers self-service automation, DevOps for infrastructure, and orchestration using Aria Automation and VMware Cloud Foundation.
 
